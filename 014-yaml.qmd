@@ -1,0 +1,224 @@
+---
+filters:
+  - nutshell
+---
+
+
+# Introduction au yaml
+
+## Principes généraux
+
+[[:GIT YAML](https://fr.wikipedia.org/wiki/YAML)]{.nut}
+<br>
+
+* Il s'agit du header du document qui comprend toutes les métadonnées du document: titre, date, options de mise en page, options d'exécution....
+* La syntaxe du yaml est très sensible à l'*intendation*^[On gardera le mot anglais, qui se traduirait ici par *retrait*]. Les règles restent néanmoins assez simples.
+* Lors de la compilation, le yaml est le premier élément qui est évalué. En cas d'erreur elle est donc stoppée quasi instantanément.
+
+
+## Balisage et commentaires
+
+**Balisage du yaml**  
+
+En tête du code source du fichier .qmd, la zône du yaml est balisée par **3 tirets**: 
+
+```{.yaml}
+---
+options du yaml
+---
+```
+
+
+**Les commentaires**    
+
+Tout simplement avec **`#`**
+
+
+
+## Les Règles de retrait: intendation
+
+* Options
+  * Si aucune autre option: On peut placer la première lettre ou l'on veut 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+:::callout-tip
+### OK
+
+```{.yaml}
+---
+titre: "Le yaml"
+---
+```
+:::
+:::
+
+::: {.column width="50%"}
+
+:::callout-tip
+### OK
+
+```{.yaml}
+---
+       titre: "Le yaml"
+---
+```
+:::
+:::
+
+::::
+
+  * Si autres options: elle doivent toutes être alignées. Si la première option n'est pas sur la première colonne (comme un titre centrée ci dessus), la seconde commencera sur la même colonne
+  
+:::: {.columns}
+
+::: {.column width="50%"}
+:::callout-warning
+### Erreur
+
+```{.yaml}
+---
+       titre: "Le yaml"
+format: html
+---
+```
+:::
+:::
+
+::: {.column width="50%"}
+
+:::callout-tip
+### OK
+
+```{.yaml}
+---
+       titre: "Le yaml"
+       format: html
+---
+```
+:::
+:::
+
+::::  
+
+
+* Sous options
+  * La règle est simple: les sous options commencent strictement au niveau du troisième caractère de l'option ou de la sous-option de niveau supérieur.   
+
+Si les espaces sont indiqués par un `.` 
+
+```{.yaml}
+---
+option: 
+..sous-option1: argument
+..sous-option2: argument
+....sous-sous-option21: argument
+....sous-sous-option22: argument
+---  
+```
+
+Exemple: 
+
+- On veut ajouter un nom d'auteur/autrice. Le nom est l'argument de l'option `author`
+
+```{.yaml}
+---
+title: "yaml d'un document"
+
+author: "Bidibule"
+---
+```
+
+- Si on souhaite ajouter le lieu d'exercice, le nom devient une sous option de `author` et est renseigné comme argument de la sous option `name`. Sur le même principe le lieu d'exercice est l'argument de la sous option `affiliation.
+
+```{.yaml}
+---
+title: "yaml d'un document"
+
+author:
+  name: "Bidibule"
+  affiliation: "Bidibule land"  
+---
+```
+ 
+Exemple 2: format hml et pdf
+
+Le html est le format par défaut d'un notebook ou d'une présentation via le format **reveal js**. Si on veut indiquer explicitement le format html, c'est l'argument de l'option `format`. 
+Si on veut ajouter des sous options au format html comme des thèmes (document, bloc de code) et/ou un autre format (pdf), sur le même principe que l'exemple précédent, `html:` devient une sous option de l'option format. Si on ne souhaite pas ajouter d'autres options pour la compilation en pdf, la sous option est renseignée par `pdf:default`.  Elle se trouve sur le même niveau de retrait que `html:`.
+
+
+```{.yaml}
+---
+title: "yaml d'un document"
+
+format: 
+  html:
+    theme: zephyr
+    highlight-style: dracula
+  pdf: default  
+---    
+```
+
+Ce qui nous donne au final le template suivant: 
+
+```{.yaml}
+---
+title: "yaml d'un document"
+
+author:
+  name: "Bidibule"
+  affiliation: "Université X" 
+
+format: 
+  html:
+    theme: zephyr
+    highlight-style: dracula 
+  pdf: default
+---    
+
+<!-- corps du document -->
+
+```
+
+## A savoir
+
+**Dans Rstudio**  
+
+Si RStudio repère une erreur dans le retrait, une croix rouge apparaitra à droite du numero de ligne. Pratique.
+
+**Extension externe qui ne s'active pas**  
+
+Il arrive que certaines options installées sous forme d'extension ne s'active pas après la compilation. C'est désagréable. Je n'arrive pas à expliquer pourquoi, mais le changement de position dans le yaml ou en ajoutant/supprimant une ligne vide entre cette option et une autre peut résoudre le problème... où alors on attend que cela finisse par fonctionner après plusieurs compilations. 
+
+**Par rapport au yaml d'un projet**  
+
+Le yaml du document à la priorité sur le yaml du projet: pas pour tout, mais on peut donc contredire des éléments de configuration qui sont dans le fichier `_quarto.yaml` dans un fichier .qmd.   
+Exemple: on active une table des matière pour chaque .qmd du projet dans _quarto.yaml (`toc: true`). On peut la supprimer dans un ou plusieurs fichiers .qmd avec `toc:false` dans le yaml du fichier. 
+
+Dans cette section on a juste regardé les règles de retrait des options. Dans le fichier de configuration les sous options peuvent prendre la forme de liens vers des fichiers .qmd comme les différents chapitres d'un book. La même règle est appliquée. A ce stade, juste pour information:
+
+
+```{.yaml}
+# Dans un fichier _quarto.yml
+
+book:
+  title: "Formation Quarto"
+  chapters:
+    - chap1.qmd
+    - chap2.qmd
+    - chap3.qmd
+```
+  
+
+
+
+
+
+
+
+
+
+
+
+

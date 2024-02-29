@@ -1,0 +1,640 @@
+
+# Insertions d'éléments dans la marge du document et vignettes
+
+On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html. Cela concernera l'insertion d'éléments dans la zône du grid située à droite (margin) et l'insertion de plusieurs images ou graphiques sous forme de vignettes. Sur le second aspect, il s'agit de tirer profit de l'option **`lightbox`**.
+
+* Affichage d'éléments dans la partie droite du grid (margin):
+  * Générique: utilisation de la classe Css `.column-margin`.
+  * Dans un programme (graphique, tableau): option `column: margin`.
+  * Cas particuliers: insertion d'un tableau markdown et d'une note.
+
+* Mise en page avec plusieurs colonnes:
+  * Classe css multicolumn. Pas recommandé à l'exception d'éléments texte.
+  * Mise en page fixe. Classe css ou option dans un bloc de codes: `layout-ncol`.
+  * Mise en page libre. Classe css ou option dans un bloc de codes: `layout`.
+    * `layout= "[liste items col]"`.
+    * `layout= "[[liste items col], [liste item ligne]]"`.
+
+
+## Rappel sur l'édition en multicolonne
+
+* A réserver plutôt à des éléments texte: brute ou liste. Particulièrement utile pour les présentations de type revealjs.
+
+* Une colonne simple: dans une section div:classe css **`{.column width="x%"}`**
+
+```{.mf}
+::: {.column width="33%"}
+On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+::: 
+```
+
+::: {.column width="33%"}
+On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+::: 
+
+* Plusieurs colonnes: 
+  * On indique une mise en page sur plusieurs colonnes avec une déclaration préalable: section div introduite avec 4 *:* (imbrication) et la classe `{.columns}`:
+  * **`:::: {.columns}`**
+
+```{.mf}
+:::: {.columns}
+::: {.column width="33%"}
+On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+::: 
+::: {.column width="33%"}
+Cela concernera l'insertion d'éléments dans la zône du grid située à droite (margin) et l'insertion de plusieurs images ou graphiques sous forme de vignettes.
+::: 
+::: {.column width="33%"}
+On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+::: 
+Sur le second aspect, il s'agit de tirer profit de l'option **`lightbox`**.
+::::
+```
+
+
+:::: {.columns}
+::: {.column width="33%"}
+On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+::: 
+::: {.column width="33%"}
+Cela concernera l'insertion d'éléments dans la zône du grid située à droite (margin) et l'insertion de plusieurs images ou graphiques sous forme de vignettes.
+::: 
+::: {.column width="33%"}
+Sur le second aspect, il s'agit de tirer profit de l'option **`lightbox`**.
+::: 
+::::
+
+* On peut augmenter l'espace entre deux colonnes en ajoutant des colonnes *vide* et en jouant sur la largeur.
+
+```{.mf}
+:::: {.columns}
+::: {.column width="30%"}
+On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+:::
+::: {.column width="1%"}
+:::
+::: {.column width="30%"}
+Cela concernera l'insertion d'éléments dans la zône du grid située à droite (margin) et l'insertion de plusieurs images ou graphiques sous forme de vignettes.
+::: 
+::: {.column width="1%"}
+:::
+::: {.column width="3%"}
+On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+::: 
+Sur le second aspect, il s'agit de tirer profit de l'option **`lightbox`**.
+::::
+```
+
+:::: {.columns}
+::: {.column width="30%"}
+On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+:::
+::: {.column width="1%"}
+:::
+::: {.column width="30%"}
+Cela concernera l'insertion d'éléments dans la zône du grid située à droite (margin) et l'insertion de plusieurs images ou graphiques sous forme de vignettes.
+::: 
+::: {.column width="1%"}
+:::
+::: {.column width="30%"}
+On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+::: 
+::::
+
+::: {.callout-tip collapse=true}
+
+#### Centrer les colonnes
+
+Pour améliorer la mise en page, on peut centrer la ou les colonnes: 
+
+* Balises html <center>...</center>
+* Un style css (à mettre dans le fichier .css, . scss ou directement dans le document)
+
+**Dans le document (une seule colonne)**  
+
+```{.mf}
+<style>
+.center{text-align: center}
+</style>
+
+::: {.column .center  width="x%"}
+Texte
+:::
+```
+
+**Dans un fichier css ou scss**    
+```{.mf}
+.center{text-align: center}
+```
+
+Puis on ajoute la classe `.center`.
+:::
+
+## Insertion d'éléments dans la marge à droite du document
+
+Pour les éléments de type image/graphique, penser à activé l'option `lightbox` qui permettra de les agrandir dans une fenêtre. 
+
+
+
+::: callout-note
+
+#### Format PDF
+
+Pour le format pdf, utiliser dans le yaml les options suivantes
+   
+* Graphiques:  `cap-location:margin`
+* Titres des graphiques:  `fig-cap-location: margin`
+* Titre des tableaux: `fig-cap-location: margin`
+
+:::
+
+### La classe css générique `.column-margin`
+
+
+*Syntaxe*:
+
+```{.mf}
+::: {.column-margin}
+
+Elements à insérer
+
+:::
+```
+
+**Image Markdown**  
+
+* Penser à activer l'option `lightbox` qui permettra d'agrandir
+
+```{.mf}
+::: {.column-margin}
+![Logo Quarto](https://quarto.org/quarto.png)
+:::
+```
+
+::: {.column-margin}
+![Logo Quarto](https://quarto.org/quarto.png)
+:::
+
+**Graphique généré dans un programme**  
+
+* Un peu compliqué pour reporter proprement cela dans le support...mais ça marche.
+* Il me semble préférable d'utiliser directement l'option dans le bloc de code pour éviter un balisage.
+
+
+**Une liste**  
+
+```{.mf}
+::: {.column-margin}
+
+* item1
+  * item11
+  * item12
+* item2 
+:::
+```
+
+::: {.column-margin}
+
+* item1
+  * item11
+  * item12
+* item2 
+:::
+
+**Une formule**
+
+```{.mf}
+::: {.column-margin}
+$$x^2-1=(x-1)(x+1)$$
+:::
+```
+
+
+::: {.column-margin}
+$$x^2-1=(x-1)(x+1)$$
+:::
+
+**Un tableau markdown**
+
+::: {.column-margin}
+| Col1 | Col2 |
+|------|------|
+| A    | B    |
+| C    | D    |
+: Tableau markdown
+:::
+
+```{.mf}
+::: {.column-margin}
+| Col1 | Col2 |
+|------|------|
+| A    | B    |
+| C    | D    |
+: Tableau markdown
+:::
+```
+
+A noter que l'on peut appliquer directement **`::: column-margin`**.
+
+### Options dans un bloc de codes
+
+* Option **`#| column: margin`**.
+* Pour les graphiques, l'ajout d'un label semble obligatoire, je ne comprend pas vraiment pourquoi.
+
+**Graphique**
+
+```{r}
+#| label: fig-mpg
+#| column: margin
+#| fig-cap: "Consommation selon l'origine"
+#| warning: false 
+#| message: false
+#| echo: false
+
+library(ggplot2)
+mtcars$am = as.factor(mtcars$am)
+
+ggplot(mtcars, aes(x=mpg, fill=am)) +
+       geom_density(alpha=0.4)
+```
+
+```{{r}}
+#| label: fig-mpg
+#| column: margin
+#| fig-cap: "Consommation selon l'origine"
+#| warning: false 
+#| message: false
+
+library(ggplot2)
+mtcars$am = as.factor(mtcars$am)
+
+ggplot(mtcars, aes(x=mpg, fill=am)) +
+       geom_density(alpha=0.4)
+```
+
+**Tableau**
+
+```{r}
+#| tbl-cap: "Extrait base mtcars"
+#| column: margin
+#| echo: false
+
+knitr::kable(
+  mtcars[1:3, 1:3]
+)
+```
+
+```{{r}}
+#| tbl-cap: "Extrait base mtcars"
+#| column: margin
+
+knitr::kable(
+  mtcars[1:3, 1:3]
+)
+```
+
+
+
+### Note à droite du texte
+
+Les notes font l'objet d'un traitement particulier. Le positionnement dans la marge se fait comme un formatage de texte hors markdown avec l'utilisation de la classe css **`.aside`**. 
+Attention comme la note est directement visible, aucun numéro ne lui est affecté.
+
+```{.md}
+On peut ajouter une note directement à droite du texte avec la classe css **.aside**[Comme elle se situe directement à droite du texte, aucun numéro de note n'est généré]{.aside}
+```
+
+On peut ajouter une note directement à droite du texte avec la classe css **.aside**[Comme elle se situe directement à droite du texte, aucun numéro de note n'est généré]{.aside}.
+
+
+## Mise en page sous forme de vignettes des images/graphiques {#sec-img}
+
+Deux types d'insertion: **fixe** ou **libre**
+
+### Mise en forme fixe
+
+* Classe css ou option d'un bloc de codes:  **`layout-ncol`**
+  * Insertion markdown:  **`::: {layout-ncol=nbre_col}`**
+    * Attention, la classe css n'est pas préfixée par un **.**.
+  * Bloc de codes: option **` #| layout-ncol: nbre_col`**
+
+
+***Exemple: insertion d'images markdown sous forme de vignettes***
+
+```{.mf}
+::: {layout-ncol=4}
+![](img5/img1.png){group="g1"}
+
+![](img5/img2.png){group="g1"}
+
+![](img5/img3.png){group="g1"}
+
+![](img5/img4.png){group="g1"}
+:::
+```
+
+::: {layout-ncol=4}
+![](img5/img1.png){group="g1"}
+
+![](img5/img2.png){group="g1"}
+
+![](img5/img3.png){group="g1"}
+
+![](img5/img4.png){group="g1"}
+:::
+
+
+***Exemple: deux graphiques générés par un programme***
+
+```{{r}}
+#| echo: false
+#| warning: false 
+#| message: false
+#| layout-ncol: 2
+
+library(ggplot2)
+mtcars$am = as.factor(mtcars$am)
+
+mpg = ggplot(mtcars, aes(x=mpg, fill=am)) +
+  geom_density(alpha=0.4)
+  
+disp = ggplot(mtcars, aes(x=disp, fill=am)) +
+  geom_density(alpha=0.4)
+
+mpg
+disp
+```
+
+
+```{r}
+#| echo: false
+#| warning: false 
+#| message: false
+#| layout-ncol: 2
+
+
+library(ggplot2)
+mtcars$am = as.factor(mtcars$am)
+
+mpg=ggplot(mtcars, aes(x=mpg, fill=am)) +
+  geom_density(alpha=0.4)
+
+disp=ggplot(mtcars, aes(x=disp, fill=am)) +
+  geom_density(alpha=0.4)
+
+mpg
+disp
+```
+
+
+### Mise en forme libre 
+
+* Classe css **`{layout= ... }`**. De nouveau non préfixée par un **.**
+  * Plus compliqué au premier abord en raison de la syntaxe, mais plus souple  pour paramétrer la distance entre deux images.
+  * On va renseigner les ratios d'affichage entre les différentes images par des valeurs.
+  * On peut modifier l'espace entre deux images.
+* En option d'un bloc de codes: **`#| layout: ...`**
+  
+Syntaxe par l'exemple avec deux images:
+
+* **`:::{layout= "[valeur1,valeur2]"}`**
+  * *Valeur1* et *valeur2* n'indique pas une taille d'affichage des images mais le ratio d'affichage. 
+  
+Les images seront affichées de manière identique lorsque les valeurs sont identiques^[Elles sont ici enregistrées avec des tailles identiques également].
+
+
+```{.mf}  
+::: {layout="[50,50]"}
+![](img5/img1.png) 
+
+![](img5/img2.png)
+
+:::
+```
+
+
+::: {layout="[50,50]"}
+![](img5/img1.png) 
+
+![](img5/img2.png)
+:::
+
+
+Si on remplace [50,50] par [1,1]:
+
+```{.mf}  
+::: {layout="[1,1]" }
+![](img5/img1.png) 
+
+![](img5/img2.png)
+
+:::
+```
+
+
+L'affichage des vignettes ne change pas:
+
+::: {layout="[1,1]"}
+![](img5/img1.png) 
+
+![](img5/img2.png)
+:::
+
+Maintenant si on modifie le ratio de la manière suivante:
+
+```{.mf}  
+::: {layout="[1,0.5]" }
+![](img5/img1.png) 
+
+![](img5/img2.png)
+
+:::
+```
+
+::: {layout="[1,0.5]"}
+![](img5/img1.png) 
+
+![](img5/img2.png)
+:::
+
+La seconde image n'est affiché qu'à 50%, et aligné vers le haut.
+
+Vu comme ça, l'utilité n'est pas évidente. Si les images sont enregistrées avec des hauteurs différentes, cela peut-être néanmoins intéressant que l'espace soit bien rempli.
+
+Exemple: On a une image nativement moins haute que l'autre de 25%: avec un ratio égal à 1 on aurait:
+
+``` {.mf}
+::: {layout="[1,1]"}
+![](img5/img4.png) 
+
+![](img5/img10.png)
+:::
+```
+
+
+::: {layout="[1,1]"}
+![](img5/img4.png) 
+
+![](img5/img10.png)
+:::
+
+* Si on veut égaliser les hauteurs d'affichage, on rééquilibre le ratio: **`{layout="[0.75,1]"}`**^[Même résultat avec `[1,1.25]`].
+
+```{.mf}
+::: {layout="[0.75,1]"}
+![](img5/img4.png) 
+
+![](img5/img10.png)
+:::
+```
+
+
+::: {layout="[0.75,1]"}
+![](img5/img4.png) 
+
+![](img5/img10.png)
+:::
+
+* Si on ne souhaite pas modifier le ratio d'affichage, il est visuellement plus correct d'aligner verticalement les images vers le bas avec l'option **`layout-valign="bottom"`**
+
+
+``` {.mf}
+::: {layout="[1,1]" `layout-valign="bottom"`}
+![](img5/img4.png) 
+
+![](img5/img10.png)
+:::
+```
+
+
+::: {layout="[1,1]" layout-valign="bottom"}
+![](img5/img4.png) 
+
+![](img5/img10.png)
+:::
+
+
+* Pour afficher sur plusieurs lignes on ajoute une liste de nouveau une liste d'images séparée de la précédente avec une **,** et en cloturant le tout dans des crochets:
+  * `::: {layout="[[liste ligne 1],[liste ligne 2]]"}`.
+
+
+```{.mf}
+::: {layout="[[1,1,1,1],[1,1,1,1]]"}
+![](img5/img1.png)
+
+![](img5/img2.png)
+
+![](img5/img3.png)
+
+![](img5/img4.png)
+
+![](img5/img5.png)
+
+![](img5/img6.png)
+
+![](img5/img7.png)
+
+![](img5/img8.png)
+:::
+```
+
+::: {layout="[[1,1,1,1],[1,1,1,1]]"}
+![](img5/img1.png)
+
+![](img5/img2.png)
+
+![](img5/img3.png)
+
+![](img5/img4.png)
+
+![](img5/img5.png)
+
+![](img5/img6.png)
+
+![](img5/img7.png)
+
+![](img5/img8.png)
+:::
+
+
+
+* On peut modifier (agrandir) l'espace entre 2 images avec des valeurs négatives entre deux images.
+
+Par défaut avec 2 images:
+
+```{.mf}
+::: {layout="[1,1]"}
+![](img5/img4.png)
+
+![](img5/img8.png)
+:::
+```
+
+::: {layout="[1,1]"}
+![](img5/img4.png)
+
+![](img5/img8.png)
+:::
+
+Si on veut accroître la distances entre les deux images d'un dizième de la largeur des images
+
+```{.mf}
+::: {layout="[1,-0.1,1]"}
+
+![](img5/img4.png)
+
+![](img5/img8.png)
+:::
+```
+
+
+::: {layout="[1,-0.1,1]"}
+![](img5/img4.png)
+
+![](img5/img8.png)
+
+:::
+
+Si on veut que la distance soit égale à la largeur des images
+
+```{.mf}
+::: {layout="[1,-1,1]"}
+
+![](img5/img4.png)
+
+![](img5/img8.png)
+:::
+```
+
+::: {layout="[1,-1,1]"}
+![](img5/img4.png)
+
+![](img5/img8.png)
+:::
+
+* Fonctionne également, sous forme d'option, avec des graphiques générés dans un bloc de codes.
+
+```{r}
+#| warning: false 
+#| message: false
+#| layout: "[[1],[0.5,0.5]]"
+
+library(ggplot2)
+
+mtcars$am = as.factor(mtcars$am)
+
+mpg=ggplot(mtcars, aes(x=mpg, fill=am)) +
+  geom_density(alpha=0.4)
+
+disp=ggplot(mtcars, aes(x=disp, fill=am)) +
+  geom_density(alpha=0.4)
+
+wt=ggplot(mtcars, aes(x=wt, fill=am)) +
+  geom_density(alpha=0.4)
+
+wt
+mpg
+disp
+```
+
+

@@ -1,0 +1,40 @@
+
+# Posit et Quarto {.unnumbered}
+
+### Ce n'est plus dans l'R??? {.unnumbered}
+
+  * L'entreprise **RStudio** s'appelle maintenant **Posit**.
+  * Sortie officielle de **Quarto pour prendre le relai de **Rmarkdown**.
+
+Donc quelque part, on cache R.
+
+La raison est simple (cf itw de JJ.Allaire), en dehors du monde académique, moindre accrochage de R et donc de RStudio dans les entreprises aux US, dominé par les technologies reposant sur le langage Python. R étant par définition un outil limité à la statistique. 
+
+
+### Annonce de la création de Posit  {.unnumbered}
+
+<center>
+::: {.column width=80%}
+:::{.box_img}
+
+{{< video https://www.youtube.com/watch?v=u1Gzxg8Pd08 >}}  
+
+:::
+:::
+</center>
+
+### Interview de JJ Allaire {.unnumbered}
+
+<center>
+::: {.column width=80%} 
+::: {.box_img} 
+::: {#fig-video} 
+
+{{< video https://www.youtube.com/watch?v=GU5TQMP2smo >}}  
+:::
+:::
+:::
+</center>
+
+
+

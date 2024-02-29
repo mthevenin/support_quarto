@@ -1,0 +1,495 @@
+---
+filters:
+  - nutshell
+---
+
+# Installation et connection
+
+## Introduction
+
+Ayant une utilisation assez minimale de git, et plutôt réservée au partage de documentation, je recommande fortement de lire le support réalisé par l'Insee dans la documentation **UtilitR**. Il est par ailleurs indéxé dans la partie **Gallery** du site de Quarto.
+<https://www.book.utilitr.org/03_fiches_thematiques/fiche_git_utilisation>. 
+
+### Principes et atouts de Git
+
+[[:GIT WIKI](https://fr.wikipedia.org/wiki/Git)]{.nut}
+<br>
+
+
+Sur les grands principes, l'outil Git permet de réaliser des opérations sur des fichiers entre un ordinateur local et un serveur distant (appelé **remote**). Dans un travail en équipe, sous son aspect "*cloud*" (à mettre entre guillemets), il permet donc relier plusieurs utilisateurs sur un même projet.
+
+Atouts: 
+  
+- Les opérations entre les fichiers locaux et ceux sur un dépôt distant (**remote**) sont réalisées sur des **deltas**, c'est à dire sur des modifications. Elles sont appliquées  seulement sur des fichiers qui font l'objet d'une: **création**, **suppression** ou **modification**.
+
+- **Contrôle de versions**: git garde la trace dans le temps de toutes les modifications: 
+  - Historique des opérations récupérées sous forme d'une timeline graphique, dont la nature de la modification est indiquée par un titre.
+  - La visualisation des modifications intervenues dans des fichiers est facilitée par des codes couleurs: [**Rouge**]{style="color:#dc3545"} avant le changement, [**Vert**]{style="color:#198754"} au moment du changement. Il est alors toujours possible de revenir en "arrière", par exemple en récupérant un élément supprimé ou modifié.
+
+- **Les branches**: Dans un répertoire git une branche principale est créée (la **main**). On peut créer et travailler sur des branches parallèles et contrôler la fusion des éléments modifiés avec la branche principale. Dans un travail collaboratif, via un clonage du répertoire le/la propriétaire du dépôt distant sera en charge de valider et réaliser ces opérations de fusion. Toutes ces opérations sont également indéxées, et on peut suivre l'historique de création, modification et fusion des branches secondaires avec la branche principale.
+
+::: callout-note
+
+### Clonage et fork d'un répertoire distant
+
+Dans un travail collaboratif en équipe la branche principale est clonée par les personnes participant au projet, le *propriétaire* du répertoire distant donnant les autorisations dans ce sens aux autres participant.e.s.  
+
+Git permet également un travail collaboratif plus ouvert, hors équipe, en donnant la possibilité à quiconque de proposer des modifications du projet présent sur le répertoire distant. 
+
+* Le répertoire fera l'objet d'un **fork**. Il s'agit également d'une forme de clonage, mais les modifications des fichiers seront systématiquement envoyés sur une branche secondaire du dépôt distant. 
+
+Remarque: le propriétaire du dépôt distant ne peut pas "**forker**" son répertoire distant.
+
+:::
+
+*  **Exclusion de fichiers** [très important]: on peut gérer des exclusions de fichiers, par leur noms, leur extension, leur localisation (dossier). Sauf exceptions (base d'exemples pour une formation), il est fortement recommandé d'exclure les bases de données des opérations de synchronisation entre le local et le distant.  
+
+
+### Github versus Gitlab
+
+#### Github 
+
+[[:GITHUB WIKI](https://fr.wikipedia.org/wiki/GitHub)]{.nut}
+
+* Propriété de Microsoft depuis 2018. Risque de tout perdre si Microsoft décide de supprimer l'outil. L'exemple de l'IDE Atom supprimé en 2019 après son rachat est un cas d'école récent. 
+
+  * Seulement sur le site plateforme. Pas de récupération posible du code source pour installer un git local ou institutionnel (Humanum, Insee, Service informatique de l'Ined...). 
+  
+* Fonctionnalités clés en main, plus facile d'accès *a priori* pour les personnes moins à l'aise avec le jargon informatique.
+  * A noter l'existence d'un outil appelé **Github Desktop** qui facilite la réalisation les opérations git de base, avec en plus la possibilité de switcher à la volée d'un projet à un autre. A titre personnel, je réalise toutes les opérations avec mes depôts Github avec RStudio à l'aide de ce **github desktop**.
+  
+* Quarto joue la carte 100% Github avec l'intégration d'outils dédiées. Plus généralement les librairies R pour faciliter la connection initiale entre RStudio et un compte sur une plateforme git, sont pensées pour fonctionner avec cette plateforme.  
+ 
+* En mode **private** (restreint) on ne peut pas déployer de pages sans passer à la caisse.   
+
+#### Gitlab 
+
+[[:GITLAB WIKI](https://fr.wikipedia.org/wiki/GitLab)]{.nut}
+
+* Même si la composition du capital peut faire grincer quelques dents, Gitlab reste relativement indépendant d'un géant comme Microsoft.
+
+* Récupération du code source de Gitlab, ce qui rend possible la création d'une plateforme Git sur un serveur institutionnel . 
+
+* Pensé pour les développeurs informatiques, on peut ne pas toujours comprendre  le pourquoi du comment même si ça *marche*^[Je parle bien évidemment pour moi]. Pour le déploiement des pages, on aura quelques étapes supplémentaires à réaliser si les éléments de paramétrisation d'un fichier de configuration obligatoire, et propre à gitlab restent cryptiques... Ce qui est mon cas.  
+  
+* En mode private, on peut déployer des pages en mode **private** sans passer à la caisse contrairement à Github. On peut également gérer très librement ses adresses http. C'est top.
+
+* Retour d'expérience un peu désagréable: avec un compte strictement individual (hors humanum par exemple) possibilité d'une prise contact rapide par l'équipe commerciale de Gitlab, avec des relances si on ne souhaite pas donner suite à leur proposition de rendez-vous.
+
+
+## Installation 
+
+* Git étant indépendant des fameuses plateformes Github et Gitlab, il doit être installé. Mais peut-être est-il déjà installé? C'est normalement le cas avec RStudio.
+  * Vérification dans un terminal (dont Rstudio):  `git --version` 
+  * Sinon téléchargement sur le site officiel: <https://git-scm.com/download/>
+  
+Après l'installation ou la vérification de l'installation de Git: 
+
+* Ne pas oublier d'associer git à une adresse mail, et accessoirement à votre civilité.
+
+Dans un terminal (Rstudio, invite commande windows,...): 
+
+```{.mf}
+$ git config --global user.email EMAIL-ADRESSE
+$ git config --global user.name "PRENOM et/NOM"
+```
+  
+
+## Connection initiale avec une plateforme
+
+::: callout-note
+
+* Procédures de connection via **https** et **clé SSH** effectuées fin 2023 - début 2024
+  * HTTPS:
+    * package `usethis`: github.
+    * package  `gitcreds`: github et gitlab.
+  * SSH: 
+    * protocole: ed25519.
+
+* Mobile Ined:
+  * Connection https existantes pour Github et Gitlab => nouveaux token générés.
+  * Pas de connection SSH existante avec protocole ed25519. Création d'une nouvelle clé.
+
+* Ordinateur personnel:
+  * Parti de zero.
+  * HTTPS: Nouveau token généré pour cette connection.
+  * SSH: Utilisation de la clé ssh générée précédemment.
+
+:::
+
+
+### Connection via un token/password {#sec-token}
+
+#### Github
+
+**Générer un Token**
+
+* Package `usethis`
+
+```{r}
+#| eval: false
+
+# install.packages("usethis")
+# library(usethise)
+```
+
+En exécutant la commande suivante, une fenêtre s'ouvre pour générer le token.
+
+```{r}
+#| eval: false
+usethis::create_github_token()
+```
+
+
+::: {.box_img}
+![](img2/token_github1.png){group=gh1}
+:::
+<br>
+
+::: {.box_img}
+![](img2/token_github2.png){group=gh1}
+:::
+
+<br>
+Note: au cas où... ce token n'est bien évidemment plus valide.  
+
+* Attention à la date d'expiration du token.
+  * On peut choisir "No Expiration" donc un token perpetuel, ce qui n'empêchera pas de le modifier par la suite.
+* Cliquer en bas de la page sur **Generate token**.
+* On reçoit généralement un mail lorsqu'un token arrive à expiration.
+
+**Ajouter le token dans RStudio**
+
+* Package **`gitcreds`**
+
+```{r}
+#| eval: false
+
+# install.packages("gitcreds")
+# library(gitcreds)
+```
+
+* Par défaut il va sélectionner  Github, on peut toutefois renseigner l'adresse générique de la plateforme
+
+```{r}
+#| eval: false
+
+library(gitcreds)
+gitcreds_set(url = "https://github.com")
+```
+
+Si aucun token n'a déjà été ajouté, on colle directement dans la console la valeur du token généré dans l'étape précédente . 
+
+```{.mf}
+? Enter password or token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+Si on change par la suite de token, plusieurs options sont disponibles:
+
+```{.mf}
+-> Your current credentials for 'https://github.com':
+
+  protocol: https
+  host    : github.com
+  username: PersonalAccessToken
+  password: <-- hidden -->
+
+-> What would you like to do? 
+
+1: Keep these credentials
+2: Replace these credentials
+3: See the password / toke
+```
+
+**L'option 2 permet de changer de token**.
+
+#### Gitlab
+
+**Générer un token**
+
+Le token/password est généré directement sur le compte Gitlab.
+
+**Edit profile** => **Acces Token** => **add new token**.
+
+
+
+:::: {layout="[30,-1,30,-1,30]" layout-valign="bottom"}  
+
+::: {.box_img}  
+![Edit profile](img2/token_gitlab1.png){group=gl1}
+:::
+::: {.box_img}    
+![Access token](img2/token_gitlab2.png){group=gl1}
+:::
+::: {.box_img}   
+![Personal access token](img2/token_gitlab3.png){group=gl1}
+:::
+:::
+
+:::: {layout="[20,-1,20,]" layout-valign="bottom"}  
+
+::: {.box_img}  
+![Sélection Read/write repository](img2/token_gitlab4.png){group=gl1}
+:::
+::: {.box_img}  
+![Récupérer le token](img2/token_gitlab5.png){group=gl1}
+:::
+::::
+
+<br>
+
+**Ajouter le token dans RStudio**
+
+* Même procédure qu'avec Github avec le package **`gitcreds`**.
+* On devra explicitement indiquer l'adresse générique de Gitlab dans la fonction.
+
+```{r}
+#| eval: false
+
+# install.packages("gitcreds")
+# library(gitcreds)
+```
+
+
+```{r}
+#| eval: false
+
+library(gitcreds)
+gitcreds_set(url = "https://gitlab.com")
+```
+
+Si aucun token n'est déjà été ajouté, on colle directement dans la console la valeur du token généré dans l'étape précédente . 
+
+```{.mf}
+Sélection : 2
+
+-> Removing current credentials...
+
+? Enter new password or token: 
+```
+
+```{.mf}
+? Enter password or token: <Coller ici le token qui a été généré et copié dans gitlab>
+```
+
+Si on change par la suite de token, plusieurs options sont disponibles:
+
+```{.mf}
+-> Your current credentials for 'https://github.com':
+
+  protocol: https
+  host    : github.com
+  username: PersonalAccessToken
+  password: <-- hidden -->
+
+-> What would you like to do? 
+
+1: Keep these credentials
+2: Replace these credentials
+3: See the password / toke
+```
+
+
+### Via une clé de cryptage SSH
+
+[[:GIT SSH](https://en.wikipedia.org/wiki/Ssh-keygen)]{.nut}
+<br>
+
+Procédure un peu plus longue, mais à l'exception d'une étape la procédure est commune aux deux plateformes.
+
+* Je ne traiterai pas du sujet HTTPS (token) versus SSH (cryptage), mais visiblement les préférences que je peux lire à gauche et à droite penche plutôt vers le HTTPS. Je note néanmoins beaucoup plus de tutoriels pour la solution cryptée.   
+
+* On peut paramétrer et utiliser les deux techniques de sécurité, le choix de l'une ou l'autre se fera lors du clônage d'un dépôt distant.  
+
+* **Clé SSH**: repose sur un cryptage.
+  * Les protocoles de cryptage évolue dans le temps. C'est la quatrième et dernière génération qui est proposée par RStudio. 
+  * La dernière génération est appelée **ed25519**. C'est la seule option dans RStudio.
+* Une même clé SSH peut-être utilisée pour Github et Gitlab.   
+
+
+#### Générer une clé  dans Rstudio  
+
+* **Tools** {{< fa solid turn-down >}}
+* **Global Options** {{< fa solid turn-down >}}
+* **Git/SVN** dans la barre de menu verticale {{< fa solid turn-down >}}
+* **Create SSH key**: On génère la clé sous la zône d'enregistrement {{< fa solid turn-down >}}
+* **View public key**: On visualise et récupère la clé SSH en la copiant {{< fa solid turn-down >}}
+
+
+:::: {layout="[50,-1,50]" layout-valign="bottom" }
+::: {.box_img}
+![Création de la clé SSH](img2/ssh_rstudio1.png){group=ssh1}
+:::
+::: {.box_img}
+![Récupération de la clé SSH](img2/ssh_rstudio2.png){group=ssh1}
+:::
+::::
+
+
+#### Github
+
+
+```{mermaid}
+%%| fig-width: 6.5
+
+flowchart LR
+  A(Avatar) --> B(Settings)
+  B --> C(SSH and GPH Keys)
+  C --> D(New SSH key)
+    D --> E(Coller la clé)
+    subgraph AJOUTER LA CLE
+    E --- F(Mettre un titre)
+    F --> G(ADD SSH KEY)
+    end
+```
+
+
+* Cliquer sur l'avatar à droite {{< fa solid turn-down >}}
+
+* Sur la barre verticale qui s'ouvre, aller sur **Settings** {{< fa solid turn-down >}}
+
+* Aller sur la page **SSH and GPH keys** {{< fa solid turn-down >}}
+
+* Aller sur **New SSH key** en haut à droite {{< fa solid turn-down >}}
+
+* Coller la clé générée dans RStudio, si on ajoute plusieurs clés, renseigner le titre pour identifier son rôle {{< fa solid turn-down >}}
+
+* Cliquer sur **Add SSH key**
+
+
+
+:::: {layout="[50,-1,50]" layout-valign="bottom" }
+::: {.box_img}
+![Aller sur l'avatar](img2/ssh_github1.png){group=gh2}
+::: 
+::: {.box_img}
+![Aller sur settings](img2/ssh_github2.png){group=gh2}
+:::
+::::
+
+:::: {layout="[50,-1,50]" layout-valign="bottom" }
+::: {.box_img}
+![Page SSH et GPH keys](img2/ssh_github3.png){group=gh2}
+:::
+
+::: {.box_img}
+![Ajouter la clé](img2/ssh_github4.png){group=gh2}
+:::
+::::
+
+
+#### Gitlab
+
+
+```{mermaid}
+%%| fig-width: 6.5
+
+flowchart LR
+  A(Avatar) --> B(Preference)
+  B --> C(SSH KEY)
+  C --> D(Add new key)  
+    D --> E(Coller la clé)
+    subgraph AJOUTER LA CLE
+    E --- F(Mettre un titre)
+    F --- G(Changer la date d'expiration)
+    G --> H(ADD KEY)
+    end
+```
+
+
+* Cliquer sur votre avatar    {{< fa solid turn-down >}}
+
+* Aller sur *preference*      {{< fa solid turn-down >}}
+* Cliquer sur **SSH Keys**    {{< fa solid turn-down >}}
+
+* Cliquer sur **Add new key** {{< fa solid turn-down >}}
+
+* Coller votre clé générée dans RStudio {{< fa solid turn-down >}}
+
+* Ajouter un titre si vous comptez avoir plusieurs clés  {{< fa solid turn-down >}}
+
+* Modifier la date d'expiration (X si aucune expiration) {{< fa solid turn-down >}}
+
+* Cliquer sur **Add key**
+  
+  
+:::: {layout="[33,33,33]" layout-valign="bottom"}
+::: {.box_img}
+![Avatar=>Préférences](img2/ssh_gitlab1.png){group=gl2}
+:::
+::: {.box_img}
+![Aller dans SSH keys](img2/ssh_gitlab2.png){group=gl2}
+:::
+::: {.box_img}
+![Ajouter la clé](img2/ssh_gitlab3.png){group=gl2}
+:::
+::::
+
+
+
+
+#### Activer la clé dans RStudio 
+
+Dans le terminal:
+
+* Vérifier que l'authentification SSH fonctionne 
+
+```{.mf}
+$ eval $(ssh-agent -s)
+```
+
+Output, par exemple: **`Agent pid 1463`**
+
+* Ajouter la clé 
+
+```{.mf}
+$ ssh-add ~/.ssh/id_ed25519
+```
+
+Output: **`Identity added: /c/Users/thevenin_m/.ssh/id_ed25519 (ined\thevenin_m@MOB0XXXX)`**
+
+On peut enfin vérifier, que tout est ok avec les messages de bienvenue suivants:
+
+* Github:
+
+```{.mf}
+ssh -T git@github.com
+```
+
+```{.mf}
+Hi mthevenin! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+* Gitlab:
+
+```{.mf}
+ssh -T git@gitlab.com
+```
+
+```{.mf}
+Welcome to GitLab, @mthevenin!
+```
+
+
+<br>
+
+#### Vérifier la connection
+
+* Même façon de procéder que pour le token. Pensez néanmoins à changer le nom du répertoire (ou supprimer celui créer précedemment). 
+
+* Coller le lien suivant avec votre identifiant:  
+
+```{.mf}
+git@gitlab.com:nom_id/test_connection.git
+```
+
+* Si lors du clonage le message suivant s'affiche, taper **yes**:
+
+::: {.box_img}
+![](img2/ssh1.png)
+:::
+
+
+
+
+

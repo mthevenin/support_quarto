@@ -1,0 +1,227 @@
+
+# Multiformat {#sec-conditionnel}
+
+Ne pouvant pas compiler ce seul chapitre en plusieurs formats, une page mirroir de ce document avec des outputs pdf et docx est disponible dans la barre de navigation  [Autres {{< fa solid arrow-right >}} Multiformats] ou à cette adresse: <https://mthevenin.gitlab.io/quarto_multform/>.
+
+
+## Compilation en plusieurs formats dans un document
+
+Dans le yaml:  
+
+```{.yaml}
+---
+format: 
+  html: default
+  pdf:  default
+  docx: default
+---
+```
+
+
+* Si plusieurs formats sont renseignés dans le yaml, à droite du document (margin) sous la table des matières un menu ***Other formats*** permet d'accéder directement aux autres formats spécifiés. 
+
+* On peut supprimer ce menu dans le yaml avec l'option **`format-links: false`**
+
+* On peut effectuer une compilation multiformat avec le bouton **RENDER** ou via le terminal de RStudio.
+
+* Tant qu'on a pas compilé au moins une fois avec un format alternatif au html, Quarto ne compilera pas simultanément en plusieurs formats. Cela n'est d'ailleurs pas spécialement conseillé avec le PDF en raison de la durée de compilation bien plus longue que pour le format html ou docx^[Le code source étant du xml depuis 2007, d'où le x. Avant le code source des fichiers .doc était tout simplement en html].
+
+### Avec le bouton RENDER
+
+Après avoir enregistré le fichier, on peut accéder directement à un sous menu permettant de choisir le format de sortie. C'était déjà le cas avec Rmarkdown.
+
+::: {.box_img}
+![Compilation multiformat avec le bouton **Render**](img3/img1.png){ fig-align="center"}
+:::
+
+<br>         
+         
+* Dans le menu du bouton **Render**, on doit compiler au moins une fois le document pour les autres formats individuellement.
+  
+### Dans le terminal
+
+On exécute la ou les lignes de commandes suivantes: 
+
+**Compilation simultanée de tous les formats indiqués dans le yaml**:  
+
+```{.md}
+quarto render <nom_fichier.qmd>
+```
+
+**Compilation d'un format spécifique**:  
+
+```{.md}
+quarto render <nom_fichier.qmd> --to pdf
+quarto render <nom_fichier.qmd> --to docx
+```
+
+
+### Compilation multiformat avec un fichier **`_quarto.yaml`**.
+
+* Attention si la configuration du document se trouve dans un fichier `_quarto.yml` tous les formats seront compilés simultanéments lors du Render.  
+* On peut simplement privilégier un format spécifique en ajoutant une zône de commentaire à la ligne qui spécifie le format. Pour une seule compilation en html.
+
+```{.yaml}
+---
+format: 
+   html: default
+#  pdf:  default
+#  docx: default
+---
+```
+
+* On peut bien évidemment utiliser cette méthode pour désactiver temporairement la compilation avec des formats alternatifs lorsque le yaml se trouve directement dans le fichier qmd.
+
+
+## Contenu conditionnel {#sec-multiform}
+
+### Contenu non adapté à tous les formats
+
+* Certains éléments, par exemple de mise en page, ne sont pas adaptés à tous les formats
+* On pourrait dans une documentation comme celle-ci et éditée dans plusieurs formats, réserver des éléments explicatifs propre à chaque format au format qui sera affichier: attention si html on devra faire ça , attention si pdf on devra faire cela etc...
+
+* Quarto donne la possibilité contrôler la compilation du contenu format par format.
+* Attention toutefois,   pour un contrôle qui s'applique à une mise en page on va multiplier dans le code source du document un même type d'élement . En raison de cette contrainte, j'ai rapidement compris que je ne pourrais pas diffuser ce support simultanément en html et en pdf.
+
+On prendra comme exemple une mise en page des images sous forme de vignettes à l'option lightbox.  
+
+Très pratique pour le format dynamique html, le rendu pour des formats statiques (pdf,docx) ne sera en revanche pas satisfaisant.
+
+* En html, on génère et positionne 4 graphiques sur une même ligne. L'option lightbox permet d'agrandir les graphiques et de naviguer entre eux
+
+```{{r}}
+#| layout-ncol: 4
+#| lightbox:
+#|   group: cars
+
+data("mtcars")
+df = mtcars
+
+plot(df$mpg, df$cyl)
+plot(df$mpg, df$wt)
+plot(df$mpg, df$qsec)
+plot(df$mpg, df$disp)
+```
+
+
+::: {.box_img}  
+```{r}
+#| echo: false
+#| layout-ncol: 4
+#| lightbox:
+#|   group: cars
+
+data("mtcars")
+df = mtcars
+
+plot(df$mpg, df$cyl)
+plot(df$mpg, df$wt)
+plot(df$mpg, df$qsec)
+plot(df$mpg, df$disp)
+```
+:::
+
+<br>  
+
+* En compilant simultanément en pdf, le rendu est le suivant: 
+
+::: {.box_img}
+![](img3/img2.png){fig-align="center"}
+:::
+
+<br>
+
+### Contrôler le contenu affiché {#sec-multiform}
+
+* Quarto a implémenté des classes css qui permettent de contrôler le contenu qui sera affiché par type de format:
+  * **`{.content-visible <sélection format>}`**
+  * **`{.content-hidden  <sélection format>}`**
+* Les options de sélection:
+  * **`when-format="type_format"`**
+  * **`unless-format="type_format"`**  
+* [[Documentation site officiel]](https://quarto.org/docs/authoring/conditional.html)
+
+Dans notre exemple:
+* L'affichage des graphiques sous forme de vignettes sera réservé au format html
+* Pour les formats statiques, les graphiques seront affichés à leur taille réelle, les uns après les autres.
+* On devra renseigner le programme deux fois en modifiant les options:
+
+<br>
+
+* **Pour le format html [identique plus haut]**:
+  * `{.content-visible when-format="html"}`
+
+
+````{verbatim}
+::: {.content-visible when-format="html"}
+
+```{r}
+#| layout-ncol: 4
+#| lightbox:
+#|   group: cars
+
+data("mtcars")
+df = mtcars
+
+plot(df$mpg, df$cyl)
+plot(df$mpg, df$wt)
+plot(df$mpg, df$qsec)
+plot(df$mpg, df$disp)
+```
+:::
+````
+::: {.content-visible when-format="html"}
+::: {.box_img}
+```{r}
+#| echo: false
+#| layout-ncol: 4
+#| lightbox:
+#|   group: cars
+
+data("mtcars")
+df = mtcars
+
+plot(df$mpg, df$cyl)
+plot(df$mpg, df$wt)
+plot(df$mpg, df$qsec)
+plot(df$mpg, df$disp)
+```
+:::
+:::
+
+
+<br>
+
+* **Pour les formats statiques pdf,docx**:
+    * `{.content-hidden when-format="html"}`
+
+
+````{verbatim}
+
+::: {.content-hidden when-format="html" }
+
+```{r}
+data("mtcars")
+df = mtcars
+
+plot(df$mpg, df$cyl)
+plot(df$mpg, df$wt)
+plot(df$mpg, df$qsec)
+plot(df$mpg, df$disp)
+```
+:::
+````
+
+:::: {layout="[33,-1,33,-1,33]"}
+::: {.box_img}
+![Pdf page 1](img3/img3.png){group="cond"}  
+:::
+::: {.box_img}
+![Pdf page 2](img3/img4.png){group="cond"}  
+:::
+::: {.box_img}
+![Pdf page 3](img3/img5.png){group="cond"}
+:::
+::::
+
+

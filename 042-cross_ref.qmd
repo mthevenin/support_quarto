@@ -1,0 +1,388 @@
+---
+bibliography: festy.bib
+---
+
+# Notes, références croisées et bibliographie
+
+##  Insérer des notes de bas de page {#sec-note}
+
+* Plusieurs syntaxes pour insérer une note. (attention aux bascules avec le visual mode qui en privilégie une)
+* Les notes sont rédigés dans des crochets.
+* On indique qu'il s'agit d'une note avec **`^`**
+
+* **Méthode 1**: Insérer un numero de note et la renseigner dans un endroit du document qmd: en dessous de la phrase ou du paragraphe qui appelle la note, en fin de document.... A privilégier peut-être pour des notes longues.
+
+```{.mf}
+On va insérer la note en renseignant son numéro[^1]  
+
+[^1]:  C'est la première note, dont le contenu est rédigé ici directement sous la phrase.
+```
+
+On va insérer la note en renseignant directement son numéro[^1]  
+
+[^1]:  C'est la première note, dont le contenu est rédigé ici directement sous la phrase.
+
+
+* **Méthode 2**: la note est directement rédigée dans la phrase avec `^[Contenu de la note]`.
+
+```{.mf}
+On va insérer la note en la rédigant directement dans la phrase ^[Contenu de la note, qui sera ici la seconde du chapitre].
+```
+
+On va insérer la note en la rédigant directement dans la phrase ^[Contenu de la note, qui sera ici la seconde du chapitre].  
+
+**Petit warning**: d'après mon expérience, si on bascule du mode visual au mode source les notes renseignées avec la méthode2 sont transformée en méthode 1 (le contenu de la note étant directement mise sous le paragraphe où elle est appelée.
+
+
+## Insérer des références croisées
+
+
+* Documentation: <https://quarto.org/docs/authoring/cross-references.html>
+
+* Les références croisées sont des liens internes qui s'appliquent à divers éléments d'un document:
+  * Image(s) insérée en markdown.
+  * Graphique(s) généré(s) par un programme.
+  * Tableau(x) inséré(s) en markdown.
+  * Tableau(x) générés dans un programme.
+  * Bloc de codes
+  * Encadrés informatifs (callout).
+  * Chapitres et sections
+  * Equations.
+
+En passant sur le lien une fenêtre s'ouvre donnant la totalité ou un apperçu du lien.
+
+::: callout-info
+
+### Nouvelle syntaxe et nouveaux éléments avec la version 1.4
+
+* On peut insérer le label directement dans une section div.
+* Nouveaux éléments concernés comme les vidéos.
+
+:::
+
+**Principe**  
+
+* Pour ajouter un élément qui fera l'objet d'un renvoi dans une autre partie du du document, on doit ajouter un label en option de cet élément. 
+* La création de ce label dépend de la façon dont est généré l'élément. 
+
+Pour une image ou un graphique:
+
+  * Markdown: **`{#fig-nom_label}`**
+  * Programme: en option du bloc **`#| label: nom_label`**
+* On appelle l'élément référencé avec **`@nom_label`**^[Même principe que pour une référence bibliographique].
+
+
+| Eléménts         | Markdown /Section div (`:::`)                            | Option bloc de code           |
+|------------------|----------------------------------------------------------|-------------------------------|
+| Graphique/Image  | `{#fig-nom_label}`                                       | `#| label: "nom_label"`       |
+| Tableau          | `{#tbl-nom_label}`                                       | `#| label: tbl-nom_label`     |
+| Programme        | `::: {#lst-nom_label}`                                   | `#| lst-label: lst-nom_label` |
+| Callout          | `{.callout-typ #prefix-nom_label}`[[@tbl-callout]]       |                               |
+| Equation/formule | `{#eq-nom_label}`                                        |                               |
+| Chapitre/section | `{#sec-nom_label}`                                       |                               |
+| Video            | `::: {#fig-nom_label}`                                   |                               |
+
+<br>
+
+### Image markdown
+
+En option de l'image: **`![Titre](lien_image){#fig-nom_label}`**.
+
+* Par exemple pour les trois éléments du grid d'un document html (Chapitre sur le format html):
+
+```{.mf}
+![Doc quarto-grid par défaut](https://quarto.org/docs/output-formats/images/grid.png){#fig-gridhtml}
+```
+
+* Insérer dans une phrase `fig-gridhtml`. Résultat: 
+
+::: {.border}
+Se rappeler que la mise en page d'un document html comporte 3 colonnes: la **sidebar** à gauche, le body au **centre**, et la **margin** à droite [[@fig-gridhtml]].  
+:::
+
+::: callout-important
+**Plusieurs options à l'image**  
+Si on a déjà une option, dans l'exemple `width=70%`, on met le label à l'intérieur des mêmes accolades: 
+**`{width=70% #fig-gridhtml}`**.
+:::
+
+<br> 
+
+### Graphique généré par un programme
+
+Pour les graphiques, le label est directement renseigné en option du bloc de codes avec  `#| label: nom_label`. 
+
+```{.mf}
+#| label: "nom label"
+#| echo: fenced
+```
+
+
+```{.mf}
+#| label: "fig-scatter_cars"
+#| fig-cap: "**Position top du titre défini dans le `yaml`**"
+
+data("mtcars")
+x <- mtcars$wt
+y <- mtcars$mpg
+plot(x, y)
+```
+
+Insérer dans une phrase `@fig-scatter_cars`. Résultat:
+
+::: {.border}
+Relation entre le poids de la voiture et la distance parcourue pour 3.8 litres d'essence [[@fig-scatter_cars]].....sans surprise.
+:::
+
+<br>
+
+### Tableau markdown
+
+* Même principe que pour les images. On ajoute le label en option sous le tableau généré avec des pipes.
+* On remplace simplement `#fig-nom_label` par **`#tbl-nom_label`**
+
+```{.mf}
+
+| Variables | $Y_1$ | $Y_2$ |
+|-----------|-------|-------|
+| $X_1$     | 100   | 261   |
+| $X_2$     | 350   | 198   |
+| $X_3$     | 125   | 175   |
+
+: Titre tableau {#tbl-tableau_md}
+```
+   
+Insérer dans une phrase `@tbl-tableau_md`. Résultat:
+
+::: {.border}
+Tableau généré en markdown avec le mode visual [[@tbl-tableau_md]]
+:::
+
+### Tableau généré par un programme
+
+* Même principe que pour les graphiques. On ajoute le label en option dans le bloc de code avec **`#| label: "tbl-nom_label"`**.  
+
+```{.mf}
+#| label: "tbl-mtcars_df"
+#| tbl-cap: "Base voitures"
+
+data("mtcars")
+knitr:: kable(head(mtcars[, 1:4]))
+```
+
+Insérer dans une phrase: `@tbl-mtcars_df`. Résultat:
+
+::: {.border}
+Se reporter à l'extrait de la base **mtcars** [[@tbl-mtcars_df]]
+:::
+
+<br>
+
+### Un bloc de codes
+
+* Pour référencer un bloc de code, deux possibilités:
+  * Via les options du bloc
+  * Avec la version 1.4 de Quarto, dans une section div.
+* Le référencement se fait avec le prefixe **`lst-`**:  
+
+
+* En option du bloc de codes:
+  * Le label de la référence est donné par l'option **`#| lst-label: nom_label`**.
+  * On peut mettre un titre au label: **`#| lst-cap: titre`**.
+
+Dans le chapitre sur les blocs de code: 
+
+```{{r}}
+#| lst-label: lst-code
+#| lst-cap: "Calcul moyenne"
+
+val = c(10,15,5,2,12,7)
+moy = mean(val)
+```
+
+* Dans une section div: **`{#lst-nomlabel}`**
+
+```{.mf}
+::: {#lst-nom_label}
+<programme>
+:::
+```
+
+* Résultat (options du bloc):
+
+::: {.border}
+Le programme pour calculer la moyenne [[@lst-code]]
+:::
+
+<br>
+
+### Callout
+
+* Très utile, par exemple pour ne pas avoir à multiplier, par exemple, un rappel dans un même document ou support. 
+* Dans l'ouverture de la section div (`:::`) on va ajouter un label à l'encadré informatif.
+* Comme on ajoute une option, on devra utiliser directement la classee css associée: 
+  * Sans la label: `::: callout-tip`
+  * **Avec un label**: `::: {.callout-tip #prefix-nom_label}`  
+
+* **Les préfixes**:  les labels doivent être préfixés de la manière suivante:   
+
+<center>
+::: {.column width=50%}
+::: {#tbl-callout}
+| **Type de callout** | **prefixe du label** |
+|---------------------|----------------------|
+| `note`              | `#nte-`              |
+| `tip`               | `#tip-`              |
+| `warning`           | `#wrn-`              |
+| `important`         | `#imp-`              |
+| `caution`           | `#cau-`              |
+Préfixe selon le type d'encadré
+
+:::
+:::
+</center>
+
+
+Par exemple dans le chapitre 3, on veut rappeler qu'il peut-être utile d'utiliser la balise <br> pour ajouter des sauts des lignes. On a ajouté dans ce callout le label **`#tip-multi_br`**
+
+
+```{.mf}
+::: {.callout-tip #tip-multi_br}
+### Plusieurs sauts de ligne
+
+Selon le traducteur Markdown il est possible ou non d'augmenter le nombre de saut de ligne en ajoutant des backslash. Par exemple pour sauter 3 lignes `\\\`.\
+Ce n'est pas possible avec Quarto ou Rmarkdown. La solution est alors d'ajouter une ou plusieurs balises html `<br>`. Pour un document en format PDF on peut ajouter la balises Latex `\linebreak`[^012-markdown-5]
+:::
+```
+  
+* Insérer dans une phrase: `@tip-multi_br`. Résultat: 
+
+::: {.border}
+Si on veut faire plusieurs sauts de ligne avec une balise html [[@tip-multi_br]]
+:::
+  
+<br>  
+  
+### Section
+
+* On peut renvoyer vers une section particulière du document en ajoutant le label après le titre avec **`#sec-nom_label`**.  C'est une forme de lien au final.
+
+Dans cette page, si je veux renvoyer à la section "***Insérer une note***": 
+
+```{.mf}
+## Insérer des éléments bibliographiques {#sec-note}  
+```
+
+Insérer dans une phrase: `@sec-note`. Résultat:  
+
+::: {.border}
+Se reporter à la section sur les notes de bas de page [[@sec-note]].  
+:::
+
+<br>
+
+### Equation/formule 
+
+* Seulement pour les équations/formule sur une ligne entière: `$$formule$$`
+* Après l'équation/formule on ajoute directement le label {#eq-nom_formule}  
+
+```{.mf}
+$$\sum_{i=0}^n p_i=1$$  {#eq-probsum}
+```
+
+
+$$\sum_{i=0}^n p_i=1$$ {#eq-probsum}
+
+Insérer dans une phrase: `@eq-probsum`. Résultat: 
+
+::: {.border}
+Rappel: une des propriétés des probabilités est [@eq-probsum] 
+:::
+
+On remarque le numéro de l'équation/formule dans le document est reporté à sa droite.  
+
+::: callout-note
+
+#### Affichage du contenu dans la popup
+
+* En passant sur la référence on voit une popup apparaitre.
+  * Dans les renvois vers un autre chapitre, et donc un autre document, cette popup est vide^[Au cas où, en tout cas chez moi].
+  * Dans les deux dernières références croisées, le renvoi était sur le même document. Le début de la section bibliographie et la formule s'affiche dans la popup.
+  
+:::  
+
+### Une vidéo
+
+Dans une section div (`:::`) ajouter le label **`::: {fig-nom_label}`** au shortcode de la video. Par exemple pour la vidéo de l'entretien de JJ.Allaire qui se trouve en introduction du support:
+
+
+::: {.border}
+![](img5/crossref_video.png)
+:::
+
+Insérer dans une phrase: `@fig-video`. Résultat: 
+
+::: {.border}
+Se reporter à l'entretien de JJ.allaire [[@fig-video]]
+:::
+
+
+<br>
+  
+## Insérer des éléments bibliographiques {#sec-biblio}
+
+* Avoir un fichier **`.bib`** qui comprend a minima toutes les références qui seront citées. 
+* Dans le yaml, on ajoute le ou les fichiers avec l' option **`bibliography: nom_fichier.bib`**
+
+```{.mf}
+---
+bibliography: festy.bib
+---
+```
+
+Dans le fichier festy.bib, une référence est par exemple: 
+
+```{.mf}
+@incollection{cortina_same-sex_2020,
+	address = {"Cham, Suisse"},
+	series = {European {Studies} of {Population}},
+	title = {Same-{Sex} {Couples} and {Their} {Legalization} in {Europe}: {Laws} and {Numbers}},
+	volume = {24},
+	isbn = {978-3-030-37054-1},
+	url = {https://doi.org/10.1007/978-3-030-37054-1_3},
+		author = {Cortina, Clara and Festy, Patrick},
+}
+```
+
+
+Dans le corps de texte on appelle la référence bibliographique avec le nom du ou des auteur.re.s **`@nom_reference_biblio`**, ici **`@cortina_same-sex_2020`**
+
+```{.mf}
+Insertion de la référence dans le corps du texte de **@cortina_same-sex_2020**
+```
+
+   
+* Insertion 1 de la référence dans le corps du texte de **@cortina_same-sex_2020**.  
+* Insertion 2 de la référence dans le corps du texte de **@festy_mariage_2013**.   
+
+En fin du document qmd, d'une section ou d'un chapitre, on peut insérer l'ensemble des références bibliographiques citées dans une section div avec la classe quarto `{#refs}`.  Cette section n'a aucun contenu.
+
+Par exemple à la fin de cette section:
+
+```{.mf}
+### References
+
+::: {#refs}
+:::
+```
+
+### References
+
+::: {#refs}
+
+:::
+
+
+
+
+

@@ -1,0 +1,30 @@
+---
+title: "snippet"
+---
+
+
+### Auto completion avec des **snippets** en mode source.
+
+Bien caché dans les options de RStudio, avec rmarkdown ou Quarto, on peut définir des éléments d'auto-completion appelés **snippets** (fragment). 
+
+En image : Après avoir ouvert les options générales de Rstudio (tools => Global Options).    
+
+::: {layout=[15,-2,15,-2,15]  layout-valign="bottom"} 
+![Code=>Edit snippets](img1/snippet1.png)
+
+![Aller dans Markdown ](img1/snippet2.png)
+
+![Editer le snippet avec un nom](img1/snippet3.png)
+:::
+
+
+::: {layout=[15,-2,15]  layout-valign="bottom"} 
+![Taper le le nom du snippet et shift+tab](img1/snippet4.png)
+
+![Résultat](img1/snippet5.png)
+:::
+
+En animation gif: 
+
+![](img1/video2.gif)
+

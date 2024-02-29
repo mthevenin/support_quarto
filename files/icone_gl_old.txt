@@ -1,0 +1,61 @@
+## Récupérer et utiliser un icone Gitlab dans le _quarto.yml
+
+Dans les projets types générés par Quarto certains outils sont ajoutés directement au _quarto.yaml comme des liens vers Github ou divers réseaux sociaux. Les liens renvoyantt vers les adresses génériques des sites, il faudra juste modifier les adresses, par exemple vers le répertoire distant hébergeant le projet. Ces liens sont accompagnés d'icones tels que {{< fa brands github>}} ,  {{< fa brands twitter>}}^[Visiblement pas encore à jour du changement de nom du rs] ...
+
+Dans le fichier _quarto.yml, ces liens sont insérés par exemple dans la barre de navigation de la manière suivant:
+
+```{.md}
+website:
+  navbar:
+    right:
+      - icon: github
+        href: https://github.com/
+      - icon: twitter
+        href: https://twitter.com
+```
+
+Quid de l'icône gitlab visiblement absente de la collection  d'icone de type **fontawesome** embarquée par Quarto.
+
+**Récupérer l'icône Gitlab**  
+
+* Installer l'extension développée par Quarto
+[**fontawesome**](https://github.com/quarto-ext/fontawesome)
+
+
+Dans le terminal: 
+
+```{.mf}
+quarto add quarto-ext/fontawesome
+```
+
+
+**Insérer l'icône**
+
+* A l'aide du shortcode Quarto (@sec-shortcode) suivant: 
+
+```{r, eval=FALSE}
+{{< fa brands gitlab>}}
+```
+
+On peut maintenant insérer l'icône gitlab:  {{< fa brands gitlab>}}
+
+
+Dans le `_quarto.yml` précédent l'insertion du shortcode fonctionne également. En changeant le lien vers le dépôt gitlab^[Pour les personnes concernées et intéressées on met également le shortcode pour {{< fa brands x-twitter>}}]. 
+
+```{r, eval=FALSE}
+website:
+  navbar:
+    right:
+      - icon: {{< fa brands gitlab>}}
+        href: https://gitlab.com/pseudo/nom_repo
+      - icon: {{< fa brands x-twitter>}}
+        href: https://twitter.com/compte
+```
+
+
+
+
+
+
+
+

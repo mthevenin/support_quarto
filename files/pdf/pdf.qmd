@@ -1,0 +1,227 @@
+---
+title: "PDF"
+date: today
+
+author: "Marc Thévenin"
+
+format: pdf
+
+documentclass: scrartcl
+lof: true
+lot: true 
+
+toc: true
+toc-title: "Table des matières"
+number-sections: true
+code-block-border-left: "#00CED1"
+code-block-bg: "#FDF5E6"
+
+fontfamily: cabin
+
+geometry: 
+  - top=25mm
+  - left=20mm
+  - right=20mm
+  - bottom=25mm   
+
+abstract: |
+  Quelques éléments de mise en page d'un document pdf
+---
+
+# Introduction
+
+## yaml de ce document
+
+```{mf}
+---
+title: "PDF"
+date: today
+
+author: "Marc Thévenin"
+
+format: pdf
+
+documentclass: scrartcl
+lof: true
+lot: true 
+
+toc: true
+toc-title: "Table des matières"
+number-sections: true
+code-block-border-left: "#00CED1"
+code-block-bg: "#FDF5E6"
+
+fontfamily: cabin
+
+geometry: 
+  - top=25mm
+  - left=20mm
+  - right=20mm
+  - bottom=25mm   
+
+abstract: |
+  Quelques éléments de mise en page d'un document pdf
+---
+```
+
+
+# Installation d'un compilateur latex
+
+* Privilégier **tinytex**
+  * Package R: `install.packages('tinytex')`
+  * Installation terminal quarto: `quarto install tinytex`
+
+# Durée de compilation
+
+* Attention la durée de compilation est particulièrement longue: 
+* Conseils: 
+  * Rédiger son document en html dans un premier temps sans option incompatible avec le format PDF (tout ce qui est dynamique par exemple). Une fois le contenu de l'output html plus ou moins abouti .
+  * Ajouter des options propres au format pdf: `lot`, `lof`, `documentclass`... et effectuer la compilation pour le format pdf.
+  * S'il s'agit d'un book, avec plusieurs fichiers .qmd, penser à ajouter au fichier `_quarto.yml` l'option `freeze: auto`. Cela permettra de ne pas recompiler les fichiers non modifiés avec `quarto render`.  
+
+# Liste des images/graphiques et des tableaux
+
+## List of figure (lof)
+
+* Dans le yaml: option **`lof: true`**
+* Ajouter impérativement un titre au graphique ou à l'image pour l'indéxation dans la liste.
+
+### Graphique généré par un programme
+
+* Dans un bloc de codes: **`#| fig-cap: "Titre du graphique"`**.
+
+```{r}
+#| echo: fenced
+#| eval: false
+#| fig-cap: "Graphique généré par un programme"
+
+data("mtcars") 
+x <- mtcars$wt         
+y <- mtcars$mpg 
+plot(x, y) 
+```
+
+
+```{r}
+#| fig-cap: "Image insérée en markdown"
+#| echo: false
+
+data("mtcars") 
+x <- mtcars$wt         
+y <- mtcars$mpg 
+plot(x, y) 
+```
+
+### Image (markdown)
+
+* Ajouter le titre dans **[]**:
+  * `![Titre](lien_image)`
+<br>
+* Pour l'image ci-dessout: 
+  * `![Ajout d'une image dans la liste du début du document](img1.png){width=60%}` 
+
+![Ajout d'une image dans la liste du début du document](img1.png){width=60%}
+
+## List of table (**`lot`**)
+
+* Dans le yaml: option **`lot: true`**
+* Ajouter impérativement un titre au tableau pour l'indéxation dans la liste.
+
+
+### Tableau généré par un programme 
+
+```{r}
+#| tbl-cap: "Tableau généré par un programme"
+#| echo: fenced
+#| eval: false
+#| warning: false
+#| message: false
+
+data(mtcars)
+df = head(mtcars)
+knitr::kable(df)
+```
+
+```{r, message=FALSE}
+#| tbl-cap: "Tableau généré par un programme"
+#| echo: false
+#| warning: false
+#| message: false
+
+data(mtcars)
+df = head(mtcars)
+knitr::kable(df)
+```
+
+
+### Tableau en markdown
+
+* Ajouter sous le tableau le titre avec **`: Titre`** 
+
+```{mf}
+| Col1 | Col2 |
+|------|------|
+|   A  |  C   |
+|   B  |  D   |
+
+: Tableau markdown
+```
+
+
+| Col1 | Col2 |
+|------|------|
+|   A  |  C   |
+|   B  |  D   |
+
+: Tableau markdown
+
+
+# Divers
+
+
+## Les sauts de page [rappel]
+
+* Si format pdf seulement, vous pouvez utiliser directement la balise Latex `\newpage`
+* Avec Quarto, il est néanmoins préférable d'utiliser directement le shortcode **`{{< pagebreak >}}`** valable également pour le format html pour l'impression.
+
+Exemple: dans ce court document un saut de page a été ajouté après la ***list of table*** .
+
+## Modifier les marges du document
+
+* Dans le yaml, option **`geometry` avec 4 sous options listées avec un tiret. Les marges sont mesurées en millimètres: 
+
+```{mf}
+---
+geometry: 
+  - top=Amm
+  - left=Bmm
+  - right=Cmm
+  - bottom=Dmm  
+---
+```
+
+Pour ce document j'ai légèrement réduit les marges avec:
+
+```{mf}
+---
+geometry: 
+  - top=25mm
+  - left=20mm
+  - right=20mm
+  - bottom=25mm   
+---
+```
+
+## Changement de police
+
+* Dans le yaml avec l'option **`fontfamily: nom_font`**
+* Liste de toutes les polices [[lien]](https://www.overleaf.com/latex/templates/fontspec-all-the-fonts/hjrpnxhrrtxc)
+* Ici on utilise la police **cabin**
+
+```{mf}
+---
+fontfamily: cabin
+---
+```
+
+

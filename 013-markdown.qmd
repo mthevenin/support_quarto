@@ -1,0 +1,858 @@
+---
+filters:
+   - nutshell
+---
+
+
+# Edition et formatage d'un document
+
+*  Formatage et mise en page sous forme de balises. 
+
+*  Permet de modifier l'aspect du texte, d'insérer des éléments comme des titres, des liens, images..., ou de modifier  tout autre élément de mise en page (contours, couleur de fond). Apparue dans les années 70-80 (le Tex), l'édition sous forme de balises est dans un premier temps de type **Markup**. Il est complet mais l'édition et la visualisation du code source du document sont fastidieux.
+
+* Bien qu'incomplet le balisage **Markdown**, créé en 2004, facilite grandement l'édition et la visualisation du code source d'un document. 
+
+* Depuis sa création, le Markdown a toujours eu des variantes ou des enrichissements, comme le GFM de Github. 
+
+* Posit (ex Rstudio) a également ses propres éléments de balisage, ce qui lui permet de proposer un markdown enrichi pour de nombreux éléments de mise en page. Ces nouveautés ont été introduites récemment avec les dernières versions de Rmarkdown. 
+
+
+
+## Markdown
+
+
+[[:Markdown WIKI](https://fr.wikipedia.org/wiki/Markdown)]{.nut}
+<br>
+
+Le **markdown** est un mode de formatage dit **léger**^[D'où le *Down*] de texte incluant des éléments d'insertion d'images, de lien ou de création de tableaux qui se substitue partiellement à un formatage de type **markup**.
+
+
+Exemple de formage de type **UP**:
+
+-   Le **TEX** [cf Latex] depuis la fin des années 70.
+
+-   Le **HTML**: HyperText **Markup** Language[^012-markdown-2].
+
+-   Le SMCL: Stata **Markup** Control Language[^012-markdown-3].
+
+
+-   Bien que le markdown se soit largement imposé, il existe d'autres modes de formatage léger, plus ou moins dédié à des outils particuliers.
+
+-   Il existe des variantes ou extension au markdown de base, comme le GFM de Github[^012-markdown-4]
+
+[^012-markdown-2]: Jusqu'en 2007 avec l'apparition des documents `.docx`, le code source de Word (`.doc`) reposait exclusivement sur du HTML. Très utile pour deboger les mises en forme des documents Word....
+
+[^012-markdown-3]: Une horreur...
+
+[^012-markdown-4]: Github Flavored Markdown
+
+Ce qui suit donne seulement quelques éléments d'utilisation du markdown, le thème étant très documenté sur internet. On peut se reporter à la documentation officielle de Quarto dont la partie dédiée à Markdown est quasiment exhaustive [[Lien]](https://quarto.org/docs/authoring/markdown-basics.html).
+
+### formatage du texte
+
++------------------------+------------------------------------------------------+------------------------------------------+
+| Résultat               | Balisage markdown                                     | Balisage html                            |
++========================+======================================================+==========================================+
+| **Gras**               | `**Gras**` ou `__gras__`                             | `<b>Gras</b>`                            |
++------------------------+------------------------------------------------------+------------------------------------------+
+| *Italique*             | `*Italique*` ou `_Italique_`                         | `<i>Italique</i>` ou `<em>Italique</em>` |
++------------------------+------------------------------------------------------+------------------------------------------+
+| ***gras et italique*** | `***Gras et italique***` ou `___Gras et italique___` | `<b><i>Gras et italique</i></b>`         |
++------------------------+------------------------------------------------------+------------------------------------------+
+| ~~Barré~~              | `~~Barré~~`                                          | `<strike>Barré<\strike>`                 |
++------------------------+------------------------------------------------------+------------------------------------------+
+| `Inline code`          | `` `Inline code` ``                                  | `<code>Inline code<\code>`               |
++------------------------+------------------------------------------------------+------------------------------------------+
+
+::: callout-note
+Ce support utilise seulement 4 des 5 balises présentées dans le tableaux
+:::
+
+
+### Saut de ligne
+
+-   Généralement les éditeurs de texte markdown sur le web comme [\[stackedit\]](https://stackedit.io/) gèrent automatiquement le saut avec la touche `enter`.
+-   La balise html est <br>
+-   Avec Quarto (ou Rmarkdown) deux possibilités :
+    -   Implicitement avec un **double espace** après le dernier mot.
+    -   Explicitement avec l'utilisation de la balise `\`. 
+
+![](img1/br1.png){group=br}
+
+Première ligne sans espace
+Deuxième ligne
+
+![](img1/br2.png){group=br}
+
+Première ligne avec 2 espaces  
+Deuxième ligne
+
+
+![](img1/br3.png){group=br}
+
+Première ligne avec un slash\
+Deuxième ligne
+
+
+On peut obtenir une ligne vide supplémentaire en sautant directement une ligne
+
+![](img1/br4.png){group=br}
+
+Une ligne vide après la première ligne
+
+Deuxième ligne
+
+
+
+::: {.callout-tip #tip-multi_br}
+### Plusieurs sauts de ligne
+
+Selon le traducteur Markdown il est possible ou non d'augmenter le nombre de saut de ligne en ajoutant des backslash. Par exemple pour sauter 3 lignes `\\\`.\
+Ce n'est pas possible avec Quarto ou Rmarkdown. La solution est alors d'ajouter une ou plusieurs balises html `<br>`. Pour un document en format PDF, il y a la possibilité d'utiliser la balises Latex `\linebreak`[^012-markdown-5]
+:::
+
+[^012-markdown-5]: Attention aux compilations multiformats, si le document a un rendu html et pdf, il faudra mettre des *contenus conditionnels* (@sec-multiform)
+
+### Titre/header {#sec-titre}
+
+En html les **header** permettent d'insérer des titres de chapitre ou sections. Ils permettent d'alimenter la tables des matières (**`toc`**) si l'option est activée.
+
+* En html titres et les headers sont introduits hiérarchiquement avec les balises `<h1>titre</h1>`, `<h2>sous titre</h2>`
+* En markdown ils sont introduits avec des `#`. 
+  * `# Titre_1`
+  * `## Titre_12`
+
+### Listes
+
+* En html les listes sont générées avec un système de balises imbriquées ou non (`<ul>`,`<li>`). C'est assez pénible.
+* En markdown l'édition des listes est particulièrement simplifiée. 
+  * Liste non ordonnée : un symbole comme `*`, `-`, `+`/
+  * Liste : ordonnée : Nombre suivi d'un **.**: `1.` , `2.`, ....
+* Règle de retrait: 
+  * Pour le premier niveau de la liste la puce ou le nombre se situe sur le premier caractère de la ligne. 
+  * Pour les sous listes, la puce ou le nombre est en dessous du premier caractère de la liste du niveau supérieur.
+* Il n'est pas nécessaire d'indiquer un saut de ligne pour passer à l'élément suivant de la liste.
+
+**Liste non ordonnée**:
+
+```{.mf}
+* item1
+  * item11
+  * item12
+* item2
+  * item21
+    * item22
+```
+
+* item1
+  * item11
+  * item12
+* item2
+  * item21
+    * item22
+
+**Liste ordonnée**:
+
+```{.mf}
+1. item1
+   11. item11
+2. item2
+   21. item21
+   22. item22
+```
+
+1. item1
+   11. item11
+2. item2
+   21. item21
+   22. item22
+
+
+::: callout-important
+#### Laisser une ligne vide avant la liste
+
+Avec Quarto ou Rmarkdown on doit absolument laisser une ligne vide entre la liste et la dernière ligne de texte la précédent. Ce ne sera pas forcément le cas avec d'autres éditeurs.
+
+:::
+
+
+:::: {.columns} 
+::: {.column width="47.5%"}
+* [**BIEN**]{.col_success} 
+```{.mf}
+Ligne vide...
+
+* Item1
+* Item2
+```
+
+Résultat: Ligne vide entre la liste et la dernière phrase
+
+* Item1
+* Item2
+
+:::
+
+::: {.column width="5%"} 
+:::
+
+::: {.column width="47.5%"}
+* [**PAS BIEN**]{.col_danger}  
+```{.mf}
+Pas de Ligne vide...
+* Item1
+* Item2
+  
+```
+
+Résultat: Pas de ligne vide entre la liste et la dernière phrase
+* Item1
+* Item2
+
+:::
+::::
+
+
+### Insertion d'un lien
+
+En html un lien et ses options sont insérés dans une balise **`<a *lien options*></a>`**
+
+*   Addresse du lien reportée dans le document : **`<path/nom_fichier.extention>`**
+    *   Exemple page html : <https://quarto.org/>
+    *   Exemple autre type fichier : <https://gitlab.com/mthevenin/support_quarto/-/blob/master/README.md>
+
+*   Lien dans un texte : **`[texte](path/nom_fichier.extention)`**
+    *   Exemple page html : `[Site Quarto](https://quarto.org/)` donne [Site Quarto](https://quarto.org/)
+    *   Exemple autre type de fichier : `[[Readme du dépôt gitlab de la formation]](https://gitlab.com/mthevenin/support_quarto/-/blob/master/README.md)` donne [\[Readme du dépôt github de la formation\]](https://github.com/mthevenin/quarto/blob/main/README.md)
+
+
+
+
+### Insertion d'une image
+
+::: callout-note
+
+* La mise en page des images et certaines options propres à Quarto font l'objet d'une section dédiée [[@sec-img]]
+* On regardera ici seulement l'insertion d'image externe et non des graphiques générés directement par un programme
+:::
+
+* En html, les images et ses options sont insérées dans une balise **`<img source_image options>`**. 
+
+* La syntaxe générique est** `![Titre optionnel](path/nom_image.extension){options image}`**.
+
+* Si l'image est stockée en local dans un répertoire ou un sous répertoire du fichier .qmd, on met de préférence le chemin relatif:
+    * Si l'image est dans le même répertoire que le fichier qmd: seulement le nom du fichier.
+    * Si l'image est dans un sous répertoire du répertoire où est stocké le qmd: `repertoire/nom_image.extension`
+    * Si l'image est stockée sur le web on indique l'url.
+  
+* Par défaut l'image est centrée.  
+  
+***Exemple avec le logo Quarto***:  
+
+* Avec le lien de l'image : 
+  * **`![Logo](https://quarto.org/quarto.png)`**
+
+::: {.center}
+::: {.column width="60%"}
+::: {.box_img}
+![Logo](https://quarto.org/quarto.png)
+:::
+:::
+::: 
+
+<br>
+  
+* Avec le logo stocké dans le répertoire **img1**:
+  * **`![Logo](img1/quarto.png)`**
+
+::: {.center}
+::: {.column width="60%"}
+::: {.box_img}
+![Logo](img1/quarto.png)
+:::
+:::
+:::
+
+<br>
+Sans rentrer dans le détail des options : 
+
+* On peut réduire la taille de l'image. En relatif on peut utiliser l'option `{width=X%}`:
+  * **`![Logo à 50%](img1/quarto.png){width=50%}`**
+
+::: {.center}
+::: {.column width="60%"}
+::: {.box_img}
+![Logo à 50%](img1/quarto.png){width=50%}
+:::
+:::
+::: 
+
+<br>
+
+- On peut modifier l'alignement horizontal de l'image avec l'option `fig-align:"left/right"` à l'option précédente: 
+  - **`![Logo 50% à gauche](img1/quarto.png){fig-align="left" width=50%}`**
+
+::: {.center}
+::: {.column width="60%"} 
+::: {.box_img}
+![Logo 50% à gauche](img1/quarto.png){fig-align="left" width=50%}
+:::
+:::
+::: 
+
+<br>
+
+### Insertion d'un tableau
+
+Parlons peu parlons bien : générer manuellement un tableau en html (ou latex) mais également en markdown n'est pas la solution. En markdown, la création de tableau se fait sur un principe de pipes, au premier abord cela apparait moins confus qu'en html mais les modifications  aussi simple soit elles sont assez chronophages et pénible.
+
+Un exemple très simple pour s'en convaincre :
+
+**Tableau en html**:
+
+```{.mf}
+<table>
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+<tr>
+<td>C</td>
+<td>D</td>
+</tr>
+</table>
+```
+
+En html, une multitude de balisage : `<table></table>` (tableau), `<tr></tr>` (ligne) et `<td></td>` (colonne)
+
++---+---+
+| A | B |
++---+---+
+| C | D |
++---+---+
+
+**Tableau en markdown**:
+
+* Repose sur un principe de *pipes* pas forcément facile à mémoriser
+
+```{.mf}
++---+---+
+| A | B |
++---+---+
+| C | D |
++---+---+
+: tableau markdown 
+```
+
++---+---+
+| A | B |
++---+---+
+| C | D |
++---+---+
+: tableau markdown
+
+<br>
+Et les modifications sont assez pénibles à réaliser (et encore ici on a pas mis de nom aux colonnes).
+
+```{.mf}
++--------+------+
+| A      | BBBBBBB |
++--------+------+
+| CCCCC | D    |
++--------+------+
+
++--------+---------+
+| A      | BBBBBBB |
++--------+---------+
+| CCCCC  | D       |
++--------+---------+
+
+```
++--------+---------+
+| A      | BBBBBBB |
++--------+---------+
+| CCCCC  | D       |
++--------+---------+
+
+<br>
+
+**La solution**: utiliser un éditeur de tableaux markdown.
+
+* Avec Quarto ou une version récente de Rmarkdown : passer en mode **Visual** et aller sur l'onglet **Table**. Le tableau peut être éditer directement après avoir indiqué le nombre de lignes et de colonne.
+* Utiliser un éditeur de tableau markdown en ligne : par exemple <https://www.tablesgenerator.com/markdown_tables>.
+
+
+::: callout-tip  
+Si on prévoit de faire plusieurs tableaux manuellement dans un document ou un projet, cela peut valoir le coup de générer un document dédié aux tableaux markdown. Il suffira de récupérer le code source des tableaux et de le coller dans le document final
+:::
+
+<br>
+
+* **Titre du tableau**: sous le tableau avec **`: titre tableau`**
+
+```{.mf}
+| Variables | $Y_1$ | $Y_2$ |
+|-----------|-------|-------|
+| $X_1$     | 100   | 261   |
+| $X_2$     | 350   | 198   |
+| $X_3$     | 125   | 175   |
+: Titre tableau
+```
+<br>
+
+| Variables | $Y_1$ | $Y_2$ |
+|-----------|-------|-------|
+| $X_1$     | 100   | 261   |
+| $X_2$     | 350   | 198   |
+| $X_3$     | 125   | 175   |
+
+: Titre tableau {#tbl-tableau_md}
+
+<br>
+
+::: {.callout-tip collapse=true}
+
+#### Modifier la largeur du tableau en format html
+
+Avec un rendu html^[En pdf la largeur est ajustée sur les colonnes donc pas de soucis], la largeur du tableau prend automatiquement toute la largeur de la page. Avec un nombre réduit de colonnes ce n'est pas top. On peut réduire la largeur du tableau en modifiant la mise en page de la page qui contient le tableau. 
+
+J'anticipe ici un peu les éléments de mise en page propres à Quarto. On peut insérer le tableau dans une édition en mode colonne [@sec-column] avec une largeur réduite (ici 20% de la largeur de la page)
+
+
+```{.mf}
+::: {.column width="20%"}
+| Variables | $Y_1$ | $Y_2$ |
+|-----------|-------|-------|
+| $X_1$     | 100   | 261   |
+| $X_2$     | 350   | 198   |
+| $X_3$     | 125   | 175   |
+:::
+```
+
+<br>
+
+::: {.column width="20%"}
+| Variables | $Y_1$ | $Y_2$ |
+|-----------|-------|-------|
+| $X_1$     | 100   | 261   |
+| $X_2$     | 350   | 198   |
+| $X_3$     | 125   | 175   |
+:::
+
+<br>
+
+Autre astuce (html): si on veut centrer rapidement et facilement le tableau sur la page, on peut utiliser un balisage html `<center>Tableau</center>` : 
+
+```{.mf}
+<center>
+::: {.column width="20%"}
+| Variables | $Y_1$ | $Y_2$ |
+|-----------|-------|-------|
+| $X_1$     | 100   | 261   |
+| $X_2$     | 350   | 198   |
+| $X_3$     | 125   | 175   |
+:::
+</center>
+```
+
+<center>
+::: {.column width="20%"}
+| Variables | $Y_1$ | $Y_2$ |
+|-----------|-------|-------|
+| $X_1$     | 100   | 261   |
+| $X_2$     | 350   | 198   |
+| $X_3$     | 125   | 175   |
+:::
+</center>
+
+:::
+
+
+### Insertion d'une équation ou d'une formule
+
+Quarto utilise par défaut comme Rmarkdown l'éditeur `mathjax`.  
+
+
+* Si l'équation est insérée dans une ligne de texte : `$équation/formule$`, par exemple `$y=x+1$`   $y=x+1$
+* Si l'équation est insérée sur une ligne entière : `$$équation-formule$$`, par exemple `$$\sum_{i=0}^n p_i=1$$` : 
+
+$$\sum_{i=0}^n p_i=1$$
+
+
+* [Liste de symboles pour écrire des formules](https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf)
+* [Guide de rédaction des formules](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
+
+
+
+## Balisage propres à Quarto/Rmarkdown
+
+
+
+[[:CSS Wiki](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade)]{.nut}
+<br>
+
+
+Posit a introduit 3 types de balisage: 
+
+* Un pour modifier des éléments de mise en page: 
+  * Se substitue aux balises html de type **`<div>`**: édition en plusieurs colonnes , contours, couleurs de fond.... Applique une classe CSS^[Cascade Style Sheet] à un élément ou à une partie du document. Ne pas s'inquiéter, Quarto fournit plusieurs classes CSS à appliquer directement à un document. 
+
+* Un pour modifier des éléments de formatage du texte non pris en compte par le markdown: 
+  * Se substitue aux balises html de type **`<span>`** en html. Demandera nécessairement quelques connaissances en css (on se limitera ici à la couleur d'un mot).
+
+* Un système de **shortcode** pour insérer des éléments se substituant ou non à des balises html ou à des classes  **CSS**.
+
+
+### Balises de mise en page
+
+* La balise **`<div>`** associée à une classe CSS est remplacée par une balise de type **clôture** (*fence*): **`:::`. La partie modifiée sera ouverte et fermée par ces `:::`.
+  
+* La balise de clôture contient au minimum 3 **:** 
+  
+* Le nom donné à la modification de la mise en page est appelé **classe** et est indiqué à l'ouverture de la section div dans des accolades: **`::: {.nom_classe_css  <options>}`**.
+
+**Utilisation d'une classe CSS prédéfinie (par le thème ou par Quarto)**:
+  
+```{.mf}
+::: {.nom_classe_css  <options>}
+Texte/image....
+:::
+```
+
+En html, on aurait par exemple:
+
+```{.mf}
+<div>
+<p class="nom_classe_css <options>
+Texte/image ...
+</p>
+</div>
+```
+
+
+Remarques: 
+
+* On peut mettre plusieurs classes CSS à la suite pour modifier la mise d'une partie du document. 
+
+* On peut modifier directement le style avec des attributs CSS sans définir de classe (pas recommandé):  
+  * **`::: {style = "attributs_css"}`**.
+
+* On peut imbriquer plusieurs modifications dans une même zône du document. Pour s'y retrouver dans les ouvertures/fermetures, on peut augmenter le nombre de **:**.  
+
+```{.mf}
+:::: {.nom_classe1}
+:::  {.nom_classe2}
+Texte
+:::
+::::
+```
+
+
+Et comme c'est plus sympa avec des exemples...
+
+
+#### Encadrés informatifs: les callouts
+
+* Il s'agit d'un élément propre à Quarto (non implémenté dans Rmarkdown).  
+
+* C'est une zône de texte sous forme d'encadré avec un bord coloré et un icone selon le type d'information :  **note/info**, **tips/success**, **warning**, **important**, **danger**.
+
+* Pour générer cette mise en page, sans plus d'option, on utilise la classe `{.callout-nom_type}`: 
+  * `{.callout-note}`, `{.callout-warning}`
+  * Plusieurs options: `{.callout-warning option}`
+  * Si aucune option, on peut également appeler l'encadré directement avec: **`::: callout-type`**
+
+* On peut mettre un titre à l'encadré (@sec-titre):
+  * Mettre le titre sur la première ligne du texte de l'encadré.
+  * Penser à baisser le niveau du titre par rapport à celui de la section.
+
+Encadré d'avertissement :
+
+```{.mf}
+::: {.callout-warning}
+Attention si vous faites ça, vous allez avoir des problèmes.
+:::
+```
+
+Ce qui donne : 
+
+::: callout-warning
+Attention si vous faites ça, vous allez avoir des problèmes.
+:::
+
+Avec `callout-note` (information):
+
+```{.mf}
+::: callout-note
+Les **callouts** ne sont pas implémentés dans Rmarkdown
+:::
+```
+
+Ce qui donne: 
+
+::: callout-note
+Les **callout** ne sont pas implémentés dans Rmarkdown.
+:::
+
+**Ajouter des options**:
+
+* Il y a plusieurs options associées à ces encadrés comme retirer l'icône, étendre le contenu lorsque celui est trop long, ......
+* Quelques options:
+  * **`collapse= true`** [seulement format html]: si le contenu est trop long, permet de l'afficher à la volée. Penser à mettre un titre à l'encadré.
+  * **`appareance`**: simple ou minimale.
+    * simple: pas d'icône et couleur faiblement saturé sur le titre.
+    * minimale: pas d'icône et pas de couleur sur le titre.
+  * **`icon= false`**  
+
+::: {.callout-tip collapse=true}
+##### Collapse
+`::: {.callout-tip collapse=true}`
+:::
+
+::: callout-tip
+##### Apparence par défaut
+`::: callout-tip`
+:::
+
+::: {.callout-tip appareance=simple}
+##### Apparence simple
+`::: {.callout-tip appearance=simple}`
+:::
+
+::: {.callout-tip appearance=minimal}
+##### Apparence minimale
+`::: {.callout-tip appearance=minimal}`
+:::
+
+
+::: {.callout-tip icon=false}
+##### Supprimer l'icône
+
+* Dans la section div: `::: {.callout-tip icon=false}`
+* Dans le yaml/header du qmd: `callout-icon: false`
+  * On peut refaire apparaitre l'icône dans les callout individuellement.
+:::
+
+#### Multicolonnes {#sec-column}
+
+* Imbrication de plusieurs balises :
+  * Deux types de balises: 
+    * On déclare une édition en plusieurs colonnes: **`{.columns}`**
+    * On génère chaque colonne: **`{.columns width="x%"}`**
+* Comme les balises sont liées et imbriquées,  on peut clôturer la première avec plus de **:** pour faciliter l'édition, par exemple 4: **`::: {.column}`**. 
+
+
+```{.mf}
+:::: {.columns}
+
+::: {.column width="50%"}
+* Texte de la colonne de gauche 
+* Largeur: 
+  * 50% de la page avec l'option `width=50%`
+:::
+
+::: {.column width="50%"}
+* Texte de la colonne de droite
+  * 50% de la page avec l'option `width=50%`
+* Largeur: 
+:::
+
+::::
+```
+
+
+Ce qui donne : 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+* Texte de la colonne de gauche   
+* Largeur : 
+* 50% de la page avec l'option `width=50%`  
+
+:::
+
+::: {.column width="50%"} 
+
+* Texte de la colonne de droite    
+* Largeur : 
+* 50% de la page avec l'option `width=50%`  
+
+:::
+::::
+
+::: callout-tip
+On peut mettre une colonne vide pour créer une marge entre les colonnes textes
+
+```{.mf}
+:::: {.columns}
+
+::: {.column width="47.5%"}
+* Texte de la colonne de gauche   
+* Largeur : 
+* 50% de la page avec l'option `width=50%`  
+
+:::
+
+::: {.column width="10%"} 
+:::
+
+::: {.column width="47.5%"} 
+
+* Texte de la colonne de droite    
+* Largeur : 
+* 50% de la page avec l'option `width=50%`  
+
+:::
+::::
+```
+
+:::
+
+
+### Formatage du texte
+
+* A mon sens moins utile, le markdown gérant l'essentiel du formatage de texte. Je passe donc brièvement dessus.
+* Demande quelques connaissances en CSS. Tous ces éléments sont bien documentés sur internet.
+
+* Syntaxe: **`[texte à modifier]{style css affecté au texte}`**.
+
+```{.mf}
+On veut mettre le mot [texte]{style="color:red"} rouge. 
+```
+
+On veut mettre le mot [texte]{style="color:red"} en rouge. 
+
+On peut bien évidemment utiliser une classe CSS prédéfinie. Par exemple avec la classe **`.border`**:
+
+```{.mf}
+On veut mettre le mot [texte]{.border} avec un contour. 
+```
+
+On veut mettre le mot [texte]{.border} avec un contour. 
+
+
+### Shortcodes d'insertion {#sec-shortcode}
+
+Syntaxe: **`{{{< type_shorcode options >}}}`**
+
+
+Quelques exemples.
+
+
+#### Sauts de page 
+
+Une des très bonnes implémentation de Quarto (min v1.3). On a la possibilité quel que soit soit le format de sortie d'indiquer un saut de page. Pour le format html permet d'insérer des sauts de page si le document doit être imprimer. 
+
+Le shortcode est: **`{{{< pagebreak >}}}`**
+
+
+#### Insertion de video 
+On peut insérer des vidéos (Youtube, Vimeo...) avec **`{{{< video video_link option >}}}`**
+
+
+
+```{r, eval=FALSE}
+{{< video https://www.youtube.com/watch?v=VEay0IMZT8w >}} 
+```
+
+::: {.box_img}
+{{< video https://www.youtube.com/watch?v=VEay0IMZT8w >}}
+:::
+<br>
+
+On peut paramétrer le ratio ou la taille de la vidéo insérée:
+
+* Ratio avec l'option aspect-ratio (par défaut 16/9). Ici en 4/3: 
+
+```{r, eval=FALSE}
+{{< video lien_video aspect-ratio="4x3" >}}
+```
+
+
+* Taille avec `width` et `height`: 
+
+
+```{r, eval=FALSE}
+{{< video lien_video width="500" height="350" >}}
+```
+
+
+
+#### Insertion d'un autre document ou programme 
+
+***Insertion d'un document***
+
+* On peut également insérer directement un document ou des lignes de codes issues d'un autre fichier:  
+  * **`{{{< include nom_fichier >}}}`** 
+
+* Exemple: on veut insérer directement le code source d'un fichier appelé *include.qmd.* Il pourrait, par exemple, être  utilisé dans plusieurs formats d'une même documentation (article et présentation):
+  * **`{{{< include files/include.qmd >}}}`**. 
+
+
+Code source du fichier que l'on veut insérer:
+
+::: {.center}
+![Fichier .qmd inséré](img1/include_qmd.png)
+:::
+
+Le résultat après l'inclusion:
+
+{{< include files/include.qmd >}}
+
+***Insertion d'un programme***  
+
+* On a par exemple un programme R enregistré dans un fichier.
+* On peut l'exécuter directement sans insérer directement le programme dans un bloc de code (voir chapitre dédié aux blocs de code): 
+  * **`{{{< include nom_programme.R >}}}`**
+
+
+* On a enregistré le script assez long **_include_prog.R** dans le répertoire files:
+
+```{r}
+#| eval: false
+#| code-fold: true
+
+library(dplyr)
+library(ggplot2)
+
+df <- read.csv("fecondite_ggp.csv")
+df = df %>% mutate_if(is.character,as.factor)
+
+tmp <- df %>%
+  mutate(pays2=pays)   
+
+ggplot(tmp) +
+  aes(x = year, y = y) +
+  geom_line( data=tmp %>% dplyr::select(-pays), aes(group=pays2), color="grey", lwd=0.1) +    
+  geom_line(colour = "#C24168", lwd=1.4) +
+  labs(title = "Taux de fécondité") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),  
+        panel.grid.minor.y = element_blank()) + 
+  labs(x = "Années", 
+       y = "ICF", 
+       title = "Indices conjoncturels de fécondité par pays de 1950 à 2022", 
+       caption = "Source: GGP - Datalab Ined",) +
+  scale_x_continuous(guide = guide_axis(n.dodge = 2), breaks=seq(1950,2020, 10)) + 
+  scale_y_continuous(breaks=seq(0,6,1)) +
+  facet_wrap(vars(pays), ncol = 4L)
+
+```
+
+
+* On peut l'exécuter directement avec le shortcode `include` sans l'insérer explicitement dans le fichier .qmd:  
+
+![](img1/include.png)
+
+Dans le document le graphique sera affiché: 
+
+```{r, echo=FALSE}
+#| warning: false
+
+{{< include files/_include_prog.R >}}
+
+```
+
+

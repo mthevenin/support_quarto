@@ -1,0 +1,62 @@
+---
+title: "Demo Code tools"
+
+format: 
+  html: 
+    code-tools: true
+    code-fold:  true
+    code-link:  true
+self-contained: true
+---
+
+
+```{.mf filename="Dans le yaml"}
+format: 
+  html: 
+    code-tools: true
+    code-fold:  true
+    code-link:  true
+```
+
+* **`code-tools`**: true + code-fold:true
+  * Affiche le code source du fichier .qmd
+  * Affiche/Cache tous les blocs de codes. On peut à la volée les Cacher/Afficher individuellement.
+
+
+```{r}
+1+1
+```
+
+
+## **Code annotation**
+
+```{{r}}
+data("mtcars")          #<1>
+x <- mtcars$wt          #<2>
+y <- mtcars$mpg         #<2>
+plot(x, y)              #<3> 
+```
+
+
+```{r}
+data("mtcars")          #<1>
+x <- mtcars$wt          #<2>
+y <- mtcars$mpg         #<2>
+plot(x, y)              #<3> 
+```
+
+1. J'ouvre la base mtcars.
+2. Je récupère les variables wt (x) et mpg (y).
+3. J'exécute un scatter plot.
+
+
+## **`code-link`**
+
+* Passer sur les fonctions du bloc et ouvrir la documentation lorsqu'elles sont soulignée.
+
+```{r}
+library(ggplot2)
+ggplot(mpg, aes(displ, hwy, colour = class)) + 
+  geom_point()
+```
+

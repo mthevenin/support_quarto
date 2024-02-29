@@ -1,0 +1,149 @@
+---
+fig-cap-location: top
+---
+
+# Quarto et Rmarkdown
+
+
+## Rappel sur la composition des documents
+
+Un document de type html (format par défaut) est composé de deux parties^[C'est la même structuration en Latex].   
+
+* Le **corps du document**: le **body** [ balise html <body>]. Trivialement obligatoire si on a quelque chose à écrire. 
+
+* Les **métadonnées**: le **header** [balise html <head>]. Optionnel, mais comporte toute une série d'options allant du titre, date, activation d'une table des matières,..., aux options d'exécution des programmes ou de compilation du document. Il prend ici le nom de **YAML**.  Ces métadonnées peuvent se trouver dans un fichier de configuration externe dont le type est **`.yml`**.
+
+
+## Principales différences 
+
+**Indépendance par rapport à R**   
+
+* Quarto étant un logiciel, il est indépendant de R mais également de RStudio. Si le passage de Rmarkdown à Quarto se fait naturellement du côté de R, c'est le public Python qui est la principale cible de ce nouvel outil. En conséquences: 
+  * Quarto peut pleinement s'utiliser avec d'autres interfaces comme **VSCode** ou **Jupyterlab**.
+  * Exécution directe des programmes via les noyaux Jupyter de Python, Julia mais aussi Stata^[Avec le noyau Jupyter [[**nbstata**]](https://github.com/hugetim/nbstata)]. 
+
+**Qualité des outputs**     
+
+* Amélioration des rendus des documents:
+  - Calage sur les normes html actuelles (html5).
+  - Documents en PDF de très grande qualité..... mais avec des durées de compilation particulièrement long. 
+
+**Compilation multiformats**     
+
+On peut simultanément produire un output en plusieurs formats (html, pdf, docx...) tout en gérant leur spécificité code source spécifique avec contenu dit **conditionnel**: éléments pour un contenu dynamique (html), élements pour un contenu statique (pdf, docs).
+
+
+**Vocabulaire des éléments de configuration/métadonnées (yaml)**    
+
+Même si pour la configuration d'un document ou d'un projet des options supplémentaires ont été ajoutées afin d'améliorer la mise en page des documents, la gestion des blocs de codes ou la gestion de la compilation, les différences ne sont pas si nombreuses que cela par rapport à la dernière version de Rmarkdown. 
+
+C'est surtout dans certains éléments de vocabulaire que certaines modifications seront les plus visibles lors de la transformation d'un document ou d'un projet Rmarkdown existant en Quarto.  
+
+Deux exemples: 
+
+* Pour indiquer le format du document, l'option **`output:`** est remplacée par l'option **`format:`**.
+* Le fichier de configuration d'un projet s'appelle maintenant **`_quarto.yml`** au lieu de **_site.yml**.
+
+
+**La durée de compilation en html et fichiers des outputs**  
+
+La durée de compilation d'un fichier .qmd est plus longue que pour Rmarkdown. Quarto embarque plus de fonctionnalités ce qui se traduit par un poids des documents bien plus élevé. 
+
+A ce stade une grosse différence apparaît. Un output html Rmarkdown ne comporte qu'un seul fichier (**`nom-fichier.html`**) alors que pour Quarto un répertoire supplémentaire, appelé **nom-fichier_libs** est généré.  Celui ci comporte tous les éléments de mise en forme du document sous forme de fichiers **css**,  **js**... Lors d'une transmission par mail, ce repértoire devra également être ajouté, à moins d'indiquer dans une option que l'on souhaite générer un fichier html unique pour l'output. Ceci est réalisé  dans la configuration du document avec une option spécifique: **`self-contained: true` ou "`embed-resources:true`**. 
+
+
+::: {.columns}
+::: {.column width="42.5%"}
+**Rmarkdown: un seul fichier html en output** 
+
+```{.mf}
+---
+title: "XXXXX"
+output: html
+---
+```
+:::
+::: {.column width="5%"} 
+:::
+::: {.column width="42.5%"}
+**Quarto: un seul fichier html en output**   
+
+```{.mf}
+---
+title: "XXXXX"
+format: html
+embed-resources: true
+---
+```
+:::
+:::
+
+
+## Passer de Rmarkdown à Quarto
+
+### Compilation du fichier
+
+* Rstudio: le bouton **Render** remplace le bouton **Knitr**, ce dernier étant réservé à l'exécutio   de scripts R. Pour les autres moteurs (Python, Julia, Stata) c'est le notebook Jupyter qui exécute les scripts de programmation. 
+
+* R: un package `quarto`  permet comme Rmarkdown de compiler les fichiers via la console. Il me semble très accessoire
+
+* Quarto incite à travailler en mode projet et à utiliser le terminal^[Astuce très utile: click droit pour coller `Ctrl+v` ne fonctionne pas]. Quelques lignes de codes relativement simple permettent de gérer la compilation. Le répertoire racine est celui du projet: 
+  * `quarto render` compile l'ensemble des fichiers .qmd d'un projet (par défaut en html).
+  * `quarto render --to pdf` l'ensemble des fichiers .qmd en pdf.
+
+Hors projet, il est possible de compiler un fichier dans le terminal en indiquant l'emplacement du fichier `absolute_path/quarto render nom.qmd`.
+
+###  Convertir un fichier .rmd en .qmd
+
+Pour un document très simple, on peut convertir un fichier `.rmd` en `.qmd` par un simple changement du type de fichier. 
+
+::: {.columns}  
+::: {.column width="42.5%"}  
+
+![Document rmd sans l'option output](img1/img1.png){group=g1}
+:::
+
+::: {.column width="5%"} 
+:::
+
+::: {.column width="42.5%"}
+::: {.box_img} 
+![Rendu html](img1/img2.png)
+:::
+::: 
+::: 
+
+<br>
+Si on prend ce même document, sans l'option `output` et sans le script `r setup`, et qu'on l'enregistre en Quarto (.qmd):
+
+
+::: {.columns}
+
+::: {.column width="42.5%"} 
+
+![Document qmd sans l'option output](img1/img3.png){group=g1}
+:::
+
+::: {.column width="5%"}  
+::: 
+
+::: {.column width="42.5%"} 
+::: {.box_img} 
+![Rendu html](img1/img4.png){group=g1}
+:::
+:::
+:::
+
+
+## Doit-on définitivement abandonner Rmarkdown ????
+
+**Non!**
+
+Quarto offre de nouvelles possibilités certes mais il n'est pas encore 100% stable^[Février 2024: mais cela s'améliore de version en version]. Si on est moins regardant sur les questions de forme et d'esthétique des outputs, si l'utilisation de Rmarkdown s'arrête à la production de notebook simples en format html, le package reste une excellente solution, en particulier sous sa dernière version. La compilation est plus rapide et les documents pèsent bien moins lourd.
+
+Mode visual, options des blocs de codes directement dans le corp du programme, nouveau balisage css remplaçant les balises  <div> ou <span> ... sont également intégrés dans les dernières versions de Rmarkdown. 
+
+
+
+
+

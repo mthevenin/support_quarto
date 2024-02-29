@@ -1,0 +1,478 @@
+
+# Website
+
+* Pour le détail complet des options se référer à la doc de Quarto:  
+  * <https://quarto.org/docs/websites/>
+  * <https://quarto.org/docs/websites/website-navigation.html>
+  * <https://quarto.org/docs/reference/projects/websites.html>
+* On ne traitera ici que les éléments relatifs à la navigation du site.
+
+## Le squelette de site généré automatiquement
+
+On va partir du site généré par Quarto en créant un project (**Files** {{< fa solid arrow-right >}} **New project** {{< fa solid arrow-right >}} **New directory** {{< fa solid arrow-right >}} **Quarto website**).
+ 
+Les fichiers générés:
+
+* Un fichier de configuration  **`quarto.yaml`**
+* Deux fichiers .qmd:
+  - **`index.qmd`**. Ce fichier est obligatoire, c'est la page d'accueil du site.
+  - **`about.qmd`**. Un fichier additionnel de contenu.
+  
+A la première compilation, le nom du site est celui donné au projet. Le rendu est le suivant:
+
+
+::: {layout="[50,-1,50]"}
+::: {.box_img}
+![Accueil du site](img4/site1.png){group="site1"}
+:::
+::: {.box_img}
+![Page "About"](img4/site2.png){group="site1"}
+:::
+:::
+
+<br>
+
+Le fichier _quarto.yaml généré automatiquement comporte les éléments suivants: 
+
+```{.yaml}
+ project:
+  type: website
+
+website:
+  title: "website"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+```
+
+
+* Le type du projet (`website`)
+
+```{.yaml}
+ project:
+  type: website
+```
+
+Par défaut, le dossier de destination de l'output sera dans un répértoire généré avec le nom **_site**. On peut le changer pour un déploiement sur Gitlab ou github: **puclic** ou **docs**. Par exemple pour gitlab:
+
+```{.yaml}
+ project:
+  type: website
+  output-dir: public
+```
+
+* Configuration du website: option **`website`**.
+
+```{.yaml}
+website:
+  title: "website"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+```
+
+* Le titre du site **`title: "website"`** intègre un lien quipermet de revenir à la page d'accueil du site, ici le fichier **index.qmd**.  
+
+* Les éléments entrant dans la barre horizontale de navigation (liens) sont listés par l'option **`navbar`**.
+
+* Position des éléments du menu: `left` ou `right`
+  * On peut utiliser les deux. Il est d'usage de positionner le contenu du site à gauche, mais on peut ajouter des éléments à droite, comme des liens (dépôt du site sur une plateforme git, présentation de l'auteur....).  Les fichiers (ou les liens externes) seront listés en dessous de `left` et `right`. Ici: 
+  
+```{.yaml}
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+```
+
+Pour la page d'accueil: 
+
+* On indique le nom du fichier: **`href: index.qmd`** 
+  * On peut également utiliser pour les fichiers internes `url:` ou `file:`.
+* On peut renseigner le nom qui apparaîtra dans le menu: `text: Home` ou `text: "Home"` (préferer la deuxième solution en raison des espaces).
+* On peut mettre le nom avant le lien:
+
+```{.yaml}
+    left:
+      - text: "Home"
+        href: index.qmd
+      - about.qmd
+```
+
+Pour le fichier **about.qmd** il n'y a pas de nom explicité alors que dans le menu, le nom du lien est **About**. Si on explicite pas dans _quarto.yml le nom du lien, c'est le titre apparaissant dans le fichier .qmd qui sera utilisé. Dans le yaml du fichier **about.qmd**:
+
+```{.yaml}
+---
+title: "About"
+---
+```
+
+Si on ne renseigne pas de nom du lien dans le fichier .qmd également, dans le menu le nom reporté sera celui de l'output, ici **quarto.html**.
+
+* Les autres options: dans le fichier **_quarto.yaml**, on trouve les options liées à **`format`**: le thème et la présence d'une table des matières qui s'appliquera à l'ensemble des fichiers .qmd (elle pourra être retiré au cas par cas dans dans le yaml d'un fichier avec **`toc: false`**).  
+
+```{.yaml}
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+```
+
+
+## Premières modifications
+
+* Positionner le fichier about à droite et ajouter un lien vers le site officiel de Quarto (yaml):
+
+```{.yaml filename="quarto.yml à droite de la navbar"}
+    right:
+      - text: "About"
+        href: about.qmd
+      - text: "Site officiel Quarto"
+        href: "https://quarto.org/docs/websites/"
+```
+
+
+* Modifier l'index:
+  * Comme la page d'accueil est déjà directement accessible via le titre du site, on ne va pas faire apparaître de nouveau ce lien dans la barre de navigation.
+  * On change le corps du texte de l'index dont ajout des **_quarto.yml** d'origine et modifiés).
+
+```{.yaml filename="quarto.yml"}
+    left:
+      - text: " "
+        href: index.qmd
+```
+
+
+```{.yaml filename="yaml de index.qmd"}
+---
+# On peut supprimer directement la balise du yaml si aucune autre option spécifique
+title: ""
+
+# On peut vouloir supprimer la toc pour une page d'accueil
+toc: false
+---
+```
+
+
+<br>
+<center>
+::: {.box_img}
+![](img4/site3.png){width="70%" group="site1"}
+:::
+</center>
+<br>
+
+* Ajout des fichiers du support de ce chapitre du support:
+  * Introduction (sauf la fin sur l'icone gitlab).
+  * Website.
+  * Book.
+  * Blog.
+
+```{.yaml filename="quarto.yml, à gauche de la navbar"}
+    left:
+      - text: " "
+        href: index.qmd
+      - text: "Introduction"
+        href: introduction.qmd
+      - text: "Site"
+        href: site.qmd
+      - text: "Book"
+        href: book.qmd
+      - text: "Blog"
+        href: blog.qmd 
+```
+
+
+<br>
+
+::: {layout="[50,-1,50]" layout-valign="bottom"}
+::: {.box_img}
+![La page d'accueil](img4/site4.png){group="site1"}
+:::
+
+::: {.box_img}
+![La page site](img4/site5.png){group="site1"}
+:::
+:::
+
+<br>
+
+  
+* Quelques options supplémentaires:
+  * Activation de l'option lightbox: `freeze: true`
+  * Le français pour les titres: `lang: fr`
+  * Option `freeze` (@sec-freeze).
+  * Changement du répertoire de destination: `output_dir: public`.
+  * Très optionnel, un petit élément de style dans le fichier **style.css** pour le contour des images.
+
+
+```{.mf filename="quarto.yml"}
+project:
+  type: website
+  output-dir: public
+
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+    toc: true
+
+execute: 
+  freeze: auto
+lightbox: true
+lang: fr
+```
+
+
+::: {layout="[50,-1,50]" layout-valign="bottom"}
+::: {.box_img}
+![Site modifié](img4/site6.png){group="site1"}
+:::
+
+::: {.box_img}
+![Du site d'origine au site modifié](img4/video1.gif){group="site1"}
+:::
+:::
+
+<br>
+
+::: {.callout-note   collapse=true}
+
+### Le fichier **`_quarto.yml`** modifié:
+
+```{.yaml filename="quarto.yml"}
+
+project:
+  type: website
+  output-dir: public
+
+website:
+  title: "website Quarto"
+  navbar:
+    left:
+      - text: " "
+        href: index.qmd
+      - text: "Introduction"
+        href: introduction.qmd
+      - text: "Site"
+        href: site.qmd
+      - text: "Book"
+        href: book.qmd
+      - text: "Blog"
+        href: blog.qmd 
+    right:
+      - text: "About"
+        href: about.qmd
+      - text: "Site officiel Quarto"
+        href: "https://quarto.org/docs/websites/"
+
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+    toc: true
+
+execute: 
+  freeze: auto
+lightbox: true
+lang: fr
+```
+
+:::
+
+## Ajout d'un menu sous forme de liste dans la barre de navigation
+
+Comme dans Rmarkdown on peut ajouter un menu sous forme de liste verticale.
+
+Dans la liste des liens de la barre de navigation avec l'option **`menu`**: 
+
+```{.yaml}
+      - text: "nom menu"
+        menu: 
+          - text: "nom page1"
+            href: page1.qmd   
+          - text: "nom page2"
+            href: page2.qmd  
+          - text: "nom page2"
+            href: page2.qmd  
+```            
+            
+Pour cette exemple, on va conserver un accès direct à la page "Introduction" et lister les 3 types de projet dans une fenêtre.
+
+```{.yaml}
+      - text: "Introduction"
+        href: introduction.qmd
+      - text: "Website - Book - Blog"
+        menu: 
+          - text: "Website"
+            href: site.qmd   
+          - text: "Book"
+            href: book.qmd  
+          - text: "Blog"
+            href: blog.qmd  
+``` 
+
+::: {layout="[50,-1,50]" layout-valign="bottom"}
+::: {.box_img}
+![Avant l'ouverture du menu](img4/site7.png){group="site1"}
+:::
+
+::: {.box_img}
+![Menu ouvert](img4/site8.png){group="site1"}
+:::
+:::
+
+<br>
+
+
+
+## Ajout d'une sidebar avec un menu
+
+* On peut ajout un menu vertical dans la partie gauche du grid. Les éléments introduits dans cette partie du site sont introduits par l'option **`sidebar`**. Par rapport à la barre horizontale, elle n'est pas contraignante dans la profondeur des sous menus ou section.
+
+* Les fichiers .qmd sont lisrtés sous l'option **`contents`**.
+ 
+```{.yaml}
+website:
+  navbar
+    <éléments de la navbar>
+  sidebar:
+    contents: 
+    - text: "Nom page1"
+      href: page1.qmd
+    - text: "Nom page2"
+      href: page2.qmd    
+    - text: "Nom page3"
+      href: page3.qmd  
+``` 
+
+Pour regrouper des pages dans un sous menu on liste les fichiers après avoir renseigné l'option **`section`**.
+
+```{.yaml}
+website:
+  navbar
+    <éléments de la navbar>
+  sidebar:
+    contents: 
+    - text: "Nom page1"
+      href: page1.qmd
+    - section: "Nom section"
+      contents:
+      - text: "Nom page2"
+        href: page2.qmd    
+     - text: "Nom page3"
+       href: page3.qmd  
+``` 
+
+Pour faciliter la lecture du menu on peut ajouter entre les sections une ligne horizontale: **`- text: "---"`**
+
+
+```{.yaml}
+website:
+
+  sidebar:
+    contents: 
+    - text: "Introduction"
+      href: Introduction.qmd
+    - text: "---"
+    - section: "Website - Book - Blog"
+      contents:
+      - text: "Website"
+        href: site.qmd    
+     - text: "Book"
+       href: book.qmd  
+     - text: "Blog"
+       href: blog.qmd  
+``` 
+
+
+::: {layout="[50,50]" layout-valign="bottom"}
+::: {.box_img}
+![Avant l'ouverture du menu](img4/site9.png){group="site1"}
+:::
+
+::: {.box_img}
+![Menu ouvert](img4/site10.png){group="site1"}
+:::
+:::
+
+<br>
+
+::: {.callout-note  collapse=true}
+
+### Le fichier **`_quarto.yml`** final:
+
+```{.yaml}
+project:
+  type: website
+  output-dir: public
+
+website:
+  title: "website Quarto"
+  navbar:
+    left:
+      - text: " "
+        href: index.qmd
+      - text: "Introduction"
+        href: introduction.qmd
+      - text: "Website - Book - Blog"
+        menu: 
+          - text: "Website"
+            href: site.qmd   
+          - text: "Book"
+            href: book.qmd  
+          - text: "Blog"
+            href: blog.qmd  
+    right:
+      - text: "About"
+        href: about.qmd
+      - text: "Site officiel Quarto"
+        href: "https://quarto.org/docs/websites/"
+
+  sidebar:
+    contents: 
+    - text: "Introduction"
+      href: introduction.qmd
+    - text: "---"
+    - section: "Website - Book - Blog"
+      contents:
+      - text: "Website"
+        href: site.qmd    
+      - text: "Book"
+        href: book.qmd  
+      - text: "Blog"
+        href: blog.qmd 
+
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+    toc: true
+
+execute: 
+  freeze: auto
+lightbox: true
+lang: fr
+```
+:::
+
+
+
+
+
+
+
+
+
+

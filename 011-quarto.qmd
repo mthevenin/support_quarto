@@ -1,0 +1,164 @@
+
+# Installation Quarto et gestion des fichiers
+
+
+
+## Installation et mise à jour de Quarto
+
+* Depuis juillet 2022, Quarto est installé automatiquement à RStudio. 
+* Les mises à jour de Quarto se font directement sur le [site officiel](https://quarto.org/docs/get-started/).
+
+Après cela aucune opération d'installation ou de désinstallation n'est nécessaire: ce n'est pas un package, mais un logiciel à part entière exécutable dans une interface. 
+
+* Depuis le site officiel, il est possible de: 
+  - Installer la version courante de Quarto si la version de Rstudio n'a pas été encore mise à jour.
+  - Réinstaller une version antérieure si la version courante à été désinstaller.
+  - Installer une pre-release. Cela n'est pas conseillé. 
+  
+::: {.center}  
+::: {layout="[15,-2,15]" layout-valign="bottom"}
+::: {.box_img}
+![<https://quarto.org/docs/get-started/>](img1/c12.png){group="g1"}
+:::
+
+::: {.box_img}
+![<https://quarto.org/docs/download/>](img1/c13.png){group="g1"}
+::: 
+:::
+:::
+
+<br>
+
+* La désinstallation de quarto est effectuée via une application dédié: outil d'installation/désinstallation de l'OS, **ccleaner**...   
+
+
+## Autres installations
+
+### Le package R de quarto
+
+* Le package R Quarto^[Nécessite une version `Rtools` relativement à jour: min v4]  permet de faire quelques opérations à partir de la console R: vérification de la version de Quarto installée, compilation d'un document... Quarto étant un logiciel, son installation est plutôt accessoire.
+
+```mf
+install.packages("quarto")
+library(quarto)
+```
+
+```{r filename="Verifier la version de Quarto"}
+#| warning: false
+
+library(quarto)
+quarto_version()
+```
+
+```{md filename="Compiler un fichier Quarto à partir de la console"}
+quarto::quarto_render("filename.qmd")
+```
+
+
+### Tinytex
+
+Pour les sorties en format PDF, dont les présentations en format **beamer**, installer un compilateur Latex comme **`tinytex`** (recommandé).
+
+**Méthode 1**  
+
+* Installation du package via la console R
+
+```{r filename="Installation R console"}
+#| echo: true
+#| eval: false 
+
+install.packages("tinytex")
+```
+
+**Méthode 2**    
+
+Dans le terminal (recommandé): 
+
+```{r filename="Installation recommandée: terminal"}
+#| echo: true
+#| eval: false 
+
+# Click droit pour coller dans le terminal
+quarto install tinytex
+```
+
+* Pour vérifier la version de tinytex, dans le terminal: `quarto list tools`
+* Pour en savoir plus sur les moteurs PDF: [[documentation Quarto]](https://quarto.org/docs/output-formats/pdf-engine.html)
+
+
+## Création d'un fichier `qmd`
+
+Lorsque Quarto est installé, le menu **file** de RStudio ajoute deux options supplémentaires au sous menu **new file**: ***Quarto document***, **Quarto presentation**.
+
+* **Quarto document**: 
+  * Notebook, article: [Exemple](https://quarto-dev.github.io/quarto-gallery/page-layout/tufte.html). 
+  * Documents intéractifs: 
+    * Shiny: [Exemple](https://quarto.org/docs/interactive/ojs/examples/penguins.html).
+    * Observable [Exemple](https://jjallaire.shinyapps.io/diamonds-explorer/).
+    * A partir de la version 1.4, un Dashboard (https://quarto.org/docs/dashboards/). 
+
+* **Quarto presentation**: 
+  * Revealjs (javascript): [Exemple](https://quarto.org/docs/presentations/revealjs/demo/#/title-slide).
+  * Beamer (Latex): [Exemple](https://quarto-dev.github.io/quarto-gallery/presentations/beamer/beamer.pdf).
+  * Powerpoint (windows ou libre office) [Exemple ](https://github.com/quarto-dev/quarto-gallery/blob/main/presentations/powerpoint/powerpoint.pptx).
+
+
+* **A l'ouverture**: 
+  - un fichier .qmd minimal avec quelques éléments de texte formatés en markdown ainsi qu'un bloc de codes exécutable est créé. Selon les options renseignées dans la fenêtre de création, il comporte un *Header* (**yaml**) avec par exemple un titre, un nom, un format.
+
+
+## Création d'un projet 
+
+**Projets website, book, blog**:  
+Pour les documents avec des structures enrichies, la création se fait via un projet: **new project=> new directory**: **Quarto website**, **Quarto book**, **Quarto blog** et depuis janvier 2024 (v1.4) un projet **Quarto manuscript**.
+
+::: callout-note
+Le projet de type **manuscript** sera traité dans une version ultérieure du suppport
+:::
+
+::: {.center}
+::: {.box_img}
+![](img1/c11.png){width=70%}
+:::
+:::
+
+<br>
+
+* **Quarto website**: [Exemple...sans surprise](https://quarto.org/)
+* **Quarto book**:    [Exemple](https://mthevenin.github.io/analyse_duree/)
+* **Quarto blog**:    [Exemple](https://mthevenin.github.io/assistoolsms/)
+* **Quarto manuscript**: [Exemple](https://quarto-ext.github.io/manuscript-template-jupyter/)
+
+
+* **A l'ouverture**:  
+  - Un ou plusieurs fichiers `.qmd`. Pour les blogs, dont le contenu est organisé sous forme d'articles, des sous répertoires avec deux exemples d'articles (.qmd).
+  - Un fichier de configuration `_quarto.yaml` minimal propre au contenu.
+  - Un fichier .Rproj.
+
+
+::: callout-important
+### Privilégier l'ouverture du fichier **.Rproj**
+
+Pour travailler sur les fichiers associés à un projet, pensez à toujours ouvrir le fichier **nom_projet.Rproj** et non des fichiers individuels:   
+
+* Dans le terminal le dossier racine se positionnera sur celui du projet.
+* Dans la fenêtre **files** de RStudio, on peut accédere directements à l'ensemble des fichiers du projet.
+
+:::
+
+
+**Remarques**  
+
+***Multicontenu***:
+
+On peut monter relativement rapidement un contenu de type blog à l'intérieur d'un projet de type website. C'est ce que j'ai fait par exemple sur ce support Stata  [[lien]](https://mthevenin.github.io/stata_fr/).     
+A l'absolu, une même documentation peut simultanément comporter tous ces types de contenu. Ce support est à la fois un *book* avec un chapitrage dans la barre verticale à gauche (*sidebar*) et un *website* avec des éléments de navigation dans une barre horizontale en haut (*navbar*). Et on pourrait sans problème y ajouter un contenu blog dans la page d'accueil si le type de projet avaient été un *website* plutôt qu'un *book*. 
+
+***Déploiement sur une plateforme git***:  
+
+Si on souhaite déployer sa documentation sur une plateforme git comme gitlab ou github, ont doit créer un projet pour effectuer les opérations de synchronisation en le repertoire local et le répertoire distant (*remote)*: 
+
+* **New project** => **Version control** => **Git**
+  * On peut produire dans un premier temps sa documentation dans un projet dédié, puis reverser les fichiers sources dans un projet git.
+  * Après avoir créer un répertoire distant dans une plateforme git, on clone le répertoire disant, et générer directement sa documentation dans ce projet. Je recommander plutôt cette méthode. 
+  

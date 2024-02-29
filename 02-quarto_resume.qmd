@@ -1,0 +1,51 @@
+
+
+# Les + et les - de Quarto
+ 
+## Les gros plus
+
+::: {.box_img}
+ 
+* Alors que **Rmarkdown** n'est utilisable qu'avec l'IDE^[Integrated Development Environment] RStudio, Quarto est pleinement ouvert à d'autres interfaces comme **VSCode** ou **Jupyterlab**.
+
+* Quarto est donc un logiciel et non plus un package comme Rmarkdown.
+
+*  Les moteurs **Python** et **Julia** sont directement intégrés. Via la compilation du code avec **Jupyter** qui s'ajoute à celle effectuée par **knitr** [[lien]](https://raw.githubusercontent.com/asa-quarto/website-nebraska/main/4-websites/images/horst_qmd_render_schema.png), possibilité d'intégrer d'autres applications statistiques disposant d'un noyau sur ce notebook. C'est le cas de Stata grâce au noyau **nbstata**.
+
+* En adéquation avec les normes HTML actuelles, avec vraiment plus de possibilités. 
+
+* Rendu au format pdf de très bonne qualité.
+
+* Les présentations en mode revealjs.
+
+* On peut maintenant se passer presque complètement du HTML brut ou du Latex.
+
+* Incite à l'utilisation du terminal pour gérer la compilation des documents avec une série de lignes de commande très simples.
+
+* Plus de possibilités en terme de configuration avec une utilisation plus poussé des éléments entrant dans le **yaml**^[Yet an Another Markup Language... ou pas] d'un document ou dans un fichier de configuration (**_quarto.yaml**).
+
+* Option qui permet un accès direct aux code source des documents, ce qui facilite l'apprentissage tiers et le partage: cliquer par exemple en haut à droite de cette page d'accueil sur **</> Code**.
+
+* Des extensions externes, qui s'installent facilement. Certaines ont été intégrées au logiciel comme **lightbox** pour le format html. 
+
+* Customisation des rendus HTML, dont le thème bootstrap, facilité avec un fichier **.scss** (variables Sass) qui peut se substituer totalement ou partiellement au fichier **.css** .
+:::
+
+<br>
+
+
+## Les quelques moins
+
+On va vraiment chipoter.
+
+::: {.box_img}  
+
+* Durée de compilation bien plus longue qu'avec Rmarkdown.
+
+* En terme de stockage tout *pèse plus lourd*. 
+
+* On constate (encore) une certaine versatilité: *Ca marche et ça marche plus* et sans savoir vraiment pourquoi. L'outil est donc toujours en phase active de debogage....mais on remarque une stabilisation de plus en plus grandissante avec les versions les plus récentes. 
+
+* Bien que très optionnels, certains outils sont réservés exclusivement pour un déploiement de la documentation sur Github, ce qui est bien dommage. A titre d'exemple, l'icône Gitlab issu de la librarie ***fontawesome*** n'est pas directement disponible.
+
+:::

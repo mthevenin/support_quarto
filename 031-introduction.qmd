@@ -1,0 +1,225 @@
+
+# Introduction aux formats
+
+
+::: callout-note
+
+La **version 1.4** de Quarto (janvier 2024) ajoute deux nouveaux formats de type html:
+
+* Le format **manuscript**.
+* Le format **dashboard**.
+
+Ces nouveaux formats seront traités dans une prochaine version de ce support.
+
+:::
+
+
+## Les différents formats     
+
+**Documents simples**:   
+
+* Notebook ou article:
+  * **html**: défaut.
+  * **Pdf**:  demande le package `tinytex` sous RStudio.
+  * **Word** (ou Libre Office). 
+  * **Notebook Jupyter**. 
+
+* Présentation: 
+    * **html**: revealjs (defaut).
+    * **pdf**: beamer, demande le package `tinytex` sous RStudio.
+    * **Powerpoint** (ou Libre Office).
+
+Contenu de cette partie: 
+
+  * Options liés aux différents formats dans le yaml, certaines étant propres à un type de format et d'autres communes.
+  * Pour chaque format, présentations de quelques options ou règles propres.
+  * Compilation simultanée en plusieurs formats.
+ 
+Il n'est bien évidemment de lister l'ensemble des options. La documentation de Quarto est  complète sur ce point. 
+
+**Documentation de référence**:
+
+::: {.center}
+::: {.column width="80%"}
++-----------------------------------------+---------------------------------------------------------------------------------------+
+| Format                                  | Liens                                                                                 |
++=========================================+=======================================================================================+
+| **Html notebook/article**               | -   [Basique](https://quarto.org/docs/output-formats/html-basics.html)                |
+|                                         |                                                                                       |
+|                                         | -   [Avancé](https://quarto.org/docs/reference/formats/html.html)                     |
++-----------------------------------------+---------------------------------------------------------------------------------------+
+| **Html presentation (revealjs)**        | -   [Basique](https://quarto.org/docs/presentations/revealjs/)                        |
+|                                         |                                                                                       |
+|                                         | -   [Avancé](https://quarto.org/docs/presentations/revealjs/advanced.html)            |
+|                                         |                                                                                       |
+|                                         | -   [Gallery](https://quarto.org/docs/presentations/revealjs/demo/#/title-slide)      |
++-----------------------------------------+---------------------------------------------------------------------------------------+
+| **PDF notebook/article**                | -   [Basique](https://quarto.org/docs/output-formats/pdf-basics.html)                 |
+|                                         |                                                                                       |
+|                                         | -   [Avancé](<https://quarto.org/docs/reference/formats/pdf.html>)                    |
++-----------------------------------------+---------------------------------------------------------------------------------------+
+| **PDF presentation (beamer)**           | -   [Basique](<https://quarto.org/docs/presentations/beamer.html>)                    |
+|                                         |                                                                                       |
+|                                         | -   [Avancé](<https://quarto.org/docs/reference/formats/presentations/beamer.html>)   |
++-----------------------------------------+---------------------------------------------------------------------------------------+
+| **Office (ms - open) notebook/article** | -   [Basique](<https://quarto.org/docs/output-formats/ms-word.html>)                  |
+|                                         |                                                                                       |
+|                                         | -   [Avancé](<https://quarto.org/docs/output-formats/ms-word.html>)                   |
+|                                         |                                                                                       |
+|                                         | -   [MS template](<https://quarto.org/docs/output-formats/ms-word-templates.html>)    |
++-----------------------------------------+---------------------------------------------------------------------------------------+
+| **Office (ms - open) Powerpoint**       | -   [Basique](<https://quarto.org/docs/presentations/powerpoint.html>)                |
+|                                         |                                                                                       |
+|                                         | -   [Avancé](<https://quarto.org/docs/reference/formats/presentations/pptx.html>)     |
++-----------------------------------------+---------------------------------------------------------------------------------------+
+
+:::
+:::
+
+::: callout-important 
+### Durée de compilation pour le format pdf
+
+En raison d'une durée de compilation assez longue, il est conseillé dans un premier temps de privilégier l'output html.  
+:::
+
+## Introduction des options par format
+
+* Les options ou arguments communs, comme un titre, sont introduites comme options principale.  
+
+* Les options propres à un format sont des sous-options de l'option format qui a été spécifiée. 
+
+* Les options communes peuvent avoir des attributs différents, on les renseigne comme sous-options de chaque format.  
+
+
+### L'option `format`
+
+* Pour les notebooks ou les présentations, le format par défaut est le html. On peut le changer dès la création du document dans le menu *file*.  
+
+* L'option pour spécifier le type de document ou présentation est **`format:`**.
+
+Par exemple pour une présentation de type **beamer** (Latex/pdf):
+
+```{.yaml}
+---
+format: beamer
+---
+```
+
+ou 
+       
+```{.yaml}
+---
+format: 
+  beamer: default
+---
+```
+
+
+## Options communes et spécifiques aux formats
+
+
+### Options communes 
+
+Exemple: activation de la table des matières pour les formats html et pdf   
+
+* Option **`toc: true`**
+
+```{.yaml}
+---  
+format:
+  html: default
+  pdf: default
+
+toc: true
+
+---
+```
+
+est identique à:  
+
+```{.yaml}
+---
+format: 
+  html:
+    toc: true
+  pdf:
+    toc: true
+---
+```
+
+
+#### Options ou attributs spécifiques aux formats
+
+**Option différente** 
+
+* En sous option du format sélectionné.
+* Exemple: changement de thème pour le html (`theme: nom_theme`), report d'une table des graphiques (`lof:true`) et d'une table des tableaux pour le format pdf.
+
+```{.yaml}
+---
+format:
+  html: 
+    theme: zephyr
+  pdf:
+    lof: true
+    lot: true
+  
+toc: true        
+---
+```
+
+
+**Option commune et attributs différents**  
+
+* En sous option du format, on change les attributs de l'option commune.
+
+* Exemple pour le report du nombre de sous sections dans la table des matières. L'option commune aux deux formats est **`toc_depth: valeur`** (par défaut 3). Si on choisit 2 pour le format html et 4 pour le pdf.
+  
+```{.yaml}
+---
+format:
+  html: 
+    toc: true
+    toc_depth: 2
+  pdf:
+    toc: true
+    toc_depth: 4 
+    
+---
+```
+  
+De nouveau si l'option était commune aux deux formats, on pourrait directement la renseigner en option principale.
+
+```{.yaml}
+---
+format:
+  html: default 
+  pdf:  default
+   
+toc: true
+toc_depth: 2    
+---
+```
+  
+
+::: callout-note
+
+# ... même un titre peut être propre à chaque format
+
+
+```{.yaml}
+---
+format:
+  html: 
+    titre: "HTML"
+  pdf: 
+    titre: "PDF"  
+---
+```
+
+Le titre du document html sera  "HTML" et le titre du document pdf sera "PDF".
+
+:::
+
+
+

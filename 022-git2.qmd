@@ -1,0 +1,385 @@
+# Clonage, pull, push et branches
+
+
+## Création d'un dépôt git et son clonage
+
+Une fois la connection entre RStudio et une plateforme établie: 
+
+* Les opérations se feront toujours en mode projet.
+* La méthode la plus employées est la création du dépôt à distance.
+
+
+### Création d'un dépôt distant {#sec-glproj} 
+
+::: {.panel-tabset}
+
+### Gitlab
+
+* Se mettre sur **homepage** si nécessaire en cliquant sur l'icone gitlab {{< fa brands gitlab>}} (en haut à gauche)
+* Cliquer sur **New Project**
+  * ***Create blank project*** [pour ce chapitre]
+  * ***Create from template*** [pour le chapitre suivant] 
+  
+#### Création d'un dépôt sans utiliser de template   
+
+:::{.center}
+:::{.box_img}
+![](img2/img1.png){width=75%}
+:::
+:::
+
+<br>
+
+* Par défaut: le dépôt est en mode **private**. Il n'est visible que par les personnes collaborants au projet.
+  * Saisir un nom de dépôt.
+  * Option de l'url: 
+    * On peut choisir son nom d'avatar après `https://gitlab.com/`
+    * Par défaut le dossier terminal est le nom du dépôt saisi. On peut le changer
+  * Private/Public: 
+    * Par défaut **private**. On peut le passer en mode **public**.
+    * On peut changer ce mode quand on veut dans les paramètres du projet [voir plus loin].
+  * Garder la création d'un fichier **README.md**.
+
+::: {.center} 
+:::{.box_img} 
+![](img2/img2.png){width=75%}
+:::
+:::
+
+<br>
+
+::: {.center}
+:::{.box_img}
+![](img2/video1.gif){width=75%}
+:::
+:::
+<br>
+
+#### Changer la visibilité et supprimer un projet
+
+* Aller dans la barre verticale à gauche: **Setting** {{< fa solid arrow-right >}} **General**
+
+* Visibilité:  Passer de public à private et inversement: 
+    * Cliquer sur **expand** **Visibility, project features, permissions** {{< fa solid arrow-right >}} **Project visibility **.
+    
+* Supprimer un dépôt: Tout en bas de la page aller sur **Advanced**.  
+
+::: {.center}
+::: {.box_img}  
+![](img2/video2.gif){width=75%}
+:::
+:::
+
+::: callout-important
+
+#### Fichier .gitignore
+
+Ce fichier est important. A la création du dépôt distant, il n'est pas généré. Pas de soucis, avec Rstudio il sera automatiquement ajouté à votre répertoire local lors de la création du projet, avec déjà certains fichiers exclus des transactions entre le  local et le distant (.Rproj.user, .Rhistory, .RData, .Ruserdata).
+:::
+
+  
+### Github 
+
+* Sur la page du profil, aller sur **Repositories** et cliquer sur **New**.
+* Donner un nom au répertoire.
+* Sélectionner le type de visibilité (par défaut **Public**). On pourra changer à souhait de visibilité dans les paramètres du dépôt (Settings).
+* Sélectionner l'ajout un fichier README.md.
+* Vous pouvez ajouter un fichier .gitignore (dont un avec un template R), mais celui ci sera généré automatiquement avec la création du projet sous RStudio.
+
+::: {.center} 
+::: {.box_img} 
+![](img2/video3.gif){width=75%}
+:::
+:::
+
+:::
+
+## Clonage d'un dépôt distant dans RStudio
+
+* Les manipulations sont strictement identiques avec Gitlab et Github.
+* Le clonage du répertoire distant dans Rstudio se fera ici via protocole HTTPS.
+
+Les étapes:
+
+### Dans le répertoire distant
+
+* Dans le dépôt cliquer sur l'icône **Code** {{< fa solid turn-down >}}
+* Copier le lien du dépôt (ici via https).
+
+::: {.center} 
+::: {.box_img} 
+![](img2/img3.png){width=75%}
+:::
+::: 
+
+<br>
+
+### En local dans RStudio
+
+* Créer un nouveau projet: File {{< fa solid arrow-right >}} New project 
+
+* Sélectionner **Version control** {{< fa solid turn-down >}}
+
+* Git {{< fa solid turn-down >}}
+
+* Coller le lien récupéré dans le dépôt {{< fa solid turn-down >}}
+
+* Sélectionner un répertoire pour le projet  {{< fa solid turn-down >}}
+
+* Créer le projet
+
+:::: {layout="[30,-1.5,30,-1.5,30]" layout-valign="bottom" }
+
+::: {.box_img}
+![](img2/img4.png){group="rs1"}
+:::
+
+::: {.box_img}
+![](img2/img5.png){group="rs1"}
+:::
+
+::: {.box_img}
+![](img2/img6.png){group="rs1"}
+:::
+::::
+
+::: {layout="[30,-1.5,30,-1.5,30]"}
+::: {.box_img}
+![](img2/img7.png){group="rs1"}
+:::
+
+::: {.box_img}
+![](img2/img8.png){group="rs1"}
+:::
+
+::: {.box_img}
+![](img2/img9.png){group="rs1"}
+:::
+
+::::
+
+
+Lorsque le projet a été créé après clonage du dépôt distant:
+
+* Un onglet Git apparait dans l'environnement.
+  * Menu pour effectuer directement des opérations entre le local et le distant.
+  * Des fichiers sont générés: **.gitignore** et **test_support.Rproj**. A cet instant, ce sont donc des éléments différent entre les niveaux local et distant. Cela ne concerne donc pas le fichier **README.md** déjà présent sur la plateforme Git.   
+
+* L'ensemble des fichiers du projet sont dans la fenêtre *Files*: le fichier **README.md** généré à la création du dépôt distant, et les deux fichiers générés lors de la création du projet avec RStudio.  
+
+* Dans le terminal
+  * Le répertoire est calé sur la racine du projet. 
+  * La branche de destination est indiquée entre parenthèses, ici `(master)`.
+
+A ce stade, on peut mettre à jour le répertoire distant avec les éléments générés lors de la création du projet RStudio.
+
+## Les principales opérations git
+
+### Du local au distant [PUSH]
+
+* Dans l'onglet **Git** on sélectionne les fichiers qui vont être transférés sur le dépôt distant en les cochant (colonne **Staged**). Leur statut passe de **?** (jaune) à **A** (Added).
+  * Remarque: le statut des fichiers peut être visualisé dans le terminal avec la commande **`git status`**.
+  * S'il y a beaucoup de fichiers^[Dans un projet Quarto de type website c'est le cas lorsqu'on réalise une compilation d'ensemble], il est préférable de passer directement par la ligne de commande dans le terminal si on souhaite sélectionner l'ensemble.
+
+* Dans le terminal, pour sélectionner et ajouter un ou plusieurs fichiers:
+  * **`git add <options>`**
+  * Si on souhaite ajouter tous les fichiers modifiés/créés/suprimés: **`git add .`**
+
+::: {.center} 
+::: {.box_img} 
+![](img2/img10.png){width=75%}
+::: 
+::: 
+
+<br>
+
+* Engager une transaction [**COMMIT**]:  
+
+* Commande du terminal: **`git commit --m "message" <options>`**
+  
+```{.mf}  
+git commit --m "First add"
+```    
+  
+* Dans l'onglet GIT: cliquer sur **Commit** . 
+  * On remarque que le contenu texte des fichiers est affiché. Ici tout est en fond vert car ce sont des nouveaux fichiers et non des modifications de fichiers existants.
+  * On doit  renseigner l'objet de la transaction dans la fenêtre **Commit message**: par exemple ici "*First add*". On valide avec bouton **Commit**.
+  
+* Commande du terminal: **`git commit --m "titre" <options>`**
+  
+:::: {layout="[30,-1.5,30,-1.5,30]" layout-valign="bottom"}
+::: {.box_img}
+![](img2/img11.png){group="rs2"} 
+::: 
+::: {.box_img}
+![](img2/img12.png){group="rs2"}   
+:::
+::: {.box_img}
+![](img2/img13.png){group="rs2"}  
+:::
+::::
+
+<br>
+
+**Cette opération ne transfère pas les fichiers vers le dépôt distant**. 
+Pour effectuer ce transfert, qui peut être une suppression de fichiers, on fait un **PUSH**
+
+* Dans l'onglet Git: flèche montante ou dans la fenêtre commit.
+
+::::: {.column width="75%"}
+:::: {layout="[40,-2,40,]"  layout-valign="bottom"}
+::: {.box_img}
+![](img2/img14.png){group="rs3"}  
+:::
+::: {.box_img}
+![](img2/img15.png){group="rs3"}   
+:::
+::::
+:::::
+<br>
+
+* Commande dans le terminal **`git push `**
+
+
+Résumé des commandes git dans le terminal pour synchroniser le répertoire dans le répertoire distant:
+
+```{.md}
+git status
+git add .
+git commit --m "titre"
+git push
+```
+
+
+Sur le répertoire distant, ici sur Gitlab, les deux fichiers ont bien été ajoutés.
+
+::: {.center}
+::: {.box_img}
+![](img2/img16.png){width=75%}
+:::
+
+### Du distant au local [PULL]
+
+Hors travail sur des branches secondaires qui seront fusionnées avec la branche principale, il n'est pas conseillé de modifier directement le répertoire distant. Si c'est le cas^[Classique pour les fichiers Readme.md], il ne sera pas possible de faire remonter directement avec un **PUSH** le local vers le distant. Il faudra au préalable une synchronisation descendante du distant vers le local avec un **PULL**. 
+
+::: callout-important
+S'il n'est pas conseillé d'éditer un fichier manuellement sur le distant, ça l'est est encore moins de modifier sans synchronisation préalable un même fichier sur le local **et** le distant. Sinon cela sera un passage assuré vers la case [**CONFLICT**]{style="color:#e74c3c"}.
+:::
+
+Exemple en modifiant le fichier README.md du dépôt distant^[Donc éditable en markdown]. 
+
+* Dans le dépôt distant, aller sur le fichier README.md {{< fa solid turn-down >}}
+* Cliquer sur le bouton **edit** {{< fa solid turn-down >}}
+* Sur Gitlab préférer l'option **Edit a single file** {{< fa solid turn-down >}}
+* On valide la transaction avec le bouton **Commit change** en bas  (ici *Update Readme.md*, mais on peut changer).  
+
+
+:::: {layout="[30,30,30,]"  layout-valign="bottom"}
+::: {.box_img}
+![](img2/img17.png){group="gl1"}   
+:::
+::: {.box_img}
+![](img2/img18.png){group="gl1"}
+:::
+::: {.box_img}
+![](img2/img19.png){group="gl1"}
+:::
+::::
+
+De retour sur le répertoire local, si on veut  **PUSHER** des modifications locales, l'opération sera rejetée. Il faut donc que les modifications apportées aux dépôt distant soient récupérées en local.
+
+Par exemple ici, on a ajouté un nouveau fichier: *ProgrammeR.R*. La fenêtre indique que le push a été rejeté: 
+
+
+::: {.center} 
+::: {.box_img}
+![](img2/img24.png){width=75%}
+:::
+:::
+<br>
+
+Pour effectuer cette récupération des éléments modifiés directement dans le dépôt distant et mettre les deux répertoire sur un même niveau, il faut effectuer un **PULL**: 
+
+* Via l'onglet Git + cliquer sur **PULL**.
+* Via la fenêtre commit + cliquer sur **PULL**.
+* Via le terminal utiliser la commande **`git pull`**.
+
+Une fois cette opération réalisée, le nouveau programme pourra êtré déposé sur le dépôt distant.
+
+Avec les commandes: 
+
+```{.md}
+git pull
+
+git add .
+git commit --m "Add ProgrammeR.R"
+git push
+```
+
+
+::: callout-important
+L'opération **PULL** ne supprimera pas le fichier ProgrammeR.R créé dans le répertoire local et absent du dépôt distant. Il n'existe pas en distant, donc pas de delta sur ce niveau. La mise à jour ne concernera que la modification du fichier **README.md**.
+Par contre, si on supprime un fichier sur le dépôt distant et qu'il est présent sur le répertoire local, il sera supprimé du local lors du PULL.
+:::
+
+
+## Le contrôle de version
+
+Plusieurs opérations ont été réalisées après la création du dépôt distant:   
+
+* Transfert sur le répertoire distant des deux fichiers générés à la création du projet sur Rstudio.
+* Modification du fichier **README.md** sur le dépôt distant. 
+
+* Sur Gitlab: dans la barre de navigation se situant à gauche, on peut visualiser l'historique de ces modifications en allant sur **Code**=> **Repository Graph**.
+
+
+::: {.center}
+::: {.box_img}
+![](img2/img20.png){width=75%}
+:::
+:::
+<br>
+
+On visualise  parfaitement l'historique des opérations réalisés entre les deux répertoires, avec: 
+
+*  Report du texte des commit (d'où leur importance).
+*  Les dates des opérations. 
+*  Via des avatars, l'origine des modifications.
+*  On visualise toutes les modifications réalisées pour chaque commit.
+  
+
+
+On remarque ici à la suite deux modifications apportées au fichier README.md, car j'ai du m'y reprendre à deux fois pour la capture d'écran (oublié simplement de l'enregistrer pour la première modification).     
+C'est ici où le versionnage va jouer tout son rôle: le texte de la première modification n'est pas le même que dans la version courante, mais on en a gardé la trace.
+
+Sur Gitlab, en allant soit: 
+
+* Sur la colonne **last commit** et en sélectionnant la modification apportée au fichier README.md
+* Sur le bouton **History** et en cliquant sur le commit:
+
+::: {.center} 
+::: {.box_img}
+![](img2/img21.png){width=75%}
+:::
+:::
+<br>
+
+Le texte de la seconde modification (en vert) n'est pas le même que le premier (en rouge). 
+
+
+::: {.center}  
+::: {.box_img}
+![](img2/img23.png){width=75%}
+:::
+:::
+<br>
+
+* En remontant, on peut donc récupérer le texte du Readme.md généré automatiquement à la création du dépôt distant par gitlab.  
+
+* On peut commenter les versions pour ajouter des informations sur les modifications. 
+
+* En équipe, on peut lancer une discussion sur le contenu des modifications.
+
+**Remarque**: l'historique est également disponible dans l'onglet GIT, en cliquant sur **History**.
+
+

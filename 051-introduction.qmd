@@ -1,0 +1,178 @@
+
+# Généralités
+
+::: callout-note
+Pour cette première version, je n'aurai pas le temps de traiter du format **manuscript**, introduit la dernière version de Quarto (1.4) sorti en janvier 2024. Il sera ajouté ultérieurement, vraisemblablementau printemps 2024 (surement en juin).
+:::
+
+
+## Les types de contenu
+
+Ce chapitre constitue une courte introduction aux contenus enrichis tels que les sites, book et blog.  Jusqu'à présent, et quelque soit le format de l'output, le support traitait seulement le contenu d'un seul fichier. On va simple passer à une documentation générées par plusieurs fichers sources. Les 3 types de documentation traités ici se distinguent par la façon dont les différents documents qui les composents:
+
+* **Website**: 
+  * Liens plus ou moins autonomes indéxés dans une ou deux barres de navigation (une horizontale - *navbar*- et/ou une verticale -*sidebar*-).  
+  * La présence d'un fichier **`_quarto.yml`** est obligatoire. 
+  * Une parti du contenu associé au site peut-être externe.
+* **Book**: 
+  * Chapitrage strict. 
+   * Les documents seront indéxés dans une barre de navigation verticale. 
+   * La présence d'un fichier **`_quarto.yml`** est obligatoire.
+   * Compilation d'ensemble en pdf...
+* **Blog**: 
+  * Serie d'articles autonomes indéxées dans un listing selon leur date de publication et liés optionnellement entre eux par la définition de catégories. 
+  * Il n'y a pas formellement de projet de type blog, il s'agit d'une variante d'un projet de type ***website***. 
+  * Bien que fortement conseillé, il n'est pas obligatoire d'y associer un fichier **`_quarto.yml`**.
+  * Les différents articles seront enregistrés dans un répertoire spécifique. Ces répertoires seront également dans localisés dans un sous répertoire du répertoire racine. Il pourra contenir un fichier de configuration propre aux article appelé `_metadata.yml`. 
+  * Plusieurs blogs peuvent être créés dans un même projet blog. 
+
+Au final avec Quarto seulement deux types de projets *stricto sensu* sont reconnus: le projet de type website et le projet de type book.  
+
+* On peut associer dans un même projet plusieurs types de contenu. 
+* Le plus souple est le website car on peut y associer un book ou un blog. 
+* Il n'est pas possible de créer un projet de type book et d'y associer un contenu de type blog. 
+
+Voici les quelques associations possibles
+
+* Projet de type website [navbar]:
+  * Ajout d'un book [sidebar]
+  * Ajout d'un blog [listing]
+* Projet de type book [sidebar]:
+  * Ajout d'un website [navbar]
+ 
+
+## Création du projet
+
+* Pour débuter ou pour se faire la main, je conseille de partir d'un projet généré automatiquement dans **new project**. A force on ira piocher des informations sur les répertoires git mettant à disposition les codes sources, et on réutilisera directement les configurations issus de projets créer précédemment (ce que je fait systématiquemen maintenant).
+
+Pour créer un projet par type de contenu: file {{< fa solid arrow-right >}} new project {{< fa solid arrow-right >}} new directory => choix du type de contenu.
+
+## Compilation d'ensemble
+
+On peut bien évidemment compiler les fichiers un par un. Pour  la moindre modification du fichier **`_quarto.yml`** qui porterait sur l'ajout ou la suppression de fichier, un changement de chapitrage pour les books, ou une modification  d'une option qui s'applique à tous les fichiers sources (options du thème par exemple) demandera un compilation d'ensemble
+
+Pour compiler l'ensemble des fichiers .qmd contenus dans le projet, dans le terminal:
+
+```{.mf}
+quarto render
+```
+
+Utile pour le format book on peut préciser le format de l'output et éviter une compilation multiformat si elle n'est pas nécessaire
+
+```{.mf}
+quarto render --to pdf
+```
+
+::: callout-warning
+
+Si on visualise le rendu directement dans le répertoire de destination, `_site`, `docs` ou `public` pour un déploiement sur github ou gitlab,  certaines options semblent ne pas fonctionner ou s'activer correctement. C'est le cas de la barre de recherche. C'est *normal* car elles reposent sur serveur propre à une fonctionnalité javascript. Pour vérifier que *tout s'active normalement*, il faut donc se fier au rendu du **viewer** de Rstudio. On peut exécuter dans le terminal **`quarto preview`** pour checker toutes les fonctionnalités incluses dans la documentation. Attention l'ouverture et la navigation via le serveur local généré avec `quarto preview` est plus longue par rapport aux fichiers html stockés dans le répertoire de destination.
+
+:::
+
+## Le fichier _quarto.yml
+
+Le fichier _quarto.yml comporte à minima les éléments suivants: 
+
+* Le type de projet: website ou book
+* Selon le type de projet: 
+  * La liste des fichiers qui lui seront directement associés: fichiers .qmd dans le répertoire du projet ou fichiers externes de type lien html.
+  * Des options propres au type de contenu. Par exemple pour le mode book, afficher un icône qui permet de télécharger la version pdf.
+* Pour la très grande majorité des options, il est toujours possible dans le yaml d'un fichier .qmd de changer certains paramètres définis globalement dans le fichier `_quarto.yml`:
+  * Exemples: on peut désactiver la table des matière^[Ce que j'ai fait pour la page d'accueil de ce support], changer les options par défaut d'exécution des blocs de codes dans un ou plusieurs fichiers.qmd. 
+  * Contre exemple: les éléments liés au thème ne peuvent pas être modifiés directement dans le yaml d'une page
+
+
+## Le fichier _quarto.yml
+
+### Options du project
+
+* **`project`**: 
+  * Indiquer le type de projet: **`type: website`** ou **`type: book`**.
+  * Indiquer le répertoire de destination (par défaut **_site**): **`output-dir: nom_repertoire`**
+    * Pour Github: `output-dir: docs`
+    * Pour Gitlab: `output-dir: public`
+
+```{.mf}
+project:
+  type: website
+  output-dir: public
+```
+
+Ce `_quarto.yml` est suffisant pour générer un blog.
+
+### L'option **`freeze`** {#sec-freeze}
+
+Par définition ce type de documentation impliques plusieurs fichiers .qmd, voire des dizaines.
+Par défaut `quarto render` repasse tout à la moulinette. La durée de compilation peut être excessivement longue, surtout si un nombre limité de fichiers ont été créés ou modifiés entre deux compilations.  
+
+Quarto donne la possibilité de réduire la durée de compilation aux fichiers dont les blocs de code ont été modifiés avec la sous option de **`execute`**: **`freeze: auto/true/false`**: 
+
+* `freeze: auto`: hors scripts tous les fichiers sont compilés. La compilation des blocs de codes se fait seulement en cas de modification.
+
+* `freeze: true`: hors scripts tous les fichiers sont compilés. Même si un script a été modifié, les blocs de code ne sont pas exécutés de nouveau. On devra compiler le document individuellement pour exécuter les blocs de codes. Cette option est privilégié pour les contenus de type blog.
+
+* `freeze: false`: Tout est de nouveau compilé.
+
+  
+### Plusieurs fichiers .yml
+
+On peut créer des fichiers yaml en plus du fichier `_quarto.yml`. Il seront fusionnés avec le fichier de configuration principal lors de la compilation. C'est ce que fait par exemple Quarto lorsqu'on génère un projet blog via *New project* . Dans les fichiers générés on aura:
+
+* Le fichier `_quarto.yml` qui définit le type de projet (un simple website).
+* Un fichier `metadata.yml` dans le répertoire **post** qui fixe la règle d'exécution des blocs de code des articles.
+
+Par défaut ces yaml supplémentaires s'appellent *`_metadata.yml`*. Si le fichier de configuration `_quarto.yml` semble trop long on peut le scinder en plusieurs fichiers dans la répertoire racine du projet: 
+
+* On génère plusieurs fichiers .yml avec des noms différents.
+* Dans le fichier **`_quarto.yml`** on liste les autres fichiers .yml qui devront être fusionnés avec lui lors de la compilation avec l'option **`metadata_files:`**.
+
+::: {.panel-tabset}
+
+### **`_quarto.yml`**
+
+```{.yaml filename="_quarto.yml"}
+project:
+  type: website
+  output_dir: public
+
+metadata_files:
+  - _navbar.yml
+  - _format.yml
+```
+
+### **`_navbar.yml`**
+
+```{.yaml filename="_navbar.yml"}
+website: 
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Accueil"
+      - href: page1.qmd
+        text: "Titre1"
+      - href: page2.qmd
+        text: "Titre2"
+```
+
+### **`_format.yml`**
+
+```{.yaml filename="_format.yml"}
+
+format:
+  html:
+    theme:
+      light: [flatly, styles.scss]
+      dark:  [darkly, styles_dark.scss]
+    css: styles.css
+    code-tools:
+      source: true
+      toggle: false
+    grid:
+      sidebar-width: 350px
+      body-width: 950px
+      margin-width: 300px
+      gutter-width: 1.5rem
+    mainfont: "roboto"  
+```
+
+:::

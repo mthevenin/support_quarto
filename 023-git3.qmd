@@ -1,0 +1,415 @@
+
+# Déploiement de pages
+
+* Atouts Github: 
+  * Moins d'étapes pour le déploiement (à moins d'être un.e pro sur les fichiers de configuration de Gitlab).
+  * On peut déployer un simple notebook avec une seule page html sans fichier de configuration `_quarto.yml`^[Je ne dis pas que ce n'est pas possible sur Gitlab mais il faudra reparamétrer le fichier de configuration **`gitlab-ci.yml`**, ce qui n'est pas dans mes cordes].
+
+* Atouts Gitlab: 
+  * Souplesse pour le nom des adresses http, qui peut être unique ou non. 
+  * On peut déployer du contenu en mode privé sans payer. 
+
+
+* Pour **Github**, on va décrire la méthode de déploiement pour une simple page html et pour un contenu plus enrichi type *website* ou *book*. Dans le second cas, il faudra ajouter un un fichier de configuration **`_quarto.yml`** indiquant le répertoire  destination des fichiers html, css, js....   
+
+* Pour **Gitlab** pour un simple notebook ou un contenu de type *website* ou *book* la méthode sera strictement identique. 
+  * Attention: le fichier généré lors du déploiement **`.gitlab-ci.yml`** ne devra pas être supprimé.  
+
+
+## GITHUB
+
+### Déploiement d'une simple page html 
+
+1. On génère un dépôt sur la plateforme en mode **Public** {{< fa solid turn-down >}} 
+
+2. On ajoute un fichier nommé **`.nojekill`** {{< fa solid turn-down >}}
+   * Ce fichier est vide.
+   * On peut réaliser cette étape en local une fois le clonage du dépôt effectué, mais c'est très rapide à faire directement sur le dépôt distant.
+   
+3. Dans Rstudio, on crée un projet en clônant le dépôt distant {{< fa solid turn-down >}} 
+
+4. On Génère le notebook avec un fichier `.qmd` (ou `.rmd` si on souhaite rester sur rmarkdown):
+   * **Le fichier doit s'appeler `index.html`**.
+
+5. On transfère les modifications sur le dépôt distant (`git push`)
+
+::: callout-note 
+On est pas obligé d'envoyer les fichiers sources .qmd ou .rmd, c'est ici l'output html et les fichiers associés (.css, .js...) qui seront lu par le navigateur. On peut donc ajouter des exceptions dans le fichier `.gitignore` si on souhaite restreindre le les fichiers présents dans le répertoire distant. 
+:::  
+   
+
+::: {layout="[33,33,33]" layout-valign="bottom"}
+::: {.box_img}
+![Fichier .nojekill (1)](img2/deploy_github1.png){group="github1"}
+:::
+::: {.box_img}
+![Fichier .nojekill (2)](img2/deploy_github2.png){group="github1"}
+:::
+::: {.box_img}
+![Fichier .nojekill (3)](img2/deploy_github3.png){group="github1"}
+:::
+:::
+
+<br>
+
+:::: {layout="[50,50]" layout-valign="bottom"} 
+::: {.box_img}
+![Le notebook dans RStudio](img2/deploy_github4.png){group="github2"}
+::: 
+
+::: {.box_img}  
+![Le notebook dans le dépôt distant](img2/deploy_github5.png){group="github2"}
+::: 
+::::
+
+  
+6. Retourner sur le dépôt distant et rafraîchir la page pour voir si les fichiers du notebook a bien été ajouté {{< fa solid turn-down >}}
+
+7. Aller dans les paramètres du dépôt (**Settings**) et cliquer dans le menu vertical à gauche sur **Pages** {{< fa solid turn-down >}}
+
+8. Dans **Branch**, sélectionner **main** et sauvegarder {{< fa solid turn-down >}}
+
+9. Attendre quelques dizaines de secondes et rafraichir la page. L'adresse est affichée, et on peut y accéder en cliquant sur le lien.
+
+
+::: {layout="[20,20,20,20]" layout-valign="bottom" }
+::: {.box_img}
+![Déploiement (1)](img2/deploy_github6.png){group="github3"}
+:::
+::: {.box_img}
+![Déploiement (2)](img2/deploy_github7.png){group="github3"}
+:::
+::: {.box_img}
+![Déploiement (3)](img2/deploy_github8.png){group="github3"}
+:::
+::: {.box_img}
+![Déploiement (4)](img2/deploy_github9.png){group="github3"}
+:::
+:::
+
+<br>  
+
+::: {.center}
+::: {.column width=80%}
+::: {.box_img}
+<iframe width="550" height="450" src="https://mthevenin.github.io/deploy-page1/" title="deploy website - github" name="deploy_page1"></iframe>
+:::
+:::
+:::
+
+<br>
+
+### Déploiement avec un fichier de configuration _quarto.yml
+
+* Fonctionne également pour une simple page. Je recommande plutôt cette méthode pour son caractère plus général. 
+
+* Le gros des étapes précédentes sont identiques. Ce qui change: 
+  * Création d'un fichier **`_quarto.yml`** où l'on va indiquer le répertoire de destination des fichiers html et fichiers associés (css, js).
+  * Ce répertoire devra s'appeler **doc**.
+  * Dans github, on devra modifier ce répertoire de destination.
+  
+**Le fichier `_quarto.yaml`**  
+
+Cette question sera un plus approfondie dans le chapitre consacrée au contenu de type website, book dans la dernière partie du support.  
+
+* Pour la seule question du déploiement de pages ou de site, ce fichier `_quarto.yml` de type texte doit contenir la destination du répertoire contenant le ou les fichiers .html .css, .scss, js....
+
+* Le répertoire de destination doit s'appeler **docs**.
+
+Cet élément obligatoire du yaml est: 
+
+```{.mf}
+project:
+  type: website
+  output-dir: docs
+```
+
+* Pour une simple page, on peut le générer directement dans le dépôt distant après sa création: **new file** => **nom du fichier**: **`_quarto.yml`** => puis coller les éléments ci-dessus. 
+
+* Pour un contenu plus enrichi, comme un website, on ajoutera une barre de navigation horizontale et/ou une barre verticale, et on indiquera les fichiers `.qmd` (ou `.rmd`) qui alimenteront le contenu.  
+  * Si on prend le template d'exemple de Quarto^[Dans RStudio: **New project** {{< fa solid arrow-right >}} **New directory** {{< fa solid arrow-right >}} **Quarto Website**], on remarque que le répertoire de destination n'est pas indiqué. 
+Par défaut, il s'appelle  **`_site`**. Il faut changer son nom:   **`output_dir: docs`**.   
+  
+  
+:::: {.columns}
+::: {.column width="50%"}
+**`_quarto.yml` généré automatiquement**  
+```{.yaml}
+
+project:
+  type: website
+
+website:
+  title: "deploy_page2"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo      
+    css: styles.css
+    toc: true
+```
+:::
+
+::: {.column width="50%"}
+**`_quarto.yml` pour déploiement sur Github**   
+```{.yaml}
+project:
+  type: website
+  output-dir: docs  # Ajouter cette ligne d'option
+
+website:
+  title: "deploy_page2"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo      
+    css: styles.css
+    toc: true
+```
+:::
+::::  
+  
+  
+Une fois le dépôt distant cloné et le site généré en local, on le push:  
+
+* On va dans les paramètres du dépôt (**Settings**) et dans **Pages** {{< fa solid turn-down >}}
+
+* Dans **branch** on sélectionne la branche *main* et on change le répertoire de **roots** à **docs** {{< fa solid turn-down >}}
+
+* On sauvegarde, et on rafraichit la page jusqu'à ce que  l'adresse du site apparaissent avec le lien. Compter quelques dizaines de secondes.    
+
+
+::: {layout="[50,50]" layout-valign="bottom"}
+::: {.box_img}
+![Fichier `_quarto.yml`](img2/deploy_github11.png){group="github4"}
+:::
+::: {.box_img}
+![Répertoire **docs** dans dépôt distant](img2/deploy_github11b.png){group="github4"}
+:::
+:::
+
+<br>
+
+
+::: {layout="[50,50]" layout-valign="bottom"}
+::: {.box_img}
+![Déploiement (1)](img2/deploy_github12.png){group="github5"}
+:::
+::: {.box_img}
+![Déploiement (2)](img2/deploy_github13.png){group="github5"}
+:::
+:::
+
+<br>
+<center>
+::: {.column width=80%}
+:::{.box_img}
+<iframe width="550" height="450" src="https://mthevenin.github.io/deploy-page2/" title="deploy website - github" name="deploy_page2"></iframe>
+:::
+:::
+</center>
+
+
+
+
+## GITLAB
+
+::: callout-tip
+
+### Atouts de Gitlab
+
+**Déploiement en mode private sans coût**  
+
+L'atout principal de Gitlab par rapport à Github est la possibilité de déployer un contenu html  en mode privé sans coût additionnel.  
+
+**Choix du nom de domaine**
+
+Gitlab est nettement plus souple sur le choix des adresses http. Par défaut, au moment du déploiement une adresse unique est proposée. On peut la changer pour un nom de domaine classique : **https://username.gitlab.io/repository_name/**
+
+::: 
+
+Ne maîtrisant absolument pas la programmation des templates **`.gitlab-ci.yml`**, on procèdera par simple pas à pas. 
+
+### Générer le déploiement d'une page test et d'une url associée
+
+Eléments générés lors du déploiement:  
+
+* Un fichier **`gitlab-ci.yml`** qui devra être conservé.
+* Un répertoire **public** qui contiendra le contenu html. 
+   
+Pour générer ces éléments:
+
+*  On crée un dépôt en mode **public**  ou **private**:
+* Lorsqu'on clique sur **New project** on selectionne **Create from template**.
+* On sélectionne **Pages/plain HTML** dans la liste et on clique sur **Use template**. 
+  
+
+::: {layout="[33,33,33]" layout-valign="bottom"}
+::: {.box_img}
+![Nouveau projet](img2/deploy_gitlab1.png){group="gitlab1"}
+:::
+::: {.box_img}
+![Projet avec template](img2/deploy_gitlab2.png){group="gitlab1"}
+:::
+::: {.box_img}
+![Choix template html](img2/deploy_gitlab3.png){group="Gitlab1"}
+::: 
+:::
+
+<br>
+
+* **Création du projet**:  
+   * On reprend les éléments décrits dans le chapitre précédent (@sec-glproj) avec le nom du projet, le nom de domaine du projet (différent du site déployé) et le choix de la visibilité.
+   * On remarque qu'un template `gitlab-ci.yml` est ajouté. Il doit être conservé.
+   * Pour déployer la page ou le site avec son nom de domaine, sur le menu vertical à gauche, on clique sur **Build** et sur **Pipelines**.
+
+   
+::: {layout="[50,50]" layout-valign="bottom"}
+::: {.box_img}
+![Projet avec template](img2/deploy_gitlab4.png){group="gitlab2"}
+:::
+::: {.box_img}
+![Pprojet généré](img2/deploy_gitlab5.png){group="gitlab2"}
+:::
+:::
+
+<br>  
+
+
+**Execution du job de déploiement**  
+
+* Dans la page qui s'affiche, en haut à gauche cliquer sur **Run Pipeline** {{< fa solid turn-down >}}  
+
+* Dans la nouvelle page qui s'affiche, cliquer de nouveau sur **Run Pipeline** {{< fa solid turn-down >}}
+
+* Dans la nouvelle page, cliquer sur **Deploy**. Après une dizaine de secondes, on vous indique que le job a été exécuté avec succès. 
+
+
+::: {layout="[50,50]" layout-valign="bottom"}
+::: {.box_img}
+![Build (1)](img2/deploy_gitlab6.png){group="gitlab3"}
+:::
+::: {.box_img}
+![Build (2)](img2/deploy_gitlab7.png){group="gitlab3"}
+:::
+:::
+
+<br>
+
+::: {layout="[50,50]" layout-valign="bottom"}
+::: {.box_img}
+![Build (3)](img2/deploy_gitlab8.png){group="gitlab4"}
+:::
+::: {.box_img}
+![Build (4)](img2/deploy_gitlab9.png){group="gitlab4"}
+:::
+:::
+
+<br>
+
+**Création de l'url**   
+
+* Dans le menu vertical à gauche, aller dans **Deploy** {{< fa solid arrow-right >}} **Pages**.  
+
+* Une URL unique est générée, on peut cliquer sur le lien pour visualiser la page test.  
+
+* On peut vouloir une url plus classique par exemple: `https://mthevenin.gitlab.io/deploy-page/`:
+    * Pour générer cet url: décocher **Use unique domaine** et sauvegarder.
+    * Cliquer sur le lien pour visualiser la page test.
+  
+
+::: {layout="[33,33,33]" layout-valign="bottom"}
+::: {.box_img}
+![URL (1)](img2/deploy_gitlab10.png){group="Gitlab5"}
+::: 
+::: {.box_img}
+![URL (2)](img2/deploy_gitlab11.png){group="Gitlab5"}
+:::
+::: {.box_img}
+![URL (3)](img2/deploy_gitlab12.png){group="Gitlab5"}
+:::
+:::
+
+<br>  
+
+La page test générée:  
+
+::: {.center}
+::: {.column width=70%}
+:::{.box_img}
+![](img2/deploy_gitlab13.png)
+:::
+:::
+::: 
+
+
+### Déployer son contenu html
+
+Que ce soit une simple page de type notebook ou présentation revealjs, ou un contenu plus enrichi de type website, un fichier de configuration propre à Quarto (**`_quarto.yml`**) et indiquant clairement la destination des fichiers html doit être créé. Ce répertoire de destination est nommé **public**. Il a déjà été créé par gitlab lors de la phase de déploiement de la page test.
+
+Pour cette seule opération, le contenu du fichier `_quarto.yml` est: 
+
+```{.yaml}
+project:
+  type: website
+  output-dir: public
+```
+
+
+On peut également générer ce fichier directement dans Gitlab:
+
+
+::: {layout="[25,25,25,25]" layout-valign="bottom"}
+:::{.box_img}
+![`_quarto.yml`gitlab (1)](img2/deploy_github13.png){group="gitlab6"}
+:::
+:::{.box_img}
+![`_quarto.yml` gitlab (2)](img2/deploy_gitlab14.png){group="Gitlab6"} 
+:::
+:::{.box_img}
+![`_quarto.yml` gitlab (3)](img2/deploy_gitlab15.png){group="Gitlab6"}   
+:::
+:::{.box_img}
+![`_quarto.yml` gitlab (4)](img2/deploy_gitlab16.png){group="Gitlab6"}   
+:::
+:::
+
+
+**Dans RStudio**  
+
+* Créer un projet en clonant le dépôt distant.
+  * Si le fichier **`_quarto.yml`**  qui indique le répertoire de destination (**public**) n'a pas déjà été créé dans le dépôt gitlab, le générer à partir d'un simple fichier texte.
+  * Créer à minima un fichier `index.qmd` et le compiler en html.  
+  
+* Mettre à jour le dépôt distant: `git add .` {{< fa solid arrow-right >}} `git commit --m "titre commit"` {{< fa solid arrow-right >}} `git push`.  
+
+* Rafraichir la page html. Cela peut prendre quelques seconde à une minute.
+
+
+::: {layout="[50,50,33]" layout-valign="bottom"}
+:::{.box_img}
+![_quarto.yml Rstudio](img2/deploy_gitlab18.png){group="Gitlab7"} 
+:::
+:::{.box_img}
+![index.qmd Rstudio](img2/deploy_gitlab17.png){group="Gitlab7"} 
+:::
+:::
+
+<br>
+
+::: {.center}
+:::{.box_img}
+<iframe width="550" height="450" src="https://mthevenin.gitlab.io/deploy-page/" 
+title="Le site déployé" ></iframe>
+:::
+::: {.center}

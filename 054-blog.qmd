@@ -1,0 +1,561 @@
+
+# Blog
+
+* Pas de configuration particulière dans le fichier **`_quarto.yml`**.
+* Principe: Série de documents indépendants (posts) qui sont listés dans une page, par défaut celle du projet (index.qmd => index.html):
+  * Trois présentations possible: vignettes verticales (defaut), vignettes horizontale (grid) ou une simple liste  (table).
+  * Les différents documents peuvent être reliés par **catégories**, ce qui permet de les relier et de les filtrer selon des thématiques.
+
+* Pour le détail complet des options se référer à la doc de Quarto:  
+  * <https://quarto.org/docs/websites/website-blog.html>
+  * <https://quarto.org/docs/websites/website-listings.html>
+
+De nouveau on traitera quasi exclusivement que des éléments directement générés avec le blog d'exemple.
+
+
+## Le squelette de blog généré automatiquement
+
+On va partir du book généré par Quarto en créant un project (**Files**{{< fa solid arrow-right >}}**New project** {{< fa solid arrow-right >}} **New directory** {{< fa solid arrow-right >}} **Quarto blog**).  
+
+* Ce blog a été pensé comme une fonctionalité supplémentaire pour un site web de type *page perso*.  En conséquence le fichier **`_quarto.yml`** ne comporte qu'une barre de navigation renvoyant vers des outils de type *twitter*, compte *github* et une page *about* sur l'auteur. 
+
+* Le blog sera directement créé dans le yaml du fichier index.qmd.
+
+* Les diférents articles ou posts sont enregistrés dans des sous répertoires.
+
+**Fichiers et répertoires pour générer le blog**.  
+
+* Le fichier **`_quarto.yml`** de type **website**.
+* Le fichier **`index.qmd`** qui paramètre le blog.
+* Le répertoire qui stockera les différents articles, eux mêmes stockés dans un répertoire spécifique. Ici il est nommé **post**. IL comprend:
+  * Un fichier de configuration yaml **`_metadata.yml`** dont les options ne s'appliqueront qu'aux articles du blog. Ici: 
+   * **`freeze: true`**. On part du principe que les articles sont compilés ou recompilés un à un et no dans une compilation globale avec **`quarto render`** dans le terminal. 
+   *  **`title-block-banner`**: true .Activation d'une couleur de fond au titre des articles. Couleur liée au thème. Je la desactive si une navbar est déja présente. 
+   * Les répertoires où sont stockés les différents articles et leur fichiers associés: images, bases... Dans chaque répertoire, tous les fichiers sont nommés **index.qmd**.
+   
+::: callout-tip
+
+### Nom des fichiers des aricles
+   
+Le blog d'exemple nomme tous les fichiers **index.qmd**. Ce n'est pas obligatoire, et peut-être pas recommandé si on travaille sur plusieurs articles en même temps. 
+On peut donc les nommer comme on veut. Je conseille de leur donner le même nom que leur.
+
+:::
+   
+***   
+  
+Rendu du blog d'exemple [avec thème flatly]  
+
+::: {layout="[50,-1,50]" layout-valign="bottom"}
+::: {.box_img}
+![Page d'accueil](img4/blog1.png){group="blog"}
+:::
+ 
+::: {.box_img}  
+![Article Post With Code](img4/blog2.png){group="blog"}
+:::
+:::
+
+###  Création du blog et options dans le fichier index.qmd
+
+* C'est dans le yaml d'un fichier **`index.qmd`** que le blog est généré et paramétré. 
+
+*  **Le blog est généré avec l'option `listing`**.
+
+* Une fois le **listing** paramétré, une liste d'article sera automatiquement ajouté à la page **index.html**. 
+
+* Dans le yaml du fichier index.qmd, le blog est généré avec les options suivantes: 
+
+```{.yaml}
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+```
+
+
+* **`contents: nom_repertoire`**: répertoire où sont stockés les sous repertoires des articles. Ici le nom du répertoire est **posts**. C'est la seule sous option de `listing` obligatoire.
+
+* **sort:**: ordre d'apparition des articles. Ici assez logiquement par la date la plus récente à la plus ancienne (**`"date desc"`**). 
+
+* **`type: default/grid/table`**: apparence de la liste des articles contenus dans le blog.
+
+::: {layout="[33,-1,33,-1,33]" layout-valign="bottom"} 
+::: {.box_img}
+![type: default](img4/blog3.png){group="blog"}
+:::
+
+::: {.box_img} 
+![type: grid](img4/blog4.png){group="blog"}
+:::
+
+::: {.box_img} 
+![type: grid](img4/blog5.png){group="blog"}
+:::
+::: 
+
+* **`categories: true/false`**: dans le yaml des fichiers .qmd (voir plus bas) on peut indiquer la ou les thématiques de l'article. Si on active cette option, ce qui est souhaitable, toutes les catégories apparaissant dans les articles sont reportées. 
+  * Cette liste de catégorie permettra de sélectionner  les articles relatifs à une catégorie. Pour les types `default` et `grid` les catégories de chaque articles sont également reportées sur la vignette . En cliquant sur une catégorie, on peut sélectionner tous les articles cette même catégorie. 
+  * Si dans une même page index on a plusieurs sous blog [[@sec-blog]], les catégories des sous blogs seront reportés dans une même liste de catégorie.
+
+* **`sort-ui: true/false`**: par défaut `false`. Ajoute un menu de tri de la liste des articles qui complète l'option `sort`. 
+* **`filter-ui: true/false`**: par défaut `false`. Permet de filtrer la liste par rapport aux champs qui résument les articles. 
+
+::: {.box_img}
+::: {.box_img} 
+![Activation `sort-ui` et `filter-ui`](img4/blog6.png){ width="70%" group="blog"}
+:::
+:::
+
+<br>
+
+### Autres options
+
+**Changer les champs résumant les articles**:  
+
+* On peut modifier les champs résumant les article avec l'option **`field: [champ1, champ2,...]`**.
+* Si veut ajouter un champ, par exemple une image pour **`type: table`**, il faudra bien lister l'ensemble des champs qui seront utilisés: auteur.e.s, date, description...
+* La liste des champs disponibles et leur présence par défaut: [Site Quarto](https://quarto.org/docs/websites/website-listings.html#listing-fields)
+
+Par exemple si on veut ajouter une image sous forme de vignette au type *table* dans le blog d'exemple:
+  
+```{.yaml}
+listing:
+type: table
+fields: [image, date, title, author]
+```
+
+::: {.center}
+::: {.box_img} 
+![Ajout vignette pour le type table](img4/blog7.png){ width="70%" group="blog"}
+:::
+::: 
+  
+::: callout-warning
+Pour que les images soient insérées de manière homogène, le nom ou le lien de l'image doit être renseigné dans le yaml de tous les articles.
+:::
+ 
+**Nombre d'articles listés**  
+
+On peut contrôler le nombre d'articles listés avec l'option **`page-size: nombre`**. Si on dépasse la limite, on pourra naviguer avec une sous liste précédente/suivante.    
+  
+
+## Options dans le yaml des documents 
+
+* Les options du yaml des articles doivent être cohérentes avec les champs reportés dans la liste des articles.
+* Pour certains champs, si l'information n'est pas renseignée dans le yaml, Quarto ira puiser dans le corps de l'article: c'est le cas de la description ou de l'image. 
+* A noter que l'on peut ajouter des catégories ou des descriptions (`abstract`, `description`) à n'importe quel document de type .qmd.
+
+::: callout-important
+
+#### Les dates
+
+Attention à la date. Si on choisit **`date: today`** une simple correction de coquille fera remonter un article, même ancien, en tête de la liste des articles. Il est donc préférable de mettre la date de publication explicitement.
+
+* Par exemple au format mois/jour/année: **`date: 03/21/2024`**
+
+:::
+
+
+
+### Définir des catégories.
+
+* Option **`categories`**.
+
+```{.yaml}
+---
+title: "XXXXX"
+author: "YYYY"
+date: mm/dd/yyyy
+
+categories:
+  - categorie1
+  - categorie2
+  - categorie3
+---
+```
+
+
+### Les images pour les vignettes
+
+Pour les listes de type `default` ou `grid`, une image est ajoutée à la liste des articles^[Dans le yaml du fichier index.qmd on peut désactiver cette option en sélectionnant les champs avec **`field: [champ1, champ2,...]`**]
+
+
+* Pour qu'une vignette soit ajoutée à la description de l'article apparaissant dans la liste:
+  * yaml: option **`image: path/nom_image` 
+  * Si on ne choist pas d'image dans le yaml et qu'une image/graphique se trouve dans le corps du document, c'est la première apparaissant dans l'article qui sera insérée comme vignette dans la liste. 
+
+```{.yaml}
+---
+title: "XXXXX"
+author: "YYYY"
+date: mm/dd/yyyy
+
+categories:
+  - categorie1
+  - categorie2
+  - categorie3
+
+image: path/nom_image
+---
+```
+
+
+### Description
+
+* Sur le même principe on peut écrire un résumé ou une description de l'article dans le yaml avec les options `abstract` ou `description`, ou laisser Quarto mettre le début du texte de l'article dans la liste. 
+
+```{.yaml}
+---
+title: "XXXXX"
+author: "YYYY"
+date: mm/dd/yyyy
+
+categories:
+  - categorie1
+  - categorie2
+  - categorie3
+
+image: path/nom_image
+
+abstract: |
+ Ici le résumé de qui apparaîtra dans l'article
+
+---
+```
+
+* La longueur de la description reportée dans la liste est limitée par défaut à 175 caractères. On peut modifier ce nombre avec l'option **`max-description-length: nombre`**. 
+* Si on utilise l'option `abstract` ou `description`, l'intégralité du texte sera reporté dans le document.
+
+### Modification du blog d'exemple.  
+
+* On va ajouter 4 articles correspondant au début de cette partie du support: Introduction/généralité, Website, Book, blog. La liste des articles sera de type **grid**
+
+Le yaml du fichier index.qmd: 
+
+```{.yaml}
+---
+title: "Création d'un Blog avec Quarto"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+---
+```
+
+Le yaml des 4 articles: 
+
+::: {.panel-tabset}
+### Introduction/généralités
+
+```{.yaml}
+---
+Title: "Introduction aux site, book et blog avec Quarto"
+author: "Marc Thévenin"
+lang: fr
+date: "03/21/2024"
+categories:
+  - Quarto
+  - Site
+  - Book
+  - Blog
+
+image: "https://quarto.org/quarto-dark-bg.jpeg"
+
+abstract: | 
+  Ceci est un extrait du chapitre d'introduction aux sites, book et blog avec Quarto
+---
+
+```
+
+### Site
+
+```{.yaml}
+---
+Title: "Création d'un site avec Quarto"
+author: "Marc Thévenin"
+lang: fr
+date: "03/21/2024"
+categories:
+  - Quarto
+  - Site
+
+image: "https://blog.hubspot.com/hs-fs/hubfs/free-website-builder.png?width=595&height=400&name=free-website-builder.png"
+
+abstract: | 
+  Ceci est un extrait du chapitre sur la construction d'un site avec Quarto
+---
+
+```
+
+### Book
+
+```{.yaml}
+---
+Title: "Création d'un book avec Quarto"
+author: "Marc Thévenin"
+lang: fr
+date: "03/21/2024"
+categories:
+  - Quarto
+  - Book
+
+image: "https://cdn.marvel.com/u/prod/marvel/i/mg/2/a0/64b04e13a3246/background.jpg"
+
+abstract: | 
+  Ceci est un extrait du chapitre sur la construction d'un book avec Quarto
+
+title-block-banner: false
+---
+
+```
+
+### Blog
+
+```{.yaml}
+---
+Title: "Création d'un blog avec Quarto"
+author: "Marc Thévenin"
+lang: fr
+date: "03/21/2024"
+categories:
+  - Quarto
+  - Blog
+
+image: "https://mailrelay.com/wp-content/uploads/2018/03/que-es-un-blog-1.png"
+
+abstract: | 
+  Ceci est un extrait du chapitre sur la construction d'un blog avec Quarto
+
+---
+
+```
+
+:::
+
+Après compilation: 
+
+::: {.center}
+::: {.box_img} 
+![](img4/blog8.png){ width="80%" group="blog"}
+:::
+:::
+
+<br>
+
+On va limiter le nombre d'articles affichés dans la liste à 3 avec l'option **`page-size`**
+
+
+Le yaml modifié du fichier index.qmd: 
+
+```{.yaml}
+---
+title: "Création d'un Blog avec Quarto"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  page-size: 3
+
+---
+```
+
+
+::: {layout="[50,-1,50]" layout-valign="bottom"}
+::: {.box_img} 
+![Page 1 de la liste](img4/blog9.png){group="blog"}
+:::
+
+::: {.box_img} 
+![Page 2 de la liste](img4/blog10.png){group="blog"}
+:::
+:::
+
+## Plusieurs blog dans un même site {#sec-blog}
+
+* Par défaut le blog est inséré automatiquement dès lors que l'option listing est utilisée dans le yaml du fichier index.yml. 
+* On peut ajouter du contenu à la page avant la liste des articles mais pas après. Par exemple: 
+
+```{.yaml}
+---
+title: "Création d'un Blog avec Quarto"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  page-size: 3
+---
+
+* Ceci est un blog généré par Quarto
+* Documentation officielle sur les blogs: 
+  * <https://quarto.org/docs/websites/website-blog.html>
+  * <https://quarto.org/docs/websites/website-listings.html>
+
+```
+
+
+::: {.center} 
+::: {.box_img} 
+![Ajout de texte avant la liste des articles](img4/blog11.png){width="75%" group="blog"}
+:::
+:::
+
+<br>
+
+A l'aide d'un identifiant et d'une balise div on peut insérer la liste des articles à un endroit donné du document et ajouter du contenu au fichier index.qmd où l'on veut.
+
+* Pour ajouter un nom de la liste des articles, en option de **`listing`** on ajoute un **id**:
+  * **`id: nom_listing`**   si une seule liste
+  * **`- id: nom_listing`** si plusieurs listes ou sous blogs. 
+ 
+
+Par exemple ici:  
+
+```{.yaml}
+---
+title: "Création d'un Blog avec Quarto"
+listing:
+  - id: liste1
+    contents: posts
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: true
+    page-size: 3
+---
+
+```
+
+On peut maintenant ajouter dans une balise **div** le nom de la liste: 
+
+```{.yaml}
+---
+title: "Création d'un Blog avec Quarto"
+listing:
+  - id: liste1
+    contents: posts
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: true
+    page-size: 3
+---
+
+::: {#liste1}
+:::
+
+```
+
+Si on ajoute du texte avant et après la balise: 
+
+```{.yaml}
+---
+title: "Création d'un Blog avec Quarto"
+listing:
+  - id: liste1
+    contents: posts
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: true
+    page-size: 3
+---
+
+* Ceci est un blog généré par Quarto
+
+::: {#liste1}
+:::
+
+* Documentation officielle sur les blogs: 
+  * <https://quarto.org/docs/websites/website-blog.html>
+  * <https://quarto.org/docs/websites/website-listings.html>
+```
+
+::: {.center} 
+::: {.box_img} 
+![Ajout de texte avant et après la liste des articles](img4/blog12.png){width="75%" group="blog"}
+:::
+:::
+
+<br>
+
+En suivant ce principe, on peut générer plusieurs sous blog en définissant plusieurs noms de listes. 
+
+Ici on va générer deux sous blogs: 
+
+* Un avec le projet de blog générés automatiquement avec Quarto (deux articles) qui restent dans le répertoire **post*.
+* Un avec les quatres articles ajoutés précédemment. Les articles seront dans un autre répertoire, **posts2**
+  
+::: {layout="[33,-1,33,-1,33]" layout-valign="bottom"} 
+::: {.box_img}  
+![Répertoires et fichiers du projet](img4/blog13.png){width="75%" group="blog"}
+:::
+::: {.box_img}  
+![sous blog post](img4/blog14.png){width="75%" group="blog"}
+:::
+
+::: {.box_img}  
+![Sous blog post2](img4/blog15.png){width="75%" group="blog"}
+:::  
+::: 
+
+<br>
+  
+* Dans le yaml du fichier `index.qmd`, on va ajouter une nouvelle liste d'articles avec son nom (`id: liste2`) et ses options (identiques pour les deux sous blogs). 
+* Pour le second sous blog on modifie le répertoire de destination: **`contents: post2`**
+
+```{.yaml}
+---
+title: "Création d'un Blog avec Quarto"
+listing:
+  - id: liste1
+    contents: posts
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: true
+    page-size: 3
+  - id: liste2
+    contents: posts2
+    sort: "date desc"
+    type: grid
+    categories: true
+    sort-ui: true
+    page-size: 3
+---
+```
+
+Dans le corps du fichier index.qmd, on insère les deux sous blogs dans des sections div
+
+```{.yaml}
+# Sous blog I
+
+::: {#liste1}
+:::
+
+# Sous blog II
+
+::: {#liste2}
+:::
+
+* Documentation officielle sur les blogs:  
+  * <https://quarto.org/docs/websites/website-blog.html>
+  * <https://quarto.org/docs/websites/website-listings.html>
+```
+
+
+::: {.center} 
+::: {.box_img} 
+![Page d'accueil avec 2 sous blogs](img4/blog16.png){width="75%" group="blog"}
+:::
+:::
+

@@ -1,0 +1,136 @@
+project:
+  type: book
+  output-dir: docs
+
+execute:
+  engine: knitr
+  freeze: auto
+  cache: false
+    
+lang: fr
+
+website: 
+  page-footer: 
+    center: 
+      - text: "Marc Thévenin - Ined - 2024 | "
+      - text: "{{< fa brands gitlab >}} |"
+        url: "https://gitlab.com/mthevenin"
+      - text: "{{< fa brands github>}}"
+        url:  "https://github.com/mthevenin"
+
+book:
+  title: "**Formation Quarto**"
+  author: 
+    name: "Marc Thévenin"
+    affiliation: "Institut National d'Etudes Démographiques"
+    email: "marc.thevenin@ined.fr"
+  date: today
+  navbar:
+    title: "Support Quarto:"
+    left:
+      - text: Elements Revealjs
+        menu:
+          - text: "Présentation"
+            href: https://mthevenin.gitlab.io/quarto_revealjs/
+          - text: "Code source"
+            href: https://gitlab.com/mthevenin/quarto_revealjs/-/raw/master/index.qmd?ref_type=heads
+      - text: Document PDF
+        menu:
+          - text: "Document PDF"
+            url: files/pdf/pdf.pdf
+          - text: "Code source"
+            url: files/pdf/pdf.qmd         
+      - text: Autres
+        menu:
+          - text: "Styles des blocs de code "
+            url: files/theme_code/theme_code.html      
+          - text: "Multiformats "
+            url: https://mthevenin.gitlab.io/quarto_multform/    
+          - text: "Exemple fichier scss"
+            url: files/exemple_scss.scss  
+          - text: "Exemple de blog"
+            url: https://mthevenin.gitlab.io/quarto_blog/
+    right: 
+      - text: "{{< fa brands gitlab>}}"
+        href: https://gitlab.com/mthevenin/support_quarto
+      - text: "{{< fa brands github>}}"
+        href: https://github.com/mthevenin/support_quarto     
+
+  sidebar: 
+      collapse-level: 2
+      border: true
+      
+  chapters:
+    - index.qmd
+    - part: "**Produire une documentation avec Quarto**"
+      chapters:
+        - 011-quarto.qmd
+        - 012-qmd_rmd.qmd
+        - 013-markdown.qmd
+        - 014-yaml.qmd
+        - 015-codes.qmd
+    - text: "---"
+    - part: "**Déploiement sur plateforme git**"
+      chapters:
+      - 021-git1.qmd
+      - 022-git2.qmd
+      - 023-git3.qmd
+    - text: "---"
+    - part: "**Formats**"
+      chapters:
+      - 031-introduction.qmd
+      - 032-html.qmd
+      - 033-pdf.qmd
+      - 034-multiformat.qmd
+    - text: "---"
+    - part: "**Theming, références croisées, mise en page**"
+      chapters:
+      - 041-theming.qmd
+      - 042-cross_ref.qmd
+      - 043-layout.qmd
+    - text: "---"
+    - part: "**Site, book, blog**"
+      chapters:
+      - 051-introduction.qmd
+      - 052-site.qmd
+      - 053-book.qmd
+      - 054-blog.qmd    
+    - part: ""
+      chapters: 
+      - 01-posit.qmd 
+      - 02-quarto_resume.qmd
+      - 03-ressources.qmd
+      - 04-support.qmd
+ 
+format:
+  html:
+    theme:
+      light: [flatly, styles.scss]
+    css: styles.css
+    code-tools:
+      source: true
+      toggle: false
+    grid:
+      sidebar-width: 350px
+      body-width: 950px
+      margin-width: 300px
+      gutter-width: 1.5rem
+    mainfont: "roboto"    
+    mermaid: 
+      theme: default
+
+highlight-style: atom-one
+lightbox: true
+
+toc: true
+toc-depth: 4
+code: true
+
+
+
+
+
+
+
+
+

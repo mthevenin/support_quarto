@@ -1,0 +1,266 @@
+
+# Book
+
+Variante d'un website:  
+
+* Navigation par défaut dans la sidebar à gauche.
+* Contrairement à la sidebar d'un webside: 
+  - **`section`** devient **`part`**.
+  - **`content`** devient **`chapter`**.
+* Fichier index.qmd toujours obligatoire. Permet d'obtenir une préface, une présentation ou introduction
+* Important: Le nom des chapitres est renseigné par un titre de premier niveau (# Titre) dans le corps du fichier .qmd.
+* Compilation multiformat automatique lorsque plusieurs formats sont renseignés dans le fichier _quarto.yaml. 
+  * Insertion d'un icône de téléchargement pour les formats alternatifs au hmtl: pdf, docx, epub.
+
+
+* Pour le détail complet des options se référer à la doc de Quarto:  
+  * <https://quarto.org/docs/books/>
+  * <https://quarto.org/docs/books/book-structure.html>
+  * <https://quarto.org/docs/books/book-crossrefs.html>
+  * <https://quarto.org/docs/books/book-output.html>
+
+::: callout-note
+On ne traitera pas de nouveau des options communes au format website: output_dir , freeze, ....
+:::
+
+## Le squelette de book généré automatiquement
+
+On va partir du book généré par Quarto en créant un project (**Files**=>**New project** => **New directory** => **Quarto book**).
+
+* Un fichier **`_quarto.yml`**
+* Des fichiers quarto: index.qmd, intro.qmd, summary.qmd, referecen.qmd
+* Un fichier bibliography.bib pour ajouter une bibliographie sous forme de chapitre.
+* Une image de couverture pour les formats html et epub
+
+## Le _quarto.yml
+
+A la première compilation, le nom du book est celui donné au projet. Le rendu est le suivant:
+
+<center>
+::: {.box_img}
+![accueil du book](img4/book1.png){width="60%" group="book"}
+:::
+</center>
+
+<br>
+
+Le fichier **`_quarto.yml`** par défaut:
+
+```{.yaml}
+project:
+  type: book
+
+book:
+  title: "Book"
+  author: "Norah Jones"
+  date: "19/02/2024"
+
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+```
+
+* L'accès aux différents chapitres se fait dans la partie gauche du grid (sidebar)
+
+* Les fichiers .qmd sont introduits par l'option **`chapters`**^[Remplace`contents` pour la sidebar d'un website].
+  * Il n'y a pas de titre au différents chapitres renseigné dans . 
+  * Les titres des chapitres sont donnés en tête des fichiers.qmd avec un titre: **`# Titre`**.  
+  
+Par exemple pour le fichier index.qmd:
+
+```{.yaml}
+# Preface {.unnumbered}
+
+This is a Quarto book.
+
+To learn more about Quarto books visit <https://quarto.org/docs/books>.
+```
+
+* La page index.qmd (ici **preface**) donne les informations qui seront reporté en couverture du format pdf: auteur.e.s, affiliation, date... 
+
+* Le format pdf est ajouté par défaut au **`quarto.yml`**, ainsi que le fichier comprenant les références bibliographiques.  On peut également ajouter les format **docx** (ok libre office) ou **epub**. 
+
+
+## Télécharger le book en plusieurs format
+
+::: callout-important
+Se reporter au contenu conditionnel pour gérer les rendus des outputs de type dynamique (html) et statiques comme le pdf le docx (@sec-conditionnel).
+:::
+
+
+Dans le fichier **`quarto.yml`**
+
+* On ajoute deux formats alternatifs: pdf, docx
+
+```{.yaml}
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+  epub: default
+  docx: default
+```
+
+
+* En option de book, on ajoute la sous option **`download: [format1, format2, format3]`**
+  * Un icône apparait au dessus du chapitrage, en cliquant dessus on accède aux différents formats.
+
+```{.yaml}
+book:
+  title: "Book"
+  author: "Norah Jones"
+  date: "19/02/2024"
+  downloads: [pdf,epub, docx]
+```
+
+
+<br>
+
+::: {.callout-note collapse=true}
+
+### Le **`_quarto.yml`** modifié: téléchargement en plusieurs format
+
+```{.yaml}
+project:
+  type: book
+
+book:
+  title: "Book"
+  author: "Norah Jones"
+  date: "19/02/2024"
+  downloads: [pdf, docx]
+  
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+  docx: default
+```
+:::
+
+::: {layout="[50,-1,50]" layout-valign="bottom"}
+::: {.box_img}
+![Icône de téléchargement](img4/book2.png){group="book"}
+:::
+
+::: {.box_img} 
+![Menu des formats](img4/book3.png){group="book"}
+:::
+:::
+
+<br>
+En format PDF:
+
+::: {.center}
+::: {.box_img}
+{{< pdf files/book/Book.pdf width=100% height=600 >}}
+:::
+:::
+
+## Ajout de parties au chapitrage
+
+Sur le même principe que **`section`** pour une projet de type website, on peut scinder le chapitrage en plusieurs partie avec **`part`**. Dans le **`_quarto.yml`**.  
+
+Par exemple, avec une preface indépendante et des chapitres regroupées dans deux partie: 
+
+```{.yaml}
+book
+  chapters:
+    - index.qmd  
+    - part: "Partie I"
+      chapters:
+        - 11-fichier1.qmd
+        - 12-fichier2.qmd   
+    - part: "Partie II"
+      chapters:
+        - 21-fichier3.qmd
+        - 22-fichier4.qmd   
+```
+
+
+Avec le book généré automatiquement, on pourrait structurer le document de cette manière: 
+
+```{.yaml}
+book
+  chapters:
+    - index.qmd  
+    - part: "Partie I"
+      chapters:
+        - intro.qmd
+        - summary.qmd        
+    - part: "Bibliographie"    
+      chapters: 
+        - references.qmd
+ 
+```
+
+
+
+::: {.callout-note collapse=true}
+
+### Le **`_quarto.yml`** modifié: ajout de parties
+
+```{.yaml}
+project:
+  type: book
+
+book:
+  title: "Book"
+  author: "Norah Jones"
+  date: "19/02/2024"
+  downloads: [pdf, docx]
+  
+  chapters:
+    - index.qmd  
+    - part: "Partie I"
+      chapters:
+        - intro.qmd
+        - summary.qmd        
+    - part: "Bibliographie"    
+      chapters: 
+        - references.qmd
+
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+  docx: default
+```
+
+:::
+
+
+<br>
+En format PDF:
+
+::: {.center}
+::: {.box_img}
+{{< pdf files/book/Book2.pdf width=100% height=600 >}}
+:::
+:::
+
+

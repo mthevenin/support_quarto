@@ -1,0 +1,160 @@
+
+# Document PDF
+
+Se reporter au document déjà au format PDF et à son code source dans la barre de navigation ou en ouvrant ces liens:  
+
+* Document PDF: <https://mthevenin.gitlab.io/support_quarto/files/pdf/pdf.pdf>
+* Code source: <https://mthevenin.gitlab.io/support_quarto/files/pdf/pdf.qmd>
+
+::: callout-note
+Pour cette première version du support je n'ai pas eu le temps de traité du format beamer, à mon sens largement dépassé par le format revealjs. 
+:::
+
+* Du fait de la durée de compilation des documents PDF on restera sur un nombre limité d'options, déjà moins nombreuses que pour le format html. Format statique oblige.
+* Je conseille de mettre ou d'activer certaines options spécifiques au pdf (Latex) dans le yaml lorsque le code source Qaurto sera relativement abouti. Il est préférable de construire la documentation en format html d'abord, tout en ayant en tête le rendu final pdf évidemment. Par exemple en mettant systématiquement des titres au graphiques et tableaux s'ils seront regroupés dans une *list of figure* et/ou dans la *list of table*.
+
+
+Dans le yaml pour compiler directement en format pdf:    
+
+**Si format pdf seul**
+
+```{.yaml}
+---
+titre: "XXXXXX"
+
+format: pdf
+
+toc: true
+---
+```
+
+**Si compilation multiformat**
+
+```{.yaml}
+---
+titre: "XXXXXX"
+
+format:
+  html: default
+  pdf:  default
+
+toc: true
+---
+```
+
+
+## **Les types de documents**
+
+* Option **`documentclass`**
+  * article: **`scrartcl`** [défaut]
+  * rapport: **`scrreprt`**
+  * book: **`scrbook`**
+* Ces différents types de documents ne se distinguent que sur leur pagination, comme la présence d'une page titre.
+
+Pour un document de type rapport: 
+
+**Format PDF seulement**:
+
+```{.yaml}
+---
+titre: "XXXXXX"
+
+format: pdf
+
+documentclass: scrreprt
+  
+toc: true
+---
+```
+
+
+
+**multiformat**:
+
+```{.yaml}
+---
+titre: "XXXXXX"
+
+format:
+  html: default
+  pdf:
+    documentclass: scrreprt
+  
+toc: true
+---
+```
+  
+
+## **Liste des tableaux et liste des graphiques/images**
+
+* Pour indexer proprement les tableaux et les graphiques générés dans un bloc de codes, ils doivent avoir explicitement un titre.
+  * Graphique/image: 
+    * Généré par un programme: `#|fig-cap: "Titre"`
+    * Insertion markdown d'une image: `![Titre](lien image)`
+
+  * Tableau (dont base de donnée):
+    * Généré par un programme: `tbl-cap: "XXXX"`
+    * Insertion tableau en markdown, le titre est directement placé sous le tableau **`: Titre`**.  
+
+
+```{.mf}
+| Col1 | Col2 |
+|------|------|
+|   A  |  C   |
+|   B  |  D   |
+
+: Tableau markdown
+```
+
+## Divers
+
+### Les sauts de page (rappel)
+
+* Si format pdf seulement, vous pouvez utiliser directement la balise Latex `\newpage`
+* Avec Quarto, il est néanmoins préférable d'utiliser directement le shortcode **`{{< pagebreak >}}`** valable également pour le format html pour l'impression.
+
+Exemple: dans ce court document un saut de page a été ajouté après la ***list of table*** .
+
+### Modifier les marges du document
+
+* Dans le yaml, option **`geometry` avec 4 sous options listées avec un tiret. Les marges sont mesurées en millimètres: 
+
+```{.yaml}
+---
+geometry: 
+  - top=Amm
+  - left=Bmm
+  - right=Cmm
+  - bottom=Dmm  
+---
+```
+
+Pour ce document j'ai légèrement réduit les marges avec:
+
+```{.yaml}
+---
+geometry: 
+  - top=25mm
+  - left=20mm
+  - right=20mm
+  - bottom=25mm   
+---
+```
+
+### Changement de police
+
+* Dans le yaml avec l'option **`fontfamily: nom_font`**
+* Liste de toutes les polices [[lien]](https://www.overleaf.com/latex/templates/fontspec-all-the-fonts/hjrpnxhrrtxc)
+* Ici on utilise la police **cabin**
+
+```{.yaml}
+---
+fontfamily: cabin
+---
+```
+
+
+
+
+
+

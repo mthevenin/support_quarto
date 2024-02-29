@@ -1,0 +1,9 @@
+---
+title: "Extensions"
+
+theme: flatly
+embed-resources: true
+---
+
+* Quarto permet d'installer et d'activer facilement des extensions externes plus ou moins gadgets. 
+* La liste des extensions disponible se trouve sur le site de Quarto: [[Lien]](https://quarto.org/docs/extensions/)

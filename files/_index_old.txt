@@ -1,0 +1,69 @@
+---
+toc: false
+author-title: ""
+
+---
+
+
+<style>
+.box {
+  border-radius: 6px;
+  border: 4px solid #e83e8c;
+  padding-left:  20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 0.5em rgba(44, 62, 80, 0.5);
+    }
+</style>
+
+
+<center>
+# Présentation {.unnumbered style="color:#2c3e50"}
+</center>
+
+
+<br>
+<center>
+:::: {.columns}
+
+::: {.column width=300px}
+::: {.box}
+<a href="01-posit.html" style="text-decoration:none; color:#2c3e50; font-weight:bold; font-size:25px">{{< animate zoomIn "Posit & Quarto" >}}</a>
+:::
+:::
+::: {.column width=35px}
+:::
+::: {.column width=300px}
+::: {.box}
+<a href="02-quarto_resume.html" style="text-decoration:none; color:#2c3e50; font-weight:bold;font-size:25px">{{< animate zoomIn "Les + et les -" >}}</a>
+:::
+:::
+::::
+</center>
+<br>
+<center>
+:::: {.columns}
+
+::: {.column width=300px}
+::: {.box}
+<a href="02-quarto_resume.html" style="text-decoration:none; color:#2c3e50;  font-weight:bold;font-size:25px">{{< animate zoomIn "Ressources Quarto" >}}</a>
+:::
+:::
+
+::: {.column width=35px}
+:::
+
+::: {.column width=300px}
+::: {.box}
+<a href="02-quarto_resume.html" style="text-decoration:none; color:#2c3e50; font-weight:bold;font-size:25px">{{< animate zoomIn "Le support">}}</a>
+:::
+:::
+::::
+
+</center>
+
+
+
+
