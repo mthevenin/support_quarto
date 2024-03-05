@@ -481,17 +481,16 @@ Note
 <section id="le-_quarto.yml" class="level2" data-number="18.2">
 <h2 data-number="18.2" class="anchored" data-anchor-id="le-_quarto.yml"><span class="header-section-number">18.2</span> Le _quarto.yml</h2>
 <p>A la première compilation, le nom du book est celui donné au projet. Le rendu est le suivant:</p>
-<center>
+<div class="center">
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img4/book1.png" class="lightbox" data-gallery="book" data-glightbox="description: .lightbox-desc-1" title="accueil du book"><img src="img4/book1.png" class="img-fluid figure-img" style="width:60.0%" alt="accueil du book"></a></p>
+<p><a href="img4/book1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="book" title="accueil du book"><img src="img4/book1.png" class="img-fluid figure-img" style="width:60.0%" alt="accueil du book"></a></p>
 <figcaption>accueil du book</figcaption>
 </figure>
 </div>
 </div>
-</center>
-<p><br></p>
+</div>
 <p>Le fichier <strong><code>_quarto.yml</code></strong> par défaut:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> book</span></span>
@@ -617,7 +616,7 @@ Le <strong><code>_quarto.yml</code></strong> modifié: téléchargement en plusi
 <div class="box_img quarto-layout-cell" style="flex-basis: 49.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img4/book2.png" class="lightbox" data-gallery="book" data-glightbox="description: .lightbox-desc-2" title="Icône de téléchargement"><img src="img4/book2.png" class="img-fluid figure-img" alt="Icône de téléchargement"></a></p>
+<p><a href="img4/book2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="book" title="Icône de téléchargement"><img src="img4/book2.png" class="img-fluid figure-img" alt="Icône de téléchargement"></a></p>
 <figcaption>Icône de téléchargement</figcaption>
 </figure>
 </div>
@@ -628,14 +627,14 @@ Le <strong><code>_quarto.yml</code></strong> modifié: téléchargement en plusi
 <div class="box_img quarto-layout-cell" style="flex-basis: 49.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img4/book3.png" class="lightbox" data-gallery="book" data-glightbox="description: .lightbox-desc-3" title="Menu des formats"><img src="img4/book3.png" class="img-fluid figure-img" alt="Menu des formats"></a></p>
+<p><a href="img4/book3.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="book" title="Menu des formats"><img src="img4/book3.png" class="img-fluid figure-img" alt="Menu des formats"></a></p>
 <figcaption>Menu des formats</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p><br> En format PDF:</p>
+<p>En format PDF:</p>
 <div class="center">
 <div class="box_img">
 <p><object data="files/book/Book.pdf" type="application/pdf" width="100%" height="600"><p>Unable to display PDF file. <a href="files/book/Book.pdf">Download</a> instead.</p></object></p>
@@ -712,7 +711,8 @@ Le <strong><code>_quarto.yml</code></strong> modifié: ajout de parties
 </div>
 </div>
 </div>
-<p><br> En format PDF:</p>
+<p><br></p>
+<p>En format PDF:</p>
 <div class="center">
 <div class="box_img">
 <p><object data="files/book/Book2.pdf" type="application/pdf" width="100%" height="600"><p>Unable to display PDF file. <a href="files/book/Book2.pdf">Download</a> instead.</p></object></p>
@@ -1223,13 +1223,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>A la première compilation, le nom du book est celui donné au projet. Le rendu est le suivant:</span>
 <span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>&lt;center&gt;</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
 <span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
 <span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="al">![accueil du book](img4/book1.png)</span>{width="60%" group="book"}</span>
 <span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>&lt;/center&gt;</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>Le fichier **`_quarto.yml`** par défaut:</span>
 <span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a></span>
@@ -1355,7 +1355,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a>En format PDF:</span>
 <span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
@@ -1440,8 +1440,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-252"><a href="#cb9-252" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-253"><a href="#cb9-253" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-254"><a href="#cb9-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-255"><a href="#cb9-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-256"><a href="#cb9-256" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb9-255"><a href="#cb9-255" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb9-256"><a href="#cb9-256" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-257"><a href="#cb9-257" aria-hidden="true" tabindex="-1"></a>En format PDF:</span>
 <span id="cb9-258"><a href="#cb9-258" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-259"><a href="#cb9-259" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
@@ -1479,7 +1479,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","loop":false,"selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
