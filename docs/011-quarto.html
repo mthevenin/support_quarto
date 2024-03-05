@@ -461,7 +461,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="box_img quarto-layout-cell" style="flex-basis: 46.9%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/c12.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="g1" title="https://quarto.org/docs/get-started/"><img src="img1/c12.png" class="img-fluid figure-img" alt="https://quarto.org/docs/get-started/"></a></p>
+<p><a href="img1/c12.png" class="lightbox" data-gallery="g1" data-glightbox="description: .lightbox-desc-1" title="https://quarto.org/docs/get-started/"><img src="img1/c12.png" class="img-fluid figure-img" alt="https://quarto.org/docs/get-started/"></a></p>
 <figcaption><a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></figcaption>
 </figure>
 </div>
@@ -472,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="box_img quarto-layout-cell" style="flex-basis: 46.9%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/c13.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="g1" title="https://quarto.org/docs/download/"><img src="img1/c13.png" class="img-fluid figure-img" alt="https://quarto.org/docs/download/"></a></p>
+<p><a href="img1/c13.png" class="lightbox" data-gallery="g1" data-glightbox="description: .lightbox-desc-2" title="https://quarto.org/docs/download/"><img src="img1/c13.png" class="img-fluid figure-img" alt="https://quarto.org/docs/download/"></a></p>
 <figcaption><a href="https://quarto.org/docs/download/" class="uri">https://quarto.org/docs/download/</a></figcaption>
 </figure>
 </div>
@@ -1291,7 +1291,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
