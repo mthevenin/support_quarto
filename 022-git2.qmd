@@ -248,9 +248,10 @@ git push
 
 Sur le répertoire distant, ici sur Gitlab, les deux fichiers ont bien été ajoutés.
 
-::: {.center}
+::: {.center}  
 ::: {.box_img}
 ![](img2/img16.png){width=75%}
+:::
 :::
 
 ### Du distant au local [PULL]

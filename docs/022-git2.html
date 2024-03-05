@@ -725,7 +725,11 @@ Fichier .gitignore
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>git commit --m "titre"</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>git push</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Sur le répertoire distant, ici sur Gitlab, les deux fichiers ont bien été ajoutés.</p>
-<p>::: {.center} ::: {.box_img} <img src="img2/img16.png" class="img-fluid" style="width:75.0%"> :::</p>
+<div class="center">
+<div class="box_img">
+<p><a href="img2/img16.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="img2/img16.png" class="img-fluid" style="width:75.0%"></a></p>
+</div>
+</div>
 </section>
 <section id="du-distant-au-local-pull" class="level3" data-number="7.3.2">
 <h3 data-number="7.3.2" class="anchored" data-anchor-id="du-distant-au-local-pull"><span class="header-section-number">7.3.2</span> Du distant au local [PULL]</h3>
@@ -770,7 +774,7 @@ Important
 <p>Par exemple ici, on a ajouté un nouveau fichier: <em>ProgrammeR.R</em>. La fenêtre indique que le push a été rejeté:</p>
 <div class="center">
 <div class="box_img">
-<p><a href="img2/img24.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="img2/img24.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img2/img24.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="img2/img24.png" class="img-fluid" style="width:75.0%"></a></p>
 </div>
 </div>
 <p>Pour effectuer cette récupération des éléments modifiés directement dans le dépôt distant et mettre les deux répertoire sur un même niveau, il faut effectuer un <strong>PULL</strong>:</p>
@@ -811,7 +815,7 @@ Important
 </ul>
 <div class="center">
 <div class="box_img">
-<p><a href="img2/img20.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="img2/img20.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img2/img20.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="img2/img20.png" class="img-fluid" style="width:75.0%"></a></p>
 </div>
 </div>
 <p>On visualise parfaitement l’historique des opérations réalisés entre les deux répertoires, avec:</p>
@@ -830,13 +834,13 @@ C’est ici où le versionnage va jouer tout son rôle: le texte de la première
 </ul>
 <div class="center">
 <div class="box_img">
-<p><a href="img2/img21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="img2/img21.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img2/img21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="img2/img21.png" class="img-fluid" style="width:75.0%"></a></p>
 </div>
 </div>
 <p>Le texte de la seconde modification (en vert) n’est pas le même que le premier (en rouge).</p>
 <div class="center">
 <div class="box_img">
-<p><a href="img2/img23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="img2/img23.png" class="img-fluid" style="width:75.0%"></a></p>
+<p><a href="img2/img23.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="img2/img23.png" class="img-fluid" style="width:75.0%"></a></p>
 </div>
 </div>
 <ul>
@@ -1560,131 +1564,132 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-249"><a href="#cb4-249" aria-hidden="true" tabindex="-1"></a>Sur le répertoire distant, ici sur Gitlab, les deux fichiers ont bien été ajoutés.</span>
 <span id="cb4-250"><a href="#cb4-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-251"><a href="#cb4-251" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb4-251"><a href="#cb4-251" aria-hidden="true" tabindex="-1"></a>::: {.center}  </span>
 <span id="cb4-252"><a href="#cb4-252" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
 <span id="cb4-253"><a href="#cb4-253" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img16.png)</span>{width=75%}</span>
 <span id="cb4-254"><a href="#cb4-254" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a><span class="fu">### Du distant au local [PULL]</span></span>
-<span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a>Hors travail sur des branches secondaires qui seront fusionnées avec la branche principale, il n'est pas conseillé de modifier directement le répertoire distant. Si c'est le cas^<span class="co">[</span><span class="ot">Classique pour les fichiers Readme.md</span><span class="co">]</span>, il ne sera pas possible de faire remonter directement avec un **PUSH** le local vers le distant. Il faudra au préalable une synchronisation descendante du distant vers le local avec un **PULL**. </span>
-<span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a>S'il n'est pas conseillé d'éditer un fichier manuellement sur le distant, ça l'est est encore moins de modifier sans synchronisation préalable un même fichier sur le local **et** le distant. Sinon cela sera un passage assuré vers la case [**CONFLICT**]{style="color:#e74c3c"}.</span>
-<span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-263"><a href="#cb4-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-264"><a href="#cb4-264" aria-hidden="true" tabindex="-1"></a>Exemple en modifiant le fichier README.md du dépôt distant^<span class="co">[</span><span class="ot">Donc éditable en markdown</span><span class="co">]</span>. </span>
-<span id="cb4-265"><a href="#cb4-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-266"><a href="#cb4-266" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le dépôt distant, aller sur le fichier README.md {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb4-267"><a href="#cb4-267" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur le bouton **edit** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb4-268"><a href="#cb4-268" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur Gitlab préférer l'option **Edit a single file** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb4-269"><a href="#cb4-269" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On valide la transaction avec le bouton **Commit change** en bas  (ici *Update Readme.md*, mais on peut changer).  </span>
-<span id="cb4-270"><a href="#cb4-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a><span class="fu">### Du distant au local [PULL]</span></span>
+<span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a>Hors travail sur des branches secondaires qui seront fusionnées avec la branche principale, il n'est pas conseillé de modifier directement le répertoire distant. Si c'est le cas^<span class="co">[</span><span class="ot">Classique pour les fichiers Readme.md</span><span class="co">]</span>, il ne sera pas possible de faire remonter directement avec un **PUSH** le local vers le distant. Il faudra au préalable une synchronisation descendante du distant vers le local avec un **PULL**. </span>
+<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a>S'il n'est pas conseillé d'éditer un fichier manuellement sur le distant, ça l'est est encore moins de modifier sans synchronisation préalable un même fichier sur le local **et** le distant. Sinon cela sera un passage assuré vers la case [**CONFLICT**]{style="color:#e74c3c"}.</span>
+<span id="cb4-263"><a href="#cb4-263" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-264"><a href="#cb4-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-265"><a href="#cb4-265" aria-hidden="true" tabindex="-1"></a>Exemple en modifiant le fichier README.md du dépôt distant^<span class="co">[</span><span class="ot">Donc éditable en markdown</span><span class="co">]</span>. </span>
+<span id="cb4-266"><a href="#cb4-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-267"><a href="#cb4-267" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le dépôt distant, aller sur le fichier README.md {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb4-268"><a href="#cb4-268" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur le bouton **edit** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb4-269"><a href="#cb4-269" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur Gitlab préférer l'option **Edit a single file** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb4-270"><a href="#cb4-270" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On valide la transaction avec le bouton **Commit change** en bas  (ici *Update Readme.md*, mais on peut changer).  </span>
 <span id="cb4-271"><a href="#cb4-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-272"><a href="#cb4-272" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">30,30,30,</span><span class="co">]</span>"  layout-valign="bottom"}</span>
-<span id="cb4-273"><a href="#cb4-273" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb4-274"><a href="#cb4-274" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img17.png)</span>{group="gl1"}   </span>
-<span id="cb4-275"><a href="#cb4-275" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-276"><a href="#cb4-276" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb4-277"><a href="#cb4-277" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img18.png)</span>{group="gl1"}</span>
-<span id="cb4-278"><a href="#cb4-278" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-279"><a href="#cb4-279" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb4-280"><a href="#cb4-280" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img19.png)</span>{group="gl1"}</span>
-<span id="cb4-281"><a href="#cb4-281" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-282"><a href="#cb4-282" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb4-283"><a href="#cb4-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-284"><a href="#cb4-284" aria-hidden="true" tabindex="-1"></a>De retour sur le répertoire local, si on veut  **PUSHER** des modifications locales, l'opération sera rejetée. Il faut donc que les modifications apportées aux dépôt distant soient récupérées en local.</span>
-<span id="cb4-285"><a href="#cb4-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-286"><a href="#cb4-286" aria-hidden="true" tabindex="-1"></a>Par exemple ici, on a ajouté un nouveau fichier: *ProgrammeR.R*. La fenêtre indique que le push a été rejeté: </span>
-<span id="cb4-287"><a href="#cb4-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-272"><a href="#cb4-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-273"><a href="#cb4-273" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">30,30,30,</span><span class="co">]</span>"  layout-valign="bottom"}</span>
+<span id="cb4-274"><a href="#cb4-274" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb4-275"><a href="#cb4-275" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img17.png)</span>{group="gl1"}   </span>
+<span id="cb4-276"><a href="#cb4-276" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-277"><a href="#cb4-277" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb4-278"><a href="#cb4-278" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img18.png)</span>{group="gl1"}</span>
+<span id="cb4-279"><a href="#cb4-279" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-280"><a href="#cb4-280" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb4-281"><a href="#cb4-281" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img19.png)</span>{group="gl1"}</span>
+<span id="cb4-282"><a href="#cb4-282" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-283"><a href="#cb4-283" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb4-284"><a href="#cb4-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-285"><a href="#cb4-285" aria-hidden="true" tabindex="-1"></a>De retour sur le répertoire local, si on veut  **PUSHER** des modifications locales, l'opération sera rejetée. Il faut donc que les modifications apportées aux dépôt distant soient récupérées en local.</span>
+<span id="cb4-286"><a href="#cb4-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-287"><a href="#cb4-287" aria-hidden="true" tabindex="-1"></a>Par exemple ici, on a ajouté un nouveau fichier: *ProgrammeR.R*. La fenêtre indique que le push a été rejeté: </span>
 <span id="cb4-288"><a href="#cb4-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-289"><a href="#cb4-289" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
-<span id="cb4-290"><a href="#cb4-290" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb4-291"><a href="#cb4-291" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img24.png)</span>{width=75%}</span>
-<span id="cb4-292"><a href="#cb4-292" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-289"><a href="#cb4-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-290"><a href="#cb4-290" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb4-291"><a href="#cb4-291" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb4-292"><a href="#cb4-292" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img24.png)</span>{width=75%}</span>
 <span id="cb4-293"><a href="#cb4-293" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-294"><a href="#cb4-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-295"><a href="#cb4-295" aria-hidden="true" tabindex="-1"></a>Pour effectuer cette récupération des éléments modifiés directement dans le dépôt distant et mettre les deux répertoire sur un même niveau, il faut effectuer un **PULL**: </span>
-<span id="cb4-296"><a href="#cb4-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-297"><a href="#cb4-297" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via l'onglet Git + cliquer sur **PULL**.</span>
-<span id="cb4-298"><a href="#cb4-298" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via la fenêtre commit + cliquer sur **PULL**.</span>
-<span id="cb4-299"><a href="#cb4-299" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via le terminal utiliser la commande **`git pull`**.</span>
-<span id="cb4-300"><a href="#cb4-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a>Une fois cette opération réalisée, le nouveau programme pourra êtré déposé sur le dépôt distant.</span>
-<span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-303"><a href="#cb4-303" aria-hidden="true" tabindex="-1"></a>Avec les commandes: </span>
-<span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-305"><a href="#cb4-305" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
-<span id="cb4-306"><a href="#cb4-306" aria-hidden="true" tabindex="-1"></a><span class="in">git pull</span></span>
-<span id="cb4-307"><a href="#cb4-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-308"><a href="#cb4-308" aria-hidden="true" tabindex="-1"></a><span class="in">git add .</span></span>
-<span id="cb4-309"><a href="#cb4-309" aria-hidden="true" tabindex="-1"></a><span class="in">git commit --m "Add ProgrammeR.R"</span></span>
-<span id="cb4-310"><a href="#cb4-310" aria-hidden="true" tabindex="-1"></a><span class="in">git push</span></span>
-<span id="cb4-311"><a href="#cb4-311" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-312"><a href="#cb4-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-294"><a href="#cb4-294" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-295"><a href="#cb4-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-296"><a href="#cb4-296" aria-hidden="true" tabindex="-1"></a>Pour effectuer cette récupération des éléments modifiés directement dans le dépôt distant et mettre les deux répertoire sur un même niveau, il faut effectuer un **PULL**: </span>
+<span id="cb4-297"><a href="#cb4-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-298"><a href="#cb4-298" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via l'onglet Git + cliquer sur **PULL**.</span>
+<span id="cb4-299"><a href="#cb4-299" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via la fenêtre commit + cliquer sur **PULL**.</span>
+<span id="cb4-300"><a href="#cb4-300" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via le terminal utiliser la commande **`git pull`**.</span>
+<span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a>Une fois cette opération réalisée, le nouveau programme pourra êtré déposé sur le dépôt distant.</span>
+<span id="cb4-303"><a href="#cb4-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a>Avec les commandes: </span>
+<span id="cb4-305"><a href="#cb4-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-306"><a href="#cb4-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
+<span id="cb4-307"><a href="#cb4-307" aria-hidden="true" tabindex="-1"></a><span class="in">git pull</span></span>
+<span id="cb4-308"><a href="#cb4-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-309"><a href="#cb4-309" aria-hidden="true" tabindex="-1"></a><span class="in">git add .</span></span>
+<span id="cb4-310"><a href="#cb4-310" aria-hidden="true" tabindex="-1"></a><span class="in">git commit --m "Add ProgrammeR.R"</span></span>
+<span id="cb4-311"><a href="#cb4-311" aria-hidden="true" tabindex="-1"></a><span class="in">git push</span></span>
+<span id="cb4-312"><a href="#cb4-312" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-313"><a href="#cb4-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-314"><a href="#cb4-314" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a>L'opération **PULL** ne supprimera pas le fichier ProgrammeR.R créé dans le répertoire local et absent du dépôt distant. Il n'existe pas en distant, donc pas de delta sur ce niveau. La mise à jour ne concernera que la modification du fichier **README.md**.</span>
-<span id="cb4-316"><a href="#cb4-316" aria-hidden="true" tabindex="-1"></a>Par contre, si on supprime un fichier sur le dépôt distant et qu'il est présent sur le répertoire local, il sera supprimé du local lors du PULL.</span>
-<span id="cb4-317"><a href="#cb4-317" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-318"><a href="#cb4-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-314"><a href="#cb4-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb4-316"><a href="#cb4-316" aria-hidden="true" tabindex="-1"></a>L'opération **PULL** ne supprimera pas le fichier ProgrammeR.R créé dans le répertoire local et absent du dépôt distant. Il n'existe pas en distant, donc pas de delta sur ce niveau. La mise à jour ne concernera que la modification du fichier **README.md**.</span>
+<span id="cb4-317"><a href="#cb4-317" aria-hidden="true" tabindex="-1"></a>Par contre, si on supprime un fichier sur le dépôt distant et qu'il est présent sur le répertoire local, il sera supprimé du local lors du PULL.</span>
+<span id="cb4-318"><a href="#cb4-318" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-319"><a href="#cb4-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-320"><a href="#cb4-320" aria-hidden="true" tabindex="-1"></a><span class="fu">## Le contrôle de version</span></span>
-<span id="cb4-321"><a href="#cb4-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-322"><a href="#cb4-322" aria-hidden="true" tabindex="-1"></a>Plusieurs opérations ont été réalisées après la création du dépôt distant:   </span>
-<span id="cb4-323"><a href="#cb4-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-324"><a href="#cb4-324" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Transfert sur le répertoire distant des deux fichiers générés à la création du projet sur Rstudio.</span>
-<span id="cb4-325"><a href="#cb4-325" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Modification du fichier **README.md** sur le dépôt distant. </span>
-<span id="cb4-326"><a href="#cb4-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-327"><a href="#cb4-327" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur Gitlab: dans la barre de navigation se situant à gauche, on peut visualiser l'historique de ces modifications en allant sur **Code**=&gt; **Repository Graph**.</span>
-<span id="cb4-328"><a href="#cb4-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-320"><a href="#cb4-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-321"><a href="#cb4-321" aria-hidden="true" tabindex="-1"></a><span class="fu">## Le contrôle de version</span></span>
+<span id="cb4-322"><a href="#cb4-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-323"><a href="#cb4-323" aria-hidden="true" tabindex="-1"></a>Plusieurs opérations ont été réalisées après la création du dépôt distant:   </span>
+<span id="cb4-324"><a href="#cb4-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-325"><a href="#cb4-325" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Transfert sur le répertoire distant des deux fichiers générés à la création du projet sur Rstudio.</span>
+<span id="cb4-326"><a href="#cb4-326" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Modification du fichier **README.md** sur le dépôt distant. </span>
+<span id="cb4-327"><a href="#cb4-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-328"><a href="#cb4-328" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur Gitlab: dans la barre de navigation se situant à gauche, on peut visualiser l'historique de ces modifications en allant sur **Code**=&gt; **Repository Graph**.</span>
 <span id="cb4-329"><a href="#cb4-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-330"><a href="#cb4-330" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
-<span id="cb4-331"><a href="#cb4-331" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb4-332"><a href="#cb4-332" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img20.png)</span>{width=75%}</span>
-<span id="cb4-333"><a href="#cb4-333" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-330"><a href="#cb4-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-331"><a href="#cb4-331" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb4-332"><a href="#cb4-332" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb4-333"><a href="#cb4-333" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img20.png)</span>{width=75%}</span>
 <span id="cb4-334"><a href="#cb4-334" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-335"><a href="#cb4-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-336"><a href="#cb4-336" aria-hidden="true" tabindex="-1"></a>On visualise  parfaitement l'historique des opérations réalisés entre les deux répertoires, avec: </span>
-<span id="cb4-337"><a href="#cb4-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-338"><a href="#cb4-338" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>Report du texte des commit (d'où leur importance).</span>
-<span id="cb4-339"><a href="#cb4-339" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>Les dates des opérations. </span>
-<span id="cb4-340"><a href="#cb4-340" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>Via des avatars, l'origine des modifications.</span>
-<span id="cb4-341"><a href="#cb4-341" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>On visualise toutes les modifications réalisées pour chaque commit.</span>
-<span id="cb4-342"><a href="#cb4-342" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-343"><a href="#cb4-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-335"><a href="#cb4-335" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-336"><a href="#cb4-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-337"><a href="#cb4-337" aria-hidden="true" tabindex="-1"></a>On visualise  parfaitement l'historique des opérations réalisés entre les deux répertoires, avec: </span>
+<span id="cb4-338"><a href="#cb4-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-339"><a href="#cb4-339" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>Report du texte des commit (d'où leur importance).</span>
+<span id="cb4-340"><a href="#cb4-340" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>Les dates des opérations. </span>
+<span id="cb4-341"><a href="#cb4-341" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>Via des avatars, l'origine des modifications.</span>
+<span id="cb4-342"><a href="#cb4-342" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>On visualise toutes les modifications réalisées pour chaque commit.</span>
+<span id="cb4-343"><a href="#cb4-343" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb4-344"><a href="#cb4-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-345"><a href="#cb4-345" aria-hidden="true" tabindex="-1"></a>On remarque ici à la suite deux modifications apportées au fichier README.md, car j'ai du m'y reprendre à deux fois pour la capture d'écran (oublié simplement de l'enregistrer pour la première modification).     </span>
-<span id="cb4-346"><a href="#cb4-346" aria-hidden="true" tabindex="-1"></a>C'est ici où le versionnage va jouer tout son rôle: le texte de la première modification n'est pas le même que dans la version courante, mais on en a gardé la trace.</span>
-<span id="cb4-347"><a href="#cb4-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-348"><a href="#cb4-348" aria-hidden="true" tabindex="-1"></a>Sur Gitlab, en allant soit: </span>
-<span id="cb4-349"><a href="#cb4-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-350"><a href="#cb4-350" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur la colonne **last commit** et en sélectionnant la modification apportée au fichier README.md</span>
-<span id="cb4-351"><a href="#cb4-351" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur le bouton **History** et en cliquant sur le commit:</span>
-<span id="cb4-352"><a href="#cb4-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-353"><a href="#cb4-353" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
-<span id="cb4-354"><a href="#cb4-354" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb4-355"><a href="#cb4-355" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img21.png)</span>{width=75%}</span>
-<span id="cb4-356"><a href="#cb4-356" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-345"><a href="#cb4-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-346"><a href="#cb4-346" aria-hidden="true" tabindex="-1"></a>On remarque ici à la suite deux modifications apportées au fichier README.md, car j'ai du m'y reprendre à deux fois pour la capture d'écran (oublié simplement de l'enregistrer pour la première modification).     </span>
+<span id="cb4-347"><a href="#cb4-347" aria-hidden="true" tabindex="-1"></a>C'est ici où le versionnage va jouer tout son rôle: le texte de la première modification n'est pas le même que dans la version courante, mais on en a gardé la trace.</span>
+<span id="cb4-348"><a href="#cb4-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-349"><a href="#cb4-349" aria-hidden="true" tabindex="-1"></a>Sur Gitlab, en allant soit: </span>
+<span id="cb4-350"><a href="#cb4-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-351"><a href="#cb4-351" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur la colonne **last commit** et en sélectionnant la modification apportée au fichier README.md</span>
+<span id="cb4-352"><a href="#cb4-352" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur le bouton **History** et en cliquant sur le commit:</span>
+<span id="cb4-353"><a href="#cb4-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-354"><a href="#cb4-354" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb4-355"><a href="#cb4-355" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb4-356"><a href="#cb4-356" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img21.png)</span>{width=75%}</span>
 <span id="cb4-357"><a href="#cb4-357" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-358"><a href="#cb4-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-359"><a href="#cb4-359" aria-hidden="true" tabindex="-1"></a>Le texte de la seconde modification (en vert) n'est pas le même que le premier (en rouge). </span>
-<span id="cb4-360"><a href="#cb4-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-358"><a href="#cb4-358" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-359"><a href="#cb4-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-360"><a href="#cb4-360" aria-hidden="true" tabindex="-1"></a>Le texte de la seconde modification (en vert) n'est pas le même que le premier (en rouge). </span>
 <span id="cb4-361"><a href="#cb4-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-362"><a href="#cb4-362" aria-hidden="true" tabindex="-1"></a>::: {.center}  </span>
-<span id="cb4-363"><a href="#cb4-363" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb4-364"><a href="#cb4-364" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img23.png)</span>{width=75%}</span>
-<span id="cb4-365"><a href="#cb4-365" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-362"><a href="#cb4-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-363"><a href="#cb4-363" aria-hidden="true" tabindex="-1"></a>::: {.center}  </span>
+<span id="cb4-364"><a href="#cb4-364" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb4-365"><a href="#cb4-365" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img23.png)</span>{width=75%}</span>
 <span id="cb4-366"><a href="#cb4-366" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-367"><a href="#cb4-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-368"><a href="#cb4-368" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En remontant, on peut donc récupérer le texte du Readme.md généré automatiquement à la création du dépôt distant par gitlab.  </span>
-<span id="cb4-369"><a href="#cb4-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-370"><a href="#cb4-370" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut commenter les versions pour ajouter des informations sur les modifications. </span>
-<span id="cb4-371"><a href="#cb4-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-372"><a href="#cb4-372" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En équipe, on peut lancer une discussion sur le contenu des modifications.</span>
-<span id="cb4-373"><a href="#cb4-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-374"><a href="#cb4-374" aria-hidden="true" tabindex="-1"></a>**Remarque**: l'historique est également disponible dans l'onglet GIT, en cliquant sur **History**.</span>
-<span id="cb4-375"><a href="#cb4-375" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-367"><a href="#cb4-367" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-368"><a href="#cb4-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-369"><a href="#cb4-369" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En remontant, on peut donc récupérer le texte du Readme.md généré automatiquement à la création du dépôt distant par gitlab.  </span>
+<span id="cb4-370"><a href="#cb4-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-371"><a href="#cb4-371" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut commenter les versions pour ajouter des informations sur les modifications. </span>
+<span id="cb4-372"><a href="#cb4-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-373"><a href="#cb4-373" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En équipe, on peut lancer une discussion sur le contenu des modifications.</span>
+<span id="cb4-374"><a href="#cb4-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-375"><a href="#cb4-375" aria-hidden="true" tabindex="-1"></a>**Remarque**: l'historique est également disponible dans l'onglet GIT, en cliquant sur **History**.</span>
+<span id="cb4-376"><a href="#cb4-376" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1714,7 +1719,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
