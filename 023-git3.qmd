@@ -401,4 +401,4 @@ On peut également générer ce fichier directement dans Gitlab:
 <iframe width="550" height="450" src="https://mthevenin.gitlab.io/deploy-page/" 
 title="Le site déployé" ></iframe>
 :::
-::: {.center}
+:::

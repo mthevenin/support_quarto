@@ -3,7 +3,7 @@
 
 ## Mars 2024
 
-* Il s'agit ici d'une première version d'un support de formation sur le logiciel Quarto.  
+* Il s'agit ici d'une première version d'un support de formation sur le logiciel Quarto. 
 
 * Bien que Quarto soit pleinement utilisable avec plusieurs IDE, le support s'intéresse exclusivement à son utilisation avec RStudio.
 
