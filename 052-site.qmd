@@ -165,13 +165,13 @@ toc: false
 ```
 
 
-<br>
-<center>
+
+::: {.center}
 ::: {.box_img}
 ![](img4/site3.png){width="70%" group="site1"}
 :::
-</center>
-<br>
+:::
+
 
 * Ajout des fichiers du support de ce chapitre du support:
   * Introduction (sauf la fin sur l'icone gitlab).
@@ -206,7 +206,6 @@ toc: false
 :::
 :::
 
-<br>
 
   
 * Quelques options supplémentaires:
@@ -245,7 +244,6 @@ lang: fr
 :::
 :::
 
-<br>
 
 ::: {.callout-note   collapse=true}
 
@@ -333,8 +331,6 @@ Pour cette exemple, on va conserver un accès direct à la page "Introduction" e
 :::
 :::
 
-<br>
-
 
 
 ## Ajout d'une sidebar avec un menu
@@ -406,8 +402,6 @@ website:
 ![Menu ouvert](img4/site10.png){group="site1"}
 :::
 :::
-
-<br>
 
 ::: {.callout-note  collapse=true}
 

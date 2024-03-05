@@ -36,13 +36,13 @@ On va partir du book généré par Quarto en créant un project (**Files**=>**Ne
 
 A la première compilation, le nom du book est celui donné au projet. Le rendu est le suivant:
 
-<center>
+::: {.center}
 ::: {.box_img}
 ![accueil du book](img4/book1.png){width="60%" group="book"}
 :::
-</center>
+:::
 
-<br>
+
 
 Le fichier **`_quarto.yml`** par défaut:
 
@@ -168,7 +168,7 @@ format:
 :::
 :::
 
-<br>
+
 En format PDF:
 
 ::: {.center}
@@ -253,8 +253,8 @@ format:
 
 :::
 
-
 <br>
+
 En format PDF:
 
 ::: {.center}

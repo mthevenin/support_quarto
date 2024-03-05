@@ -103,7 +103,6 @@ Avec les couleurs du thème zephyr:
 ::: {.box_img}
 ![Récupérer facilement les couleurs d'un thème](img5/video1.gif){group=vid1}
 :::
-<br> 
  
 
 Pour modifier la couleur du lien (avec une couleur du thème), on utilise directement l'option `linkcolor:`
@@ -350,7 +349,7 @@ $code-color: $purple;
 :::
 
 
-### Ajout de classes css dans un fichier scss
+### Ajout de styles css dans un fichier scss
 
 * Dans la section **`/*-- scss:rules --*/`** du fichier, on peut créer des styles css en utiisant les variables Sass générées précédemment. Par exemple pour changer seulement la couleur du texte avec 8 couleurs Sass du thème bootstrap:
 
@@ -385,7 +384,7 @@ Donne le résultat suivant:
 On change la couleur du [mot success]{.col_success} avec la classe `.success`.
 :::
 
-<br>  
+<br>
 
 * Un paragraphe avec une section div **::: {.nom_classe}**: 
 

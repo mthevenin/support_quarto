@@ -144,13 +144,13 @@ usethis::create_github_token()
 ::: {.box_img}
 ![](img2/token_github1.png){group=gh1}
 :::
-<br>
+
 
 ::: {.box_img}
 ![](img2/token_github2.png){group=gh1}
 :::
 
-<br>
+
 Note: au cas où... ce token n'est bien évidemment plus valide.  
 
 * Attention à la date d'expiration du token.
@@ -236,7 +236,6 @@ Le token/password est généré directement sur le compte Gitlab.
 :::
 ::::
 
-<br>
 
 **Ajouter le token dans RStudio**
 

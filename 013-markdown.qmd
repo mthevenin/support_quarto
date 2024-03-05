@@ -22,7 +22,7 @@ filters:
 
 
 [[:Markdown WIKI](https://fr.wikipedia.org/wiki/Markdown)]{.nut}
-<br>
+
 
 Le **markdown** est un mode de formatage dit **léger**^[D'où le *Down*] de texte incluant des éléments d'insertion d'images, de lien ou de création de tableaux qui se substitue partiellement à un formatage de type **markup**.
 
@@ -72,7 +72,7 @@ Ce support utilise seulement 4 des 5 balises présentées dans le tableaux
 ### Saut de ligne
 
 -   Généralement les éditeurs de texte markdown sur le web comme [\[stackedit\]](https://stackedit.io/) gèrent automatiquement le saut avec la touche `enter`.
--   La balise html est <br>
+-   La balise html est `<br>`
 -   Avec Quarto (ou Rmarkdown) deux possibilités :
     -   Implicitement avec un **double espace** après le dernier mot.
     -   Explicitement avec l'utilisation de la balise `\`. 
@@ -260,7 +260,6 @@ En html un lien et ses options sont insérés dans une balise **`<a *lien option
 :::
 ::: 
 
-<br>
   
 * Avec le logo stocké dans le répertoire **img1**:
   * **`![Logo](img1/quarto.png)`**
@@ -273,7 +272,6 @@ En html un lien et ses options sont insérés dans une balise **`<a *lien option
 :::
 :::
 
-<br>
 Sans rentrer dans le détail des options : 
 
 * On peut réduire la taille de l'image. En relatif on peut utiliser l'option `{width=X%}`:
@@ -287,8 +285,6 @@ Sans rentrer dans le détail des options :
 :::
 ::: 
 
-<br>
-
 - On peut modifier l'alignement horizontal de l'image avec l'option `fig-align:"left/right"` à l'option précédente: 
   - **`![Logo 50% à gauche](img1/quarto.png){fig-align="left" width=50%}`**
 
@@ -300,7 +296,6 @@ Sans rentrer dans le détail des options :
 :::
 ::: 
 
-<br>
 
 ### Insertion d'un tableau
 
@@ -331,6 +326,7 @@ En html, une multitude de balisage : `<table></table>` (tableau), `<tr></tr>` (l
 | C | D |
 +---+---+
 
+<br>
 **Tableau en markdown**:
 
 * Repose sur un principe de *pipes* pas forcément facile à mémoriser
@@ -489,7 +485,7 @@ $$\sum_{i=0}^n p_i=1$$
 
 
 [[:CSS Wiki](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade)]{.nut}
-<br>
+
 
 
 Posit a introduit 3 types de balisage: 
@@ -759,7 +755,7 @@ On peut insérer des vidéos (Youtube, Vimeo...) avec **`{{{< video video_link o
 ::: {.box_img}
 {{< video https://www.youtube.com/watch?v=VEay0IMZT8w >}}
 :::
-<br>
+
 
 On peut paramétrer le ratio ou la taille de la vidéo insérée:
 

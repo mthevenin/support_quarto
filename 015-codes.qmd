@@ -334,7 +334,7 @@ plot(x, y)
 :::
 </center>
 
-<br>
+
 **Remarque**: on peut utiliser du formatage markdown dans le titre.  
 
 #### Tableaux
@@ -391,7 +391,7 @@ Demonstration (cliquer sur **`<> Code`** en haut à droite, ou sur **Code** au d
 <iframe width="650" height="500" src="files/ctools1.html" title="options blocs de code" name="deploy_page2"></iframe>
 :::
 :::
-<br>
+
 
 ### Afficher/cacher le bloc de codes à la volée
 
@@ -541,9 +541,6 @@ plot(x, y)              #<3>
 3. J'exécute un scatter plot   
 :::
 :::
-
-
-<br>
 
 
 ***Remarques***:  

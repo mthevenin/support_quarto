@@ -34,7 +34,6 @@ Après avoir enregistré le fichier, on peut accéder directement à un sous men
 ![Compilation multiformat avec le bouton **Render**](img3/img1.png){ fig-align="center"}
 :::
 
-<br>         
          
 * Dans le menu du bouton **Render**, on doit compiler au moins une fois le document pour les autres formats individuellement.
   
@@ -121,7 +120,6 @@ plot(df$mpg, df$disp)
 ```
 :::
 
-<br>  
 
 * En compilant simultanément en pdf, le rendu est le suivant: 
 
@@ -129,7 +127,6 @@ plot(df$mpg, df$disp)
 ![](img3/img2.png){fig-align="center"}
 :::
 
-<br>
 
 ### Contrôler le contenu affiché {#sec-multiform}
 
@@ -188,9 +185,6 @@ plot(df$mpg, df$disp)
 ```
 :::
 :::
-
-
-<br>
 
 * **Pour les formats statiques pdf,docx**:
     * `{.content-hidden when-format="html"}`

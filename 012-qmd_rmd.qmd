@@ -113,12 +113,11 @@ Pour un document très simple, on peut convertir un fichier `.rmd` en `.qmd` par
 ::: 
 ::: 
 
-<br>
+
 Si on prend ce même document, sans l'option `output` et sans le script `r setup`, et qu'on l'enregistre en Quarto (.qmd):
 
 
 ::: {.columns}
-
 ::: {.column width="42.5%"} 
 
 ![Document qmd sans l'option output](img1/img3.png){group=g1}

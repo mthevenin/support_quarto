@@ -8,12 +8,12 @@
 
 Donc quelque part, on cache R.
 
-La raison est simple (cf itw de JJ.Allaire), en dehors du monde académique, moindre accrochage de R et donc de RStudio dans les entreprises aux US, dominé par les technologies reposant sur le langage Python. R étant par définition un outil limité à la statistique. 
+La raison est simple (cf itw de JJ.Allaire), en dehors du monde académique moindre accrochage de R et donc de RStudio dans les entreprises aux US, dominé par les technologies reposant sur  Python. R étant par définition un outil limité à la statistique. 
 
 
 ### Annonce de la création de Posit  {.unnumbered}
 
-<center>
+
 ::: {.column width=80%}
 :::{.box_img}
 
@@ -21,11 +21,11 @@ La raison est simple (cf itw de JJ.Allaire), en dehors du monde académique, moi
 
 :::
 :::
-</center>
+
 
 ### Interview de JJ Allaire {.unnumbered}
 
-<center>
+
 ::: {.column width=80%} 
 ::: {.box_img} 
 ::: {#fig-video} 
@@ -34,7 +34,7 @@ La raison est simple (cf itw de JJ.Allaire), en dehors du monde académique, moi
 :::
 :::
 :::
-</center>
+
 
 
 

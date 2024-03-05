@@ -50,7 +50,6 @@ On est pas obligé d'envoyer les fichiers sources .qmd ou .rmd, c'est ici l'outp
 :::
 :::
 
-<br>
 
 :::: {layout="[50,50]" layout-valign="bottom"} 
 ::: {.box_img}
@@ -87,7 +86,6 @@ On est pas obligé d'envoyer les fichiers sources .qmd ou .rmd, c'est ici l'outp
 :::
 :::
 
-<br>  
 
 ::: {.center}
 ::: {.column width=80%}
@@ -97,7 +95,6 @@ On est pas obligé d'envoyer les fichiers sources .qmd ou .rmd, c'est ici l'outp
 :::
 :::
 
-<br>
 
 ### Déploiement avec un fichier de configuration _quarto.yml
 
@@ -198,7 +195,6 @@ Une fois le dépôt distant cloné et le site généré en local, on le push:
 :::
 :::
 
-<br>
 
 
 ::: {layout="[50,50]" layout-valign="bottom"}
@@ -210,15 +206,14 @@ Une fois le dépôt distant cloné et le site généré en local, on le push:
 :::
 :::
 
-<br>
-<center>
+
+::: {.center} 
 ::: {.column width=80%}
 :::{.box_img}
 <iframe width="550" height="450" src="https://mthevenin.github.io/deploy-page2/" title="deploy website - github" name="deploy_page2"></iframe>
 :::
 :::
-</center>
-
+:::
 
 
 
@@ -266,7 +261,6 @@ Pour générer ces éléments:
 ::: 
 :::
 
-<br>
 
 * **Création du projet**:  
    * On reprend les éléments décrits dans le chapitre précédent (@sec-glproj) avec le nom du projet, le nom de domaine du projet (différent du site déployé) et le choix de la visibilité.
@@ -282,8 +276,6 @@ Pour générer ces éléments:
 ![Pprojet généré](img2/deploy_gitlab5.png){group="gitlab2"}
 :::
 :::
-
-<br>  
 
 
 **Execution du job de déploiement**  
@@ -304,7 +296,6 @@ Pour générer ces éléments:
 :::
 :::
 
-<br>
 
 ::: {layout="[50,50]" layout-valign="bottom"}
 ::: {.box_img}
@@ -315,7 +306,6 @@ Pour générer ces éléments:
 :::
 :::
 
-<br>
 
 **Création de l'url**   
 
@@ -340,7 +330,6 @@ Pour générer ces éléments:
 :::
 :::
 
-<br>  
 
 La page test générée:  
 
@@ -396,16 +385,16 @@ On peut également générer ce fichier directement dans Gitlab:
 * Rafraichir la page html. Cela peut prendre quelques seconde à une minute.
 
 
-::: {layout="[50,50,33]" layout-valign="bottom"}
+::: {layout="[50,50,33]" layout-valign="bottom"}   
 :::{.box_img}
 ![_quarto.yml Rstudio](img2/deploy_gitlab18.png){group="Gitlab7"} 
 :::
+
 :::{.box_img}
 ![index.qmd Rstudio](img2/deploy_gitlab17.png){group="Gitlab7"} 
 :::
 :::
 
-<br>
 
 ::: {.center}
 :::{.box_img}

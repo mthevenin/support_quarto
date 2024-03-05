@@ -27,7 +27,7 @@ Après cela aucune opération d'installation ou de désinstallation n'est néces
 :::
 :::
 
-<br>
+
 
 * La désinstallation de quarto est effectuée via une application dédié: outil d'installation/désinstallation de l'OS, **ccleaner**...   
 
@@ -38,7 +38,7 @@ Après cela aucune opération d'installation ou de désinstallation n'est néces
 
 * Le package R Quarto^[Nécessite une version `Rtools` relativement à jour: min v4]  permet de faire quelques opérations à partir de la console R: vérification de la version de Quarto installée, compilation d'un document... Quarto étant un logiciel, son installation est plutôt accessoire.
 
-```mf
+```{.mf}
 install.packages("quarto")
 library(quarto)
 ```
@@ -50,7 +50,7 @@ library(quarto)
 quarto_version()
 ```
 
-```{md filename="Compiler un fichier Quarto à partir de la console"}
+```{.md filename="Compiler un fichier Quarto à partir de la console"}
 quarto::quarto_render("filename.qmd")
 ```
 
@@ -121,8 +121,6 @@ Le projet de type **manuscript** sera traité dans une version ultérieure du su
 ![](img1/c11.png){width=70%}
 :::
 :::
-
-<br>
 
 * **Quarto website**: [Exemple...sans surprise](https://quarto.org/)
 * **Quarto book**:    [Exemple](https://mthevenin.github.io/analyse_duree/)

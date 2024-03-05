@@ -44,10 +44,10 @@ $dark:          $gray-700 !default;
 // Utilisation des variables SASS de Quarto
 // Si pas de changement: fermer Rstudio et réouvrir le projet
 
-$toc-color: $pink;
-$link-color: $pink;
+$toc-color:              $pink;
+$link-color:             $pink;
 $code-block-border-left: $purple;
-$code-color: $purple;
+$code-color:             $purple;
 
 //$body-bg: $gray-100;
 //$body-color: $gray-900;
@@ -55,9 +55,9 @@ $code-color: $purple;
 
 /*-- scss:rules --*/
 
-// création de classes css classiques
-//Modifier la couleur du texte dans .qmd: [texte]{.nom_classe}
-// .nom_classe = .primary, .secondary, .success, ...
+//  création de classes css classiques
+//  Modifier la couleur du texte dans .qmd: [texte]{.nom_classe}
+//  .nom_classe = .primary, .secondary, .success, ...
 
 .col_primary{  color: $primary}
 .col_secondary{color: $secondary}
@@ -71,9 +71,9 @@ $code-color: $purple;
 .bgprimary{background-color: $primary; color: $gray-200}
 
 .box_img {
-  color:#2c3e50;
+  color:$primary;
   border: solid 0px ;
-  border-color: #2c3e50;
+  border-color: $primary;
   border-radius: 3px ;
   background-color:white;
   filter:grayscale(2%);
@@ -82,12 +82,25 @@ $code-color: $purple;
     0.3em 0.3em 0.5em rgba(44, 62, 80, 0.5);
   padding-left: 6px;
   padding-top:  3px;
+  margin-bottom: 40px;
+}
+
+.box_accueil {
+color: $pink;
+font-weight: 700;
+font-size: 25px;
+border: solid 4px $primary;
+border-radius: 8px;
+padding-top: 10px;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 0.5em rgba(44, 62, 80, 0.5);
+margin-bottom: 20px;
 }
 
 .box_imglab {
-  color:#2c3e50;
+  color: $primary;
   border: solid 0px ;
-  border-color: #2c3e50;
+  border-color: $primary;
   border-radius: 3px ;
   background-color:white;
   filter:grayscale(2%);
@@ -98,11 +111,10 @@ $code-color: $purple;
   padding-top:  3px;
 }
 
-
 .box_imghub {
-  color:#2c3e50;
+  color: $primary;
   border: solid 0px ;
-  border-color: #2c3e50;
+  border-color: $primary;
   border-radius: 3px ;
   background-color:white;
   filter:grayscale(2%);
@@ -113,9 +125,8 @@ $code-color: $purple;
   padding-top:  3px;
 }
 
-
 .nut {
-color: #e83e8c;
+color: $pink;
 font-weight: 900;
 padding: 7px;
 }

@@ -83,8 +83,7 @@ Pour ce support, l'option est activée par défaut. Pour désactivée la premiè
 ::: {.box_img}
 ![Option avec `{.nolightbox}`](img1/c12.png){.nolightbox width=50%}
 :::
- 
-<br> 
+
     
 ***Appliquée lightbox à tous les graphiques générées dans un bloc***  
 
@@ -109,6 +108,7 @@ plot(x, z)
 ```
 
 
+::: {.box_img} 
 ```{r}
 #| echo: false
 #| lightbox: false
@@ -124,8 +124,7 @@ plot(x, y)
 plot(x, z) 
 ```
 
-
-<br>
+:::  
 
 **Grouper des images**
 
@@ -155,8 +154,6 @@ On ajoute l'option **`{group="nom_groupe"}`** à l'image insérée
 ![](img1/c13.png){group="groupe1"}
 :::
 :::
-
-<br>
 
 #### Graphiques générés dans un programme
 
@@ -206,7 +203,6 @@ plot(x, z)
 
 :::
 
-<br>
 
 ### Onglets {#sec-tabset}
 
@@ -396,7 +392,6 @@ Par exemple, si on veut passer en français: dans le yaml**`lang: fr`**.
 :::
 :::
 
-<br>
 
 Si ces traductions ne conviennent pas, on peut choisir. Par exemple:
   * **`toc-title`**: "XXXX"
@@ -467,7 +462,6 @@ description: |
 ![Doc quarto - grid par défaut](https://quarto.org/docs/output-formats/images/grid.png){width=70%   #fig-gridhtml}
 :::
 
-<br>
 
 * La modification du grid se fait dans le yaml avec l'option **`grid`** en sous-option du format html. 
 * Les largeurs (maximales) des 3 colonnes de grid peuvent être modifiées avec 3 sous options. Avec les valeurs par défaut: 
@@ -524,8 +518,6 @@ toc: true
 ![Grid modifié](img1/html4.png){group="groupe2"}   
 :::
 :::
-
-<br>
   
 ### Thèmes
 
@@ -568,8 +560,6 @@ format:
 ![Thème superhero [Lien](https://bootswatch.com/superhero/)](img1/html6.png){group="groupe3"}   
 :::
 :::
-
-<br>
 
 ## Présentation revealjs {#sec-reveal}
 
@@ -636,8 +626,7 @@ Donne la séquence suivante:
  ![Ligne 4](img1/reveal4.png){group="reveal1"}
 :::
 ::::
-
-<br>   
+ 
    
 #### Code animation   
     
@@ -652,7 +641,6 @@ Donne la séquence suivante:
 :::
 :::
 
-<br>
 
 ### Eléments d'affichage et de mise en page
 
@@ -720,7 +708,6 @@ format:
 :::
 ::: 
 
-<br>
      
 #### Dépasser la limite verticale des slides
 
@@ -809,7 +796,6 @@ plot(x, y)
 :::
 :::
 
-<br>
 
 #### Thème et couleur du fond
 

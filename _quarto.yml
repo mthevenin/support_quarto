@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: docs
+  output-dir: public
 
 execute:
   engine: knitr
@@ -99,8 +99,7 @@ book:
       chapters: 
       - 01-posit.qmd 
       - 02-quarto_resume.qmd
-      - 03-ressources.qmd
-      - 04-support.qmd
+      - 03-support.qmd
  
 format:
   html:

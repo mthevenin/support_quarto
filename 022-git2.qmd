@@ -28,7 +28,6 @@ Une fois la connection entre RStudio et une plateforme établie:
 :::
 :::
 
-<br>
 
 * Par défaut: le dépôt est en mode **private**. Il n'est visible que par les personnes collaborants au projet.
   * Saisir un nom de dépôt.
@@ -46,14 +45,13 @@ Une fois la connection entre RStudio et une plateforme établie:
 :::
 :::
 
-<br>
 
 ::: {.center}
 :::{.box_img}
 ![](img2/video1.gif){width=75%}
 :::
 :::
-<br>
+
 
 #### Changer la visibilité et supprimer un projet
 
@@ -112,7 +110,6 @@ Les étapes:
 :::
 ::: 
 
-<br>
 
 ### En local dans RStudio
 
@@ -191,7 +188,6 @@ A ce stade, on peut mettre à jour le répertoire distant avec les éléments g�
 ::: 
 ::: 
 
-<br>
 
 * Engager une transaction [**COMMIT**]:  
 
@@ -219,7 +215,6 @@ git commit --m "First add"
 :::
 ::::
 
-<br>
 
 **Cette opération ne transfère pas les fichiers vers le dépôt distant**. 
 Pour effectuer ce transfert, qui peut être une suppression de fichiers, on fait un **PUSH**
@@ -236,7 +231,7 @@ Pour effectuer ce transfert, qui peut être une suppression de fichiers, on fait
 :::
 ::::
 :::::
-<br>
+
 
 * Commande dans le terminal **`git push `**
 
@@ -296,7 +291,6 @@ Par exemple ici, on a ajouté un nouveau fichier: *ProgrammeR.R*. La fenêtre in
 ![](img2/img24.png){width=75%}
 :::
 :::
-<br>
 
 Pour effectuer cette récupération des éléments modifiés directement dans le dépôt distant et mettre les deux répertoire sur un même niveau, il faut effectuer un **PULL**: 
 
@@ -338,7 +332,6 @@ Plusieurs opérations ont été réalisées après la création du dépôt dista
 ![](img2/img20.png){width=75%}
 :::
 :::
-<br>
 
 On visualise  parfaitement l'historique des opérations réalisés entre les deux répertoires, avec: 
 
@@ -362,7 +355,6 @@ Sur Gitlab, en allant soit:
 ![](img2/img21.png){width=75%}
 :::
 :::
-<br>
 
 Le texte de la seconde modification (en vert) n'est pas le même que le premier (en rouge). 
 
@@ -372,7 +364,6 @@ Le texte de la seconde modification (en vert) n'est pas le même que le premier 
 ![](img2/img23.png){width=75%}
 :::
 :::
-<br>
 
 * En remontant, on peut donc récupérer le texte du Readme.md généré automatiquement à la création du dépôt distant par gitlab.  
 

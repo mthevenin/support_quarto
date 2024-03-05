@@ -1,6 +1,17 @@
-# support_quarto
-Support de formation sur le logiciel Quarto.
+--- 
+format: gfm
+---
 
-* URL du support: <https://mthevenin.github.io/support_quarto>
-* La version la plus récente est déployée sur gitlab: <https://mthevenin.gitlab.io/quarto/>
+Support de formation au logiciel Quarto (posit)
+
+URL: <https://mthevenin.gitlab.io/support_quarto>
+
+* 29/02/2022: 
+  * v1 du support de formation
+  * passage du dépôt en mode public.
+ 
+
+ 
+
+
 
