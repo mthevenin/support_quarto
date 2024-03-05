@@ -1,13 +1,7 @@
 
 
-URL: <https://mthevenin.gitlab.io/support_quarto>
+Support de formation au logiciel Quarto \[posit\] déployée sur Github:
 
-- 22/02/2022: première version de tous les chapitres Ok @\_@/
+- <https://mthevenin.github.io/support_quarto/>
 
-- A Faire pour le 21-03:
-
-  - =\> Finir rapidement la page présentation (ressources et
-    présentation support)
-  - =\> Faire les résumés en format présentation
-  - Brasser et corriger l’ensemble des chapitres:
-    - =\> Lorsque fini déployer sur Github également
+- Les dernières mises à jour du support sont
