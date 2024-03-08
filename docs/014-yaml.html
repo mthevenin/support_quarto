@@ -436,7 +436,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="4.1" class="anchored" data-anchor-id="principes-généraux"><span class="header-section-number">4.1</span> Principes généraux</h2>
 <p><span class="nut"><a href="https://fr.wikipedia.org/wiki/YAML">:GIT YAML</a></span> <br></p>
 <ul>
-<li>Il s’agit du header du document qui comprend toutes les métadonnées du document: titre, date, options de mise en page, options d’exécution….</li>
+<li>Il s’agit du header du document qui comprend toutes les métadonnées du document: titre, date, options de mise en page, options d’exécution…. Dans un document html il s’agit des différentes options entrant dans la partie **
+
+
+**.</li>
 <li>La syntaxe du yaml est très sensible à l’<em>intendation</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Les règles restent néanmoins assez simples.</li>
 <li>Lors de la compilation, le yaml est le premier élément qui est évalué. En cas d’erreur elle est donc stoppée quasi instantanément.</li>
 </ul>
@@ -621,7 +624,7 @@ Exemple: on active une table des matière pour chaque .qmd du projet dans _quart
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>On gardera le mot anglais, qui se traduirait ici par <em>retrait</em><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>On gardera le mot anglais, qui peut se traduire ici par <em>retrait</em><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1089,8 +1092,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:GIT YAML</span><span class="co">](https://fr.wikipedia.org/wiki/YAML)</span>]{.nut}</span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Il s'agit du header du document qui comprend toutes les métadonnées du document: titre, date, options de mise en page, options d'exécution....</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La syntaxe du yaml est très sensible à l'*intendation*^[On gardera le mot anglais, qui se traduirait ici par *retrait*]. Les règles restent néanmoins assez simples.</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Il s'agit du header du document qui comprend toutes les métadonnées du document: titre, date, options de mise en page, options d'exécution.... Dans un document html il s'agit des différentes options entrant dans la partie  **&lt;head&gt; &lt;/head&gt;**.</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La syntaxe du yaml est très sensible à l'*intendation*^[On gardera le mot anglais, qui peut se traduire ici par *retrait*]. Les règles restent néanmoins assez simples.</span>
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Lors de la compilation, le yaml est le premier élément qui est évalué. En cas d'erreur elle est donc stoppée quasi instantanément.</span>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
@@ -1181,115 +1184,115 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>::::  </span>
 <span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sous options</span>
-<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>La règle est simple: les sous options commencent strictement au niveau du troisième caractère de l'option ou de la sous-option de niveau supérieur.   </span>
-<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>Si les espaces sont indiqués par un <span class="in">`.`</span> </span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sous options</span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>La règle est simple: les sous options commencent strictement au niveau du troisième caractère de l'option ou de la sous-option de niveau supérieur.   </span>
 <span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="in">option: </span></span>
-<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a><span class="in">..sous-option1: argument</span></span>
-<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a><span class="in">..sous-option2: argument</span></span>
-<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a><span class="in">....sous-sous-option21: argument</span></span>
-<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a><span class="in">....sous-sous-option22: argument</span></span>
-<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="in">---  </span></span>
-<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>Exemple: </span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>Si les espaces sont indiqués par un <span class="in">`.`</span> </span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a><span class="in">option: </span></span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a><span class="in">..sous-option1: argument</span></span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a><span class="in">..sous-option2: argument</span></span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a><span class="in">....sous-sous-option21: argument</span></span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a><span class="in">....sous-sous-option22: argument</span></span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a><span class="in">---  </span></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On veut ajouter un nom d'auteur/autrice. Le nom est l'argument de l'option <span class="in">`author`</span></span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a>Exemple: </span>
 <span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a><span class="in">title: "yaml d'un document"</span></span>
-<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="in">author: "Bidibule"</span></span>
-<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Si on souhaite ajouter le lieu d'exercice, le nom devient une sous option de <span class="in">`author`</span> et est renseigné comme argument de la sous option <span class="in">`name`</span>. Sur le même principe le lieu d'exercice est l'argument de la sous option `affiliation.</span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On veut ajouter un nom d'auteur/autrice. Le nom est l'argument de l'option <span class="in">`author`</span></span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a><span class="in">title: "yaml d'un document"</span></span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a><span class="in">author: "Bidibule"</span></span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a><span class="in">title: "yaml d'un document"</span></span>
-<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a><span class="in">author:</span></span>
-<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a><span class="in">  name: "Bidibule"</span></span>
-<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a><span class="in">  affiliation: "Bidibule land"  </span></span>
-<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>Exemple 2: format hml et pdf</span>
-<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a>Le html est le format par défaut d'un notebook ou d'une présentation via le format **reveal js**. Si on veut indiquer explicitement le format html, c'est l'argument de l'option <span class="in">`format`</span>. </span>
-<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a>Si on veut ajouter des sous options au format html comme des thèmes (document, bloc de code) et/ou un autre format (pdf), sur le même principe que l'exemple précédent, <span class="in">`html:`</span> devient une sous option de l'option format. Si on ne souhaite pas ajouter d'autres options pour la compilation en pdf, la sous option est renseignée par <span class="in">`pdf:default`</span>.  Elle se trouve sur le même niveau de retrait que <span class="in">`html:`</span>.</span>
-<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="in">title: "yaml d'un document"</span></span>
-<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
-<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: zephyr</span></span>
-<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="in">    highlight-style: dracula</span></span>
-<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a><span class="in">  pdf: default  </span></span>
-<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a><span class="in">---    </span></span>
-<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>Ce qui nous donne au final le template suivant: </span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Si on souhaite ajouter le lieu d'exercice, le nom devient une sous option de <span class="in">`author`</span> et est renseigné comme argument de la sous option <span class="in">`name`</span>. Sur le même principe le lieu d'exercice est l'argument de la sous option `affiliation.</span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a><span class="in">title: "yaml d'un document"</span></span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a><span class="in">author:</span></span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a><span class="in">  name: "Bidibule"</span></span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="in">  affiliation: "Bidibule land"  </span></span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a>Exemple 2: format hml et pdf</span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>Le html est le format par défaut d'un notebook ou d'une présentation via le format **reveal js**. Si on veut indiquer explicitement le format html, c'est l'argument de l'option <span class="in">`format`</span>. </span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>Si on veut ajouter des sous options au format html comme des thèmes (document, bloc de code) et/ou un autre format (pdf), sur le même principe que l'exemple précédent, <span class="in">`html:`</span> devient une sous option de l'option format. Si on ne souhaite pas ajouter d'autres options pour la compilation en pdf, la sous option est renseignée par <span class="in">`pdf:default`</span>.  Elle se trouve sur le même niveau de retrait que <span class="in">`html:`</span>.</span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a><span class="in">title: "yaml d'un document"</span></span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: zephyr</span></span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a><span class="in">    highlight-style: dracula</span></span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a><span class="in">  pdf: default  </span></span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a><span class="in">---    </span></span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a><span class="in">title: "yaml d'un document"</span></span>
-<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a><span class="in">author:</span></span>
-<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a><span class="in">  name: "Bidibule"</span></span>
-<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a><span class="in">  affiliation: "Université X" </span></span>
-<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
-<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: zephyr</span></span>
-<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a><span class="in">    highlight-style: dracula </span></span>
-<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="in">  pdf: default</span></span>
-<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="in">---    </span></span>
-<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- corps du document --&gt;</span></span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a>Ce qui nous donne au final le template suivant: </span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a><span class="in">title: "yaml d'un document"</span></span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a><span class="in">author:</span></span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a><span class="in">  name: "Bidibule"</span></span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a><span class="in">  affiliation: "Université X" </span></span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: zephyr</span></span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a><span class="in">    highlight-style: dracula </span></span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a><span class="in">  pdf: default</span></span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a><span class="in">---    </span></span>
 <span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- corps du document --&gt;</span></span>
 <span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## A savoir</span></span>
+<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a>**Dans Rstudio**  </span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## A savoir</span></span>
 <span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>Si RStudio repère une erreur dans le retrait, une croix rouge apparaitra à droite du numero de ligne. Pratique.</span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>**Dans Rstudio**  </span>
 <span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>**Extension externe qui ne s'active pas**  </span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>Si RStudio repère une erreur dans le retrait, une croix rouge apparaitra à droite du numero de ligne. Pratique.</span>
 <span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a>Il arrive que certaines options installées sous forme d'extension ne s'active pas après la compilation. C'est désagréable. Je n'arrive pas à expliquer pourquoi, mais le changement de position dans le yaml ou en ajoutant/supprimant une ligne vide entre cette option et une autre peut résoudre le problème... où alors on attend que cela finisse par fonctionner après plusieurs compilations. </span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a>**Extension externe qui ne s'active pas**  </span>
 <span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>**Par rapport au yaml d'un projet**  </span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>Il arrive que certaines options installées sous forme d'extension ne s'active pas après la compilation. C'est désagréable. Je n'arrive pas à expliquer pourquoi, mais le changement de position dans le yaml ou en ajoutant/supprimant une ligne vide entre cette option et une autre peut résoudre le problème... où alors on attend que cela finisse par fonctionner après plusieurs compilations. </span>
 <span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>Le yaml du document à la priorité sur le yaml du projet: pas pour tout, mais on peut donc contredire des éléments de configuration qui sont dans le fichier <span class="in">`_quarto.yaml`</span> dans un fichier .qmd.   </span>
-<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a>Exemple: on active une table des matière pour chaque .qmd du projet dans _quarto.yaml (<span class="in">`toc: true`</span>). On peut la supprimer dans un ou plusieurs fichiers .qmd avec <span class="in">`toc:false`</span> dans le yaml du fichier. </span>
-<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>Dans cette section on a juste regardé les règles de retrait des options. Dans le fichier de configuration les sous options peuvent prendre la forme de liens vers des fichiers .qmd comme les différents chapitres d'un book. La même règle est appliquée. A ce stade, juste pour information:</span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>**Par rapport au yaml d'un projet**  </span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a>Le yaml du document à la priorité sur le yaml du projet: pas pour tout, mais on peut donc contredire des éléments de configuration qui sont dans le fichier <span class="in">`_quarto.yaml`</span> dans un fichier .qmd.   </span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>Exemple: on active une table des matière pour chaque .qmd du projet dans _quarto.yaml (<span class="in">`toc: true`</span>). On peut la supprimer dans un ou plusieurs fichiers .qmd avec <span class="in">`toc:false`</span> dans le yaml du fichier. </span>
 <span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a><span class="in"># Dans un fichier _quarto.yml</span></span>
-<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="in">book:</span></span>
-<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a><span class="in">  title: "Formation Quarto"</span></span>
-<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a><span class="in">  chapters:</span></span>
-<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a><span class="in">    - chap1.qmd</span></span>
-<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a><span class="in">    - chap2.qmd</span></span>
-<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a><span class="in">    - chap3.qmd</span></span>
-<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a>Dans cette section on a juste regardé les règles de retrait des options. Dans le fichier de configuration les sous options peuvent prendre la forme de liens vers des fichiers .qmd comme les différents chapitres d'un book. La même règle est appliquée. A ce stade, juste pour information:</span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a><span class="in"># Dans un fichier _quarto.yml</span></span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a><span class="in">book:</span></span>
+<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a><span class="in">  title: "Formation Quarto"</span></span>
+<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a><span class="in">  chapters:</span></span>
+<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a><span class="in">    - chap1.qmd</span></span>
+<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a><span class="in">    - chap2.qmd</span></span>
+<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a><span class="in">    - chap3.qmd</span></span>
+<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a></span>
@@ -1298,7 +1301,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

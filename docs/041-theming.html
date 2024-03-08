@@ -419,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#modification-du-thème-avec-les-variables-sass-de-quarto" id="toc-modification-du-thème-avec-les-variables-sass-de-quarto" class="nav-link" data-scroll-target="#modification-du-thème-avec-les-variables-sass-de-quarto"><span class="header-section-number">13.2.3</span> Modification du thème avec les variables Sass de Quarto</a>
   <ul class="collapse">
-  <li><a href="#les-variables-sas-de-quarto-utilisées-pour-modifier-le-thème-du-support" id="toc-les-variables-sas-de-quarto-utilisées-pour-modifier-le-thème-du-support" class="nav-link" data-scroll-target="#les-variables-sas-de-quarto-utilisées-pour-modifier-le-thème-du-support"><span class="header-section-number">13.2.3.1</span> Les variables sas de Quarto utilisées pour modifier le thème du support</a></li>
+  <li><a href="#les-variables-sass-de-quarto-utilisées-pour-modifier-le-thème-du-support" id="toc-les-variables-sass-de-quarto-utilisées-pour-modifier-le-thème-du-support" class="nav-link" data-scroll-target="#les-variables-sass-de-quarto-utilisées-pour-modifier-le-thème-du-support"><span class="header-section-number">13.2.3.1</span> Les variables Sass de Quarto utilisées pour modifier le thème du support</a></li>
   </ul></li>
   <li><a href="#ajout-de-styles-css-dans-un-fichier-scss" id="toc-ajout-de-styles-css-dans-un-fichier-scss" class="nav-link" data-scroll-target="#ajout-de-styles-css-dans-un-fichier-scss"><span class="header-section-number">13.2.4</span> Ajout de styles css dans un fichier scss</a></li>
   </ul></li>
@@ -449,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <ul>
-<li>Parce que c’est un support de formation sur le bonheur, on regardera principalement les éléments les plus visuels comme les couleurs.</li>
+<li>On regardera principalement les éléments les plus visuels comme les couleurs.</li>
 <li>On restera ici sur les thèmes bootstrap libres, mais je conseille de jeter un coup d’oeil à certaines extensions comme celle de Julien Barnier qui permet d’utiliser un thème très sympa, avec un mode light et dark <a href="https://github.com/juba/bookup-html">[Lien vers l’extension]</a>.</li>
 </ul>
 <section id="les-26-thèmes-bootstrap" class="level2" data-number="13.1">
@@ -469,7 +469,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> zephyr</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---  </span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Normalement tout le monde peut trouver son bonheur avec ces thèmes, du plus classique (<strong>default</strong>) au plus psychédelique (<strong>quartz</strong>). On peut néanmoins vouloir à moindre frais modifier certains éléments visuels.</p>
+<p>Rappel, si la documentation est en html seulement on peut passer l’option de la manière suivante:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span><span class="kw">:</span><span class="at"> zephyr</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---  </span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="thèmes-lightdark" class="level3" data-number="13.1.1">
 <h3 data-number="13.1.1" class="anchored" data-anchor-id="thèmes-lightdark"><span class="header-section-number">13.1.1</span> Thèmes light/dark</h3>
 <ul>
@@ -486,20 +489,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li>Au delà de ces deux thèmes <em>clé en main</em>, on peut créer un thème de type dark à partir d’un thème light existant, et inversement.</li>
 <li>On devra utiliser un fichiers sccs et renseigner manuellement les affectations des couleurs.</li>
-<li>Avec des <strong>variables SASS</strong> propres à Quarto, on peut faire ces modifications assez facilement. Attention toutefois à bien maîtriser l’architecture des couleurs entrant dans un thème html de type bootstrap.</li>
+<li>Avec des <strong>variables SASS</strong> propres à Quarto, on peut faire ces modifications assez facilement. Attention toutefois à bien maîtriser la logique des couleurs entrant dans un thème html.</li>
 </ul>
 <p>Si on souhaite générer une version dark du thème <strong>zephyr</strong>:</p>
 <ul>
 <li>On utilisera un fichier .scss qui affectera les couleurs pour obtenir un thème dark, par exemple <strong>zephyr_dark.scss</strong>.</li>
 <li>On l’ajoutera à l’option <code>dark</code> de la façon suivante.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">light</span><span class="kw">:</span><span class="at"> zephyr</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dark</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">zephyr</span><span class="kw">,</span><span class="at"> zephyr_dark.scss</span><span class="kw">]</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">light</span><span class="kw">:</span><span class="at"> zephyr</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dark</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">zephyr</span><span class="kw">,</span><span class="at"> zephyr_dark.scss</span><span class="kw">]</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -510,26 +513,26 @@ Deux thèmes light ou dark
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A l’utilité contestable, mais on pourrait hésiter entre deux thèmes lors de la création de la documantation. On pourrait utiliser et switcher entre deux thèmes de type light ou dark.</p>
+<p>A l’utilité contestable, mais on pourrait hésiter entre deux thèmes lors de la création de la documentation. Il est possible d’utiliser et de switcher entre deux thèmes de type light ou dark.</p>
 <p>Par exemple, on peut utiliser simultanément les thèmes light <strong>zephyr</strong> et <strong>yeti</strong>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">light</span><span class="kw">:</span><span class="at"> zephyr</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dark</span><span class="kw">:</span><span class="at">  yeti</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">light</span><span class="kw">:</span><span class="at"> zephyr</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dark</span><span class="kw">:</span><span class="at">  yeti</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="changer-directement-des-éléments-du-thème-dans-le-yaml" class="level3" data-number="13.1.2">
 <h3 data-number="13.1.2" class="anchored" data-anchor-id="changer-directement-des-éléments-du-thème-dans-le-yaml"><span class="header-section-number">13.1.2</span> Changer directement des éléments du thème dans le yaml</h3>
-<p>Sans passer par des manipulations de styles css dans le document, Quarto met à disposition des options qui s’appliquent directement au yaml pour modifier des éléments du thème, comme la couleur des liens <a href="https://quarto.org/docs/output-formats/html-themes.html#basic-options">Quelques options</a></p>
-<p>Pour une simple question d’homogénéité avec les couleurs prédéfinies du thème il est préférable d’utiliser les couleurs du thème qui a été sélectionné.</p>
-<p>Ces couleurs sont disponibles dans un fichier .scss du thème. Il est très facile de les récupérer, via le site <strong>bootswatch</strong> ou via des mises à disposition sur un dépôt git:</p>
 <ul>
-<li><a href="https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes">Par Quarto</a>.</li>
-<li><a href="https://github.com/mthevenin/quarto/tree/main/scss_color_theme">Par ce support</a>.</li>
+<li><p>Sans passer par des manipulations de styles css dans le document, Quarto met à disposition des options qui s’appliquent directement au yaml pour modifier des éléments du thème, comme la couleur des liens <a href="https://quarto.org/docs/output-formats/html-themes.html#basic-options">Quelques options</a></p></li>
+<li><p>Pour une simple question d’homogénéité avec les couleurs prédéfinies du thème il est préférable d’utiliser les couleurs qui sont utilisées dans le thème.</p></li>
+<li><p>Ces couleurs sont disponibles dans un fichier .scss du thème. Il est très facile de les récupérer, via le site <strong>bootswatch</strong> ou via des mises à disposition sur un dépôt git:</p></li>
+<li><p><a href="https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes">Par Quarto</a>.</p></li>
+<li><p><a href="https://github.com/mthevenin/quarto/tree/main/scss_color_theme">Par ce support</a>.</p></li>
 </ul>
 <p>Avec les couleurs du thème zephyr:</p>
 <div class="box_img">
@@ -540,14 +543,14 @@ Deux thèmes light ou dark
 </figure>
 </div>
 </div>
-<p>Pour modifier la couleur du lien (avec une couleur du thème), on utilise directement l’option <code>linkcolor:</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> zephyr</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">linkcolor</span><span class="kw">:</span><span class="at"> </span><span class="st">"#d63384"</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---  </span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Après un peu d’entraînement il est néanmoins préférable et bien plus facile de passer par un fichier scss et les variables SASS de Quarto pour réaliser ce type de modification.</p>
+<p>Par exemple, pour modifier la couleur des liens (avec une couleur propre au thème): on l’option <code>linkcolor:</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> zephyr</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">linkcolor</span><span class="kw">:</span><span class="at"> </span><span class="st">"#d63384"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---  </span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Avec un peu d’entraînement il est néanmoins préférable et bien plus facile de passer par un fichier scss et les variables SASS de Quarto pour réaliser ce type de modification.</p>
 </section>
 </section>
 <section id="sec-scss" class="level2" data-number="13.2">
@@ -557,30 +560,16 @@ Deux thèmes light ou dark
 <br></p>
 <ul>
 <li><p>Pour le CSS et surtout la variables SASS, je n’ai a priori aucun savoir ni aucune compétence particulière. Je manipule des styles css depuis ses débuts, mais sur des éléments très simples comme les couleurs, contours, épaisseurs…. Les ressources web sont nombreuses sur le sujet, et on trouvera toujours une réponse des plateformes comme <a href="https://www.w3schools.com/">w3schools</a> ou <a href="https://developer.mozilla.org/fr/">Mmdn_</a>.</p></li>
-<li><p>Bien évidemment, les objectifs de cette section sont limités, et limités à la modification de quelques éléments de</p></li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-SASS: lorsque le résultat d’une modification du style du thème ne s’applique pas
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>FERMER RSTUDIO ET REOUVRIR LE PROJET…<br>
-Ne perdez pas trois heures à ne pas comprendre pourquoi</p>
-</div>
-</div>
+<li><p>CSS: <strong>Cascade Style Sheets</strong>, depuis 1996.</p>
 <ul>
-<li>CSS: <strong>Cascade Style Sheets</strong>, depuis 1996.</li>
-<li>SASS: <strong>Syntactically Awesome Style Sheets</strong>, depuis 2006.
-<ul>
-<li>Dans Quarto la syntaxe se trouve dans un fichier .scss.</li>
-<li>Avec Quarto des variables de type SASS prédéfinies permettent de modifier le thème à la volée.</li>
+<li>Dans un fichier .css.</li>
 </ul></li>
-<li>Une feuille de style .css peut-être complètement remplaçée par un fichier .scss.</li>
+<li><p>SASS: <strong>Syntactically Awesome Style Sheets</strong>, depuis 2006.</p>
+<ul>
+<li>Dans Quarto dans un fichier .scss.</li>
+<li>Quarto met met à disposition des variables Sass prédéfinies pour modifier un thème à la volée.</li>
+</ul></li>
+<li><p>Une feuille de style .css peut-être complètement remplaçée par un fichier .scss.</p></li>
 </ul>
 <section id="css" class="level3" data-number="13.2.1">
 <h3 data-number="13.2.1" class="anchored" data-anchor-id="css"><span class="header-section-number">13.2.1</span> CSS</h3>
@@ -589,11 +578,11 @@ Ne perdez pas trois heures à ne pas comprendre pourquoi</p>
 <li><strong>Nom de la classe css: <code>.modiftext</code></strong></li>
 <li>Dans un fichier .css:</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.modiftext</span> {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">color</span><span class="ch">:</span> <span class="cn">red</span><span class="op">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">bold</span><span class="op">;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">font-size</span><span class="ch">:</span> <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.modiftext</span> {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">color</span><span class="ch">:</span> <span class="cn">red</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">font-weight</span><span class="ch">:</span> <span class="dv">bold</span><span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">font-size</span><span class="ch">:</span> <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Nom de la classe: <code>.modiftext</code>. Ne pas oublier de séparer les attributs avec un <strong>;</strong> dans des accolades {attribut1; attribut2;….}.</li>
 <li>La couleur du texte: <code>color: red;</code></li>
@@ -604,11 +593,11 @@ Ne perdez pas trois heures à ne pas comprendre pourquoi</p>
 <ul>
 <li>Dans le yaml:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Ajout du style au fichier css et affectation de la classe au texte</strong></p>
 <ul>
 <li>On ajoute la classe <code>.modiftext</code> dans le fichier css.</li>
@@ -637,80 +626,80 @@ Ne perdez pas trois heures à ne pas comprendre pourquoi</p>
 <li>Dans le yaml:</li>
 </ul>
 <p><strong>Sans thème bootstrap</strong>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> nom_fichier.scss</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Avec un thème bootstrap</strong>:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">flatly</span><span class="kw">,</span><span class="at"> nom_fichier.scss</span><span class="kw">]</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---    </span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ou</p>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> nom_fichier.scss</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Avec un thème bootstrap</strong>:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> flatly</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> nom_fichier.scss</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">flatly</span><span class="kw">,</span><span class="at"> nom_fichier.scss</span><span class="kw">]</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---    </span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ou</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> flatly</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> nom_fichier.scss</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Organisation d’un fichier .scss</strong></p>
 <ul>
 <li><p><strong>Commentaires</strong>: <code>//</code></p></li>
 <li><p>Une <strong>Zône de définition des variables sass</strong>.</p></li>
 <li><p>Avec quarto, une série de variables SASS prédéfinies permettent de modifier automatiquement le style du document.</p></li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>&lt;variables sass<span class="op">&gt;</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>&lt;variables sass<span class="op">&gt;</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Une <strong>Zône de création des classes css</strong>, optionnelle.</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>&lt;styles css<span class="op">&gt;</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>&lt;styles css<span class="op">&gt;</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Avec quarto, on pourrait avoir une structure de fichier.</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="va">$variable_sass1</span>: attribut</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="va">$variable_sass2</span>: attribut</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="va">$variable_sass_quarto</span>: attribut   <span class="co">//affectera directement le style du document</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">.classe_css</span>{attribut1:<span class="va">$var_sass1</span>; attribut2: <span class="va">$var_sass2</span>;....}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="va">$variable_sass1</span>: attribut</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="va">$variable_sass2</span>: attribut</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="va">$variable_sass_quarto</span>: attribut   <span class="co">//affectera directement le style du document</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">.classe_css</span>{attribut1:<span class="va">$var_sass1</span>; attribut2: <span class="va">$var_sass2</span>;....}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>On peut affecter des variables en cascade. Dans l’exemple suivant issu d’un thème bootstrap, les couleurs sont affectés à une variable Sass dont le nom se réfère directement à une couleur.</p>
 <p>On peut affecter ces variables Sass à de nouvelles variables sass dont les noms structurent les couleurs des 26 thèmes bootstrap (un même nom de variable Sass pour tous les thèmes: <code>$primary: $blue;</code>, <code>$danger: $red;</code>…</p>
 <p><strong>Exemple d’affectation en cascade des couleurs avec variables Sass</strong></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Couleurs échelle de gris non reportées</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="va">$blue</span>:    <span class="cn">#2c3e50</span> ;</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="va">$indigo</span>:  <span class="cn">#6610f2</span> ;</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="va">$purple</span>:  <span class="cn">#6f42c1</span> ;</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="va">$pink</span>:    <span class="cn">#e83e8c</span> ;</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="va">$red</span>:     <span class="cn">#e74c3c</span> ;</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="va">$orange</span>:  <span class="cn">#fd7e14</span> ;</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="va">$yellow</span>:  <span class="cn">#f39c12</span> ;</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="va">$green</span>:   <span class="cn">#18bc9c</span> ;</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="va">$teal</span>:    <span class="cn">#20c997</span> ;</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="va">$cyan</span>:    <span class="cn">#3498db</span> ;</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="va">$primary</span>:       <span class="va">$blue</span>     ;</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="va">$secondary</span>:     <span class="va">$gray-600</span> ;</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="va">$success</span>:       <span class="va">$green</span>    ;</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="va">$info</span>:          <span class="va">$cyan</span>     ;</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="va">$warning</span>:       <span class="va">$yellow</span>   ;</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="va">$danger</span>:        <span class="va">$red</span>      ;</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="va">$light</span>:         <span class="va">$gray-200</span> ;</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="va">$dark</span>:          <span class="va">$gray-700</span> ;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Couleurs échelle de gris non reportées</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="va">$blue</span>:    <span class="cn">#2c3e50</span> ;</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="va">$indigo</span>:  <span class="cn">#6610f2</span> ;</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="va">$purple</span>:  <span class="cn">#6f42c1</span> ;</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="va">$pink</span>:    <span class="cn">#e83e8c</span> ;</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="va">$red</span>:     <span class="cn">#e74c3c</span> ;</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="va">$orange</span>:  <span class="cn">#fd7e14</span> ;</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="va">$yellow</span>:  <span class="cn">#f39c12</span> ;</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="va">$green</span>:   <span class="cn">#18bc9c</span> ;</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="va">$teal</span>:    <span class="cn">#20c997</span> ;</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="va">$cyan</span>:    <span class="cn">#3498db</span> ;</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="va">$primary</span>:       <span class="va">$blue</span>     ;</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="va">$secondary</span>:     <span class="va">$gray-600</span> ;</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="va">$success</span>:       <span class="va">$green</span>    ;</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="va">$info</span>:          <span class="va">$cyan</span>     ;</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="va">$warning</span>:       <span class="va">$yellow</span>   ;</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="va">$danger</span>:        <span class="va">$red</span>      ;</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="va">$light</span>:         <span class="va">$gray-200</span> ;</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="va">$dark</span>:          <span class="va">$gray-700</span> ;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="modification-du-thème-avec-les-variables-sass-de-quarto" class="level3" data-number="13.2.3">
@@ -734,11 +723,11 @@ Note
 <li><p>Aucune difficulté ici, pour modifier un élement du thème il suffit d’affecter un attribut à ces variables, à partir d’une variable Sass précédemment définie ou d’un attribut quelconque: couleur, taille, épaisseur….</p></li>
 </ul>
 <p>Exemple: la couleur de fond d’une page</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="va">$body-bg</span>: couleur;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Une couleur quelconque</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="va">$body-bg</span>: <span class="cn">red</span>;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Une variable sass d'un thème bootstrap</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="va">$body-bg</span>: <span class="va">$warning</span>;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="va">$body-bg</span>: couleur;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Une couleur quelconque</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="va">$body-bg</span>: <span class="cn">red</span>;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Une variable sass d'un thème bootstrap</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="va">$body-bg</span>: <span class="va">$warning</span>;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Tout ça en gif animé.</p>
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
@@ -748,52 +737,55 @@ Note
 </figure>
 </div>
 </div>
-<section id="les-variables-sas-de-quarto-utilisées-pour-modifier-le-thème-du-support" class="level4 callout-info" data-number="13.2.3.1">
-<h4 data-number="13.2.3.1" class="anchored" data-anchor-id="les-variables-sas-de-quarto-utilisées-pour-modifier-le-thème-du-support"><span class="header-section-number">13.2.3.1</span> Les variables sas de Quarto utilisées pour modifier le thème du support</h4>
-<div class="sourceCode" id="cb18"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$toc-color</span><span class="kw">:</span><span class="at"> $pink;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">$link-color</span><span class="kw">:</span><span class="at"> $pink;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">$code-block-border-left</span><span class="kw">:</span><span class="at"> $purple;</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">$code-color</span><span class="kw">:</span><span class="at"> $purple;</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="les-variables-sass-de-quarto-utilisées-pour-modifier-le-thème-du-support" class="level4 callout-info" data-number="13.2.3.1">
+<h4 data-number="13.2.3.1" class="anchored" data-anchor-id="les-variables-sass-de-quarto-utilisées-pour-modifier-le-thème-du-support"><span class="header-section-number">13.2.3.1</span> Les variables Sass de Quarto utilisées pour modifier le thème du support</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">$toc-color</span><span class="kw">:</span><span class="at"> $pink;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">$link-color</span><span class="kw">:</span><span class="at"> $pink;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">$code-block-border-left</span><span class="kw">:</span><span class="at"> $purple;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">$code-color</span><span class="kw">:</span><span class="at"> $purple;</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="ajout-de-styles-css-dans-un-fichier-scss" class="level3" data-number="13.2.4">
 <h3 data-number="13.2.4" class="anchored" data-anchor-id="ajout-de-styles-css-dans-un-fichier-scss"><span class="header-section-number">13.2.4</span> Ajout de styles css dans un fichier scss</h3>
 <ul>
-<li>Dans la section <strong><code>/*-- scss:rules --*/</code></strong> du fichier, on peut créer des styles css en utiisant les variables Sass générées précédemment. Par exemple pour changer seulement la couleur du texte avec 8 couleurs Sass du thème bootstrap:</li>
+<li>Dans la partie <strong><code>/*-- scss:rules --*/</code></strong> du fichier, on peut créer des styles css en utiisant les variables Sass générées précédemment. Par exemple pour définir un style de couleur du texte avec 8 couleurs du thème bootstrap:</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">// liste des variables Sass: $couleurs1.... =&gt; $primary, $secondary,....</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_primary</span>{color: <span class="va">$primary</span>}</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_secondary</span>{color: <span class="va">$secondary</span>}</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_success</span>{color: <span class="va">$success</span>}</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_info</span>{color: <span class="va">$info</span>}</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_warning</span>{color: <span class="va">$warning</span>}</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_danger</span>{color: <span class="va">$danger</span>}</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_light</span>{color:<span class="va">$light</span>}</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_dark</span>{color: <span class="va">$dark</span>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sass code-with-copy"><code class="sourceCode sass"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:defaults --*/</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">// liste des variables Sass: $couleurs1.... =&gt; $primary, $couleurs2 =&gt; $secondary,...</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_primary</span>{color: <span class="va">$primary</span>}</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_secondary</span>{color: <span class="va">$secondary</span>}</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_success</span>{color: <span class="va">$success</span>}</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_info</span>{color: <span class="va">$info</span>}</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_warning</span>{color: <span class="va">$warning</span>}</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_danger</span>{color: <span class="va">$danger</span>}</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_light</span>{color:<span class="va">$light</span>}</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="fu">.col_dark</span>{color: <span class="va">$dark</span>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>On peut alors ajouter ces styles à des éléments du documents: mot, phrases, paragraphes….</p>
 <ul>
 <li>Un mot ou une phrase avec un shortcode <strong><span class="nom_classe">texte</span></strong>:</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>On change la couleur du <span class="co">[</span><span class="ot">mot success</span><span class="co">]</span>{.col_success} avec la classe <span class="in">`.success`</span>.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Donne le résultat suivant:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>On change la couleur du [mot success]{.col_success} avec la classe `.col_success`.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Donnera le résultat suivant:</p>
 <div class="border">
-<p>On change la couleur du <span class="col_success">mot success</span> avec la classe <code>.success</code>.</p>
+<p>On change la couleur du <span class="col_success">mot success</span> avec la classe <code>.col_success</code>.</p>
 </div>
 <p><br></p>
 <ul>
-<li>Un paragraphe avec une section div <strong>::: {.nom_classe}</strong>:</li>
+<li>Un paragraphe dans une section
+<div>
+: <strong><code>::: {.nom_classe}</code></strong>:</div></li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>::: {.warning}</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>On change la couleur du texte du paragraphe avec la classe <span class="in">`.warning`</span>.</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>::: {.col_warning}</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>On change la couleur du texte du paragraphe avec la classe `col.warning`.</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Donne le résultat suivant:</p>
 <div class="col_warning">
-<p>On change la couleur du texte du paragraphe avec la classe <code>.warning</code>.</p>
+<p>On change la couleur du texte du paragraphe avec la classe <code>col.warning</code>.</p>
 </div>
 
 
@@ -1261,411 +1253,411 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">  - nutshell</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Theming html </span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Parce que c'est un support de formation sur le bonheur, on regardera principalement </span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>les éléments les plus visuels comme les couleurs.</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On restera ici sur les thèmes bootstrap libres, mais je conseille de jeter un coup d'oeil à certaines extensions comme celle de Julien Barnier qui permet d'utiliser un thème très sympa, avec un mode light et dark [<span class="co">[</span><span class="ot">Lien vers l'extension</span><span class="co">]</span>](https://github.com/juba/bookup-html).</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Les 26 thèmes bootstrap</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>Les <span class="co">[</span><span class="ot">26 thèmes bootstrap libres</span><span class="co">](https://bootswatch.com)</span> sous la norme actuelle html (5) sont directement utilisables dans Quarto. </span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le yaml du document ou du fichier **`_quarto.yml`** on change le thème en option du format html: <span class="in">`theme: nom_theme`</span>.</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: nom_theme</span></span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="in">---  </span></span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>Si on souhaite utiliser le thème **zephyr**:</span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: zephyr</span></span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="in">---  </span></span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>Normalement tout le monde peut trouver son bonheur avec ces thèmes, du plus classique (**default**) au plus psychédelique (**quartz**). On peut néanmoins vouloir à moindre frais modifier certains éléments visuels. </span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Thèmes light/dark</span></span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans les 26 thèmes, un même thème a une variante **light** et une variante **dark**:</span>
-<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Thème light: **flatly**.</span>
-<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Thème dark:  **darly**.</span>
-<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec Quarto, on peut utiliser switcher de l'un à l'autre. </span>
-<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>L'option **`theme`** aura donc deux thèmes en sous option:</span>
-<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>*`light: nom_theme`*.</span>
-<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>*`dark:  nom_theme`*.</span>
-<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Au delà de ces deux thèmes *clé en main*, on peut créer un thème de type dark à partir d'un thème light existant, et inversement.</span>
-<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On devra utiliser un fichiers sccs et renseigner manuellement les affectations des couleurs.</span>
-<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec des **variables SASS** propres à Quarto, on peut faire ces modifications assez facilement. Attention toutefois à bien maîtriser l'architecture des couleurs entrant dans un thème html de type bootstrap.  </span>
-<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>Si on souhaite générer une version dark du thème **zephyr**: </span>
-<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On utilisera un fichier .scss qui affectera les couleurs pour obtenir un thème dark, par exemple **zephyr_dark.scss**.</span>
-<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On l'ajoutera à l'option <span class="in">`dark`</span> de la façon suivante.</span>
-<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
-<span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a><span class="in">    theme:</span></span>
-<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a><span class="in">      light: zephyr</span></span>
-<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a><span class="in">      dark: [zephyr, zephyr_dark.scss]</span></span>
-<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deux thèmes light ou dark</span></span>
-<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a>A l'utilité contestable, mais on pourrait hésiter entre deux thèmes lors de la création de la documantation. On pourrait utiliser et switcher entre deux thèmes de type light ou dark. </span>
-<span id="cb22-74"><a href="#cb22-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-75"><a href="#cb22-75" aria-hidden="true" tabindex="-1"></a>Par exemple, on peut utiliser simultanément les thèmes light **zephyr** et **yeti**:</span>
-<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
-<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a><span class="in">    theme:</span></span>
-<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a><span class="in">      light: zephyr</span></span>
-<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a><span class="in">      dark:  yeti</span></span>
-<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a><span class="fu">### Changer directement des éléments du thème dans le yaml</span></span>
-<span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a>Sans passer par des manipulations de styles css dans le document, Quarto met à disposition des options qui s'appliquent directement au yaml pour modifier des éléments du thème, comme la couleur des liens <span class="co">[</span><span class="ot">Quelques options</span><span class="co">](https://quarto.org/docs/output-formats/html-themes.html#basic-options)</span></span>
-<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a>Pour une simple question d'homogénéité avec les couleurs prédéfinies du thème il est préférable d'utiliser les couleurs du thème qui a été sélectionné.  </span>
-<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a>Ces couleurs sont disponibles dans un fichier .scss du thème. Il est très facile de les récupérer, via le site **bootswatch** ou via des mises à disposition sur un dépôt git: </span>
-<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Par Quarto</span><span class="co">](https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes)</span>.</span>
-<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Par ce support</span><span class="co">](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)</span>.  </span>
-<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a>Avec les couleurs du thème zephyr:</span>
-<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-103"><a href="#cb22-103" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb22-104"><a href="#cb22-104" aria-hidden="true" tabindex="-1"></a><span class="al">![Récupérer facilement les couleurs d'un thème](img5/video1.gif)</span>{group=vid1}</span>
-<span id="cb22-105"><a href="#cb22-105" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb22-106"><a href="#cb22-106" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb22-107"><a href="#cb22-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-108"><a href="#cb22-108" aria-hidden="true" tabindex="-1"></a>Pour modifier la couleur du lien (avec une couleur du thème), on utilise directement l'option <span class="in">`linkcolor:`</span></span>
-<span id="cb22-109"><a href="#cb22-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-110"><a href="#cb22-110" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb22-111"><a href="#cb22-111" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-112"><a href="#cb22-112" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
-<span id="cb22-113"><a href="#cb22-113" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb22-114"><a href="#cb22-114" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: zephyr</span></span>
-<span id="cb22-115"><a href="#cb22-115" aria-hidden="true" tabindex="-1"></a><span class="in">    linkcolor: "#d63384"</span></span>
-<span id="cb22-116"><a href="#cb22-116" aria-hidden="true" tabindex="-1"></a><span class="in">---  </span></span>
-<span id="cb22-117"><a href="#cb22-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-118"><a href="#cb22-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-119"><a href="#cb22-119" aria-hidden="true" tabindex="-1"></a>Après un peu d'entraînement il est néanmoins préférable et bien plus facile de passer par un fichier scss et les variables SASS de Quarto pour réaliser ce type de modification.  </span>
-<span id="cb22-120"><a href="#cb22-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-121"><a href="#cb22-121" aria-hidden="true" tabindex="-1"></a><span class="fu">##  Introduction aux CSS et aux variables SASS {#sec-scss}</span></span>
-<span id="cb22-122"><a href="#cb22-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-123"><a href="#cb22-123" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:CSS Wiki</span><span class="co">](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade)</span>]{.nut}  </span>
-<span id="cb22-124"><a href="#cb22-124" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:SASS Wiki</span><span class="co">]</span>(https://fr.wikipedia.org/wiki/Sass_(langage))]{.nut}  </span>
-<span id="cb22-125"><a href="#cb22-125" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb22-126"><a href="#cb22-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-127"><a href="#cb22-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-128"><a href="#cb22-128" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour le CSS et surtout la variables SASS, je n'ai a priori aucun savoir ni aucune compétence particulière. Je manipule des styles css depuis ses débuts, mais sur des éléments très simples comme les couleurs, contours, épaisseurs.... Les ressources web sont nombreuses sur le sujet, et on trouvera toujours une réponse des plateformes comme <span class="co">[</span><span class="ot">w3schools</span><span class="co">](https://www.w3schools.com/)</span> ou <span class="co">[</span><span class="ot">Mmdn_</span><span class="co">](https://developer.mozilla.org/fr/)</span>.</span>
-<span id="cb22-129"><a href="#cb22-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-130"><a href="#cb22-130" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Bien évidemment, les objectifs de cette section sont limités, et limités à la modification de quelques éléments de </span>
-<span id="cb22-131"><a href="#cb22-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-132"><a href="#cb22-132" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb22-133"><a href="#cb22-133" aria-hidden="true" tabindex="-1"></a><span class="fu">### SASS: lorsque le résultat d'une modification du style du thème ne s'applique pas</span></span>
-<span id="cb22-134"><a href="#cb22-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-135"><a href="#cb22-135" aria-hidden="true" tabindex="-1"></a>FERMER RSTUDIO ET REOUVRIR LE PROJET...   </span>
-<span id="cb22-136"><a href="#cb22-136" aria-hidden="true" tabindex="-1"></a>Ne perdez pas trois heures à ne pas comprendre pourquoi</span>
-<span id="cb22-137"><a href="#cb22-137" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb22-138"><a href="#cb22-138" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb22-139"><a href="#cb22-139" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>CSS: **Cascade Style Sheets**, depuis 1996.</span>
-<span id="cb22-140"><a href="#cb22-140" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>SASS: **Syntactically Awesome Style Sheets**, depuis 2006.</span>
-<span id="cb22-141"><a href="#cb22-141" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Dans Quarto la syntaxe se trouve dans un fichier .scss.</span>
-<span id="cb22-142"><a href="#cb22-142" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Avec Quarto des variables de type SASS prédéfinies permettent de modifier le thème à la volée.</span>
-<span id="cb22-143"><a href="#cb22-143" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une feuille de style .css peut-être complètement remplaçée par un fichier .scss.</span>
-<span id="cb22-144"><a href="#cb22-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-145"><a href="#cb22-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-146"><a href="#cb22-146" aria-hidden="true" tabindex="-1"></a><span class="fu">### CSS</span></span>
-<span id="cb22-147"><a href="#cb22-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-148"><a href="#cb22-148" aria-hidden="true" tabindex="-1"></a>Exemple pour modifier l'aspect d'un texte</span>
-<span id="cb22-149"><a href="#cb22-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-150"><a href="#cb22-150" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Nom de la classe css: `.modiftext`**</span>
-<span id="cb22-151"><a href="#cb22-151" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans un fichier .css:</span>
-<span id="cb22-152"><a href="#cb22-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-153"><a href="#cb22-153" aria-hidden="true" tabindex="-1"></a><span class="in">```{.css}</span></span>
-<span id="cb22-154"><a href="#cb22-154" aria-hidden="true" tabindex="-1"></a><span class="in">.modiftext {</span></span>
-<span id="cb22-155"><a href="#cb22-155" aria-hidden="true" tabindex="-1"></a><span class="in">color: red;</span></span>
-<span id="cb22-156"><a href="#cb22-156" aria-hidden="true" tabindex="-1"></a><span class="in">font-weight: bold;</span></span>
-<span id="cb22-157"><a href="#cb22-157" aria-hidden="true" tabindex="-1"></a><span class="in">font-size: 20px;</span></span>
-<span id="cb22-158"><a href="#cb22-158" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb22-159"><a href="#cb22-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-160"><a href="#cb22-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-161"><a href="#cb22-161" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Nom de la classe: <span class="in">`.modiftext`</span>. Ne pas oublier de séparer les attributs avec un **;** dans des accolades {attribut1; attribut2;....}.</span>
-<span id="cb22-162"><a href="#cb22-162" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La couleur du texte: <span class="in">`color: red;`</span></span>
-<span id="cb22-163"><a href="#cb22-163" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>L'épaisseur du texte: <span class="in">`font-weight: bold`</span>^<span class="co">[</span><span class="ot">identique à la valeur 900</span><span class="co">]</span>;</span>
-<span id="cb22-164"><a href="#cb22-164" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La taille du texte: <span class="in">`font-size: 20px;`</span></span>
-<span id="cb22-165"><a href="#cb22-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-166"><a href="#cb22-166" aria-hidden="true" tabindex="-1"></a>**Utilisation d'un fichier .css**  </span>
-<span id="cb22-167"><a href="#cb22-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-168"><a href="#cb22-168" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le yaml: </span>
-<span id="cb22-169"><a href="#cb22-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-170"><a href="#cb22-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb22-171"><a href="#cb22-171" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-172"><a href="#cb22-172" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
-<span id="cb22-173"><a href="#cb22-173" aria-hidden="true" tabindex="-1"></a><span class="in">  html: </span></span>
-<span id="cb22-174"><a href="#cb22-174" aria-hidden="true" tabindex="-1"></a><span class="in">    css: styles.css</span></span>
-<span id="cb22-175"><a href="#cb22-175" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-176"><a href="#cb22-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-177"><a href="#cb22-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-178"><a href="#cb22-178" aria-hidden="true" tabindex="-1"></a>**Ajout du style au fichier css et affectation de la classe au texte**</span>
-<span id="cb22-179"><a href="#cb22-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-180"><a href="#cb22-180" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On ajoute la classe <span class="in">`.modiftext`</span> dans le fichier css.</span>
-<span id="cb22-181"><a href="#cb22-181" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On ajoute la classe dans le texte à modifier: **<span class="in">`[texte]{.modiftext}`</span></span>
-<span id="cb22-182"><a href="#cb22-182" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On compile le document qmd. Ces modifications seront affectées au texte.</span>
-<span id="cb22-183"><a href="#cb22-183" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si on veut modifier le style de la classe <span class="in">`.modiftext`</span>, on modifie les attributs dans le fichier .css et on enregistre. Ils seront directement appliqués.</span>
-<span id="cb22-184"><a href="#cb22-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-185"><a href="#cb22-185" aria-hidden="true" tabindex="-1"></a>Tout ça en gif animé.  </span>
-<span id="cb22-186"><a href="#cb22-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-187"><a href="#cb22-187" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb22-188"><a href="#cb22-188" aria-hidden="true" tabindex="-1"></a><span class="al">![Changer le style d'un texte avec un fichier css](img5/video2.gif)</span>{group=vid1}</span>
-<span id="cb22-189"><a href="#cb22-189" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb22-190"><a href="#cb22-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-191"><a href="#cb22-191" aria-hidden="true" tabindex="-1"></a><span class="fu">### SASS</span></span>
-<span id="cb22-192"><a href="#cb22-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-193"><a href="#cb22-193" aria-hidden="true" tabindex="-1"></a>De nouveau on se limitera aux couleurs.   </span>
-<span id="cb22-194"><a href="#cb22-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-195"><a href="#cb22-195" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Fichier scss et variables sass</span></span>
-<span id="cb22-196"><a href="#cb22-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-197"><a href="#cb22-197" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Hors projet Rstudio: on génère un ficher .scss à partir d'un simple fichier texte.</span>
-<span id="cb22-198"><a href="#cb22-198" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans un projet de type website, book...: un ficher scss est automatiquement généré.</span>
-<span id="cb22-199"><a href="#cb22-199" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le yaml:</span>
-<span id="cb22-200"><a href="#cb22-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-201"><a href="#cb22-201" aria-hidden="true" tabindex="-1"></a>**Sans thème bootstrap**:</span>
-<span id="cb22-202"><a href="#cb22-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-203"><a href="#cb22-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb22-204"><a href="#cb22-204" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-205"><a href="#cb22-205" aria-hidden="true" tabindex="-1"></a><span class="in">format:</span></span>
-<span id="cb22-206"><a href="#cb22-206" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb22-207"><a href="#cb22-207" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: nom_fichier.scss</span></span>
-<span id="cb22-208"><a href="#cb22-208" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-209"><a href="#cb22-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-210"><a href="#cb22-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-211"><a href="#cb22-211" aria-hidden="true" tabindex="-1"></a>**Avec un thème bootstrap**:</span>
-<span id="cb22-212"><a href="#cb22-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-213"><a href="#cb22-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb22-214"><a href="#cb22-214" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-215"><a href="#cb22-215" aria-hidden="true" tabindex="-1"></a><span class="in">format:</span></span>
-<span id="cb22-216"><a href="#cb22-216" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb22-217"><a href="#cb22-217" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: [flatly, nom_fichier.scss]</span></span>
-<span id="cb22-218"><a href="#cb22-218" aria-hidden="true" tabindex="-1"></a><span class="in">---    </span></span>
-<span id="cb22-219"><a href="#cb22-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-220"><a href="#cb22-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-221"><a href="#cb22-221" aria-hidden="true" tabindex="-1"></a>Ou</span>
-<span id="cb22-222"><a href="#cb22-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-223"><a href="#cb22-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb22-224"><a href="#cb22-224" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-225"><a href="#cb22-225" aria-hidden="true" tabindex="-1"></a><span class="in">format:</span></span>
-<span id="cb22-226"><a href="#cb22-226" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb22-227"><a href="#cb22-227" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: </span></span>
-<span id="cb22-228"><a href="#cb22-228" aria-hidden="true" tabindex="-1"></a><span class="in">      - flatly</span></span>
-<span id="cb22-229"><a href="#cb22-229" aria-hidden="true" tabindex="-1"></a><span class="in">      - nom_fichier.scss</span></span>
-<span id="cb22-230"><a href="#cb22-230" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb22-231"><a href="#cb22-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-232"><a href="#cb22-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-233"><a href="#cb22-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-234"><a href="#cb22-234" aria-hidden="true" tabindex="-1"></a>**Organisation d'un fichier .scss**  </span>
-<span id="cb22-235"><a href="#cb22-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-236"><a href="#cb22-236" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>**Commentaires**: <span class="in">`//`</span></span>
-<span id="cb22-237"><a href="#cb22-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-238"><a href="#cb22-238" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une **Zône de définition des variables sass**.</span>
-<span id="cb22-239"><a href="#cb22-239" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec quarto, une série de variables SASS prédéfinies permettent de modifier automatiquement le style du document.</span>
-<span id="cb22-240"><a href="#cb22-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-241"><a href="#cb22-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
-<span id="cb22-242"><a href="#cb22-242" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:defaults --*/</span></span>
-<span id="cb22-243"><a href="#cb22-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-244"><a href="#cb22-244" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;variables sass&gt;</span></span>
-<span id="cb22-245"><a href="#cb22-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-246"><a href="#cb22-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-247"><a href="#cb22-247" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une **Zône de création des classes css**, optionnelle. </span>
-<span id="cb22-248"><a href="#cb22-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-249"><a href="#cb22-249" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
-<span id="cb22-250"><a href="#cb22-250" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:rules --*/</span></span>
-<span id="cb22-251"><a href="#cb22-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-252"><a href="#cb22-252" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;styles css&gt;</span></span>
-<span id="cb22-253"><a href="#cb22-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-254"><a href="#cb22-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-255"><a href="#cb22-255" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec quarto, on pourrait avoir une structure de fichier. </span>
-<span id="cb22-256"><a href="#cb22-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-257"><a href="#cb22-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
-<span id="cb22-258"><a href="#cb22-258" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:defaults --*/</span></span>
-<span id="cb22-259"><a href="#cb22-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-260"><a href="#cb22-260" aria-hidden="true" tabindex="-1"></a><span class="in">$variable_sass1: attribut</span></span>
-<span id="cb22-261"><a href="#cb22-261" aria-hidden="true" tabindex="-1"></a><span class="in">$variable_sass2: attribut</span></span>
-<span id="cb22-262"><a href="#cb22-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-263"><a href="#cb22-263" aria-hidden="true" tabindex="-1"></a><span class="in">$variable_sass_quarto: attribut   //affectera directement le style du document</span></span>
-<span id="cb22-264"><a href="#cb22-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-265"><a href="#cb22-265" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:rules --*/</span></span>
-<span id="cb22-266"><a href="#cb22-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-267"><a href="#cb22-267" aria-hidden="true" tabindex="-1"></a><span class="in">.classe_css{attribut1:$var_sass1; attribut2: $var_sass2;....}</span></span>
-<span id="cb22-268"><a href="#cb22-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-269"><a href="#cb22-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-270"><a href="#cb22-270" aria-hidden="true" tabindex="-1"></a>On peut affecter des variables en cascade. Dans l'exemple suivant issu d'un thème bootstrap, les couleurs sont affectés à une variable Sass dont le nom se réfère directement à une couleur.  </span>
-<span id="cb22-271"><a href="#cb22-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-272"><a href="#cb22-272" aria-hidden="true" tabindex="-1"></a>On peut affecter ces variables Sass à de nouvelles variables sass dont les noms structurent les couleurs des 26 thèmes bootstrap (un même nom de variable Sass pour tous les thèmes:  <span class="in">`$primary: $blue;`</span>, <span class="in">`$danger: $red;`</span>...  </span>
-<span id="cb22-273"><a href="#cb22-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-274"><a href="#cb22-274" aria-hidden="true" tabindex="-1"></a>**Exemple d'affectation en cascade des couleurs avec variables Sass**</span>
-<span id="cb22-275"><a href="#cb22-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-276"><a href="#cb22-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
-<span id="cb22-277"><a href="#cb22-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-278"><a href="#cb22-278" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:defaults --*/</span></span>
-<span id="cb22-279"><a href="#cb22-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-280"><a href="#cb22-280" aria-hidden="true" tabindex="-1"></a><span class="in">// Couleurs échelle de gris non reportées</span></span>
-<span id="cb22-281"><a href="#cb22-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-282"><a href="#cb22-282" aria-hidden="true" tabindex="-1"></a><span class="in">$blue:    #2c3e50 ;</span></span>
-<span id="cb22-283"><a href="#cb22-283" aria-hidden="true" tabindex="-1"></a><span class="in">$indigo:  #6610f2 ;</span></span>
-<span id="cb22-284"><a href="#cb22-284" aria-hidden="true" tabindex="-1"></a><span class="in">$purple:  #6f42c1 ;</span></span>
-<span id="cb22-285"><a href="#cb22-285" aria-hidden="true" tabindex="-1"></a><span class="in">$pink:    #e83e8c ;</span></span>
-<span id="cb22-286"><a href="#cb22-286" aria-hidden="true" tabindex="-1"></a><span class="in">$red:     #e74c3c ;</span></span>
-<span id="cb22-287"><a href="#cb22-287" aria-hidden="true" tabindex="-1"></a><span class="in">$orange:  #fd7e14 ;</span></span>
-<span id="cb22-288"><a href="#cb22-288" aria-hidden="true" tabindex="-1"></a><span class="in">$yellow:  #f39c12 ;</span></span>
-<span id="cb22-289"><a href="#cb22-289" aria-hidden="true" tabindex="-1"></a><span class="in">$green:   #18bc9c ;</span></span>
-<span id="cb22-290"><a href="#cb22-290" aria-hidden="true" tabindex="-1"></a><span class="in">$teal:    #20c997 ;</span></span>
-<span id="cb22-291"><a href="#cb22-291" aria-hidden="true" tabindex="-1"></a><span class="in">$cyan:    #3498db ;</span></span>
-<span id="cb22-292"><a href="#cb22-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-293"><a href="#cb22-293" aria-hidden="true" tabindex="-1"></a><span class="in">$primary:       $blue     ;</span></span>
-<span id="cb22-294"><a href="#cb22-294" aria-hidden="true" tabindex="-1"></a><span class="in">$secondary:     $gray-600 ;</span></span>
-<span id="cb22-295"><a href="#cb22-295" aria-hidden="true" tabindex="-1"></a><span class="in">$success:       $green    ;</span></span>
-<span id="cb22-296"><a href="#cb22-296" aria-hidden="true" tabindex="-1"></a><span class="in">$info:          $cyan     ;</span></span>
-<span id="cb22-297"><a href="#cb22-297" aria-hidden="true" tabindex="-1"></a><span class="in">$warning:       $yellow   ;</span></span>
-<span id="cb22-298"><a href="#cb22-298" aria-hidden="true" tabindex="-1"></a><span class="in">$danger:        $red      ;</span></span>
-<span id="cb22-299"><a href="#cb22-299" aria-hidden="true" tabindex="-1"></a><span class="in">$light:         $gray-200 ;</span></span>
-<span id="cb22-300"><a href="#cb22-300" aria-hidden="true" tabindex="-1"></a><span class="in">$dark:          $gray-700 ;</span></span>
-<span id="cb22-301"><a href="#cb22-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-302"><a href="#cb22-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-303"><a href="#cb22-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-304"><a href="#cb22-304" aria-hidden="true" tabindex="-1"></a><span class="fu">### Modification du thème avec les variables Sass de Quarto</span></span>
-<span id="cb22-305"><a href="#cb22-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-306"><a href="#cb22-306" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb22-307"><a href="#cb22-307" aria-hidden="true" tabindex="-1"></a>On peut appliquer un fichier .scss au format reveals.js. Comme le nombre de variables Sass Quarto pour modifier un thème revealsjs est plus limité que pour les documents [<span class="co">[</span><span class="ot">lien</span><span class="co">]</span>](https://quarto.org/docs/presentations/revealjs/themes.html#sass-variables), site... on peut se faire la main sur les présentations dans un premier temps.</span>
-<span id="cb22-308"><a href="#cb22-308" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb22-309"><a href="#cb22-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-310"><a href="#cb22-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-311"><a href="#cb22-311" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Les variables Sass de Quarto permettent pratiquement à elles seules de faire un thème complet pour un document ou un site, ou de modifier drastiquement un thème bootstrap existant.   </span>
-<span id="cb22-312"><a href="#cb22-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-313"><a href="#cb22-313" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>l'ensemble des ces variables, dont le nombre augmente à chaque nouvelle version, sont directement récupérables sur le [<span class="co">[</span><span class="ot">site officiel</span><span class="co">]</span>](https://quarto.org/docs/output-formats/html-themes.html#sass-variables)</span>
-<span id="cb22-314"><a href="#cb22-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-315"><a href="#cb22-315" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aucune difficulté ici, pour modifier un élement du thème il suffit d'affecter un attribut à ces variables, à partir d'une variable Sass précédemment définie ou d'un attribut quelconque: couleur, taille, épaisseur....</span>
-<span id="cb22-316"><a href="#cb22-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-317"><a href="#cb22-317" aria-hidden="true" tabindex="-1"></a>Exemple: la couleur de fond d'une page</span>
-<span id="cb22-318"><a href="#cb22-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-319"><a href="#cb22-319" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
-<span id="cb22-320"><a href="#cb22-320" aria-hidden="true" tabindex="-1"></a><span class="in">$body-bg: couleur;</span></span>
-<span id="cb22-321"><a href="#cb22-321" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-322"><a href="#cb22-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-323"><a href="#cb22-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
-<span id="cb22-324"><a href="#cb22-324" aria-hidden="true" tabindex="-1"></a><span class="in">// Une couleur quelconque</span></span>
-<span id="cb22-325"><a href="#cb22-325" aria-hidden="true" tabindex="-1"></a><span class="in">$body-bg: red;</span></span>
-<span id="cb22-326"><a href="#cb22-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-327"><a href="#cb22-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-328"><a href="#cb22-328" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
-<span id="cb22-329"><a href="#cb22-329" aria-hidden="true" tabindex="-1"></a><span class="in">// Une variable sass d'un thème bootstrap</span></span>
-<span id="cb22-330"><a href="#cb22-330" aria-hidden="true" tabindex="-1"></a><span class="in">$body-bg: $warning;</span></span>
-<span id="cb22-331"><a href="#cb22-331" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-332"><a href="#cb22-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-333"><a href="#cb22-333" aria-hidden="true" tabindex="-1"></a>Tout ça en gif animé.  </span>
-<span id="cb22-334"><a href="#cb22-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-335"><a href="#cb22-335" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb22-336"><a href="#cb22-336" aria-hidden="true" tabindex="-1"></a><span class="al">![Changer le style d'un thème avec des variables Sass](img5/video3.gif)</span>{group=vid1}</span>
-<span id="cb22-337"><a href="#cb22-337" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb22-338"><a href="#cb22-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-339"><a href="#cb22-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-340"><a href="#cb22-340" aria-hidden="true" tabindex="-1"></a>::: callout-info</span>
-<span id="cb22-341"><a href="#cb22-341" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Les variables sas de Quarto utilisées pour modifier le thème du support</span></span>
-<span id="cb22-342"><a href="#cb22-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-343"><a href="#cb22-343" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
-<span id="cb22-344"><a href="#cb22-344" aria-hidden="true" tabindex="-1"></a><span class="in">$toc-color: $pink;</span></span>
-<span id="cb22-345"><a href="#cb22-345" aria-hidden="true" tabindex="-1"></a><span class="in">$link-color: $pink;</span></span>
-<span id="cb22-346"><a href="#cb22-346" aria-hidden="true" tabindex="-1"></a><span class="in">$code-block-border-left: $purple;</span></span>
-<span id="cb22-347"><a href="#cb22-347" aria-hidden="true" tabindex="-1"></a><span class="in">$code-color: $purple;</span></span>
-<span id="cb22-348"><a href="#cb22-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-349"><a href="#cb22-349" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb22-350"><a href="#cb22-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-351"><a href="#cb22-351" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-352"><a href="#cb22-352" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ajout de styles css dans un fichier scss</span></span>
-<span id="cb22-353"><a href="#cb22-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-354"><a href="#cb22-354" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans la section **`/*-- scss:rules --*/`** du fichier, on peut créer des styles css en utiisant les variables Sass générées précédemment. Par exemple pour changer seulement la couleur du texte avec 8 couleurs Sass du thème bootstrap:</span>
-<span id="cb22-355"><a href="#cb22-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-356"><a href="#cb22-356" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
-<span id="cb22-357"><a href="#cb22-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-358"><a href="#cb22-358" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:defaults --*/</span></span>
-<span id="cb22-359"><a href="#cb22-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-360"><a href="#cb22-360" aria-hidden="true" tabindex="-1"></a><span class="in">// liste des variables Sass: $couleurs1.... =&gt; $primary, $secondary,....</span></span>
-<span id="cb22-361"><a href="#cb22-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-362"><a href="#cb22-362" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:rules --*/</span></span>
-<span id="cb22-363"><a href="#cb22-363" aria-hidden="true" tabindex="-1"></a><span class="in">.col_primary{color: $primary}</span></span>
-<span id="cb22-364"><a href="#cb22-364" aria-hidden="true" tabindex="-1"></a><span class="in">.col_secondary{color: $secondary}</span></span>
-<span id="cb22-365"><a href="#cb22-365" aria-hidden="true" tabindex="-1"></a><span class="in">.col_success{color: $success}</span></span>
-<span id="cb22-366"><a href="#cb22-366" aria-hidden="true" tabindex="-1"></a><span class="in">.col_info{color: $info}</span></span>
-<span id="cb22-367"><a href="#cb22-367" aria-hidden="true" tabindex="-1"></a><span class="in">.col_warning{color: $warning}</span></span>
-<span id="cb22-368"><a href="#cb22-368" aria-hidden="true" tabindex="-1"></a><span class="in">.col_danger{color: $danger}</span></span>
-<span id="cb22-369"><a href="#cb22-369" aria-hidden="true" tabindex="-1"></a><span class="in">.col_light{color:$light}</span></span>
-<span id="cb22-370"><a href="#cb22-370" aria-hidden="true" tabindex="-1"></a><span class="in">.col_dark{color: $dark}</span></span>
-<span id="cb22-371"><a href="#cb22-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-372"><a href="#cb22-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-373"><a href="#cb22-373" aria-hidden="true" tabindex="-1"></a>On peut alors ajouter ces styles à des éléments du documents: mot, phrases, paragraphes....</span>
-<span id="cb22-374"><a href="#cb22-374" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-375"><a href="#cb22-375" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un mot ou une phrase avec un shortcode **[texte]{.nom_classe}**:</span>
-<span id="cb22-376"><a href="#cb22-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-377"><a href="#cb22-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
-<span id="cb22-378"><a href="#cb22-378" aria-hidden="true" tabindex="-1"></a><span class="in">On change la couleur du [mot success]{.col_success} avec la classe `.success`.</span></span>
-<span id="cb22-379"><a href="#cb22-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-380"><a href="#cb22-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-381"><a href="#cb22-381" aria-hidden="true" tabindex="-1"></a>Donne le résultat suivant:  </span>
-<span id="cb22-382"><a href="#cb22-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-383"><a href="#cb22-383" aria-hidden="true" tabindex="-1"></a>::: {.border}</span>
-<span id="cb22-384"><a href="#cb22-384" aria-hidden="true" tabindex="-1"></a>On change la couleur du <span class="co">[</span><span class="ot">mot success</span><span class="co">]</span>{.col_success} avec la classe <span class="in">`.success`</span>.</span>
-<span id="cb22-385"><a href="#cb22-385" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb22-386"><a href="#cb22-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-387"><a href="#cb22-387" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb22-388"><a href="#cb22-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-389"><a href="#cb22-389" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un paragraphe avec une section div **::: {.nom_classe}**: </span>
-<span id="cb22-390"><a href="#cb22-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-391"><a href="#cb22-391" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
-<span id="cb22-392"><a href="#cb22-392" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.warning}</span></span>
-<span id="cb22-393"><a href="#cb22-393" aria-hidden="true" tabindex="-1"></a><span class="in">On change la couleur du texte du paragraphe avec la classe `.warning`.</span></span>
-<span id="cb22-394"><a href="#cb22-394" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb22-395"><a href="#cb22-395" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb22-396"><a href="#cb22-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-397"><a href="#cb22-397" aria-hidden="true" tabindex="-1"></a>Donne le résultat suivant: </span>
-<span id="cb22-398"><a href="#cb22-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-399"><a href="#cb22-399" aria-hidden="true" tabindex="-1"></a>::: {.col_warning}</span>
-<span id="cb22-400"><a href="#cb22-400" aria-hidden="true" tabindex="-1"></a>On change la couleur du texte du paragraphe avec la classe <span class="in">`.warning`</span>.</span>
-<span id="cb22-401"><a href="#cb22-401" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb22-402"><a href="#cb22-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-403"><a href="#cb22-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-404"><a href="#cb22-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-405"><a href="#cb22-405" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">  - nutshell</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Theming html </span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On regardera principalement les éléments les plus visuels comme les couleurs.</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On restera ici sur les thèmes bootstrap libres, mais je conseille de jeter un coup d'oeil à certaines extensions comme celle de Julien Barnier qui permet d'utiliser un thème très sympa, avec un mode light et dark [<span class="co">[</span><span class="ot">Lien vers l'extension</span><span class="co">]</span>](https://github.com/juba/bookup-html).</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Les 26 thèmes bootstrap</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>Les <span class="co">[</span><span class="ot">26 thèmes bootstrap libres</span><span class="co">](https://bootswatch.com)</span> sous la norme actuelle html (5) sont directement utilisables dans Quarto. </span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le yaml du document ou du fichier **`_quarto.yml`** on change le thème en option du format html: <span class="in">`theme: nom_theme`</span>.</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: nom_theme</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="in">---  </span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>Si on souhaite utiliser le thème **zephyr**:</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: zephyr</span></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="in">---  </span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>Rappel, si la documentation est en html seulement on peut passer l'option de la manière suivante:</span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a><span class="in">theme: zephyr</span></span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a><span class="in">---  </span></span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### Thèmes light/dark</span></span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans les 26 thèmes, un même thème a une variante **light** et une variante **dark**:</span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Thème light: **flatly**.</span>
+<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Thème dark:  **darly**.</span>
+<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec Quarto, on peut utiliser switcher de l'un à l'autre. </span>
+<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>L'option **`theme`** aura donc deux thèmes en sous option:</span>
+<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>*`light: nom_theme`*.</span>
+<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>*`dark:  nom_theme`*.</span>
+<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Au delà de ces deux thèmes *clé en main*, on peut créer un thème de type dark à partir d'un thème light existant, et inversement.</span>
+<span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On devra utiliser un fichiers sccs et renseigner manuellement les affectations des couleurs.</span>
+<span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec des **variables SASS** propres à Quarto, on peut faire ces modifications assez facilement. Attention toutefois à bien maîtriser la logique des couleurs entrant dans un thème html.  </span>
+<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a>Si on souhaite générer une version dark du thème **zephyr**: </span>
+<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On utilisera un fichier .scss qui affectera les couleurs pour obtenir un thème dark, par exemple **zephyr_dark.scss**.</span>
+<span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On l'ajoutera à l'option <span class="in">`dark`</span> de la façon suivante.</span>
+<span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-66"><a href="#cb23-66" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
+<span id="cb23-67"><a href="#cb23-67" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a><span class="in">    theme:</span></span>
+<span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a><span class="in">      light: zephyr</span></span>
+<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a><span class="in">      dark: [zephyr, zephyr_dark.scss]</span></span>
+<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deux thèmes light ou dark</span></span>
+<span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a>A l'utilité contestable, mais on pourrait hésiter entre deux thèmes lors de la création de la documentation. Il est possible d'utiliser et de switcher entre deux thèmes de type light ou dark. </span>
+<span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a>Par exemple, on peut utiliser simultanément les thèmes light **zephyr** et **yeti**:</span>
+<span id="cb23-82"><a href="#cb23-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-84"><a href="#cb23-84" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
+<span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb23-87"><a href="#cb23-87" aria-hidden="true" tabindex="-1"></a><span class="in">    theme:</span></span>
+<span id="cb23-88"><a href="#cb23-88" aria-hidden="true" tabindex="-1"></a><span class="in">      light: zephyr</span></span>
+<span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a><span class="in">      dark:  yeti</span></span>
+<span id="cb23-90"><a href="#cb23-90" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a><span class="fu">### Changer directement des éléments du thème dans le yaml</span></span>
+<span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-98"><a href="#cb23-98" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sans passer par des manipulations de styles css dans le document, Quarto met à disposition des options qui s'appliquent directement au yaml pour modifier des éléments du thème, comme la couleur des liens <span class="co">[</span><span class="ot">Quelques options</span><span class="co">](https://quarto.org/docs/output-formats/html-themes.html#basic-options)</span></span>
+<span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-100"><a href="#cb23-100" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour une simple question d'homogénéité avec les couleurs prédéfinies du thème il est préférable d'utiliser les couleurs qui sont utilisées dans le thème.  </span>
+<span id="cb23-101"><a href="#cb23-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-102"><a href="#cb23-102" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ces couleurs sont disponibles dans un fichier .scss du thème. Il est très facile de les récupérer, via le site **bootswatch** ou via des mises à disposition sur un dépôt git: </span>
+<span id="cb23-103"><a href="#cb23-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-104"><a href="#cb23-104" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Par Quarto</span><span class="co">](https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes)</span>.</span>
+<span id="cb23-105"><a href="#cb23-105" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Par ce support</span><span class="co">](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)</span>.  </span>
+<span id="cb23-106"><a href="#cb23-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-107"><a href="#cb23-107" aria-hidden="true" tabindex="-1"></a>Avec les couleurs du thème zephyr:</span>
+<span id="cb23-108"><a href="#cb23-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-109"><a href="#cb23-109" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-110"><a href="#cb23-110" aria-hidden="true" tabindex="-1"></a><span class="al">![Récupérer facilement les couleurs d'un thème](img5/video1.gif)</span>{group=vid1}</span>
+<span id="cb23-111"><a href="#cb23-111" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-112"><a href="#cb23-112" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-113"><a href="#cb23-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-114"><a href="#cb23-114" aria-hidden="true" tabindex="-1"></a>Par exemple, pour modifier la couleur des liens (avec une couleur propre au thème): on  l'option <span class="in">`linkcolor:`</span></span>
+<span id="cb23-115"><a href="#cb23-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-116"><a href="#cb23-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-117"><a href="#cb23-117" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-118"><a href="#cb23-118" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
+<span id="cb23-119"><a href="#cb23-119" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb23-120"><a href="#cb23-120" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: zephyr</span></span>
+<span id="cb23-121"><a href="#cb23-121" aria-hidden="true" tabindex="-1"></a><span class="in">    linkcolor: "#d63384"</span></span>
+<span id="cb23-122"><a href="#cb23-122" aria-hidden="true" tabindex="-1"></a><span class="in">---  </span></span>
+<span id="cb23-123"><a href="#cb23-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-124"><a href="#cb23-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-125"><a href="#cb23-125" aria-hidden="true" tabindex="-1"></a>Avec un peu d'entraînement il est néanmoins préférable et bien plus facile de passer par un fichier scss et les variables SASS de Quarto pour réaliser ce type de modification.  </span>
+<span id="cb23-126"><a href="#cb23-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-127"><a href="#cb23-127" aria-hidden="true" tabindex="-1"></a><span class="fu">##  Introduction aux CSS et aux variables SASS {#sec-scss}</span></span>
+<span id="cb23-128"><a href="#cb23-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-129"><a href="#cb23-129" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:CSS Wiki</span><span class="co">](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade)</span>]{.nut}  </span>
+<span id="cb23-130"><a href="#cb23-130" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:SASS Wiki</span><span class="co">]</span>(https://fr.wikipedia.org/wiki/Sass_(langage))]{.nut}  </span>
+<span id="cb23-131"><a href="#cb23-131" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb23-132"><a href="#cb23-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-133"><a href="#cb23-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-134"><a href="#cb23-134" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour le CSS et surtout la variables SASS, je n'ai a priori aucun savoir ni aucune compétence particulière. Je manipule des styles css depuis ses débuts, mais sur des éléments très simples comme les couleurs, contours, épaisseurs.... Les ressources web sont nombreuses sur le sujet, et on trouvera toujours une réponse des plateformes comme <span class="co">[</span><span class="ot">w3schools</span><span class="co">](https://www.w3schools.com/)</span> ou <span class="co">[</span><span class="ot">Mmdn_</span><span class="co">](https://developer.mozilla.org/fr/)</span>.</span>
+<span id="cb23-135"><a href="#cb23-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-136"><a href="#cb23-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-137"><a href="#cb23-137" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>CSS: **Cascade Style Sheets**, depuis 1996.</span>
+<span id="cb23-138"><a href="#cb23-138" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Dans un fichier .css.</span>
+<span id="cb23-139"><a href="#cb23-139" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>SASS: **Syntactically Awesome Style Sheets**, depuis 2006.</span>
+<span id="cb23-140"><a href="#cb23-140" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Dans Quarto dans un fichier .scss.</span>
+<span id="cb23-141"><a href="#cb23-141" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Quarto met met à disposition des variables Sass prédéfinies pour modifier un thème à la volée.</span>
+<span id="cb23-142"><a href="#cb23-142" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une feuille de style .css peut-être complètement remplaçée par un fichier .scss.</span>
+<span id="cb23-143"><a href="#cb23-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-144"><a href="#cb23-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-145"><a href="#cb23-145" aria-hidden="true" tabindex="-1"></a><span class="fu">### CSS</span></span>
+<span id="cb23-146"><a href="#cb23-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-147"><a href="#cb23-147" aria-hidden="true" tabindex="-1"></a>Exemple pour modifier l'aspect d'un texte</span>
+<span id="cb23-148"><a href="#cb23-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-149"><a href="#cb23-149" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Nom de la classe css: `.modiftext`**</span>
+<span id="cb23-150"><a href="#cb23-150" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans un fichier .css:</span>
+<span id="cb23-151"><a href="#cb23-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-152"><a href="#cb23-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{.css}</span></span>
+<span id="cb23-153"><a href="#cb23-153" aria-hidden="true" tabindex="-1"></a><span class="in">.modiftext {</span></span>
+<span id="cb23-154"><a href="#cb23-154" aria-hidden="true" tabindex="-1"></a><span class="in">color: red;</span></span>
+<span id="cb23-155"><a href="#cb23-155" aria-hidden="true" tabindex="-1"></a><span class="in">font-weight: bold;</span></span>
+<span id="cb23-156"><a href="#cb23-156" aria-hidden="true" tabindex="-1"></a><span class="in">font-size: 20px;</span></span>
+<span id="cb23-157"><a href="#cb23-157" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb23-158"><a href="#cb23-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-159"><a href="#cb23-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-160"><a href="#cb23-160" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Nom de la classe: <span class="in">`.modiftext`</span>. Ne pas oublier de séparer les attributs avec un **;** dans des accolades {attribut1; attribut2;....}.</span>
+<span id="cb23-161"><a href="#cb23-161" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La couleur du texte: <span class="in">`color: red;`</span></span>
+<span id="cb23-162"><a href="#cb23-162" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>L'épaisseur du texte: <span class="in">`font-weight: bold`</span>^<span class="co">[</span><span class="ot">identique à la valeur 900</span><span class="co">]</span>;</span>
+<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La taille du texte: <span class="in">`font-size: 20px;`</span></span>
+<span id="cb23-164"><a href="#cb23-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-165"><a href="#cb23-165" aria-hidden="true" tabindex="-1"></a>**Utilisation d'un fichier .css**  </span>
+<span id="cb23-166"><a href="#cb23-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-167"><a href="#cb23-167" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le yaml: </span>
+<span id="cb23-168"><a href="#cb23-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-169"><a href="#cb23-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-170"><a href="#cb23-170" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-171"><a href="#cb23-171" aria-hidden="true" tabindex="-1"></a><span class="in">format: </span></span>
+<span id="cb23-172"><a href="#cb23-172" aria-hidden="true" tabindex="-1"></a><span class="in">  html: </span></span>
+<span id="cb23-173"><a href="#cb23-173" aria-hidden="true" tabindex="-1"></a><span class="in">    css: styles.css</span></span>
+<span id="cb23-174"><a href="#cb23-174" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-175"><a href="#cb23-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-176"><a href="#cb23-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-177"><a href="#cb23-177" aria-hidden="true" tabindex="-1"></a>**Ajout du style au fichier css et affectation de la classe au texte**</span>
+<span id="cb23-178"><a href="#cb23-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-179"><a href="#cb23-179" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On ajoute la classe <span class="in">`.modiftext`</span> dans le fichier css.</span>
+<span id="cb23-180"><a href="#cb23-180" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On ajoute la classe dans le texte à modifier: **<span class="in">`[texte]{.modiftext}`</span></span>
+<span id="cb23-181"><a href="#cb23-181" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On compile le document qmd. Ces modifications seront affectées au texte.</span>
+<span id="cb23-182"><a href="#cb23-182" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si on veut modifier le style de la classe <span class="in">`.modiftext`</span>, on modifie les attributs dans le fichier .css et on enregistre. Ils seront directement appliqués.</span>
+<span id="cb23-183"><a href="#cb23-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-184"><a href="#cb23-184" aria-hidden="true" tabindex="-1"></a>Tout ça en gif animé.  </span>
+<span id="cb23-185"><a href="#cb23-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-186"><a href="#cb23-186" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-187"><a href="#cb23-187" aria-hidden="true" tabindex="-1"></a><span class="al">![Changer le style d'un texte avec un fichier css](img5/video2.gif)</span>{group=vid1}</span>
+<span id="cb23-188"><a href="#cb23-188" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-189"><a href="#cb23-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-190"><a href="#cb23-190" aria-hidden="true" tabindex="-1"></a><span class="fu">### SASS</span></span>
+<span id="cb23-191"><a href="#cb23-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-192"><a href="#cb23-192" aria-hidden="true" tabindex="-1"></a>De nouveau on se limitera aux couleurs.   </span>
+<span id="cb23-193"><a href="#cb23-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-194"><a href="#cb23-194" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Fichier scss et variables sass</span></span>
+<span id="cb23-195"><a href="#cb23-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-196"><a href="#cb23-196" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Hors projet Rstudio: on génère un ficher .scss à partir d'un simple fichier texte.</span>
+<span id="cb23-197"><a href="#cb23-197" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans un projet de type website, book...: un ficher scss est automatiquement généré.</span>
+<span id="cb23-198"><a href="#cb23-198" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le yaml:</span>
+<span id="cb23-199"><a href="#cb23-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-200"><a href="#cb23-200" aria-hidden="true" tabindex="-1"></a>**Sans thème bootstrap**:</span>
+<span id="cb23-201"><a href="#cb23-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-202"><a href="#cb23-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-203"><a href="#cb23-203" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-204"><a href="#cb23-204" aria-hidden="true" tabindex="-1"></a><span class="in">format:</span></span>
+<span id="cb23-205"><a href="#cb23-205" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb23-206"><a href="#cb23-206" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: nom_fichier.scss</span></span>
+<span id="cb23-207"><a href="#cb23-207" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-208"><a href="#cb23-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-209"><a href="#cb23-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-210"><a href="#cb23-210" aria-hidden="true" tabindex="-1"></a>**Avec un thème bootstrap**:</span>
+<span id="cb23-211"><a href="#cb23-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-212"><a href="#cb23-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-213"><a href="#cb23-213" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-214"><a href="#cb23-214" aria-hidden="true" tabindex="-1"></a><span class="in">format:</span></span>
+<span id="cb23-215"><a href="#cb23-215" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb23-216"><a href="#cb23-216" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: [flatly, nom_fichier.scss]</span></span>
+<span id="cb23-217"><a href="#cb23-217" aria-hidden="true" tabindex="-1"></a><span class="in">---    </span></span>
+<span id="cb23-218"><a href="#cb23-218" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-219"><a href="#cb23-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-220"><a href="#cb23-220" aria-hidden="true" tabindex="-1"></a>Ou</span>
+<span id="cb23-221"><a href="#cb23-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-222"><a href="#cb23-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-223"><a href="#cb23-223" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-224"><a href="#cb23-224" aria-hidden="true" tabindex="-1"></a><span class="in">format:</span></span>
+<span id="cb23-225"><a href="#cb23-225" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb23-226"><a href="#cb23-226" aria-hidden="true" tabindex="-1"></a><span class="in">    theme: </span></span>
+<span id="cb23-227"><a href="#cb23-227" aria-hidden="true" tabindex="-1"></a><span class="in">      - flatly</span></span>
+<span id="cb23-228"><a href="#cb23-228" aria-hidden="true" tabindex="-1"></a><span class="in">      - nom_fichier.scss</span></span>
+<span id="cb23-229"><a href="#cb23-229" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb23-230"><a href="#cb23-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-231"><a href="#cb23-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-232"><a href="#cb23-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-233"><a href="#cb23-233" aria-hidden="true" tabindex="-1"></a>**Organisation d'un fichier .scss**  </span>
+<span id="cb23-234"><a href="#cb23-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-235"><a href="#cb23-235" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>**Commentaires**: <span class="in">`//`</span></span>
+<span id="cb23-236"><a href="#cb23-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-237"><a href="#cb23-237" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une **Zône de définition des variables sass**.</span>
+<span id="cb23-238"><a href="#cb23-238" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec quarto, une série de variables SASS prédéfinies permettent de modifier automatiquement le style du document.</span>
+<span id="cb23-239"><a href="#cb23-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-240"><a href="#cb23-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
+<span id="cb23-241"><a href="#cb23-241" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:defaults --*/</span></span>
+<span id="cb23-242"><a href="#cb23-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-243"><a href="#cb23-243" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;variables sass&gt;</span></span>
+<span id="cb23-244"><a href="#cb23-244" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-245"><a href="#cb23-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-246"><a href="#cb23-246" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une **Zône de création des classes css**, optionnelle. </span>
+<span id="cb23-247"><a href="#cb23-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-248"><a href="#cb23-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
+<span id="cb23-249"><a href="#cb23-249" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:rules --*/</span></span>
+<span id="cb23-250"><a href="#cb23-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-251"><a href="#cb23-251" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;styles css&gt;</span></span>
+<span id="cb23-252"><a href="#cb23-252" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-253"><a href="#cb23-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-254"><a href="#cb23-254" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec quarto, on pourrait avoir une structure de fichier. </span>
+<span id="cb23-255"><a href="#cb23-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-256"><a href="#cb23-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
+<span id="cb23-257"><a href="#cb23-257" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:defaults --*/</span></span>
+<span id="cb23-258"><a href="#cb23-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-259"><a href="#cb23-259" aria-hidden="true" tabindex="-1"></a><span class="in">$variable_sass1: attribut</span></span>
+<span id="cb23-260"><a href="#cb23-260" aria-hidden="true" tabindex="-1"></a><span class="in">$variable_sass2: attribut</span></span>
+<span id="cb23-261"><a href="#cb23-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-262"><a href="#cb23-262" aria-hidden="true" tabindex="-1"></a><span class="in">$variable_sass_quarto: attribut   //affectera directement le style du document</span></span>
+<span id="cb23-263"><a href="#cb23-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-264"><a href="#cb23-264" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:rules --*/</span></span>
+<span id="cb23-265"><a href="#cb23-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-266"><a href="#cb23-266" aria-hidden="true" tabindex="-1"></a><span class="in">.classe_css{attribut1:$var_sass1; attribut2: $var_sass2;....}</span></span>
+<span id="cb23-267"><a href="#cb23-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-268"><a href="#cb23-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-269"><a href="#cb23-269" aria-hidden="true" tabindex="-1"></a>On peut affecter des variables en cascade. Dans l'exemple suivant issu d'un thème bootstrap, les couleurs sont affectés à une variable Sass dont le nom se réfère directement à une couleur.  </span>
+<span id="cb23-270"><a href="#cb23-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-271"><a href="#cb23-271" aria-hidden="true" tabindex="-1"></a>On peut affecter ces variables Sass à de nouvelles variables sass dont les noms structurent les couleurs des 26 thèmes bootstrap (un même nom de variable Sass pour tous les thèmes:  <span class="in">`$primary: $blue;`</span>, <span class="in">`$danger: $red;`</span>...  </span>
+<span id="cb23-272"><a href="#cb23-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-273"><a href="#cb23-273" aria-hidden="true" tabindex="-1"></a>**Exemple d'affectation en cascade des couleurs avec variables Sass**</span>
+<span id="cb23-274"><a href="#cb23-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-275"><a href="#cb23-275" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
+<span id="cb23-276"><a href="#cb23-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-277"><a href="#cb23-277" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:defaults --*/</span></span>
+<span id="cb23-278"><a href="#cb23-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-279"><a href="#cb23-279" aria-hidden="true" tabindex="-1"></a><span class="in">// Couleurs échelle de gris non reportées</span></span>
+<span id="cb23-280"><a href="#cb23-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-281"><a href="#cb23-281" aria-hidden="true" tabindex="-1"></a><span class="in">$blue:    #2c3e50 ;</span></span>
+<span id="cb23-282"><a href="#cb23-282" aria-hidden="true" tabindex="-1"></a><span class="in">$indigo:  #6610f2 ;</span></span>
+<span id="cb23-283"><a href="#cb23-283" aria-hidden="true" tabindex="-1"></a><span class="in">$purple:  #6f42c1 ;</span></span>
+<span id="cb23-284"><a href="#cb23-284" aria-hidden="true" tabindex="-1"></a><span class="in">$pink:    #e83e8c ;</span></span>
+<span id="cb23-285"><a href="#cb23-285" aria-hidden="true" tabindex="-1"></a><span class="in">$red:     #e74c3c ;</span></span>
+<span id="cb23-286"><a href="#cb23-286" aria-hidden="true" tabindex="-1"></a><span class="in">$orange:  #fd7e14 ;</span></span>
+<span id="cb23-287"><a href="#cb23-287" aria-hidden="true" tabindex="-1"></a><span class="in">$yellow:  #f39c12 ;</span></span>
+<span id="cb23-288"><a href="#cb23-288" aria-hidden="true" tabindex="-1"></a><span class="in">$green:   #18bc9c ;</span></span>
+<span id="cb23-289"><a href="#cb23-289" aria-hidden="true" tabindex="-1"></a><span class="in">$teal:    #20c997 ;</span></span>
+<span id="cb23-290"><a href="#cb23-290" aria-hidden="true" tabindex="-1"></a><span class="in">$cyan:    #3498db ;</span></span>
+<span id="cb23-291"><a href="#cb23-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-292"><a href="#cb23-292" aria-hidden="true" tabindex="-1"></a><span class="in">$primary:       $blue     ;</span></span>
+<span id="cb23-293"><a href="#cb23-293" aria-hidden="true" tabindex="-1"></a><span class="in">$secondary:     $gray-600 ;</span></span>
+<span id="cb23-294"><a href="#cb23-294" aria-hidden="true" tabindex="-1"></a><span class="in">$success:       $green    ;</span></span>
+<span id="cb23-295"><a href="#cb23-295" aria-hidden="true" tabindex="-1"></a><span class="in">$info:          $cyan     ;</span></span>
+<span id="cb23-296"><a href="#cb23-296" aria-hidden="true" tabindex="-1"></a><span class="in">$warning:       $yellow   ;</span></span>
+<span id="cb23-297"><a href="#cb23-297" aria-hidden="true" tabindex="-1"></a><span class="in">$danger:        $red      ;</span></span>
+<span id="cb23-298"><a href="#cb23-298" aria-hidden="true" tabindex="-1"></a><span class="in">$light:         $gray-200 ;</span></span>
+<span id="cb23-299"><a href="#cb23-299" aria-hidden="true" tabindex="-1"></a><span class="in">$dark:          $gray-700 ;</span></span>
+<span id="cb23-300"><a href="#cb23-300" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-301"><a href="#cb23-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-302"><a href="#cb23-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-303"><a href="#cb23-303" aria-hidden="true" tabindex="-1"></a><span class="fu">### Modification du thème avec les variables Sass de Quarto</span></span>
+<span id="cb23-304"><a href="#cb23-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-305"><a href="#cb23-305" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb23-306"><a href="#cb23-306" aria-hidden="true" tabindex="-1"></a>On peut appliquer un fichier .scss au format reveals.js. Comme le nombre de variables Sass Quarto pour modifier un thème revealsjs est plus limité que pour les documents [<span class="co">[</span><span class="ot">lien</span><span class="co">]</span>](https://quarto.org/docs/presentations/revealjs/themes.html#sass-variables), site... on peut se faire la main sur les présentations dans un premier temps.</span>
+<span id="cb23-307"><a href="#cb23-307" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-308"><a href="#cb23-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-309"><a href="#cb23-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-310"><a href="#cb23-310" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Les variables Sass de Quarto permettent pratiquement à elles seules de faire un thème complet pour un document ou un site, ou de modifier drastiquement un thème bootstrap existant.   </span>
+<span id="cb23-311"><a href="#cb23-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-312"><a href="#cb23-312" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>l'ensemble des ces variables, dont le nombre augmente à chaque nouvelle version, sont directement récupérables sur le [<span class="co">[</span><span class="ot">site officiel</span><span class="co">]</span>](https://quarto.org/docs/output-formats/html-themes.html#sass-variables)</span>
+<span id="cb23-313"><a href="#cb23-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-314"><a href="#cb23-314" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aucune difficulté ici, pour modifier un élement du thème il suffit d'affecter un attribut à ces variables, à partir d'une variable Sass précédemment définie ou d'un attribut quelconque: couleur, taille, épaisseur....</span>
+<span id="cb23-315"><a href="#cb23-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-316"><a href="#cb23-316" aria-hidden="true" tabindex="-1"></a>Exemple: la couleur de fond d'une page</span>
+<span id="cb23-317"><a href="#cb23-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-318"><a href="#cb23-318" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
+<span id="cb23-319"><a href="#cb23-319" aria-hidden="true" tabindex="-1"></a><span class="in">$body-bg: couleur;</span></span>
+<span id="cb23-320"><a href="#cb23-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-321"><a href="#cb23-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-322"><a href="#cb23-322" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
+<span id="cb23-323"><a href="#cb23-323" aria-hidden="true" tabindex="-1"></a><span class="in">// Une couleur quelconque</span></span>
+<span id="cb23-324"><a href="#cb23-324" aria-hidden="true" tabindex="-1"></a><span class="in">$body-bg: red;</span></span>
+<span id="cb23-325"><a href="#cb23-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-326"><a href="#cb23-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-327"><a href="#cb23-327" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
+<span id="cb23-328"><a href="#cb23-328" aria-hidden="true" tabindex="-1"></a><span class="in">// Une variable sass d'un thème bootstrap</span></span>
+<span id="cb23-329"><a href="#cb23-329" aria-hidden="true" tabindex="-1"></a><span class="in">$body-bg: $warning;</span></span>
+<span id="cb23-330"><a href="#cb23-330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-331"><a href="#cb23-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-332"><a href="#cb23-332" aria-hidden="true" tabindex="-1"></a>Tout ça en gif animé.  </span>
+<span id="cb23-333"><a href="#cb23-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-334"><a href="#cb23-334" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-335"><a href="#cb23-335" aria-hidden="true" tabindex="-1"></a><span class="al">![Changer le style d'un thème avec des variables Sass](img5/video3.gif)</span>{group=vid1}</span>
+<span id="cb23-336"><a href="#cb23-336" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-337"><a href="#cb23-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-338"><a href="#cb23-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-339"><a href="#cb23-339" aria-hidden="true" tabindex="-1"></a>::: callout-info</span>
+<span id="cb23-340"><a href="#cb23-340" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Les variables Sass de Quarto utilisées pour modifier le thème du support</span></span>
+<span id="cb23-341"><a href="#cb23-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-342"><a href="#cb23-342" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
+<span id="cb23-343"><a href="#cb23-343" aria-hidden="true" tabindex="-1"></a><span class="in">$toc-color: $pink;</span></span>
+<span id="cb23-344"><a href="#cb23-344" aria-hidden="true" tabindex="-1"></a><span class="in">$link-color: $pink;</span></span>
+<span id="cb23-345"><a href="#cb23-345" aria-hidden="true" tabindex="-1"></a><span class="in">$code-block-border-left: $purple;</span></span>
+<span id="cb23-346"><a href="#cb23-346" aria-hidden="true" tabindex="-1"></a><span class="in">$code-color: $purple;</span></span>
+<span id="cb23-347"><a href="#cb23-347" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-348"><a href="#cb23-348" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-349"><a href="#cb23-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-350"><a href="#cb23-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-351"><a href="#cb23-351" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ajout de styles css dans un fichier scss</span></span>
+<span id="cb23-352"><a href="#cb23-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-353"><a href="#cb23-353" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans la partie **`/*-- scss:rules --*/`** du fichier, on peut créer des styles css en utiisant les variables Sass générées précédemment. Par exemple pour définir un style de couleur du texte avec 8 couleurs du thème bootstrap:</span>
+<span id="cb23-354"><a href="#cb23-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-355"><a href="#cb23-355" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sass}</span></span>
+<span id="cb23-356"><a href="#cb23-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-357"><a href="#cb23-357" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:defaults --*/</span></span>
+<span id="cb23-358"><a href="#cb23-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-359"><a href="#cb23-359" aria-hidden="true" tabindex="-1"></a><span class="in">// liste des variables Sass: $couleurs1.... =&gt; $primary, $couleurs2 =&gt; $secondary,...</span></span>
+<span id="cb23-360"><a href="#cb23-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-361"><a href="#cb23-361" aria-hidden="true" tabindex="-1"></a><span class="in">/*-- scss:rules --*/</span></span>
+<span id="cb23-362"><a href="#cb23-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-363"><a href="#cb23-363" aria-hidden="true" tabindex="-1"></a><span class="in">.col_primary{color: $primary}</span></span>
+<span id="cb23-364"><a href="#cb23-364" aria-hidden="true" tabindex="-1"></a><span class="in">.col_secondary{color: $secondary}</span></span>
+<span id="cb23-365"><a href="#cb23-365" aria-hidden="true" tabindex="-1"></a><span class="in">.col_success{color: $success}</span></span>
+<span id="cb23-366"><a href="#cb23-366" aria-hidden="true" tabindex="-1"></a><span class="in">.col_info{color: $info}</span></span>
+<span id="cb23-367"><a href="#cb23-367" aria-hidden="true" tabindex="-1"></a><span class="in">.col_warning{color: $warning}</span></span>
+<span id="cb23-368"><a href="#cb23-368" aria-hidden="true" tabindex="-1"></a><span class="in">.col_danger{color: $danger}</span></span>
+<span id="cb23-369"><a href="#cb23-369" aria-hidden="true" tabindex="-1"></a><span class="in">.col_light{color:$light}</span></span>
+<span id="cb23-370"><a href="#cb23-370" aria-hidden="true" tabindex="-1"></a><span class="in">.col_dark{color: $dark}</span></span>
+<span id="cb23-371"><a href="#cb23-371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-372"><a href="#cb23-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-373"><a href="#cb23-373" aria-hidden="true" tabindex="-1"></a>On peut alors ajouter ces styles à des éléments du documents: mot, phrases, paragraphes....</span>
+<span id="cb23-374"><a href="#cb23-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-375"><a href="#cb23-375" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un mot ou une phrase avec un shortcode **[texte]{.nom_classe}**:</span>
+<span id="cb23-376"><a href="#cb23-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-377"><a href="#cb23-377" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-378"><a href="#cb23-378" aria-hidden="true" tabindex="-1"></a><span class="in">On change la couleur du [mot success]{.col_success} avec la classe `.col_success`.</span></span>
+<span id="cb23-379"><a href="#cb23-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-380"><a href="#cb23-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-381"><a href="#cb23-381" aria-hidden="true" tabindex="-1"></a>Donnera le résultat suivant:  </span>
+<span id="cb23-382"><a href="#cb23-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-383"><a href="#cb23-383" aria-hidden="true" tabindex="-1"></a>::: {.border}</span>
+<span id="cb23-384"><a href="#cb23-384" aria-hidden="true" tabindex="-1"></a>On change la couleur du <span class="co">[</span><span class="ot">mot success</span><span class="co">]</span>{.col_success} avec la classe <span class="in">`.col_success`</span>.</span>
+<span id="cb23-385"><a href="#cb23-385" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-386"><a href="#cb23-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-387"><a href="#cb23-387" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb23-388"><a href="#cb23-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-389"><a href="#cb23-389" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un paragraphe dans une section &lt;div&gt;: **`::: {.nom_classe}`**: </span>
+<span id="cb23-390"><a href="#cb23-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-391"><a href="#cb23-391" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-392"><a href="#cb23-392" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.col_warning}</span></span>
+<span id="cb23-393"><a href="#cb23-393" aria-hidden="true" tabindex="-1"></a><span class="in">On change la couleur du texte du paragraphe avec la classe `col.warning`.</span></span>
+<span id="cb23-394"><a href="#cb23-394" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb23-395"><a href="#cb23-395" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-396"><a href="#cb23-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-397"><a href="#cb23-397" aria-hidden="true" tabindex="-1"></a>Donne le résultat suivant: </span>
+<span id="cb23-398"><a href="#cb23-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-399"><a href="#cb23-399" aria-hidden="true" tabindex="-1"></a>::: {.col_warning}</span>
+<span id="cb23-400"><a href="#cb23-400" aria-hidden="true" tabindex="-1"></a>On change la couleur du texte du paragraphe avec la classe <span class="in">`col.warning`</span>.</span>
+<span id="cb23-401"><a href="#cb23-401" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-402"><a href="#cb23-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-403"><a href="#cb23-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-404"><a href="#cb23-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-405"><a href="#cb23-405" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1695,7 +1687,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

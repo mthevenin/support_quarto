@@ -5,8 +5,7 @@ filters:
 
 # Theming html 
 
-* Parce que c'est un support de formation sur le bonheur, on regardera principalement 
-les éléments les plus visuels comme les couleurs.
+* On regardera principalement les éléments les plus visuels comme les couleurs.
 * On restera ici sur les thèmes bootstrap libres, mais je conseille de jeter un coup d'oeil à certaines extensions comme celle de Julien Barnier qui permet d'utiliser un thème très sympa, avec un mode light et dark [[Lien vers l'extension]](https://github.com/juba/bookup-html).
 
 ## Les 26 thèmes bootstrap
@@ -32,7 +31,14 @@ format:
 ---  
 ```
 
-Normalement tout le monde peut trouver son bonheur avec ces thèmes, du plus classique (**default**) au plus psychédelique (**quartz**). On peut néanmoins vouloir à moindre frais modifier certains éléments visuels. 
+Rappel, si la documentation est en html seulement on peut passer l'option de la manière suivante:
+
+```{.yaml}
+---
+theme: zephyr
+---  
+```
+
 
 ### Thèmes light/dark
 
@@ -47,7 +53,7 @@ Normalement tout le monde peut trouver son bonheur avec ces thèmes, du plus cla
 
 * Au delà de ces deux thèmes *clé en main*, on peut créer un thème de type dark à partir d'un thème light existant, et inversement.
 * On devra utiliser un fichiers sccs et renseigner manuellement les affectations des couleurs.
-* Avec des **variables SASS** propres à Quarto, on peut faire ces modifications assez facilement. Attention toutefois à bien maîtriser l'architecture des couleurs entrant dans un thème html de type bootstrap.  
+* Avec des **variables SASS** propres à Quarto, on peut faire ces modifications assez facilement. Attention toutefois à bien maîtriser la logique des couleurs entrant dans un thème html.  
 
 
 Si on souhaite générer une version dark du thème **zephyr**: 
@@ -70,7 +76,7 @@ format:
 
 ### Deux thèmes light ou dark
 
-A l'utilité contestable, mais on pourrait hésiter entre deux thèmes lors de la création de la documantation. On pourrait utiliser et switcher entre deux thèmes de type light ou dark. 
+A l'utilité contestable, mais on pourrait hésiter entre deux thèmes lors de la création de la documentation. Il est possible d'utiliser et de switcher entre deux thèmes de type light ou dark. 
 
 Par exemple, on peut utiliser simultanément les thèmes light **zephyr** et **yeti**:
 
@@ -89,11 +95,11 @@ format:
 
 ### Changer directement des éléments du thème dans le yaml
 
-Sans passer par des manipulations de styles css dans le document, Quarto met à disposition des options qui s'appliquent directement au yaml pour modifier des éléments du thème, comme la couleur des liens [Quelques options](https://quarto.org/docs/output-formats/html-themes.html#basic-options)
+* Sans passer par des manipulations de styles css dans le document, Quarto met à disposition des options qui s'appliquent directement au yaml pour modifier des éléments du thème, comme la couleur des liens [Quelques options](https://quarto.org/docs/output-formats/html-themes.html#basic-options)
 
-Pour une simple question d'homogénéité avec les couleurs prédéfinies du thème il est préférable d'utiliser les couleurs du thème qui a été sélectionné.  
+* Pour une simple question d'homogénéité avec les couleurs prédéfinies du thème il est préférable d'utiliser les couleurs qui sont utilisées dans le thème.  
 
-Ces couleurs sont disponibles dans un fichier .scss du thème. Il est très facile de les récupérer, via le site **bootswatch** ou via des mises à disposition sur un dépôt git: 
+* Ces couleurs sont disponibles dans un fichier .scss du thème. Il est très facile de les récupérer, via le site **bootswatch** ou via des mises à disposition sur un dépôt git: 
 
 * [Par Quarto](https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes).
 * [Par ce support](https://github.com/mthevenin/quarto/tree/main/scss_color_theme).  
@@ -105,7 +111,7 @@ Avec les couleurs du thème zephyr:
 :::
  
 
-Pour modifier la couleur du lien (avec une couleur du thème), on utilise directement l'option `linkcolor:`
+Par exemple, pour modifier la couleur des liens (avec une couleur propre au thème): on  l'option `linkcolor:`
 
 ```{.yaml}
 ---
@@ -116,7 +122,7 @@ format:
 ---  
 ```
 
-Après un peu d'entraînement il est néanmoins préférable et bien plus facile de passer par un fichier scss et les variables SASS de Quarto pour réaliser ce type de modification.  
+Avec un peu d'entraînement il est néanmoins préférable et bien plus facile de passer par un fichier scss et les variables SASS de Quarto pour réaliser ce type de modification.  
 
 ##  Introduction aux CSS et aux variables SASS {#sec-scss}
 
@@ -127,19 +133,12 @@ Après un peu d'entraînement il est néanmoins préférable et bien plus facile
 
 * Pour le CSS et surtout la variables SASS, je n'ai a priori aucun savoir ni aucune compétence particulière. Je manipule des styles css depuis ses débuts, mais sur des éléments très simples comme les couleurs, contours, épaisseurs.... Les ressources web sont nombreuses sur le sujet, et on trouvera toujours une réponse des plateformes comme [w3schools](https://www.w3schools.com/) ou [Mmdn_](https://developer.mozilla.org/fr/).
 
-* Bien évidemment, les objectifs de cette section sont limités, et limités à la modification de quelques éléments de 
 
-::: callout-important
-### SASS: lorsque le résultat d'une modification du style du thème ne s'applique pas
-
-FERMER RSTUDIO ET REOUVRIR LE PROJET...   
-Ne perdez pas trois heures à ne pas comprendre pourquoi
-:::
- 
 * CSS: **Cascade Style Sheets**, depuis 1996.
+  * Dans un fichier .css.
 * SASS: **Syntactically Awesome Style Sheets**, depuis 2006.
-  * Dans Quarto la syntaxe se trouve dans un fichier .scss.
-  * Avec Quarto des variables de type SASS prédéfinies permettent de modifier le thème à la volée.
+  * Dans Quarto dans un fichier .scss.
+  * Quarto met met à disposition des variables Sass prédéfinies pour modifier un thème à la volée.
 * Une feuille de style .css peut-être complètement remplaçée par un fichier .scss.
 
 
@@ -338,7 +337,7 @@ Tout ça en gif animé.
 
 
 ::: callout-info
-#### Les variables sas de Quarto utilisées pour modifier le thème du support
+#### Les variables Sass de Quarto utilisées pour modifier le thème du support
 
 ```{.yaml}
 $toc-color: $pink;
@@ -351,15 +350,16 @@ $code-color: $purple;
 
 ### Ajout de styles css dans un fichier scss
 
-* Dans la section **`/*-- scss:rules --*/`** du fichier, on peut créer des styles css en utiisant les variables Sass générées précédemment. Par exemple pour changer seulement la couleur du texte avec 8 couleurs Sass du thème bootstrap:
+* Dans la partie **`/*-- scss:rules --*/`** du fichier, on peut créer des styles css en utiisant les variables Sass générées précédemment. Par exemple pour définir un style de couleur du texte avec 8 couleurs du thème bootstrap:
 
 ```{.sass}
 
 /*-- scss:defaults --*/
 
-// liste des variables Sass: $couleurs1.... => $primary, $secondary,....
+// liste des variables Sass: $couleurs1.... => $primary, $couleurs2 => $secondary,...
 
 /*-- scss:rules --*/
+
 .col_primary{color: $primary}
 .col_secondary{color: $secondary}
 .col_success{color: $success}
@@ -374,30 +374,30 @@ On peut alors ajouter ces styles à des éléments du documents: mot, phrases, p
 
 * Un mot ou une phrase avec un shortcode **[texte]{.nom_classe}**:
 
-```{.md}
-On change la couleur du [mot success]{.col_success} avec la classe `.success`.
+```{.mf}
+On change la couleur du [mot success]{.col_success} avec la classe `.col_success`.
 ```
 
-Donne le résultat suivant:  
+Donnera le résultat suivant:  
 
 ::: {.border}
-On change la couleur du [mot success]{.col_success} avec la classe `.success`.
+On change la couleur du [mot success]{.col_success} avec la classe `.col_success`.
 :::
 
 <br>
 
-* Un paragraphe avec une section div **::: {.nom_classe}**: 
+* Un paragraphe dans une section <div>: **`::: {.nom_classe}`**: 
 
-```{.md}
-::: {.warning}
-On change la couleur du texte du paragraphe avec la classe `.warning`.
+```{.mf}
+::: {.col_warning}
+On change la couleur du texte du paragraphe avec la classe `col.warning`.
 :::
 ```
 
 Donne le résultat suivant: 
 
 ::: {.col_warning}
-On change la couleur du texte du paragraphe avec la classe `.warning`.
+On change la couleur du texte du paragraphe avec la classe `col.warning`.
 :::
 
 

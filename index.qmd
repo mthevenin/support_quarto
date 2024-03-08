@@ -16,7 +16,7 @@ author-title: ""
 <a href="01-posit.html" style="text-decoration:none; color:#e83e8c; ">{{< animate fadeInLeft "Posit & Quarto" >}}</a>
 :::
 :::
-
+ 
 ::: {.column width=50%}   
 ::: {.box_accueil}  
 <a href="02-quarto_resume.html" style="text-decoration:none; color:#e83e8c;">{{< animate zoomIn "Gros + et petits -" >}}</a>

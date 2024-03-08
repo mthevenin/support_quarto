@@ -3,7 +3,7 @@
 
 ## Mars 2024
 
-* Il s'agit ici d'une première version d'un support de formation sur le logiciel Quarto. 
+* Il s'agit ici d'une première version d'un support de formation sur le logiciel Quarto.  
 
 * Bien que Quarto soit pleinement utilisable avec plusieurs IDE, le support s'intéresse exclusivement à son utilisation avec RStudio.
 
@@ -45,6 +45,9 @@
 * Le code source du site Quarto se trouve à cette adresse: <https://github.com/quarto-dev/quarto-web>
 * Ne pas hésiter à consulter la liste de discussions gérée par l'équipe de développement: <https://github.com/quarto-dev/quarto-cli/discussions>
   
+
+* Le cheatsheet Quarto: <https://rstudio.github.io/cheatsheets/quarto.pdf>
+
 
 
 
