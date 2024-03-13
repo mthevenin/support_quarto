@@ -248,7 +248,7 @@ Pour générer ces éléments:
 * Lorsqu'on clique sur **New project** on selectionne **Create from template**.
 * On sélectionne **Pages/plain HTML** dans la liste et on clique sur **Use template**. 
   
-
+::: {.center}
 ::: {layout="[33,33,33]" layout-valign="bottom"}
 ::: {.box_img}
 ![Nouveau projet](img2/deploy_gitlab1.png){group="gitlab1"}
@@ -260,14 +260,15 @@ Pour générer ces éléments:
 ![Choix template html](img2/deploy_gitlab3.png){group="Gitlab1"}
 ::: 
 :::
-
+:::
 
 * **Création du projet**:  
    * On reprend les éléments décrits dans le chapitre précédent (@sec-glproj) avec le nom du projet, le nom de domaine du projet (différent du site déployé) et le choix de la visibilité.
    * On remarque qu'un template `gitlab-ci.yml` est ajouté. Il doit être conservé.
    * Pour déployer la page ou le site avec son nom de domaine, sur le menu vertical à gauche, on clique sur **Build** et sur **Pipelines**.
 
-   
+
+::: {.center}   
 ::: {layout="[50,50]" layout-valign="bottom"}
 ::: {.box_img}
 ![Projet avec template](img2/deploy_gitlab4.png){group="gitlab2"}
@@ -276,7 +277,7 @@ Pour générer ces éléments:
 ![Pprojet généré](img2/deploy_gitlab5.png){group="gitlab2"}
 :::
 :::
-
+:::
 
 **Execution du job de déploiement**  
 
@@ -286,7 +287,7 @@ Pour générer ces éléments:
 
 * Dans la nouvelle page, cliquer sur **Deploy**. Après une dizaine de secondes, on vous indique que le job a été exécuté avec succès. 
 
-
+:::  {.center}
 ::: {layout="[50,50]" layout-valign="bottom"}
 ::: {.box_img}
 ![Build (1)](img2/deploy_gitlab6.png){group="gitlab3"}
@@ -295,8 +296,9 @@ Pour générer ces éléments:
 ![Build (2)](img2/deploy_gitlab7.png){group="gitlab3"}
 :::
 :::
+::: 
 
-
+::: {.center}
 ::: {layout="[50,50]" layout-valign="bottom"}
 ::: {.box_img}
 ![Build (3)](img2/deploy_gitlab8.png){group="gitlab4"}
@@ -305,7 +307,7 @@ Pour générer ces éléments:
 ![Build (4)](img2/deploy_gitlab9.png){group="gitlab4"}
 :::
 :::
-
+:::
 
 **Création de l'url**   
 
@@ -357,7 +359,7 @@ project:
 
 On peut également générer ce fichier directement dans Gitlab:
 
-
+::: {.center}
 ::: {layout="[25,25,25,25]" layout-valign="bottom"}
 :::{.box_img}
 ![`_quarto.yml`gitlab (1)](img2/deploy_github13.png){group="gitlab6"}
@@ -372,7 +374,7 @@ On peut également générer ce fichier directement dans Gitlab:
 ![`_quarto.yml` gitlab (4)](img2/deploy_gitlab16.png){group="Gitlab6"}   
 :::
 :::
-
+:::
 
 **Dans RStudio**  
 
@@ -385,7 +387,8 @@ On peut également générer ce fichier directement dans Gitlab:
 * Rafraichir la page html. Cela peut prendre quelques seconde à une minute.
 
 
-::: {layout="[50,50,33]" layout-valign="bottom"}   
+::: {.center}
+::: {layout="[50,50]" layout-valign="bottom"}   
 :::{.box_img}
 ![_quarto.yml Rstudio](img2/deploy_gitlab18.png){group="Gitlab7"} 
 :::
@@ -394,11 +397,13 @@ On peut également générer ce fichier directement dans Gitlab:
 ![index.qmd Rstudio](img2/deploy_gitlab17.png){group="Gitlab7"} 
 :::
 :::
+:::
 
 
-::: {.center}
-:::{.box_img}
-<iframe width="550" height="450" src="https://mthevenin.gitlab.io/deploy-page/" 
+
+::: {.center}  
+:::{.box_img} 
+<iframe width="900" height="450" src="https://mthevenin.gitlab.io/deploy-page/" 
 title="Le site déployé" ></iframe>
 :::
 :::

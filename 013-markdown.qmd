@@ -14,7 +14,7 @@ filters:
 
 * Depuis sa création, le Markdown a toujours eu des variantes ou des enrichissements, comme le GFM de Github. 
 
-* Posit (ex Rstudio) a également ses propres éléments de balisage, ce qui lui permet de proposer un markdown enrichi pour de nombreux éléments de mise en page. Ces nouveautés ont été introduites récemment avec les dernières versions de Rmarkdown. 
+* *Posit* (ex Rstudio) a également ses propres éléments de balisage, ce qui lui permet de proposer un markdown enrichi pour de nombreux éléments de mise en page. Ces nouveautés ont été également introduites avec les dernières versions de Rmarkdown. 
 
 
 
@@ -66,6 +66,23 @@ Ce qui suit donne seulement quelques éléments d'utilisation du markdown, le th
 
 ::: callout-note
 Ce support utilise seulement 4 des 5 balises présentées dans le tableaux
+:::
+
+::: callout-note  
+#### Zône de commentaire
+
+Identique au html: 
+
+```{.mf}
+
+<!-- Commentaire sur une ligne -->  
+
+<!-- 
+Commentaire sur plusieures lignes 
+ -->  
+
+```
+
 :::
 
 
@@ -124,9 +141,9 @@ En html les **header** permettent d'insérer des titres de chapitre ou sections.
 
 ### Listes
 
-* En html les listes sont générées avec un système de balises imbriquées ou non (`<ul>`,`<li>`). C'est assez pénible.
+* En html les listes sont générées avec un système de balises imbriquées ou non (`<ul>` `<ol>`,`<li>`).
 * En markdown l'édition des listes est particulièrement simplifiée. 
-  * Liste non ordonnée : un symbole comme `*`, `-`, `+`/
+  * Liste non ordonnée : un symbole comme `*`, `-`, `+`  
   * Liste : ordonnée : Nombre suivi d'un **.**: `1.` , `2.`, ....
 * Règle de retrait: 
   * Pour le premier niveau de la liste la puce ou le nombre se situe sur le premier caractère de la ligne. 

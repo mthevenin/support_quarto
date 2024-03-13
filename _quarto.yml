@@ -26,7 +26,7 @@ book:
     email: "marc.thevenin@ined.fr"
   date: today
   navbar:
-    title: "Support Quarto:"
+    title: "Support Quarto"
     left:
       - text: Elements Revealjs
         menu:

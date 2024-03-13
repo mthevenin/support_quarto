@@ -26,11 +26,11 @@ Pour le format de présentation de type **revealjs**, également compilé en htm
 
 * L'option permettant d'ouvrir la source du fichier qmd n'est pas disponible (**</> Code**). On pourra mettre un lien sur chaque slide renvoyant vers le .qmd stocké dans le dépôt gitub et gitlab.
 
-*  Pour compenser, le format revealjs a quelques options propres intéressantes, en particulier lorsque la présentation est un support de formation sur un outil comme R: 
+*  Pour compenser, le format revealjs a quelques options intéressantes qui lui sont propres: 
    * **Code animation**: affichage successif de plusieurs sous blocs d'un programme dans un seul bloc.
    * **Line Highlight**: mise en valeur d'une ou plusieurs lignes du programmes.    
     
- Pour ne pas alourdir cette page, ces différences seront traités dans le chapitre sur les formats du support principal [[@sec-reveal]] et dans la présentation du revealjs dans ce même format  [[Lien]](https://mthevenin.gitlab.io/quarto_revealjs/#/title-slide).    
+ Pour ne pas alourdir cette page, ces différences seront traités dans le chapitre sur les formats du support principal [[@sec-reveal]] et dans la présentation du revealjs dans ce format.  [[Lien]](https://mthevenin.gitlab.io/quarto_revealjs/#/title-slide).    
  
 **Format pdf**  
 
@@ -135,7 +135,7 @@ Avec cette nouvelle méthode.
 #| option2:...
 #| option3:...
 
-# Code R
+{{ Code R}}
 
 ```
 

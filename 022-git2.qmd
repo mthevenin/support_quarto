@@ -14,7 +14,7 @@ Une fois la connection entre RStudio et une plateforme établie:
 ::: {.panel-tabset}
 
 ### Gitlab
- 
+
 * Se mettre sur **homepage** si nécessaire en cliquant sur l'icone gitlab {{< fa brands gitlab>}} (en haut à gauche)
 * Cliquer sur **New Project**
   * ***Create blank project*** [pour ce chapitre]
@@ -110,6 +110,7 @@ Les étapes:
 :::
 ::: 
 
+
 ### En local dans RStudio
 
 * Créer un nouveau projet: File {{< fa solid arrow-right >}} New project 
@@ -163,7 +164,7 @@ Lorsque le projet a été créé après clonage du dépôt distant:
 
 * L'ensemble des fichiers du projet sont dans la fenêtre *Files*: le fichier **README.md** généré à la création du dépôt distant, et les deux fichiers générés lors de la création du projet avec RStudio.  
 
-* Dans le terminal:
+* Dans le terminal
   * Le répertoire est calé sur la racine du projet. 
   * La branche de destination est indiquée entre parenthèses, ici `(master)`.
 

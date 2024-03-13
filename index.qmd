@@ -7,7 +7,7 @@ author-title: ""
 # Présentation {.unnumbered style="color:#2c3e50; font-size:35px;"}
 :::
 
-
+  
 :::: {.center}
 :::: {.column width=60%} 
 ::: {.column width=50%} 
@@ -16,7 +16,7 @@ author-title: ""
 <a href="01-posit.html" style="text-decoration:none; color:#e83e8c; ">{{< animate fadeInLeft "Posit & Quarto" >}}</a>
 :::
 :::
- 
+
 ::: {.column width=50%}   
 ::: {.box_accueil}  
 <a href="02-quarto_resume.html" style="text-decoration:none; color:#e83e8c;">{{< animate zoomIn "Gros + et petits -" >}}</a>
@@ -25,7 +25,7 @@ author-title: ""
   
 ::: {.column width="50%"}  
 ::: {.box_accueil}   
-<a href="04-support.html" style="text-decoration:none; color:#e83e8c;">{{< animate fadeInRight "Le support">}}</a>
+<a href="03-support.html" style="text-decoration:none; color:#e83e8c;">{{< animate fadeInRight "Le support">}}</a>
 :::
 :::
 ::::

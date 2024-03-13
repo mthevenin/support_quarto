@@ -130,6 +130,10 @@ Avec un peu d'entraînement il est néanmoins préférable et bien plus facile d
 [[:SASS Wiki](https://fr.wikipedia.org/wiki/Sass_(langage))]{.nut}  
 <br>
 
+::: callout-note
+Je conseille vivement de lire l'excellente présentation de **Samantha Csik** sur ce thème: <https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide>
+:::
+
 
 * Pour le CSS et surtout la variables SASS, je n'ai a priori aucun savoir ni aucune compétence particulière. Je manipule des styles css depuis ses débuts, mais sur des éléments très simples comme les couleurs, contours, épaisseurs.... Les ressources web sont nombreuses sur le sujet, et on trouvera toujours une réponse des plateformes comme [w3schools](https://www.w3schools.com/) ou [Mmdn_](https://developer.mozilla.org/fr/).
 
@@ -234,7 +238,7 @@ format:
 
 *  **Commentaires**: `//`
 
-* Une **Zône de définition des variables sass**.
+* Une Zône de définition des variables Sass: obligatoire avec Quarto.
 * Avec quarto, une série de variables SASS prédéfinies permettent de modifier automatiquement le style du document.
 
 ```{.sass}
@@ -243,7 +247,7 @@ format:
 <variables sass>
 ```
 
-* Une **Zône de création des classes css**, optionnelle. 
+* Une Zône de création de classes css: **optionnelle**. 
 
 ```{.sass}
 /*-- scss:rules --*/
@@ -251,7 +255,7 @@ format:
 <styles css>
 ```
 
-* Avec quarto, on pourrait avoir une structure de fichier. 
+* Avec Quarto on pourrait avoir une structure de fichier de la forme:  
 
 ```{.sass}
 /*-- scss:defaults --*/

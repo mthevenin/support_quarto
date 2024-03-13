@@ -1,7 +1,7 @@
 
-# Insertions d'éléments dans la marge du document et vignettes
+# Eléments de mise en page
 
-On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html. Cela concernera l'insertion d'éléments dans la zône du grid située à droite (margin) et l'insertion de plusieurs images ou graphiques sous forme de vignettes. Sur le second aspect, il s'agit de tirer profit de l'option **`lightbox`**.
+Quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html. Cela concernera l'édition sous forme de colonnes, l'insertion d'éléments dans la zône du grid située à droite (margin) et la mise en page de plusieurs images ou graphiques sous forme de vignettes. Sur ce dernier aspect, il s'agit de tirer profit de l'option **`lightbox`**.
 
 * Affichage d'éléments dans la partie droite du grid (margin):
   * Générique: utilisation de la classe Css `.column-margin`.
@@ -18,18 +18,18 @@ On trouvera ici quelques indications sur des mises en pages spécifiques pour de
 
 ## Rappel sur l'édition en multicolonne
 
-* A réserver plutôt à des éléments texte: brute ou liste. Particulièrement utile pour les présentations de type revealjs.
+* A réserver plutôt à des éléments texte: paragraphe ou liste. Particulièrement utile pour les présentations de type revealjs.
 
-* Une colonne simple: dans une section div:classe css **`{.column width="x%"}`**
+* Une colonne simple: dans une section div: classe css **`{.column width="x%"}`**
 
 ```{.mf}
 ::: {.column width="33%"}
-On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+Quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
 ::: 
 ```
 
 ::: {.column width="33%"}
-On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+Quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
 ::: 
 
 * Plusieurs colonnes: 
@@ -39,15 +39,13 @@ On trouvera ici quelques indications sur des mises en pages spécifiques pour de
 ```{.mf}
 :::: {.columns}
 ::: {.column width="33%"}
-On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+Quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
 ::: 
 ::: {.column width="33%"}
-Cela concernera l'insertion d'éléments dans la zône du grid située à droite (margin) et l'insertion de plusieurs images ou graphiques sous forme de vignettes.
+Cela concernera l'édition sous forme de colonnes, l'insertion d'éléments dans la zône du grid située à droite (margin) et la mise en page de plusieurs images ou graphiques sous forme de vignettes.
 ::: 
 ::: {.column width="33%"}
-On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
-::: 
-Sur le second aspect, il s'agit de tirer profit de l'option **`lightbox`**.
+Sur ce dernier aspect, il s'agit de tirer profit de l'option **`lightbox`**.
 ::::
 ```
 
@@ -57,7 +55,7 @@ Sur le second aspect, il s'agit de tirer profit de l'option **`lightbox`**.
 On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
 ::: 
 ::: {.column width="33%"}
-Cela concernera l'insertion d'éléments dans la zône du grid située à droite (margin) et l'insertion de plusieurs images ou graphiques sous forme de vignettes.
+Cela concernera l'édition sous forme de colonnes, l'insertion d'éléments dans la zône du grid située à droite (margin) et la mise en page de plusieurs images ou graphiques sous forme de vignettes.
 ::: 
 ::: {.column width="33%"}
 Sur le second aspect, il s'agit de tirer profit de l'option **`lightbox`**.
@@ -68,73 +66,44 @@ Sur le second aspect, il s'agit de tirer profit de l'option **`lightbox`**.
 
 ```{.mf}
 :::: {.columns}
-::: {.column width="30%"}
-On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
-:::
-::: {.column width="1%"}
-:::
-::: {.column width="30%"}
-Cela concernera l'insertion d'éléments dans la zône du grid située à droite (margin) et l'insertion de plusieurs images ou graphiques sous forme de vignettes.
+::: {.column width="29%"}
+Quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
 ::: 
-::: {.column width="1%"}
+::: {.column width="6%"}
 :::
-::: {.column width="3%"}
-On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+::: {.column width="29%"}
+Cela concernera l'édition sous forme de colonnes, l'insertion d'éléments dans la zône du grid située à droite (margin) et la mise en page de plusieurs images ou graphiques sous forme de vignettes.
 ::: 
-Sur le second aspect, il s'agit de tirer profit de l'option **`lightbox`**.
+::: {.column width="6%"}
+:::
+::: {.column width="29%"}
+Sur ce dernier aspect, il s'agit de tirer profit de l'option **`lightbox`**.
+:::
 ::::
 ```
 
 :::: {.columns}
-::: {.column width="30%"}
-On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
-:::
-::: {.column width="1%"}
-:::
-::: {.column width="30%"}
-Cela concernera l'insertion d'éléments dans la zône du grid située à droite (margin) et l'insertion de plusieurs images ou graphiques sous forme de vignettes.
+::: {.column width="29%"}
+Quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
 ::: 
-::: {.column width="1%"}
+::: {.column width="6%"}
 :::
-::: {.column width="30%"}
-On trouvera ici quelques indications sur des mises en pages spécifiques pour des documents de type articles/notebook en format html.
+::: {.column width="29%"}
+Cela concernera l'édition sous forme de colonnes, l'insertion d'éléments dans la zône du grid située à droite (margin) et la mise en page de plusieurs images ou graphiques sous forme de vignettes.
 ::: 
+::: {.column width="6%"}
+:::
+::: {.column width="29%"}
+Sur ce dernier aspect, il s'agit de tirer profit de l'option **`lightbox`**.
+:::
 ::::
 
-::: {.callout-tip collapse=true}
 
-#### Centrer les colonnes
 
-Pour améliorer la mise en page, on peut centrer la ou les colonnes: 
-
-* Balises html <center>...</center>
-* Un style css (à mettre dans le fichier .css, . scss ou directement dans le document)
-
-**Dans le document (une seule colonne)**  
-
-```{.mf}
-<style>
-.center{text-align: center}
-</style>
-
-::: {.column .center  width="x%"}
-Texte
-:::
-```
-
-**Dans un fichier css ou scss**    
-```{.mf}
-.center{text-align: center}
-```
-
-Puis on ajoute la classe `.center`.
-:::
 
 ## Insertion d'éléments dans la marge à droite du document
 
 Pour les éléments de type image/graphique, penser à activé l'option `lightbox` qui permettra de les agrandir dans une fenêtre. 
-
-
 
 ::: callout-note
 
@@ -297,7 +266,7 @@ knitr::kable(
 
 ### Note à droite du texte
 
-Les notes font l'objet d'un traitement particulier. Le positionnement dans la marge se fait comme un formatage de texte hors markdown avec l'utilisation de la classe css **`.aside`**. 
+Les notes font l'objet d'un traitement particulier. Le positionnement dans la marge se fait avec l'utilisation de la classe css **`.aside`**. 
 Attention comme la note est directement visible, aucun numéro ne lui est affecté.
 
 ```{.md}
@@ -390,7 +359,7 @@ disp
 ### Mise en forme libre 
 
 * Classe css **`{layout= ... }`**. De nouveau non préfixée par un **.**
-  * Plus compliqué au premier abord en raison de la syntaxe, mais plus souple  pour paramétrer la distance entre deux images.
+  * Plus compliqué au premier abord en raison de la syntaxe, mais plus souple pour jouer sur l'espace entre deux images.
   * On va renseigner les ratios d'affichage entre les différentes images par des valeurs.
   * On peut modifier l'espace entre deux images.
 * En option d'un bloc de codes: **`#| layout: ...`**
@@ -398,7 +367,7 @@ disp
 Syntaxe par l'exemple avec deux images:
 
 * **`:::{layout= "[valeur1,valeur2]"}`**
-  * *Valeur1* et *valeur2* n'indique pas une taille d'affichage des images mais le ratio d'affichage. 
+  * *Valeur1* et *valeur2* n'indique pas une taille d'affichage des images mais le ratio d'affichage entre les deux. 
   
 Les images seront affichées de manière identique lorsque les valeurs sont identiques^[Elles sont ici enregistrées avec des tailles identiques également].
 
@@ -459,7 +428,7 @@ Maintenant si on modifie le ratio de la manière suivante:
 
 La seconde image n'est affiché qu'à 50%, et aligné vers le haut.
 
-Vu comme ça, l'utilité n'est pas évidente. Si les images sont enregistrées avec des hauteurs différentes, cela peut-être néanmoins intéressant que l'espace soit bien rempli.
+Vu comme ça, l'utilité n'est pas évidente. Si les images sont enregistrées avec des hauteurs différentes, cela peut-être néanmoins intéressant que l'espace soit rempli identiquement pour les deux images.
 
 Exemple: On a une image nativement moins haute que l'autre de 25%: avec un ratio égal à 1 on aurait:
 
@@ -514,7 +483,7 @@ Exemple: On a une image nativement moins haute que l'autre de 25%: avec un ratio
 :::
 
 
-* Pour afficher sur plusieurs lignes on ajoute une liste de nouveau une liste d'images séparée de la précédente avec une **,** et en cloturant le tout dans des crochets:
+* Pour afficher des images sur plusieurs lignes on ajoute une nouvelle  liste d'images séparée de la précédente avec  **,** et en cloturant le tout dans des crochets:
   * `::: {layout="[[liste ligne 1],[liste ligne 2]]"}`.
 
 

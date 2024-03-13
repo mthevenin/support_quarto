@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.547">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -169,7 +169,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Support Quarto:</span>
+    <span class="navbar-title">Support Quarto</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Recherche"></div>
@@ -402,7 +402,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./043-layout.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Insertions d’éléments dans la marge du document et vignettes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Eléments de mise en page</span></span></a>
   </div>
 </li>
       </ul>
@@ -884,22 +884,8 @@ Affichage du contenu dans la popup
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="references" class="level3" data-number="14.3.1">
 <h3 data-number="14.3.1" class="anchored" data-anchor-id="references"><span class="header-section-number">14.3.1</span> References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-cortina_same-sex_2020" class="csl-entry" role="listitem">
-Cortina, Clara, and Patrick Festy. 2020. <span>“Same-<span>Sex</span>
-<span>Couples</span> and <span>Their</span> <span>Legalization</span> in
-<span>Europe</span>: <span>Laws</span> and <span>Numbers</span>.”</span>
-In <em>Same-<span>Sex</span> <span>Families</span> and
-<span>Legal</span> <span>Recognition</span> in <span>Europe</span></em>,
-edited by Marie Digoix, 24:45–71. European <span>Studies</span> of
-<span>Population</span>. "Cham, Suisse": Springer International
-Publishing. <a href="https://doi.org/10.1007/978-3-030-37054-1_3">https://doi.org/10.1007/978-3-030-37054-1_3</a>.
-</div>
-<div id="ref-festy_mariage_2013" class="csl-entry" role="listitem">
-Festy, Patrick. 2013. <span>“Le Mariage Et La Famille En
-Mouvement.”</span> <em>Commentaire</em>, no. 142 (July): 289–94. <a href="https://doi.org/10.3917/comm.142.0289">https://doi.org/10.3917/comm.142.0289</a>.
-</div>
-</div>
+
+
 
 
 <!-- -->
@@ -1047,6 +1033,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1081,7 +1085,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1357,13 +1365,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./041-theming.html" class="pagination-link  aria-label=" &lt;span="" html&lt;="" span&gt;"="">
+      <a href="./041-theming.html" class="pagination-link" aria-label="Theming html">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Theming html</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./043-layout.html" class="pagination-link" aria-label="<span class='chapter-number'>15</span>&nbsp; <span class='chapter-title'>Insertions d'éléments dans la marge du document et vignettes</span>">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Insertions d’éléments dans la marge du document et vignettes</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./043-layout.html" class="pagination-link" aria-label="Eléments de mise en page">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Eléments de mise en page</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1783,7 +1791,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

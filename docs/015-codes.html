@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.547">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Support Quarto:</span>
+    <span class="navbar-title">Support Quarto</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Recherche"></div>
@@ -352,7 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./043-layout.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Insertions d’éléments dans la marge du document et vignettes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Eléments de mise en page</span></span></a>
   </div>
 </li>
       </ul>
@@ -468,13 +468,13 @@ Format revealjs et pdf
 <ul>
 <li><p>Options par défaut différentes, par exemple compte tenu de la contrainte liée à la taille d’une slide, les blocs de codes ne sont pas par défaut reportés (<code>echo: false</code>).</p></li>
 <li><p>L’option permettant d’ouvrir la source du fichier qmd n’est pas disponible (<strong>&lt;/&gt; Code</strong>). On pourra mettre un lien sur chaque slide renvoyant vers le .qmd stocké dans le dépôt gitub et gitlab.</p></li>
-<li><p>Pour compenser, le format revealjs a quelques options propres intéressantes, en particulier lorsque la présentation est un support de formation sur un outil comme R:</p>
+<li><p>Pour compenser, le format revealjs a quelques options intéressantes qui lui sont propres:</p>
 <ul>
 <li><strong>Code animation</strong>: affichage successif de plusieurs sous blocs d’un programme dans un seul bloc.</li>
 <li><strong>Line Highlight</strong>: mise en valeur d’une ou plusieurs lignes du programmes.</li>
 </ul></li>
 </ul>
-<p>Pour ne pas alourdir cette page, ces différences seront traités dans le chapitre sur les formats du support principal [<a href="032-html.html#sec-reveal" class="quarto-xref"><span>Section 10.3</span></a>] et dans la présentation du revealjs dans ce même format <a href="https://mthevenin.gitlab.io/quarto_revealjs/#/title-slide">[Lien]</a>.</p>
+<p>Pour ne pas alourdir cette page, ces différences seront traités dans le chapitre sur les formats du support principal [<a href="032-html.html#sec-reveal" class="quarto-xref"><span>Section 10.3</span></a>] et dans la présentation du revealjs dans ce format. <a href="https://mthevenin.gitlab.io/quarto_revealjs/#/title-slide">[Lien]</a>.</p>
 <p><strong>Format pdf</strong></p>
 <ul>
 <li>Tous les éléments de type dynamique comme cacher/ouvrir un bloc ne sont bien évidemment pas possible avec le format pdf.</li>
@@ -588,7 +588,7 @@ Moteurs de calcul
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| option2:...</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| option3:...</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in"># Code R</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in">{{ Code R}}</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Exemple</strong>: pour supprimer l’exécution du programme dans le bloc avec l’option <code>eval: FALSE/false</code></p>
@@ -1206,6 +1206,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1240,7 +1258,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1516,7 +1538,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./014-yaml.html" class="pagination-link  aria-label=" &lt;span="" au="" yaml&lt;="" span&gt;"="">
+      <a href="./014-yaml.html" class="pagination-link" aria-label="Introduction au yaml">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction au yaml</span></span>
       </a>          
   </div>
@@ -1551,11 +1573,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>L'option permettant d'ouvrir la source du fichier qmd n'est pas disponible (**&lt;/&gt; Code**). On pourra mettre un lien sur chaque slide renvoyant vers le .qmd stocké dans le dépôt gitub et gitlab.</span>
 <span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>Pour compenser, le format revealjs a quelques options propres intéressantes, en particulier lorsque la présentation est un support de formation sur un outil comme R: </span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>Pour compenser, le format revealjs a quelques options intéressantes qui lui sont propres: </span>
 <span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a><span class="ss">   * </span>**Code animation**: affichage successif de plusieurs sous blocs d'un programme dans un seul bloc.</span>
 <span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="ss">   * </span>**Line Highlight**: mise en valeur d'une ou plusieurs lignes du programmes.    </span>
 <span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a> Pour ne pas alourdir cette page, ces différences seront traités dans le chapitre sur les formats du support principal [<span class="co">[</span><span class="ot">@sec-reveal</span><span class="co">]</span>] et dans la présentation du revealjs dans ce même format  [<span class="co">[</span><span class="ot">Lien</span><span class="co">]</span>](https://mthevenin.gitlab.io/quarto_revealjs/#/title-slide).    </span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a> Pour ne pas alourdir cette page, ces différences seront traités dans le chapitre sur les formats du support principal [<span class="co">[</span><span class="ot">@sec-reveal</span><span class="co">]</span>] et dans la présentation du revealjs dans ce format.  [<span class="co">[</span><span class="ot">Lien</span><span class="co">]</span>](https://mthevenin.gitlab.io/quarto_revealjs/#/title-slide).    </span>
 <span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a>**Format pdf**  </span>
 <span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a></span>
@@ -1660,7 +1682,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb31-137"><a href="#cb31-137" aria-hidden="true" tabindex="-1"></a><span class="in">#| option2:...</span></span>
 <span id="cb31-138"><a href="#cb31-138" aria-hidden="true" tabindex="-1"></a><span class="in">#| option3:...</span></span>
 <span id="cb31-139"><a href="#cb31-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-140"><a href="#cb31-140" aria-hidden="true" tabindex="-1"></a><span class="in"># Code R</span></span>
+<span id="cb31-140"><a href="#cb31-140" aria-hidden="true" tabindex="-1"></a><span class="in">{{ Code R}}</span></span>
 <span id="cb31-141"><a href="#cb31-141" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-142"><a href="#cb31-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb31-143"><a href="#cb31-143" aria-hidden="true" tabindex="-1"></a></span>
@@ -2144,7 +2166,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

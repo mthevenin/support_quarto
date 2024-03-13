@@ -1,8 +1,8 @@
 
 
-# Les + et les - de Quarto
+# Les + et les - de Quarto {.unnumbered}
  
-## Les gros plus
+## Les gros plus {.unnumbered}  
 
 ::: {.box_img}
  
@@ -34,7 +34,7 @@
 <br>
 
 
-## Les quelques moins
+## Les quelques moins {.unnumbered}
 
 On va vraiment chipoter.
 

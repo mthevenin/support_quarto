@@ -11,8 +11,11 @@ filters:
 [[:GIT YAML](https://fr.wikipedia.org/wiki/YAML)]{.nut}
 <br>
 
-* Il s'agit du header du document qui comprend toutes les métadonnées du document: titre, date, options de mise en page, options d'exécution.... Dans un document html il s'agit des différentes options entrant dans la partie  **<head> </head>**.
+* Il s'agit du header du document qui comprend toutes les métadonnées du document: titre, date, options de mise en page, options d'exécution....
+* La syntaxe du yaml est très sensible à l'*intendation*^[qui se traduit ici par *retrait*]. Les règles restent néanmoins assez simples.
+* Il s'agit du header du document qui comprend toutes les métadonnées du document: titre, date, options de mise en page, options d'exécution....il s'agit des différentes options entrant dans la partie  **`<head> </head>`** du code source html.
 * La syntaxe du yaml est très sensible à l'*intendation*^[On gardera le mot anglais, qui peut se traduire ici par *retrait*]. Les règles restent néanmoins assez simples.
+>>>>>>> 0a794de8529633680c00924ce1e0f94c011fd8f4
 * Lors de la compilation, le yaml est le premier élément qui est évalué. En cas d'erreur elle est donc stoppée quasi instantanément.
 
 
@@ -42,7 +45,7 @@ Tout simplement avec **`#`**
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="47.5%"}
 :::callout-tip
 ### OK
 
@@ -54,7 +57,10 @@ titre: "Le yaml"
 :::
 :::
 
-::: {.column width="50%"}
+::: {.column width="5%"}
+:::
+
+::: {.column width="47.5%"}
 
 :::callout-tip
 ### OK
@@ -73,7 +79,7 @@ titre: "Le yaml"
   
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="47.5%"}
 :::callout-warning
 ### Erreur
 
@@ -86,7 +92,11 @@ format: html
 :::
 :::
 
-::: {.column width="50%"}
+::: {.column width="5%"}
+:::
+
+
+::: {.column width="47.5%"}
 
 :::callout-tip
 ### OK
