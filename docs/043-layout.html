@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Formation Quarto - 15&nbsp; Eléments de mise en page</title>
+<title>Quarto: le support - 15&nbsp; Eléments de mise en page</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -157,6 +157,10 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://mthevenin.gitlab.io/fiches_quarto/"> 
+<span class="menu-text">Les fiches</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-elements-revealjs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Elements Revealjs</span>
@@ -418,6 +422,24 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./054-blog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blog</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text"><strong>Résumé</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./061-glossaire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Résumé</span></span></a>
   </div>
 </li>
       </ul>
@@ -745,7 +767,9 @@ Figure&nbsp;15.1: Consommation selon l’origine
 <section id="note-à-droite-du-texte" class="level3 page-columns page-full" data-number="15.2.3">
 <h3 data-number="15.2.3" class="anchored" data-anchor-id="note-à-droite-du-texte"><span class="header-section-number">15.2.3</span> Note à droite du texte</h3>
 <p>Les notes font l’objet d’un traitement particulier. Le positionnement dans la marge se fait avec l’utilisation de la classe css <strong><code>.aside</code></strong>. Attention comme la note est directement visible, aucun numéro ne lui est affecté.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>On peut ajouter une note directement à droite du texte avec la classe css **.aside**<span class="co">[</span><span class="ot">Comme elle se situe directement à droite du texte, aucun numéro de note n'est généré</span><span class="co">]</span>{.aside}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>On peut ajouter une note directement à droite du texte avec la classe css</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>**.aside**[Comme elle se situe directement à droite du texte, aucun numéro</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>de note n'est généré]{.aside}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="page-columns page-full"><p>On peut ajouter une note directement à droite du texte avec la classe css <strong>.aside</strong>.</p><div class="no-row-height column-margin column-container"><span class="margin-aside">Comme elle se situe directement à droite du texte, aucun numéro de note n’est généré</span></div></div>
 </section>
 </section>
@@ -1095,34 +1119,47 @@ Figure&nbsp;15.1: Consommation selon l’origine
 <ul>
 <li>Fonctionne également, sous forme d’option, avec des graphiques générés dans un bloc de codes.</li>
 </ul>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>am <span class="ot">=</span> <span class="fu">as.factor</span>(mtcars<span class="sc">$</span>am)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>mpg<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>mpg, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>disp<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>disp, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| layout: "[[1],[0.5,0.5]]"</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="in">mtcars$am = as.factor(mtcars$am)</span></span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>wt<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="in">mpg=ggplot(mtcars, aes(x=mpg, fill=am)) +</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_density(alpha=0.4)</span></span>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>wt</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>mpg</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>disp</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="in">disp=ggplot(mtcars, aes(x=disp, fill=am)) +</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_density(alpha=0.4)</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="in">wt=ggplot(mtcars, aes(x=wt, fill=am)) +</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_density(alpha=0.4)</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="in">wt</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="in">mpg</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="in">disp</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout="[[1],[0.5,0.5]]">
+
+</div>
+<div>
+
+</div>
 <div class="cell quarto-layout-panel" data-layout="[[1],[0.5,0.5]]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><a href="043-layout_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35"><img src="043-layout_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></a></p>
+<p><a href="043-layout_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35"><img src="043-layout_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></a></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="043-layout_files/figure-html/unnamed-chunk-4-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36"><img src="043-layout_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></a></p>
+<p><a href="043-layout_files/figure-html/unnamed-chunk-5-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36"><img src="043-layout_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="043-layout_files/figure-html/unnamed-chunk-4-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37"><img src="043-layout_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid" width="672"></a></p>
+<p><a href="043-layout_files/figure-html/unnamed-chunk-5-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37"><img src="043-layout_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="672"></a></p>
 </div>
 </div>
 </div>
@@ -1885,342 +1922,372 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb25-273"><a href="#cb25-273" aria-hidden="true" tabindex="-1"></a>Attention comme la note est directement visible, aucun numéro ne lui est affecté.</span>
 <span id="cb25-274"><a href="#cb25-274" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-275"><a href="#cb25-275" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md}</span></span>
-<span id="cb25-276"><a href="#cb25-276" aria-hidden="true" tabindex="-1"></a><span class="in">On peut ajouter une note directement à droite du texte avec la classe css **.aside**[Comme elle se situe directement à droite du texte, aucun numéro de note n'est généré]{.aside}</span></span>
-<span id="cb25-277"><a href="#cb25-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-278"><a href="#cb25-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-279"><a href="#cb25-279" aria-hidden="true" tabindex="-1"></a>On peut ajouter une note directement à droite du texte avec la classe css **.aside**<span class="co">[</span><span class="ot">Comme elle se situe directement à droite du texte, aucun numéro de note n'est généré</span><span class="co">]</span>{.aside}.</span>
+<span id="cb25-276"><a href="#cb25-276" aria-hidden="true" tabindex="-1"></a><span class="in">On peut ajouter une note directement à droite du texte avec la classe css</span></span>
+<span id="cb25-277"><a href="#cb25-277" aria-hidden="true" tabindex="-1"></a><span class="in">**.aside**[Comme elle se situe directement à droite du texte, aucun numéro</span></span>
+<span id="cb25-278"><a href="#cb25-278" aria-hidden="true" tabindex="-1"></a><span class="in">de note n'est généré]{.aside}</span></span>
+<span id="cb25-279"><a href="#cb25-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-280"><a href="#cb25-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-281"><a href="#cb25-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-282"><a href="#cb25-282" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mise en page sous forme de vignettes des images/graphiques {#sec-img}</span></span>
+<span id="cb25-281"><a href="#cb25-281" aria-hidden="true" tabindex="-1"></a>On peut ajouter une note directement à droite du texte avec la classe css **.aside**<span class="co">[</span><span class="ot">Comme elle se situe directement à droite du texte, aucun numéro de note n'est généré</span><span class="co">]</span>{.aside}.</span>
+<span id="cb25-282"><a href="#cb25-282" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-283"><a href="#cb25-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-284"><a href="#cb25-284" aria-hidden="true" tabindex="-1"></a>Deux types d'insertion: **fixe** ou **libre**</span>
+<span id="cb25-284"><a href="#cb25-284" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mise en page sous forme de vignettes des images/graphiques {#sec-img}</span></span>
 <span id="cb25-285"><a href="#cb25-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-286"><a href="#cb25-286" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mise en forme fixe</span></span>
+<span id="cb25-286"><a href="#cb25-286" aria-hidden="true" tabindex="-1"></a>Deux types d'insertion: **fixe** ou **libre**</span>
 <span id="cb25-287"><a href="#cb25-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-288"><a href="#cb25-288" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Classe css ou option d'un bloc de codes:  **`layout-ncol`**</span>
-<span id="cb25-289"><a href="#cb25-289" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Insertion markdown:  **`::: {layout-ncol=nbre_col}`**</span>
-<span id="cb25-290"><a href="#cb25-290" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Attention, la classe css n'est pas préfixée par un **.**.</span>
-<span id="cb25-291"><a href="#cb25-291" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Bloc de codes: option **` #| layout-ncol: nbre_col`**</span>
-<span id="cb25-292"><a href="#cb25-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-293"><a href="#cb25-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-294"><a href="#cb25-294" aria-hidden="true" tabindex="-1"></a>***Exemple: insertion d'images markdown sous forme de vignettes***</span>
+<span id="cb25-288"><a href="#cb25-288" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mise en forme fixe</span></span>
+<span id="cb25-289"><a href="#cb25-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-290"><a href="#cb25-290" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Classe css ou option d'un bloc de codes:  **`layout-ncol`**</span>
+<span id="cb25-291"><a href="#cb25-291" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Insertion markdown:  **`::: {layout-ncol=nbre_col}`**</span>
+<span id="cb25-292"><a href="#cb25-292" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Attention, la classe css n'est pas préfixée par un **.**.</span>
+<span id="cb25-293"><a href="#cb25-293" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Bloc de codes: option **` #| layout-ncol: nbre_col`**</span>
+<span id="cb25-294"><a href="#cb25-294" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-295"><a href="#cb25-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-296"><a href="#cb25-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-297"><a href="#cb25-297" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout-ncol=4}</span></span>
-<span id="cb25-298"><a href="#cb25-298" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img1.png){group="g1"}</span></span>
-<span id="cb25-299"><a href="#cb25-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-300"><a href="#cb25-300" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img2.png){group="g1"}</span></span>
+<span id="cb25-296"><a href="#cb25-296" aria-hidden="true" tabindex="-1"></a>***Exemple: insertion d'images markdown sous forme de vignettes***</span>
+<span id="cb25-297"><a href="#cb25-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-298"><a href="#cb25-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-299"><a href="#cb25-299" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout-ncol=4}</span></span>
+<span id="cb25-300"><a href="#cb25-300" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img1.png){group="g1"}</span></span>
 <span id="cb25-301"><a href="#cb25-301" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-302"><a href="#cb25-302" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img3.png){group="g1"}</span></span>
+<span id="cb25-302"><a href="#cb25-302" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img2.png){group="g1"}</span></span>
 <span id="cb25-303"><a href="#cb25-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-304"><a href="#cb25-304" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png){group="g1"}</span></span>
-<span id="cb25-305"><a href="#cb25-305" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-306"><a href="#cb25-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-307"><a href="#cb25-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-308"><a href="#cb25-308" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol=4}</span>
-<span id="cb25-309"><a href="#cb25-309" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img1.png)</span>{group="g1"}</span>
-<span id="cb25-310"><a href="#cb25-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-311"><a href="#cb25-311" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img2.png)</span>{group="g1"}</span>
+<span id="cb25-304"><a href="#cb25-304" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img3.png){group="g1"}</span></span>
+<span id="cb25-305"><a href="#cb25-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-306"><a href="#cb25-306" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png){group="g1"}</span></span>
+<span id="cb25-307"><a href="#cb25-307" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-308"><a href="#cb25-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-309"><a href="#cb25-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-310"><a href="#cb25-310" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol=4}</span>
+<span id="cb25-311"><a href="#cb25-311" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img1.png)</span>{group="g1"}</span>
 <span id="cb25-312"><a href="#cb25-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-313"><a href="#cb25-313" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img3.png)</span>{group="g1"}</span>
+<span id="cb25-313"><a href="#cb25-313" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img2.png)</span>{group="g1"}</span>
 <span id="cb25-314"><a href="#cb25-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-315"><a href="#cb25-315" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span>{group="g1"}</span>
-<span id="cb25-316"><a href="#cb25-316" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-317"><a href="#cb25-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-318"><a href="#cb25-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-319"><a href="#cb25-319" aria-hidden="true" tabindex="-1"></a>***Exemple: deux graphiques générés par un programme***</span>
+<span id="cb25-315"><a href="#cb25-315" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img3.png)</span>{group="g1"}</span>
+<span id="cb25-316"><a href="#cb25-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-317"><a href="#cb25-317" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span>{group="g1"}</span>
+<span id="cb25-318"><a href="#cb25-318" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-319"><a href="#cb25-319" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-320"><a href="#cb25-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-321"><a href="#cb25-321" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-322"><a href="#cb25-322" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb25-323"><a href="#cb25-323" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false </span></span>
-<span id="cb25-324"><a href="#cb25-324" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
-<span id="cb25-325"><a href="#cb25-325" aria-hidden="true" tabindex="-1"></a><span class="in">#| layout-ncol: 2</span></span>
-<span id="cb25-326"><a href="#cb25-326" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-327"><a href="#cb25-327" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb25-328"><a href="#cb25-328" aria-hidden="true" tabindex="-1"></a><span class="in">mtcars$am = as.factor(mtcars$am)</span></span>
-<span id="cb25-329"><a href="#cb25-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-330"><a href="#cb25-330" aria-hidden="true" tabindex="-1"></a><span class="in">mpg = ggplot(mtcars, aes(x=mpg, fill=am)) +</span></span>
-<span id="cb25-331"><a href="#cb25-331" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_density(alpha=0.4)</span></span>
-<span id="cb25-332"><a href="#cb25-332" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
-<span id="cb25-333"><a href="#cb25-333" aria-hidden="true" tabindex="-1"></a><span class="in">disp = ggplot(mtcars, aes(x=disp, fill=am)) +</span></span>
-<span id="cb25-334"><a href="#cb25-334" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_density(alpha=0.4)</span></span>
-<span id="cb25-335"><a href="#cb25-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-336"><a href="#cb25-336" aria-hidden="true" tabindex="-1"></a><span class="in">mpg</span></span>
-<span id="cb25-337"><a href="#cb25-337" aria-hidden="true" tabindex="-1"></a><span class="in">disp</span></span>
-<span id="cb25-338"><a href="#cb25-338" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-339"><a href="#cb25-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-340"><a href="#cb25-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-343"><a href="#cb25-343" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-344"><a href="#cb25-344" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb25-345"><a href="#cb25-345" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false </span></span>
-<span id="cb25-346"><a href="#cb25-346" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb25-347"><a href="#cb25-347" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
-<span id="cb25-348"><a href="#cb25-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-349"><a href="#cb25-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-350"><a href="#cb25-350" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb25-351"><a href="#cb25-351" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>am <span class="ot">=</span> <span class="fu">as.factor</span>(mtcars<span class="sc">$</span>am)</span>
-<span id="cb25-352"><a href="#cb25-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-353"><a href="#cb25-353" aria-hidden="true" tabindex="-1"></a>mpg<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>mpg, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
-<span id="cb25-354"><a href="#cb25-354" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
-<span id="cb25-355"><a href="#cb25-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-356"><a href="#cb25-356" aria-hidden="true" tabindex="-1"></a>disp<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>disp, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
-<span id="cb25-357"><a href="#cb25-357" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
-<span id="cb25-358"><a href="#cb25-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-359"><a href="#cb25-359" aria-hidden="true" tabindex="-1"></a>mpg</span>
-<span id="cb25-360"><a href="#cb25-360" aria-hidden="true" tabindex="-1"></a>disp</span>
-<span id="cb25-361"><a href="#cb25-361" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-362"><a href="#cb25-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-363"><a href="#cb25-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-364"><a href="#cb25-364" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mise en forme libre </span></span>
+<span id="cb25-321"><a href="#cb25-321" aria-hidden="true" tabindex="-1"></a>***Exemple: deux graphiques générés par un programme***</span>
+<span id="cb25-322"><a href="#cb25-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-323"><a href="#cb25-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-324"><a href="#cb25-324" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb25-325"><a href="#cb25-325" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false </span></span>
+<span id="cb25-326"><a href="#cb25-326" aria-hidden="true" tabindex="-1"></a><span class="in">#| message: false</span></span>
+<span id="cb25-327"><a href="#cb25-327" aria-hidden="true" tabindex="-1"></a><span class="in">#| layout-ncol: 2</span></span>
+<span id="cb25-328"><a href="#cb25-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-329"><a href="#cb25-329" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb25-330"><a href="#cb25-330" aria-hidden="true" tabindex="-1"></a><span class="in">mtcars$am = as.factor(mtcars$am)</span></span>
+<span id="cb25-331"><a href="#cb25-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-332"><a href="#cb25-332" aria-hidden="true" tabindex="-1"></a><span class="in">mpg = ggplot(mtcars, aes(x=mpg, fill=am)) +</span></span>
+<span id="cb25-333"><a href="#cb25-333" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_density(alpha=0.4)</span></span>
+<span id="cb25-334"><a href="#cb25-334" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb25-335"><a href="#cb25-335" aria-hidden="true" tabindex="-1"></a><span class="in">disp = ggplot(mtcars, aes(x=disp, fill=am)) +</span></span>
+<span id="cb25-336"><a href="#cb25-336" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_density(alpha=0.4)</span></span>
+<span id="cb25-337"><a href="#cb25-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-338"><a href="#cb25-338" aria-hidden="true" tabindex="-1"></a><span class="in">mpg</span></span>
+<span id="cb25-339"><a href="#cb25-339" aria-hidden="true" tabindex="-1"></a><span class="in">disp</span></span>
+<span id="cb25-340"><a href="#cb25-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-341"><a href="#cb25-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-342"><a href="#cb25-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-345"><a href="#cb25-345" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-346"><a href="#cb25-346" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb25-347"><a href="#cb25-347" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false </span></span>
+<span id="cb25-348"><a href="#cb25-348" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb25-349"><a href="#cb25-349" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 2</span></span>
+<span id="cb25-350"><a href="#cb25-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-351"><a href="#cb25-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-352"><a href="#cb25-352" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb25-353"><a href="#cb25-353" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>am <span class="ot">=</span> <span class="fu">as.factor</span>(mtcars<span class="sc">$</span>am)</span>
+<span id="cb25-354"><a href="#cb25-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-355"><a href="#cb25-355" aria-hidden="true" tabindex="-1"></a>mpg<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>mpg, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
+<span id="cb25-356"><a href="#cb25-356" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<span id="cb25-357"><a href="#cb25-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-358"><a href="#cb25-358" aria-hidden="true" tabindex="-1"></a>disp<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>disp, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
+<span id="cb25-359"><a href="#cb25-359" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<span id="cb25-360"><a href="#cb25-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-361"><a href="#cb25-361" aria-hidden="true" tabindex="-1"></a>mpg</span>
+<span id="cb25-362"><a href="#cb25-362" aria-hidden="true" tabindex="-1"></a>disp</span>
+<span id="cb25-363"><a href="#cb25-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-364"><a href="#cb25-364" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-365"><a href="#cb25-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-366"><a href="#cb25-366" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Classe css **`{layout= ... }`**. De nouveau non préfixée par un **.**</span>
-<span id="cb25-367"><a href="#cb25-367" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Plus compliqué au premier abord en raison de la syntaxe, mais plus souple pour jouer sur l'espace entre deux images.</span>
-<span id="cb25-368"><a href="#cb25-368" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On va renseigner les ratios d'affichage entre les différentes images par des valeurs.</span>
-<span id="cb25-369"><a href="#cb25-369" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On peut modifier l'espace entre deux images.</span>
-<span id="cb25-370"><a href="#cb25-370" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En option d'un bloc de codes: **`#| layout: ...`**</span>
-<span id="cb25-371"><a href="#cb25-371" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-372"><a href="#cb25-372" aria-hidden="true" tabindex="-1"></a>Syntaxe par l'exemple avec deux images:</span>
-<span id="cb25-373"><a href="#cb25-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-374"><a href="#cb25-374" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**`:::{layout= "[valeur1,valeur2]"}`**</span>
-<span id="cb25-375"><a href="#cb25-375" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>*Valeur1* et *valeur2* n'indique pas une taille d'affichage des images mais le ratio d'affichage entre les deux. </span>
-<span id="cb25-376"><a href="#cb25-376" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-377"><a href="#cb25-377" aria-hidden="true" tabindex="-1"></a>Les images seront affichées de manière identique lorsque les valeurs sont identiques^<span class="co">[</span><span class="ot">Elles sont ici enregistrées avec des tailles identiques également</span><span class="co">]</span>.</span>
-<span id="cb25-378"><a href="#cb25-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-379"><a href="#cb25-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-380"><a href="#cb25-380" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}  </span></span>
-<span id="cb25-381"><a href="#cb25-381" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[50,50]"}</span></span>
-<span id="cb25-382"><a href="#cb25-382" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img1.png) </span></span>
-<span id="cb25-383"><a href="#cb25-383" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-384"><a href="#cb25-384" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img2.png)</span></span>
+<span id="cb25-366"><a href="#cb25-366" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mise en forme libre </span></span>
+<span id="cb25-367"><a href="#cb25-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-368"><a href="#cb25-368" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Classe css **`{layout= ... }`**. De nouveau non préfixée par un **.**</span>
+<span id="cb25-369"><a href="#cb25-369" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Plus compliqué au premier abord en raison de la syntaxe, mais plus souple pour jouer sur l'espace entre deux images.</span>
+<span id="cb25-370"><a href="#cb25-370" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On va renseigner les ratios d'affichage entre les différentes images par des valeurs.</span>
+<span id="cb25-371"><a href="#cb25-371" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On peut modifier l'espace entre deux images.</span>
+<span id="cb25-372"><a href="#cb25-372" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En option d'un bloc de codes: **`#| layout: ...`**</span>
+<span id="cb25-373"><a href="#cb25-373" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-374"><a href="#cb25-374" aria-hidden="true" tabindex="-1"></a>Syntaxe par l'exemple avec deux images:</span>
+<span id="cb25-375"><a href="#cb25-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-376"><a href="#cb25-376" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**`:::{layout= "[valeur1,valeur2]"}`**</span>
+<span id="cb25-377"><a href="#cb25-377" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>*Valeur1* et *valeur2* n'indique pas une taille d'affichage des images mais le ratio d'affichage entre les deux. </span>
+<span id="cb25-378"><a href="#cb25-378" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-379"><a href="#cb25-379" aria-hidden="true" tabindex="-1"></a>Les images seront affichées de manière identique lorsque les valeurs sont identiques^<span class="co">[</span><span class="ot">Elles sont ici enregistrées avec des tailles identiques également</span><span class="co">]</span>.</span>
+<span id="cb25-380"><a href="#cb25-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-381"><a href="#cb25-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-382"><a href="#cb25-382" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}  </span></span>
+<span id="cb25-383"><a href="#cb25-383" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[50,50]"}</span></span>
+<span id="cb25-384"><a href="#cb25-384" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img1.png) </span></span>
 <span id="cb25-385"><a href="#cb25-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-386"><a href="#cb25-386" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-387"><a href="#cb25-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-388"><a href="#cb25-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-389"><a href="#cb25-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-390"><a href="#cb25-390" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">50,50</span><span class="co">]</span>"}</span>
-<span id="cb25-391"><a href="#cb25-391" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img1.png)</span> </span>
-<span id="cb25-392"><a href="#cb25-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-393"><a href="#cb25-393" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img2.png)</span></span>
-<span id="cb25-394"><a href="#cb25-394" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-395"><a href="#cb25-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-396"><a href="#cb25-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-397"><a href="#cb25-397" aria-hidden="true" tabindex="-1"></a>Si on remplace <span class="co">[</span><span class="ot">50,50</span><span class="co">]</span> par <span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>:</span>
+<span id="cb25-386"><a href="#cb25-386" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img2.png)</span></span>
+<span id="cb25-387"><a href="#cb25-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-388"><a href="#cb25-388" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-389"><a href="#cb25-389" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-390"><a href="#cb25-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-391"><a href="#cb25-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-392"><a href="#cb25-392" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">50,50</span><span class="co">]</span>"}</span>
+<span id="cb25-393"><a href="#cb25-393" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img1.png)</span> </span>
+<span id="cb25-394"><a href="#cb25-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-395"><a href="#cb25-395" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img2.png)</span></span>
+<span id="cb25-396"><a href="#cb25-396" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-397"><a href="#cb25-397" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-398"><a href="#cb25-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-399"><a href="#cb25-399" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}  </span></span>
-<span id="cb25-400"><a href="#cb25-400" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,1]" }</span></span>
-<span id="cb25-401"><a href="#cb25-401" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img1.png) </span></span>
-<span id="cb25-402"><a href="#cb25-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-403"><a href="#cb25-403" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img2.png)</span></span>
+<span id="cb25-399"><a href="#cb25-399" aria-hidden="true" tabindex="-1"></a>Si on remplace <span class="co">[</span><span class="ot">50,50</span><span class="co">]</span> par <span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>:</span>
+<span id="cb25-400"><a href="#cb25-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-401"><a href="#cb25-401" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}  </span></span>
+<span id="cb25-402"><a href="#cb25-402" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,1]" }</span></span>
+<span id="cb25-403"><a href="#cb25-403" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img1.png) </span></span>
 <span id="cb25-404"><a href="#cb25-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-405"><a href="#cb25-405" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-406"><a href="#cb25-406" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-407"><a href="#cb25-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-408"><a href="#cb25-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-409"><a href="#cb25-409" aria-hidden="true" tabindex="-1"></a>L'affichage des vignettes ne change pas:</span>
+<span id="cb25-405"><a href="#cb25-405" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img2.png)</span></span>
+<span id="cb25-406"><a href="#cb25-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-407"><a href="#cb25-407" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-408"><a href="#cb25-408" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-409"><a href="#cb25-409" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-410"><a href="#cb25-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-411"><a href="#cb25-411" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>"}</span>
-<span id="cb25-412"><a href="#cb25-412" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img1.png)</span> </span>
-<span id="cb25-413"><a href="#cb25-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-414"><a href="#cb25-414" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img2.png)</span></span>
-<span id="cb25-415"><a href="#cb25-415" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-416"><a href="#cb25-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-417"><a href="#cb25-417" aria-hidden="true" tabindex="-1"></a>Maintenant si on modifie le ratio de la manière suivante:</span>
+<span id="cb25-411"><a href="#cb25-411" aria-hidden="true" tabindex="-1"></a>L'affichage des vignettes ne change pas:</span>
+<span id="cb25-412"><a href="#cb25-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-413"><a href="#cb25-413" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>"}</span>
+<span id="cb25-414"><a href="#cb25-414" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img1.png)</span> </span>
+<span id="cb25-415"><a href="#cb25-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-416"><a href="#cb25-416" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img2.png)</span></span>
+<span id="cb25-417"><a href="#cb25-417" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-418"><a href="#cb25-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-419"><a href="#cb25-419" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}  </span></span>
-<span id="cb25-420"><a href="#cb25-420" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,0.5]" }</span></span>
-<span id="cb25-421"><a href="#cb25-421" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img1.png) </span></span>
-<span id="cb25-422"><a href="#cb25-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-423"><a href="#cb25-423" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img2.png)</span></span>
+<span id="cb25-419"><a href="#cb25-419" aria-hidden="true" tabindex="-1"></a>Maintenant si on modifie le ratio de la manière suivante:</span>
+<span id="cb25-420"><a href="#cb25-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-421"><a href="#cb25-421" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}  </span></span>
+<span id="cb25-422"><a href="#cb25-422" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,0.5]" }</span></span>
+<span id="cb25-423"><a href="#cb25-423" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img1.png) </span></span>
 <span id="cb25-424"><a href="#cb25-424" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-425"><a href="#cb25-425" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-426"><a href="#cb25-426" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-427"><a href="#cb25-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-428"><a href="#cb25-428" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,0.5</span><span class="co">]</span>"}</span>
-<span id="cb25-429"><a href="#cb25-429" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img1.png)</span> </span>
-<span id="cb25-430"><a href="#cb25-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-431"><a href="#cb25-431" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img2.png)</span></span>
-<span id="cb25-432"><a href="#cb25-432" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-433"><a href="#cb25-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-434"><a href="#cb25-434" aria-hidden="true" tabindex="-1"></a>La seconde image n'est affiché qu'à 50%, et aligné vers le haut.</span>
+<span id="cb25-425"><a href="#cb25-425" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img2.png)</span></span>
+<span id="cb25-426"><a href="#cb25-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-427"><a href="#cb25-427" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-428"><a href="#cb25-428" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-429"><a href="#cb25-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-430"><a href="#cb25-430" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,0.5</span><span class="co">]</span>"}</span>
+<span id="cb25-431"><a href="#cb25-431" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img1.png)</span> </span>
+<span id="cb25-432"><a href="#cb25-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-433"><a href="#cb25-433" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img2.png)</span></span>
+<span id="cb25-434"><a href="#cb25-434" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-435"><a href="#cb25-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-436"><a href="#cb25-436" aria-hidden="true" tabindex="-1"></a>Vu comme ça, l'utilité n'est pas évidente. Si les images sont enregistrées avec des hauteurs différentes, cela peut-être néanmoins intéressant que l'espace soit rempli identiquement pour les deux images.</span>
+<span id="cb25-436"><a href="#cb25-436" aria-hidden="true" tabindex="-1"></a>La seconde image n'est affiché qu'à 50%, et aligné vers le haut.</span>
 <span id="cb25-437"><a href="#cb25-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-438"><a href="#cb25-438" aria-hidden="true" tabindex="-1"></a>Exemple: On a une image nativement moins haute que l'autre de 25%: avec un ratio égal à 1 on aurait:</span>
+<span id="cb25-438"><a href="#cb25-438" aria-hidden="true" tabindex="-1"></a>Vu comme ça, l'utilité n'est pas évidente. Si les images sont enregistrées avec des hauteurs différentes, cela peut-être néanmoins intéressant que l'espace soit rempli identiquement pour les deux images.</span>
 <span id="cb25-439"><a href="#cb25-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-440"><a href="#cb25-440" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.mf}</span></span>
-<span id="cb25-441"><a href="#cb25-441" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,1]"}</span></span>
-<span id="cb25-442"><a href="#cb25-442" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png) </span></span>
-<span id="cb25-443"><a href="#cb25-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-444"><a href="#cb25-444" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img10.png)</span></span>
-<span id="cb25-445"><a href="#cb25-445" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-446"><a href="#cb25-446" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-447"><a href="#cb25-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-448"><a href="#cb25-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-449"><a href="#cb25-449" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>"}</span>
-<span id="cb25-450"><a href="#cb25-450" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span> </span>
-<span id="cb25-451"><a href="#cb25-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-452"><a href="#cb25-452" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img10.png)</span></span>
-<span id="cb25-453"><a href="#cb25-453" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-454"><a href="#cb25-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-455"><a href="#cb25-455" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si on veut égaliser les hauteurs d'affichage, on rééquilibre le ratio: **`{layout="[0.75,1]"}`**^<span class="co">[</span><span class="ot">Même résultat avec `[1,1.25]`</span><span class="co">]</span>.</span>
+<span id="cb25-440"><a href="#cb25-440" aria-hidden="true" tabindex="-1"></a>Exemple: On a une image nativement moins haute que l'autre de 25%: avec un ratio égal à 1 on aurait:</span>
+<span id="cb25-441"><a href="#cb25-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-442"><a href="#cb25-442" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.mf}</span></span>
+<span id="cb25-443"><a href="#cb25-443" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,1]"}</span></span>
+<span id="cb25-444"><a href="#cb25-444" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png) </span></span>
+<span id="cb25-445"><a href="#cb25-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-446"><a href="#cb25-446" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img10.png)</span></span>
+<span id="cb25-447"><a href="#cb25-447" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-448"><a href="#cb25-448" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-449"><a href="#cb25-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-450"><a href="#cb25-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-451"><a href="#cb25-451" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>"}</span>
+<span id="cb25-452"><a href="#cb25-452" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span> </span>
+<span id="cb25-453"><a href="#cb25-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-454"><a href="#cb25-454" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img10.png)</span></span>
+<span id="cb25-455"><a href="#cb25-455" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-456"><a href="#cb25-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-457"><a href="#cb25-457" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-458"><a href="#cb25-458" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[0.75,1]"}</span></span>
-<span id="cb25-459"><a href="#cb25-459" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png) </span></span>
-<span id="cb25-460"><a href="#cb25-460" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-461"><a href="#cb25-461" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img10.png)</span></span>
-<span id="cb25-462"><a href="#cb25-462" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-463"><a href="#cb25-463" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-464"><a href="#cb25-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-465"><a href="#cb25-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-466"><a href="#cb25-466" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">0.75,1</span><span class="co">]</span>"}</span>
-<span id="cb25-467"><a href="#cb25-467" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span> </span>
-<span id="cb25-468"><a href="#cb25-468" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-469"><a href="#cb25-469" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img10.png)</span></span>
-<span id="cb25-470"><a href="#cb25-470" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-471"><a href="#cb25-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-472"><a href="#cb25-472" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si on ne souhaite pas modifier le ratio d'affichage, il est visuellement plus correct d'aligner verticalement les images vers le bas avec l'option **`layout-valign="bottom"`**</span>
+<span id="cb25-457"><a href="#cb25-457" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si on veut égaliser les hauteurs d'affichage, on rééquilibre le ratio: **`{layout="[0.75,1]"}`**^<span class="co">[</span><span class="ot">Même résultat avec `[1,1.25]`</span><span class="co">]</span>.</span>
+<span id="cb25-458"><a href="#cb25-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-459"><a href="#cb25-459" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-460"><a href="#cb25-460" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[0.75,1]"}</span></span>
+<span id="cb25-461"><a href="#cb25-461" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png) </span></span>
+<span id="cb25-462"><a href="#cb25-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-463"><a href="#cb25-463" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img10.png)</span></span>
+<span id="cb25-464"><a href="#cb25-464" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-465"><a href="#cb25-465" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-466"><a href="#cb25-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-467"><a href="#cb25-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-468"><a href="#cb25-468" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">0.75,1</span><span class="co">]</span>"}</span>
+<span id="cb25-469"><a href="#cb25-469" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span> </span>
+<span id="cb25-470"><a href="#cb25-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-471"><a href="#cb25-471" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img10.png)</span></span>
+<span id="cb25-472"><a href="#cb25-472" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-473"><a href="#cb25-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-474"><a href="#cb25-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-475"><a href="#cb25-475" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.mf}</span></span>
-<span id="cb25-476"><a href="#cb25-476" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,1]" `layout-valign="bottom"`}</span></span>
-<span id="cb25-477"><a href="#cb25-477" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png) </span></span>
-<span id="cb25-478"><a href="#cb25-478" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-479"><a href="#cb25-479" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img10.png)</span></span>
-<span id="cb25-480"><a href="#cb25-480" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-481"><a href="#cb25-481" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-482"><a href="#cb25-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-483"><a href="#cb25-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-484"><a href="#cb25-484" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>" layout-valign="bottom"}</span>
-<span id="cb25-485"><a href="#cb25-485" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span> </span>
-<span id="cb25-486"><a href="#cb25-486" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-487"><a href="#cb25-487" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img10.png)</span></span>
-<span id="cb25-488"><a href="#cb25-488" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-489"><a href="#cb25-489" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-490"><a href="#cb25-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-491"><a href="#cb25-491" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour afficher des images sur plusieurs lignes on ajoute une nouvelle  liste d'images séparée de la précédente avec  **,** et en cloturant le tout dans des crochets:</span>
-<span id="cb25-492"><a href="#cb25-492" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`::: {layout="[[liste ligne 1],[liste ligne 2]]"}`</span>.</span>
-<span id="cb25-493"><a href="#cb25-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-494"><a href="#cb25-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-495"><a href="#cb25-495" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-496"><a href="#cb25-496" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[[1,1,1,1],[1,1,1,1]]"}</span></span>
-<span id="cb25-497"><a href="#cb25-497" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img1.png)</span></span>
-<span id="cb25-498"><a href="#cb25-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-499"><a href="#cb25-499" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img2.png)</span></span>
+<span id="cb25-474"><a href="#cb25-474" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si on ne souhaite pas modifier le ratio d'affichage, il est visuellement plus correct d'aligner verticalement les images vers le bas avec l'option **`layout-valign="bottom"`**</span>
+<span id="cb25-475"><a href="#cb25-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-476"><a href="#cb25-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-477"><a href="#cb25-477" aria-hidden="true" tabindex="-1"></a><span class="in">``` {.mf}</span></span>
+<span id="cb25-478"><a href="#cb25-478" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,1]" `layout-valign="bottom"`}</span></span>
+<span id="cb25-479"><a href="#cb25-479" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png) </span></span>
+<span id="cb25-480"><a href="#cb25-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-481"><a href="#cb25-481" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img10.png)</span></span>
+<span id="cb25-482"><a href="#cb25-482" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-483"><a href="#cb25-483" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-484"><a href="#cb25-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-485"><a href="#cb25-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-486"><a href="#cb25-486" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>" layout-valign="bottom"}</span>
+<span id="cb25-487"><a href="#cb25-487" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span> </span>
+<span id="cb25-488"><a href="#cb25-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-489"><a href="#cb25-489" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img10.png)</span></span>
+<span id="cb25-490"><a href="#cb25-490" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-491"><a href="#cb25-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-492"><a href="#cb25-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-493"><a href="#cb25-493" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour afficher des images sur plusieurs lignes on ajoute une nouvelle  liste d'images séparée de la précédente avec  **,** et en cloturant le tout dans des crochets:</span>
+<span id="cb25-494"><a href="#cb25-494" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`::: {layout="[[liste ligne 1],[liste ligne 2]]"}`</span>.</span>
+<span id="cb25-495"><a href="#cb25-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-496"><a href="#cb25-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-497"><a href="#cb25-497" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-498"><a href="#cb25-498" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[[1,1,1,1],[1,1,1,1]]"}</span></span>
+<span id="cb25-499"><a href="#cb25-499" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img1.png)</span></span>
 <span id="cb25-500"><a href="#cb25-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-501"><a href="#cb25-501" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img3.png)</span></span>
+<span id="cb25-501"><a href="#cb25-501" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img2.png)</span></span>
 <span id="cb25-502"><a href="#cb25-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-503"><a href="#cb25-503" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png)</span></span>
+<span id="cb25-503"><a href="#cb25-503" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img3.png)</span></span>
 <span id="cb25-504"><a href="#cb25-504" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-505"><a href="#cb25-505" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img5.png)</span></span>
+<span id="cb25-505"><a href="#cb25-505" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png)</span></span>
 <span id="cb25-506"><a href="#cb25-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-507"><a href="#cb25-507" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img6.png)</span></span>
+<span id="cb25-507"><a href="#cb25-507" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img5.png)</span></span>
 <span id="cb25-508"><a href="#cb25-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-509"><a href="#cb25-509" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img7.png)</span></span>
+<span id="cb25-509"><a href="#cb25-509" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img6.png)</span></span>
 <span id="cb25-510"><a href="#cb25-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-511"><a href="#cb25-511" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img8.png)</span></span>
-<span id="cb25-512"><a href="#cb25-512" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-513"><a href="#cb25-513" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-514"><a href="#cb25-514" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-515"><a href="#cb25-515" aria-hidden="true" tabindex="-1"></a>::: {layout="[<span class="co">[</span><span class="ot">1,1,1,1</span><span class="co">]</span>,<span class="co">[</span><span class="ot">1,1,1,1</span><span class="co">]</span>]"}</span>
-<span id="cb25-516"><a href="#cb25-516" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img1.png)</span></span>
-<span id="cb25-517"><a href="#cb25-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-518"><a href="#cb25-518" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img2.png)</span></span>
+<span id="cb25-511"><a href="#cb25-511" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img7.png)</span></span>
+<span id="cb25-512"><a href="#cb25-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-513"><a href="#cb25-513" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img8.png)</span></span>
+<span id="cb25-514"><a href="#cb25-514" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-515"><a href="#cb25-515" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-516"><a href="#cb25-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-517"><a href="#cb25-517" aria-hidden="true" tabindex="-1"></a>::: {layout="[<span class="co">[</span><span class="ot">1,1,1,1</span><span class="co">]</span>,<span class="co">[</span><span class="ot">1,1,1,1</span><span class="co">]</span>]"}</span>
+<span id="cb25-518"><a href="#cb25-518" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img1.png)</span></span>
 <span id="cb25-519"><a href="#cb25-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-520"><a href="#cb25-520" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img3.png)</span></span>
+<span id="cb25-520"><a href="#cb25-520" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img2.png)</span></span>
 <span id="cb25-521"><a href="#cb25-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-522"><a href="#cb25-522" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span></span>
+<span id="cb25-522"><a href="#cb25-522" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img3.png)</span></span>
 <span id="cb25-523"><a href="#cb25-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-524"><a href="#cb25-524" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img5.png)</span></span>
+<span id="cb25-524"><a href="#cb25-524" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span></span>
 <span id="cb25-525"><a href="#cb25-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-526"><a href="#cb25-526" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img6.png)</span></span>
+<span id="cb25-526"><a href="#cb25-526" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img5.png)</span></span>
 <span id="cb25-527"><a href="#cb25-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-528"><a href="#cb25-528" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img7.png)</span></span>
+<span id="cb25-528"><a href="#cb25-528" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img6.png)</span></span>
 <span id="cb25-529"><a href="#cb25-529" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-530"><a href="#cb25-530" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img8.png)</span></span>
-<span id="cb25-531"><a href="#cb25-531" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-532"><a href="#cb25-532" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-533"><a href="#cb25-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-530"><a href="#cb25-530" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img7.png)</span></span>
+<span id="cb25-531"><a href="#cb25-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-532"><a href="#cb25-532" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img8.png)</span></span>
+<span id="cb25-533"><a href="#cb25-533" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-534"><a href="#cb25-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-535"><a href="#cb25-535" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut modifier (agrandir) l'espace entre 2 images avec des valeurs négatives entre deux images.</span>
+<span id="cb25-535"><a href="#cb25-535" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-536"><a href="#cb25-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-537"><a href="#cb25-537" aria-hidden="true" tabindex="-1"></a>Par défaut avec 2 images:</span>
+<span id="cb25-537"><a href="#cb25-537" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut modifier (agrandir) l'espace entre 2 images avec des valeurs négatives entre deux images.</span>
 <span id="cb25-538"><a href="#cb25-538" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-539"><a href="#cb25-539" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-540"><a href="#cb25-540" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,1]"}</span></span>
-<span id="cb25-541"><a href="#cb25-541" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png)</span></span>
-<span id="cb25-542"><a href="#cb25-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-543"><a href="#cb25-543" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img8.png)</span></span>
-<span id="cb25-544"><a href="#cb25-544" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-545"><a href="#cb25-545" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-546"><a href="#cb25-546" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-547"><a href="#cb25-547" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>"}</span>
-<span id="cb25-548"><a href="#cb25-548" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span></span>
-<span id="cb25-549"><a href="#cb25-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-550"><a href="#cb25-550" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img8.png)</span></span>
-<span id="cb25-551"><a href="#cb25-551" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-552"><a href="#cb25-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-553"><a href="#cb25-553" aria-hidden="true" tabindex="-1"></a>Si on veut accroître la distances entre les deux images d'un dizième de la largeur des images</span>
+<span id="cb25-539"><a href="#cb25-539" aria-hidden="true" tabindex="-1"></a>Par défaut avec 2 images:</span>
+<span id="cb25-540"><a href="#cb25-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-541"><a href="#cb25-541" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-542"><a href="#cb25-542" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,1]"}</span></span>
+<span id="cb25-543"><a href="#cb25-543" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png)</span></span>
+<span id="cb25-544"><a href="#cb25-544" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-545"><a href="#cb25-545" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img8.png)</span></span>
+<span id="cb25-546"><a href="#cb25-546" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-547"><a href="#cb25-547" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-548"><a href="#cb25-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-549"><a href="#cb25-549" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,1</span><span class="co">]</span>"}</span>
+<span id="cb25-550"><a href="#cb25-550" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span></span>
+<span id="cb25-551"><a href="#cb25-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-552"><a href="#cb25-552" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img8.png)</span></span>
+<span id="cb25-553"><a href="#cb25-553" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-554"><a href="#cb25-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-555"><a href="#cb25-555" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-556"><a href="#cb25-556" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,-0.1,1]"}</span></span>
-<span id="cb25-557"><a href="#cb25-557" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-558"><a href="#cb25-558" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png)</span></span>
+<span id="cb25-555"><a href="#cb25-555" aria-hidden="true" tabindex="-1"></a>Si on veut accroître la distances entre les deux images d'un dizième de la largeur des images</span>
+<span id="cb25-556"><a href="#cb25-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-557"><a href="#cb25-557" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-558"><a href="#cb25-558" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,-0.1,1]"}</span></span>
 <span id="cb25-559"><a href="#cb25-559" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-560"><a href="#cb25-560" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img8.png)</span></span>
-<span id="cb25-561"><a href="#cb25-561" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-562"><a href="#cb25-562" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-563"><a href="#cb25-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-564"><a href="#cb25-564" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-565"><a href="#cb25-565" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,-0.1,1</span><span class="co">]</span>"}</span>
-<span id="cb25-566"><a href="#cb25-566" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span></span>
-<span id="cb25-567"><a href="#cb25-567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-568"><a href="#cb25-568" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img8.png)</span></span>
+<span id="cb25-560"><a href="#cb25-560" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png)</span></span>
+<span id="cb25-561"><a href="#cb25-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-562"><a href="#cb25-562" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img8.png)</span></span>
+<span id="cb25-563"><a href="#cb25-563" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-564"><a href="#cb25-564" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-565"><a href="#cb25-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-566"><a href="#cb25-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-567"><a href="#cb25-567" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,-0.1,1</span><span class="co">]</span>"}</span>
+<span id="cb25-568"><a href="#cb25-568" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span></span>
 <span id="cb25-569"><a href="#cb25-569" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-570"><a href="#cb25-570" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-570"><a href="#cb25-570" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img8.png)</span></span>
 <span id="cb25-571"><a href="#cb25-571" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-572"><a href="#cb25-572" aria-hidden="true" tabindex="-1"></a>Si on veut que la distance soit égale à la largeur des images</span>
+<span id="cb25-572"><a href="#cb25-572" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-573"><a href="#cb25-573" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-574"><a href="#cb25-574" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-575"><a href="#cb25-575" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,-1,1]"}</span></span>
-<span id="cb25-576"><a href="#cb25-576" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-577"><a href="#cb25-577" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png)</span></span>
+<span id="cb25-574"><a href="#cb25-574" aria-hidden="true" tabindex="-1"></a>Si on veut que la distance soit égale à la largeur des images</span>
+<span id="cb25-575"><a href="#cb25-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-576"><a href="#cb25-576" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-577"><a href="#cb25-577" aria-hidden="true" tabindex="-1"></a><span class="in">::: {layout="[1,-1,1]"}</span></span>
 <span id="cb25-578"><a href="#cb25-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-579"><a href="#cb25-579" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img8.png)</span></span>
-<span id="cb25-580"><a href="#cb25-580" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-581"><a href="#cb25-581" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-582"><a href="#cb25-582" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-583"><a href="#cb25-583" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,-1,1</span><span class="co">]</span>"}</span>
-<span id="cb25-584"><a href="#cb25-584" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span></span>
-<span id="cb25-585"><a href="#cb25-585" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-586"><a href="#cb25-586" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img8.png)</span></span>
-<span id="cb25-587"><a href="#cb25-587" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-588"><a href="#cb25-588" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-589"><a href="#cb25-589" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Fonctionne également, sous forme d'option, avec des graphiques générés dans un bloc de codes.</span>
+<span id="cb25-579"><a href="#cb25-579" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img4.png)</span></span>
+<span id="cb25-580"><a href="#cb25-580" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-581"><a href="#cb25-581" aria-hidden="true" tabindex="-1"></a><span class="in">![](img5/img8.png)</span></span>
+<span id="cb25-582"><a href="#cb25-582" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-583"><a href="#cb25-583" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-584"><a href="#cb25-584" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-585"><a href="#cb25-585" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">1,-1,1</span><span class="co">]</span>"}</span>
+<span id="cb25-586"><a href="#cb25-586" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img4.png)</span></span>
+<span id="cb25-587"><a href="#cb25-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-588"><a href="#cb25-588" aria-hidden="true" tabindex="-1"></a><span class="al">![](img5/img8.png)</span></span>
+<span id="cb25-589"><a href="#cb25-589" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-590"><a href="#cb25-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-593"><a href="#cb25-593" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-594"><a href="#cb25-594" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false </span></span>
-<span id="cb25-595"><a href="#cb25-595" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb25-596"><a href="#cb25-596" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout: "[[1],[0.5,0.5]]"</span></span>
-<span id="cb25-597"><a href="#cb25-597" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-598"><a href="#cb25-598" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb25-599"><a href="#cb25-599" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-600"><a href="#cb25-600" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>am <span class="ot">=</span> <span class="fu">as.factor</span>(mtcars<span class="sc">$</span>am)</span>
+<span id="cb25-591"><a href="#cb25-591" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Fonctionne également, sous forme d'option, avec des graphiques générés dans un bloc de codes.</span>
+<span id="cb25-592"><a href="#cb25-592" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-595"><a href="#cb25-595" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-596"><a href="#cb25-596" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: fenced</span></span>
+<span id="cb25-597"><a href="#cb25-597" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-598"><a href="#cb25-598" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false </span></span>
+<span id="cb25-599"><a href="#cb25-599" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb25-600"><a href="#cb25-600" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout: "[[1],[0.5,0.5]]"</span></span>
 <span id="cb25-601"><a href="#cb25-601" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-602"><a href="#cb25-602" aria-hidden="true" tabindex="-1"></a>mpg<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>mpg, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
-<span id="cb25-603"><a href="#cb25-603" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
-<span id="cb25-604"><a href="#cb25-604" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-605"><a href="#cb25-605" aria-hidden="true" tabindex="-1"></a>disp<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>disp, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
-<span id="cb25-606"><a href="#cb25-606" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
-<span id="cb25-607"><a href="#cb25-607" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-608"><a href="#cb25-608" aria-hidden="true" tabindex="-1"></a>wt<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
-<span id="cb25-609"><a href="#cb25-609" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
-<span id="cb25-610"><a href="#cb25-610" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-611"><a href="#cb25-611" aria-hidden="true" tabindex="-1"></a>wt</span>
-<span id="cb25-612"><a href="#cb25-612" aria-hidden="true" tabindex="-1"></a>mpg</span>
-<span id="cb25-613"><a href="#cb25-613" aria-hidden="true" tabindex="-1"></a>disp</span>
-<span id="cb25-614"><a href="#cb25-614" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-615"><a href="#cb25-615" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-602"><a href="#cb25-602" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb25-603"><a href="#cb25-603" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-604"><a href="#cb25-604" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>am <span class="ot">=</span> <span class="fu">as.factor</span>(mtcars<span class="sc">$</span>am)</span>
+<span id="cb25-605"><a href="#cb25-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-606"><a href="#cb25-606" aria-hidden="true" tabindex="-1"></a>mpg<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>mpg, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
+<span id="cb25-607"><a href="#cb25-607" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<span id="cb25-608"><a href="#cb25-608" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-609"><a href="#cb25-609" aria-hidden="true" tabindex="-1"></a>disp<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>disp, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
+<span id="cb25-610"><a href="#cb25-610" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<span id="cb25-611"><a href="#cb25-611" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-612"><a href="#cb25-612" aria-hidden="true" tabindex="-1"></a>wt<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
+<span id="cb25-613"><a href="#cb25-613" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<span id="cb25-614"><a href="#cb25-614" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-615"><a href="#cb25-615" aria-hidden="true" tabindex="-1"></a>wt</span>
+<span id="cb25-616"><a href="#cb25-616" aria-hidden="true" tabindex="-1"></a>mpg</span>
+<span id="cb25-617"><a href="#cb25-617" aria-hidden="true" tabindex="-1"></a>disp</span>
+<span id="cb25-618"><a href="#cb25-618" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-619"><a href="#cb25-619" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-620"><a href="#cb25-620" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-621"><a href="#cb25-621" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-624"><a href="#cb25-624" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-625"><a href="#cb25-625" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false </span></span>
+<span id="cb25-626"><a href="#cb25-626" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb25-627"><a href="#cb25-627" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb25-628"><a href="#cb25-628" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout: "[[1],[0.5,0.5]]"</span></span>
+<span id="cb25-629"><a href="#cb25-629" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-630"><a href="#cb25-630" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb25-631"><a href="#cb25-631" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-632"><a href="#cb25-632" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>am <span class="ot">=</span> <span class="fu">as.factor</span>(mtcars<span class="sc">$</span>am)</span>
+<span id="cb25-633"><a href="#cb25-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-634"><a href="#cb25-634" aria-hidden="true" tabindex="-1"></a>mpg<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>mpg, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
+<span id="cb25-635"><a href="#cb25-635" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<span id="cb25-636"><a href="#cb25-636" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-637"><a href="#cb25-637" aria-hidden="true" tabindex="-1"></a>disp<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>disp, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
+<span id="cb25-638"><a href="#cb25-638" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<span id="cb25-639"><a href="#cb25-639" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-640"><a href="#cb25-640" aria-hidden="true" tabindex="-1"></a>wt<span class="ot">=</span><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">fill=</span>am)) <span class="sc">+</span></span>
+<span id="cb25-641"><a href="#cb25-641" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)</span>
+<span id="cb25-642"><a href="#cb25-642" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-643"><a href="#cb25-643" aria-hidden="true" tabindex="-1"></a>wt</span>
+<span id="cb25-644"><a href="#cb25-644" aria-hidden="true" tabindex="-1"></a>mpg</span>
+<span id="cb25-645"><a href="#cb25-645" aria-hidden="true" tabindex="-1"></a>disp</span>
+<span id="cb25-646"><a href="#cb25-646" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-647"><a href="#cb25-647" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -2232,11 +2299,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- Marc Thévenin - Ined - 2024 | 
+ Marc Thévenin - Ined - 2024 - 
   </li>  
     <li class="nav-item">
     <a class="nav-link" href="https://gitlab.com/mthevenin">
-<p><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> |</p>
+<p><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> -</p>
 </a>
   </li>  
     <li class="nav-item">
@@ -2251,7 +2318,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

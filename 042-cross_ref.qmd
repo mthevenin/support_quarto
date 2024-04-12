@@ -326,7 +326,6 @@ Insérer dans une phrase: `@fig-video`. Résultat:
 Se reporter à l'entretien de JJ.allaire [[@fig-video]]
 :::
 
-
 <br>
   
 ## Insérer des éléments bibliographiques {#sec-biblio}
@@ -340,7 +339,7 @@ bibliography: festy.bib
 ---
 ```
 
-Dans le fichier festy.bib, une référence est par exemple: 
+Dans le fichier *festy.bib*, une référence est par exemple: 
 
 ```{.mf}
 @incollection{cortina_same-sex_2020,
@@ -370,13 +369,13 @@ En fin du document qmd, d'une section ou d'un chapitre, on peut insérer l'ensem
 Par exemple à la fin de cette section:
 
 ```{.mf}
-### References
+### Bibliographie
 
 ::: {#refs}
 :::
 ```
 
-### References
+### Bibliographie
 
 ::: {#refs}
 

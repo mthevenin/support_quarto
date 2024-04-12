@@ -87,6 +87,11 @@ toc: true
 
 ## **Liste des tableaux et liste des graphiques/images**
 
+
+* Dans le yaml pour activer une table des graphiques/images et/ou une table des tableaux: 
+  * graphiques/images: `lof: true`
+  * tableaux: `lot: true`  
+
 * Pour indexer proprement les tableaux et les graphiques générés dans un bloc de codes, ils doivent avoir explicitement un titre.
   * Graphique/image: 
     * Généré par un programme: `#|fig-cap: "Titre"`
@@ -110,14 +115,13 @@ toc: true
 
 ### Les sauts de page (rappel)
 
-* Si format pdf seulement, vous pouvez utiliser directement la balise Latex `\newpage`
-* Avec Quarto, il est néanmoins préférable d'utiliser directement le shortcode **`{{< pagebreak >}}`** valable également pour le format html pour l'impression.
 
-Exemple: dans ce court document un saut de page a été ajouté après la ***list of table*** .
+* Avec Quarto, utiliser le shortcode **`{{{< pagebreak >}}}`** valable également pour le format html pour l'impression.
+
 
 ### Modifier les marges du document
 
-* Dans le yaml, option **`geometry` avec 4 sous options listées avec un tiret. Les marges sont mesurées en millimètres: 
+* Dans le yaml, option **`geometry`** avec 4 sous options listées avec un tiret. Les marges sont mesurées en millimètres: 
 
 ```{.yaml}
 ---
@@ -129,7 +133,7 @@ geometry:
 ---
 ```
 
-Pour ce document j'ai légèrement réduit les marges avec:
+Pour le document en pdf j'ai légèrement réduit les marges avec:
 
 ```{.yaml}
 ---

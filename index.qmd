@@ -3,33 +3,35 @@ toc: false
 author-title: ""
 ---
 
+
 ::: {.center}
-# Présentation {.unnumbered style="color:#2c3e50; font-size:35px;"}
+# Présentation {.unnumbered style="color:#2c3e50; font-size:30px;"}
 :::
 
-  
-:::: {.center}
-:::: {.column width=60%} 
-::: {.column width=50%} 
-::: {.box_accueil}  
 
-<a href="01-posit.html" style="text-decoration:none; color:#e83e8c; ">{{< animate fadeInLeft "Posit & Quarto" >}}</a>
-:::
-:::
+::: {.center}
+::: {.cards}
 
-::: {.column width=50%}   
-::: {.box_accueil}  
-<a href="02-quarto_resume.html" style="text-decoration:none; color:#e83e8c;">{{< animate zoomIn "Gros + et petits -" >}}</a>
-:::
-:::
-  
-::: {.column width="50%"}  
-::: {.box_accueil}   
-<a href="03-support.html" style="text-decoration:none; color:#e83e8c;">{{< animate fadeInRight "Le support">}}</a>
-:::
-:::
-::::
-::::
+<div class="card text-white bg-primary mb-3" style="max-width: 500px;">
+  <div class="card-header"><a href="01-posit.html" style="text-decoration:none; font-weight:900 ">{{< animate zoomIn "Posit & Quarto" >}}</a></div>
+  <div class="card-body">Quelques information sur le changement de nom de RStudio (l'entreprise) et la sortie du logiciel Quarto en juillet 2022
+  </div>
+</div>
 
 
+<div class="card text-white bg-primary mb-3" style="max-width: 500px;">
+  <div class="card-header"><a href="02-quarto_resume.html" style="text-decoration:none; font-weight:900 ">{{< animate zoomIn "Les plus et les moins" >}}</a></div>
+  <div class="card-body">Surtout des gros plus et encore quelques petits moins <br>
+  </div>
+</div>
+
+
+<div class="card text-white bg-primary mb-3" style="max-width: 500px;">
+  <div class="card-header"><a href="03-support.html" style="text-decoration:none; font-weight:900 ;">{{< animate zoomIn "Le support & les ressources" >}}</a></div>
+  <div class="card-body">Présentation, encore succinte du support, les extensions utilisées, les ressources externes et remerciements
+  </div>
+</div>
+
+:::
+:::
 

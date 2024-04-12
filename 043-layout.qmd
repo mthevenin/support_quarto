@@ -270,7 +270,9 @@ Les notes font l'objet d'un traitement particulier. Le positionnement dans la ma
 Attention comme la note est directement visible, aucun numéro ne lui est affecté.
 
 ```{.md}
-On peut ajouter une note directement à droite du texte avec la classe css **.aside**[Comme elle se situe directement à droite du texte, aucun numéro de note n'est généré]{.aside}
+On peut ajouter une note directement à droite du texte avec la classe css
+**.aside**[Comme elle se situe directement à droite du texte, aucun numéro
+de note n'est généré]{.aside}
 ```
 
 On peut ajouter une note directement à droite du texte avec la classe css **.aside**[Comme elle se situe directement à droite du texte, aucun numéro de note n'est généré]{.aside}.
@@ -584,8 +586,36 @@ Si on veut que la distance soit égale à la largeur des images
 * Fonctionne également, sous forme d'option, avec des graphiques générés dans un bloc de codes.
 
 ```{r}
+#| echo: fenced
+#| eval: false
 #| warning: false 
 #| message: false
+#| layout: "[[1],[0.5,0.5]]"
+
+library(ggplot2)
+
+mtcars$am = as.factor(mtcars$am)
+
+mpg=ggplot(mtcars, aes(x=mpg, fill=am)) +
+  geom_density(alpha=0.4)
+
+disp=ggplot(mtcars, aes(x=disp, fill=am)) +
+  geom_density(alpha=0.4)
+
+wt=ggplot(mtcars, aes(x=wt, fill=am)) +
+  geom_density(alpha=0.4)
+
+wt
+mpg
+disp
+```
+
+
+
+```{r}
+#| warning: false 
+#| message: false
+#| echo: false
 #| layout: "[[1],[0.5,0.5]]"
 
 library(ggplot2)

@@ -44,9 +44,11 @@ $dark:          $gray-700 !default;
 // Utilisation des variables SASS de Quarto
 // Si pas de changement: fermer Rstudio et réouvrir le projet
 
+ 
 $toc-color:              $pink;
 $link-color:             $pink;
 $code-block-border-left: $purple;
+$code-block-border-left-size: 1px;
 $code-color:             $purple;
 
 //$body-bg: $gray-100;
@@ -89,12 +91,9 @@ $code-color:             $purple;
 color: $pink;
 font-weight: 700;
 font-size: 18px;
-border: solid 4px $primary;
-font-size: 25px;
-border: solid 1px $primary;
-border-radius: 8px;
-padding-top: 10px;
-  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0), 0 0 0 2px rgb(255, 255, 255),
+border: solid 0px $primary;
+border-radius: 2px;
+box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0), 0 0 0 1px rgb(44, 62, 80),
     0.3em 0.3em 0.5em rgba(44, 62, 80, 0.5);
 margin-bottom: 20px;
 }

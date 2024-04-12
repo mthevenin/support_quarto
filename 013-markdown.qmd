@@ -313,6 +313,10 @@ Sans rentrer dans le détail des options :
 :::
 ::: 
 
+- On peut ajouter un texte alternatif **alt** pour les personnes malvoyantes avec l'option **`fig-alt="Texte alternatif"`**:
+  * `![Titre](lien_image){fig-alt="Texte alternatif"}`
+
+
 
 ### Insertion d'un tableau
 
@@ -515,10 +519,12 @@ Posit a introduit 3 types de balisage:
 
 * Un système de **shortcode** pour insérer des éléments se substituant ou non à des balises html ou à des classes  **CSS**.
 
+Les deux premiers types sont directement issu de Pandoc^[Merci à Julien Rabaud pour la précision], le convertisseur de document utilisé par Quarto.
+
 
 ### Balises de mise en page
 
-* La balise **`<div>`** associée à une classe CSS est remplacée par une balise de type **clôture** (*fence*): **`:::`. La partie modifiée sera ouverte et fermée par ces `:::`.
+* La balise **`<div>`** associée à une classe CSS est remplacée par une balise de type **clôture** (*fence*): **`:::`. La partie modifiée sera ouverte et fermée par ces `:::`
   
 * La balise de clôture contient au minimum 3 **:** 
   
@@ -535,8 +541,8 @@ Texte/image....
 En html, on aurait par exemple:
 
 ```{.mf}
-<div>
-<p class="nom_classe_css <options>
+<div class="nom_classe_css">
+<p>
 Texte/image ...
 </p>
 </div>

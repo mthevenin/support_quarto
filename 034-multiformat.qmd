@@ -131,14 +131,15 @@ plot(df$mpg, df$disp)
 ### Contrôler le contenu affiché {#sec-multiform}
 
 * Quarto a implémenté des classes css qui permettent de contrôler le contenu qui sera affiché par type de format:
-  * **`{.content-visible <sélection format>}`**
-  * **`{.content-hidden  <sélection format>}`**
+  * **`::: {.content-visible <sélection format>}`**
+  * **`::: {.content-hidden  <sélection format>}`**
 * Les options de sélection:
   * **`when-format="type_format"`**
   * **`unless-format="type_format"`**  
 * [[Documentation site officiel]](https://quarto.org/docs/authoring/conditional.html)
 
-Dans notre exemple:
+Dans notre exemple:  
+
 * L'affichage des graphiques sous forme de vignettes sera réservé au format html
 * Pour les formats statiques, les graphiques seront affichés à leur taille réelle, les uns après les autres.
 * On devra renseigner le programme deux fois en modifiant les options:

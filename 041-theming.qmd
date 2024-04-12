@@ -31,7 +31,7 @@ format:
 ---  
 ```
 
-Rappel, si la documentation est en html seulement on peut passer l'option de la manière suivante:
+sSi la documentation est en html seulement on peut passer l'option de la manière suivante:
 
 ```{.yaml}
 ---
@@ -50,8 +50,20 @@ theme: zephyr
   * *`light: nom_theme`*.
   * *`dark:  nom_theme`*.
 
+Avec les thèmes flatly et darkly: 
 
-* Au delà de ces deux thèmes *clé en main*, on peut créer un thème de type dark à partir d'un thème light existant, et inversement.
+```{.yaml}
+---
+format: 
+  html:
+    theme:
+      light: flatly
+      dark:  darkly
+---
+```
+
+
+* Au delà de ces deux thèmes, on peut créer un thème de type dark à partir d'un thème light existant, et inversement.
 * On devra utiliser un fichiers sccs et renseigner manuellement les affectations des couleurs.
 * Avec des **variables SASS** propres à Quarto, on peut faire ces modifications assez facilement. Attention toutefois à bien maîtriser la logique des couleurs entrant dans un thème html.  
 
@@ -71,26 +83,6 @@ format:
 ---
 ```
 
-
-::: callout-note
-
-### Deux thèmes light ou dark
-
-A l'utilité contestable, mais on pourrait hésiter entre deux thèmes lors de la création de la documentation. Il est possible d'utiliser et de switcher entre deux thèmes de type light ou dark. 
-
-Par exemple, on peut utiliser simultanément les thèmes light **zephyr** et **yeti**:
-
-```{.yaml}
----
-format: 
-  html:
-    theme:
-      light: zephyr
-      dark:  yeti
----
-```
-
-:::
 
 
 ### Changer directement des éléments du thème dans le yaml
@@ -122,7 +114,7 @@ format:
 ---  
 ```
 
-Avec un peu d'entraînement il est néanmoins préférable et bien plus facile de passer par un fichier scss et les variables SASS de Quarto pour réaliser ce type de modification.  
+Avec un peu d'entraînement il est néanmoins préférable et bien plus facile de passer par un fichier .scss en appliquant les variables SASS clé en main de Quarto pour réaliser ce type de modification.  
 
 ##  Introduction aux CSS et aux variables SASS {#sec-scss}
 

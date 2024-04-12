@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Formation Quarto - 10&nbsp; Format HTML</title>
+<title>Quarto: le support - 10&nbsp; Format HTML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,6 +129,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://mthevenin.gitlab.io/fiches_quarto/"> 
+<span class="menu-text">Les fiches</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-elements-revealjs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Elements Revealjs</span>
@@ -394,6 +398,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text"><strong>Résumé</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./061-glossaire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Résumé</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -540,20 +562,20 @@ Avertissement
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Janvier 2024: .no-lightbox ou .nolightbox
+Janvier 2024: .no-lightbox ou .nolightbox pour une image
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>la doc quarto indique que l’option de désactivisation est <code>{.no-lightbox}</code>. Chez moi cela ne fonctionne pas.</p></li>
-<li><p>Cela fonctionne cependant avec <code>{.nolightbox</code>} qui est le nom directement hérité de l’extension externe (développé par une personne de quarto au passage).</p></li>
+<li><p>la documentation Quarto indique que l’option de désactivisation est <code>{.no-lightbox}</code>. Chez moi cela ne fonctionne pas.</p></li>
+<li><p>Cela fonctionne avec l’option <code>{.nolightbox</code>} qui est le nom directement hérité de l’extension externe, devenue caduque.</p></li>
 </ul>
 </div>
 </div>
 <ul>
-<li>Si dans le yaml, l’option n’est pas activé, on peut la désactiver individuellement avec la classe <code>{.no-lightbox}</code> appliquée diirectement à l’image: <code>![](imgage.png){.nolightbox}</code>.</li>
+<li>Si dans le yaml, l’option est activée, on peut la désactiver individuellement avec <code>{.nolightbox}</code> appliquée diretement à l’image: <code>![](imgage.png){.nolightbox}</code>.</li>
 </ul>
-<p>Pour ce support, l’option est activée par défaut. Pour désactivée la première image (chapitre installation de Quarto et gestion des fichiers):</p>
+<p>Pour ce support, elle est activée par défaut. Pour désactivée la première image (chapitre installation de Quarto et gestion des fichiers):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>![](img1<span class="op">/</span>c12.png){.nolightbox}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
@@ -807,7 +829,7 @@ Janvier 2024: .no-lightbox ou .nolightbox
 <div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/html1.png" class="lightbox" data-gallery="html2" data-glightbox="description: .lightbox-desc-5" title="Par défaut (en)"><img src="img1/html1.png" class="img-fluid figure-img" style="width:70.0%" alt="Par défaut (en)"></a></p>
+<p><a href="img1/html1.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="html2" title="Par défaut (en)"><img src="img1/html1.png" class="img-fluid figure-img" style="width:70.0%" alt="Par défaut (en)"></a></p>
 <figcaption>Par défaut (en)</figcaption>
 </figure>
 </div>
@@ -815,7 +837,7 @@ Janvier 2024: .no-lightbox ou .nolightbox
 <div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/html2.png" class="lightbox" data-gallery="html2" data-glightbox="description: .lightbox-desc-6" title="En français (fr)"><img src="img1/html2.png" class="img-fluid figure-img" style="width:70.0%" alt="En français (fr)"></a></p>
+<p><a href="img1/html2.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="html2" title="En français (fr)"><img src="img1/html2.png" class="img-fluid figure-img" style="width:70.0%" alt="En français (fr)"></a></p>
 <figcaption>En français (fr)</figcaption>
 </figure>
 </div>
@@ -882,7 +904,7 @@ Janvier 2024: .no-lightbox ou .nolightbox
 <div id="fig-gridhtml" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gridhtml-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://quarto.org/docs/output-formats/images/grid.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="https://quarto.org/docs/output-formats/images/grid.png" class="img-fluid figure-img" style="width:70.0%"></a>
+<a href="https://quarto.org/docs/output-formats/images/grid.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7"><img src="https://quarto.org/docs/output-formats/images/grid.png" class="img-fluid figure-img" style="width:70.0%"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gridhtml-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;10.1: Doc quarto - grid par défaut
@@ -938,7 +960,7 @@ Figure&nbsp;10.1: Doc quarto - grid par défaut
 <div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/html3.png" class="lightbox" data-gallery="groupe2" data-glightbox="description: .lightbox-desc-8" title="Grid par défaut"><img src="img1/html3.png" class="img-fluid figure-img" alt="Grid par défaut"></a></p>
+<p><a href="img1/html3.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="groupe2" title="Grid par défaut"><img src="img1/html3.png" class="img-fluid figure-img" alt="Grid par défaut"></a></p>
 <figcaption>Grid par défaut</figcaption>
 </figure>
 </div>
@@ -946,7 +968,7 @@ Figure&nbsp;10.1: Doc quarto - grid par défaut
 <div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/html4.png" class="lightbox" data-gallery="groupe2" data-glightbox="description: .lightbox-desc-9" title="Grid modifié"><img src="img1/html4.png" class="img-fluid figure-img" alt="Grid modifié"></a></p>
+<p><a href="img1/html4.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="groupe2" title="Grid modifié"><img src="img1/html4.png" class="img-fluid figure-img" alt="Grid modifié"></a></p>
 <figcaption>Grid modifié</figcaption>
 </figure>
 </div>
@@ -988,7 +1010,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/html5.png" class="lightbox" data-gallery="groupe3" data-glightbox="description: .lightbox-desc-10" title="Thème par défaut: lien"><img src="img1/html5.png" class="img-fluid figure-img" alt="Thème par défaut: lien"></a></p>
+<p><a href="img1/html5.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="groupe3" title="Thème par défaut: lien"><img src="img1/html5.png" class="img-fluid figure-img" alt="Thème par défaut: lien"></a></p>
 <figcaption>Thème par défaut: <a href="https://bootswatch.com/default/">lien</a></figcaption>
 </figure>
 </div>
@@ -996,7 +1018,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/html6.png" class="lightbox" data-gallery="groupe3" data-glightbox="description: .lightbox-desc-11" title="Thème superhero Lien"><img src="img1/html6.png" class="img-fluid figure-img" alt="Thème superhero Lien"></a></p>
+<p><a href="img1/html6.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="groupe3" title="Thème superhero Lien"><img src="img1/html6.png" class="img-fluid figure-img" alt="Thème superhero Lien"></a></p>
 <figcaption>Thème superhero <a href="https://bootswatch.com/superhero/">Lien</a></figcaption>
 </figure>
 </div>
@@ -1026,7 +1048,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <h4 data-number="10.3.1.2" class="anchored" data-anchor-id="line-highlight"><span class="header-section-number">10.3.1.2</span> Line highlight</h4>
 <ul>
 <li>Options qui permet de mettre en avant une ou plusieurs lignes d’un programme dans un bloc et de naviguer entre ces lignes.</li>
-<li>Option *<strong><code>code-line-numbers:</code>“valeurs_lignes”</strong></li>
+<li>Option <strong><code>code-line-numbers: "n°_lignes"</code></strong></li>
 </ul>
 <div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-lines-numbers: "choix ligne(s)"</span></span>
@@ -1036,10 +1058,10 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <ul>
 <li>Par exemple:
 <ul>
-<li>“2” ligne 1.</li>
+<li>“2” ligne 2.</li>
 <li>“2,5” lignes 2 et 5.</li>
 <li>“2-5” lignes 2 à 5.</li>
-<li>“|2|4” toutes les lignes, puis ligne 2, et enfin ligne 4</li>
+<li>“|2|4” toutes les lignes, puis ligne 2, puis ligne 4</li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -1063,7 +1085,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <div class="box_img quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/reveal1.png" class="lightbox" data-gallery="reveal1" data-glightbox="description: .lightbox-desc-12" title="toutes le lignes"><img src="img1/reveal1.png" class="img-fluid figure-img" alt="toutes le lignes"></a></p>
+<p><a href="img1/reveal1.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="reveal1" title="toutes le lignes"><img src="img1/reveal1.png" class="img-fluid figure-img" alt="toutes le lignes"></a></p>
 <figcaption>toutes le lignes</figcaption>
 </figure>
 </div>
@@ -1071,7 +1093,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <div class="box_img quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/reveal2.png" class="lightbox" data-gallery="reveal1" data-glightbox="description: .lightbox-desc-13" title="Ligne 1"><img src="img1/reveal2.png" class="img-fluid figure-img" alt="Ligne 1"></a></p>
+<p><a href="img1/reveal2.png" class="lightbox" data-glightbox="description: .lightbox-desc-13" data-gallery="reveal1" title="Ligne 1"><img src="img1/reveal2.png" class="img-fluid figure-img" alt="Ligne 1"></a></p>
 <figcaption>Ligne 1</figcaption>
 </figure>
 </div>
@@ -1079,7 +1101,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <div class="box_img quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/reveal3.png" class="lightbox" data-gallery="reveal1" data-glightbox="description: .lightbox-desc-14" title="Ligne 4"><img src="img1/reveal3.png" class="img-fluid figure-img" alt="Ligne 4"></a></p>
+<p><a href="img1/reveal3.png" class="lightbox" data-glightbox="description: .lightbox-desc-14" data-gallery="reveal1" title="Ligne 4"><img src="img1/reveal3.png" class="img-fluid figure-img" alt="Ligne 4"></a></p>
 <figcaption>Ligne 4</figcaption>
 </figure>
 </div>
@@ -1087,7 +1109,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <div class="box_img quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/reveal4.png" class="lightbox" data-gallery="reveal1" data-glightbox="description: .lightbox-desc-15" title="Ligne 4"><img src="img1/reveal4.png" class="img-fluid figure-img" alt="Ligne 4"></a></p>
+<p><a href="img1/reveal4.png" class="lightbox" data-glightbox="description: .lightbox-desc-15" data-gallery="reveal1" title="Ligne 4"><img src="img1/reveal4.png" class="img-fluid figure-img" alt="Ligne 4"></a></p>
 <figcaption>Ligne 4</figcaption>
 </figure>
 </div>
@@ -1102,7 +1124,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <li>Chaque bloc est généré dans une slide.<br>
 </li>
 <li>Pour un bon rendu, le bloc doit être sur la même ligne sur chaque slide. Important.</li>
-<li>Pour réaliser cette <em>animation</em> on utilise dans le titre des slide, l’option <strong><code>{auto-animate: "true"}</code></strong>: <code># Titre slides {auto-animate: "true"}</code></li>
+<li>Pour réaliser cette <em>animation</em> on utilise dans le titre des slide, l’option <strong><code>{auto-animate: "true"}</code></strong>: <code>## Titre slides {auto-animate: "true"}</code></li>
 </ul>
 <div class="center">
 <div class="box_img">
@@ -1128,7 +1150,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 </ul>
 <div class="sourceCode" id="cb25"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">incremental</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
@@ -1176,7 +1198,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/reveal6.png" class="lightbox" data-gallery="reveal2" data-glightbox="description: .lightbox-desc-17" title="Défaut"><img src="img1/reveal6.png" class="img-fluid figure-img" alt="Défaut"></a></p>
+<p><a href="img1/reveal6.png" class="lightbox" data-glightbox="description: .lightbox-desc-17" data-gallery="reveal2" title="Défaut"><img src="img1/reveal6.png" class="img-fluid figure-img" alt="Défaut"></a></p>
 <figcaption>Défaut</figcaption>
 </figure>
 </div>
@@ -1184,7 +1206,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/reveal7.png" class="lightbox" data-gallery="reveal2" data-glightbox="description: .lightbox-desc-18" title="Avec {.smaller}"><img src="img1/reveal7.png" class="img-fluid figure-img" alt="Avec {.smaller}"></a></p>
+<p><a href="img1/reveal7.png" class="lightbox" data-glightbox="description: .lightbox-desc-18" data-gallery="reveal2" title="Avec {.smaller}"><img src="img1/reveal7.png" class="img-fluid figure-img" alt="Avec {.smaller}"></a></p>
 <figcaption>Avec <code>{.smaller}</code></figcaption>
 </figure>
 </div>
@@ -1275,7 +1297,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/reveal8.png" class="lightbox" data-gallery="reveal3" data-glightbox="description: .lightbox-desc-19" title="A l’ouverture de la slide"><img src="img1/reveal8.png" class="img-fluid figure-img" alt="A l’ouverture de la slide"></a></p>
+<p><a href="img1/reveal8.png" class="lightbox" data-glightbox="description: .lightbox-desc-19" data-gallery="reveal3" title="A l’ouverture de la slide"><img src="img1/reveal8.png" class="img-fluid figure-img" alt="A l’ouverture de la slide"></a></p>
 <figcaption>A l’ouverture de la slide</figcaption>
 </figure>
 </div>
@@ -1283,7 +1305,7 @@ Ils peuvent néanmoins être créés et utilisés pour modifier un thème sélec
 <div class="box_img quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/reveal9.png" class="lightbox" data-gallery="reveal3" data-glightbox="description: .lightbox-desc-20" title="Après avoir appuyé sur la touche ->"><img src="img1/reveal9.png" class="img-fluid figure-img" alt="Après avoir appuyé sur la touche ->"></a></p>
+<p><a href="img1/reveal9.png" class="lightbox" data-glightbox="description: .lightbox-desc-20" data-gallery="reveal3" title="Après avoir appuyé sur la touche ->"><img src="img1/reveal9.png" class="img-fluid figure-img" alt="Après avoir appuyé sur la touche ->"></a></p>
 <figcaption>Après avoir appuyé sur la touche <strong>-&gt;</strong></figcaption>
 </figure>
 </div>
@@ -1895,17 +1917,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb32-62"><a href="#cb32-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-63"><a href="#cb32-63" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
 <span id="cb32-64"><a href="#cb32-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-65"><a href="#cb32-65" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Janvier 2024: .no-lightbox ou .nolightbox</span></span>
+<span id="cb32-65"><a href="#cb32-65" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Janvier 2024: .no-lightbox ou .nolightbox pour une image</span></span>
 <span id="cb32-66"><a href="#cb32-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-67"><a href="#cb32-67" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>la doc quarto indique que l'option de désactivisation est <span class="in">`{.no-lightbox}`</span>. Chez moi cela ne fonctionne pas.  </span>
+<span id="cb32-67"><a href="#cb32-67" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>la documentation Quarto indique que l'option  de désactivisation est <span class="in">`{.no-lightbox}`</span>. Chez moi cela ne fonctionne pas.  </span>
 <span id="cb32-68"><a href="#cb32-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-69"><a href="#cb32-69" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cela fonctionne cependant avec <span class="in">`{.nolightbox`</span>} qui est le nom directement hérité de l'extension externe (développé par une personne de quarto au passage). </span>
+<span id="cb32-69"><a href="#cb32-69" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cela fonctionne  avec l'option <span class="in">`{.nolightbox`</span>} qui est le nom directement hérité de l'extension externe, devenue caduque. </span>
 <span id="cb32-70"><a href="#cb32-70" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-71"><a href="#cb32-71" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb32-72"><a href="#cb32-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-73"><a href="#cb32-73" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si dans le yaml, l'option n'est pas activé, on peut la désactiver individuellement avec la classe <span class="in">`{.no-lightbox}`</span> appliquée diirectement à l'image: <span class="in">`![](imgage.png){.nolightbox}`</span>.  </span>
+<span id="cb32-73"><a href="#cb32-73" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si dans le yaml, l'option est activée, on peut la désactiver individuellement avec  <span class="in">`{.nolightbox}`</span> appliquée diretement à l'image: <span class="in">`![](imgage.png){.nolightbox}`</span>.  </span>
 <span id="cb32-74"><a href="#cb32-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-75"><a href="#cb32-75" aria-hidden="true" tabindex="-1"></a>Pour ce support, l'option est activée par défaut. Pour désactivée la première image (chapitre installation de Quarto et gestion des fichiers):  </span>
+<span id="cb32-75"><a href="#cb32-75" aria-hidden="true" tabindex="-1"></a>Pour ce support, elle est activée par défaut. Pour désactivée la première image (chapitre installation de Quarto et gestion des fichiers):  </span>
 <span id="cb32-76"><a href="#cb32-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-77"><a href="#cb32-77" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-78"><a href="#cb32-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
@@ -2414,7 +2436,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb32-589"><a href="#cb32-589" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Line highlight </span></span>
 <span id="cb32-590"><a href="#cb32-590" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-591"><a href="#cb32-591" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Options qui permet de mettre en avant une ou plusieurs lignes d'un programme dans un bloc et de naviguer entre ces lignes.</span>
-<span id="cb32-592"><a href="#cb32-592" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Option ***`code-line-numbers:`"valeurs_lignes"**</span>
+<span id="cb32-592"><a href="#cb32-592" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Option **`code-line-numbers: "n°_lignes"`**</span>
 <span id="cb32-593"><a href="#cb32-593" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-594"><a href="#cb32-594" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb32-595"><a href="#cb32-595" aria-hidden="true" tabindex="-1"></a><span class="in">#| code-lines-numbers: "choix ligne(s)"</span></span>
@@ -2423,10 +2445,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb32-598"><a href="#cb32-598" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb32-599"><a href="#cb32-599" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-600"><a href="#cb32-600" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Par exemple:</span>
-<span id="cb32-601"><a href="#cb32-601" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>"2" ligne  1.</span>
+<span id="cb32-601"><a href="#cb32-601" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>"2" ligne  2.</span>
 <span id="cb32-602"><a href="#cb32-602" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>"2,5" lignes 2 et 5.</span>
 <span id="cb32-603"><a href="#cb32-603" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>"2-5" lignes 2 à 5.</span>
-<span id="cb32-604"><a href="#cb32-604" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>"|2|4" toutes les lignes, puis ligne 2, et enfin ligne 4 </span>
+<span id="cb32-604"><a href="#cb32-604" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>"|2|4" toutes les lignes, puis ligne 2, puis ligne 4 </span>
 <span id="cb32-605"><a href="#cb32-605" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-606"><a href="#cb32-606" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-607"><a href="#cb32-607" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -2465,7 +2487,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb32-640"><a href="#cb32-640" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Permet d'afficher un programme par bloc successif.</span>
 <span id="cb32-641"><a href="#cb32-641" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Chaque bloc est généré dans une slide.  </span>
 <span id="cb32-642"><a href="#cb32-642" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour un bon rendu, le bloc  doit être sur la même ligne sur chaque slide. Important.</span>
-<span id="cb32-643"><a href="#cb32-643" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour réaliser cette *animation* on utilise dans le titre des slide, l'option **`{auto-animate: "true"}`**:  <span class="in">`# Titre slides {auto-animate: "true"}`</span>  </span>
+<span id="cb32-643"><a href="#cb32-643" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour réaliser cette *animation* on utilise dans le titre des slide, l'option **`{auto-animate: "true"}`**:  <span class="in">`## Titre slides {auto-animate: "true"}`</span>  </span>
 <span id="cb32-644"><a href="#cb32-644" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb32-645"><a href="#cb32-645" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
 <span id="cb32-646"><a href="#cb32-646" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
@@ -2492,7 +2514,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb32-667"><a href="#cb32-667" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml}</span></span>
 <span id="cb32-668"><a href="#cb32-668" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
 <span id="cb32-669"><a href="#cb32-669" aria-hidden="true" tabindex="-1"></a><span class="in">format:</span></span>
-<span id="cb32-670"><a href="#cb32-670" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb32-670"><a href="#cb32-670" aria-hidden="true" tabindex="-1"></a><span class="in">  revealjs:</span></span>
 <span id="cb32-671"><a href="#cb32-671" aria-hidden="true" tabindex="-1"></a><span class="in">    incremental: true</span></span>
 <span id="cb32-672"><a href="#cb32-672" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
 <span id="cb32-673"><a href="#cb32-673" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
@@ -2677,11 +2699,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- Marc Thévenin - Ined - 2024 | 
+ Marc Thévenin - Ined - 2024 - 
   </li>  
     <li class="nav-item">
     <a class="nav-link" href="https://gitlab.com/mthevenin">
-<p><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> |</p>
+<p><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> -</p>
 </a>
   </li>  
     <li class="nav-item">
@@ -2696,7 +2718,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

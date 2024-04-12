@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Formation Quarto - 3&nbsp; Edition et formatage d’un document</title>
+<title>Quarto: le support - 3&nbsp; Edition et formatage d’un document</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,6 +160,10 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://mthevenin.gitlab.io/fiches_quarto/"> 
+<span class="menu-text">Les fiches</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-elements-revealjs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Elements Revealjs</span>
@@ -421,6 +425,24 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./054-blog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Blog</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text"><strong>Résumé</strong></span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./061-glossaire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Résumé</span></span></a>
   </div>
 </li>
       </ul>
@@ -791,7 +813,7 @@ Note
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://quarto.org/quarto.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5" title="Logo"><img src="https://quarto.org/quarto.png" class="img-fluid figure-img" alt="Logo"></a></p>
+<p><a href="https://quarto.org/quarto.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="Logo"><img src="https://quarto.org/quarto.png" class="img-fluid figure-img" alt="Logo"></a></p>
 <figcaption>Logo</figcaption>
 </figure>
 </div>
@@ -809,7 +831,7 @@ Note
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/quarto.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="Logo"><img src="img1/quarto.png" class="img-fluid figure-img" alt="Logo"></a></p>
+<p><a href="img1/quarto.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="Logo"><img src="img1/quarto.png" class="img-fluid figure-img" alt="Logo"></a></p>
 <figcaption>Logo</figcaption>
 </figure>
 </div>
@@ -828,7 +850,7 @@ Note
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/quarto.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7" title="Logo à 50%"><img src="img1/quarto.png" class="img-fluid figure-img" style="width:50.0%" alt="Logo à 50%"></a></p>
+<p><a href="img1/quarto.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="Logo à 50%"><img src="img1/quarto.png" class="img-fluid figure-img" style="width:50.0%" alt="Logo à 50%"></a></p>
 <figcaption>Logo à 50%</figcaption>
 </figure>
 </div>
@@ -848,7 +870,7 @@ Note
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="img1/quarto.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8" title="Logo 50% à gauche"><img src="img1/quarto.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:50.0%" alt="Logo 50% à gauche"></a></p>
+<p><a href="img1/quarto.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8" title="Logo 50% à gauche"><img src="img1/quarto.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:50.0%" alt="Logo 50% à gauche"></a></p>
 </figure>
 </div>
 <figcaption>Logo 50% à gauche</figcaption>
@@ -857,6 +879,12 @@ Note
 </div>
 </div>
 </div>
+<ul>
+<li>On peut ajouter un texte alternatif <strong>alt</strong> pour les personnes malvoyantes avec l’option <strong><code>fig-alt="Texte alternatif"</code></strong>:
+<ul>
+<li><code>![Titre](lien_image){fig-alt="Texte alternatif"}</code></li>
+</ul></li>
+</ul>
 </section>
 <section id="insertion-dun-tableau" class="level3" data-number="3.1.7">
 <h3 data-number="3.1.7" class="anchored" data-anchor-id="insertion-dun-tableau"><span class="header-section-number">3.1.7</span> Insertion d’un tableau</h3>
@@ -1135,10 +1163,11 @@ Modifier la largeur du tableau en format html
 </ul></li>
 <li>Un système de <strong>shortcode</strong> pour insérer des éléments se substituant ou non à des balises html ou à des classes <strong>CSS</strong>.</li>
 </ul>
+<p>Les deux premiers types sont directement issu de Pandoc<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>, le convertisseur de document utilisé par Quarto.</p>
 <section id="balises-de-mise-en-page" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="balises-de-mise-en-page"><span class="header-section-number">3.2.1</span> Balises de mise en page</h3>
 <ul>
-<li><p>La balise <strong><code>&lt;div&gt;</code></strong> associée à une classe CSS est remplacée par une balise de type <strong>clôture</strong> (<em>fence</em>): **<code>:::</code>. La partie modifiée sera ouverte et fermée par ces <code>:::</code>.</p></li>
+<li><p>La balise <strong><code>&lt;div&gt;</code></strong> associée à une classe CSS est remplacée par une balise de type <strong>clôture</strong> (<em>fence</em>): **<code>:::</code>. La partie modifiée sera ouverte et fermée par ces <code>:::</code></p></li>
 <li><p>La balise de clôture contient au minimum 3 <strong>:</strong></p></li>
 <li><p>Le nom donné à la modification de la mise en page est appelé <strong>classe</strong> et est indiqué à l’ouverture de la section div dans des accolades: <strong><code>::: {.nom_classe_css  &lt;options&gt;}</code></strong>.</p></li>
 </ul>
@@ -1147,11 +1176,11 @@ Modifier la largeur du tableau en format html
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Texte<span class="op">/</span><span class="kw">image</span><span class="op">....</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>En html, on aurait par exemple:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="bu">div</span>&gt;</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>&lt;p class<span class="op">=</span><span class="st">"nom_classe_css &lt;options&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="st">Texte/image ...</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/p&gt;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/div&gt;</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="bu">div</span> class<span class="op">=</span><span class="st">"nom_classe_css"</span>&gt;</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Texte<span class="op">/</span><span class="kw">image</span> <span class="op">..</span>.</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>&lt;<span class="op">/</span>p&gt;</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>&lt;<span class="op">/</span><span class="bu">div</span>&gt;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Remarques:</p>
 <ul>
 <li><p>On peut mettre plusieurs classes CSS à la suite pour modifier la mise d’une partie du document.</p></li>
@@ -1452,7 +1481,7 @@ Astuce
 <div class="center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/include_qmd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9" title="Fichier .qmd inséré"><img src="img1/include_qmd.png" class="img-fluid figure-img" alt="Fichier .qmd inséré"></a></p>
+<p><a href="img1/include_qmd.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9" title="Fichier .qmd inséré"><img src="img1/include_qmd.png" class="img-fluid figure-img" alt="Fichier .qmd inséré"></a></p>
 <figcaption>Fichier .qmd inséré</figcaption>
 </figure>
 </div>
@@ -1542,6 +1571,7 @@ Astuce
 <li id="fn5"><p>Attention aux compilations multiformats, si le document a un rendu html et pdf, il faudra mettre des <em>contenus conditionnels</em> (<a href="034-multiformat.html#sec-multiform" class="quarto-xref"><span>Section 12.2.2</span></a>)<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>En pdf la largeur est ajustée sur les colonnes donc pas de soucis<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p>Cascade Style Sheet<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Merci à Julien Rabaud pour la précision<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -2333,561 +2363,567 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb25-313"><a href="#cb25-313" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-314"><a href="#cb25-314" aria-hidden="true" tabindex="-1"></a>::: </span>
 <span id="cb25-315"><a href="#cb25-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-316"><a href="#cb25-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-317"><a href="#cb25-317" aria-hidden="true" tabindex="-1"></a><span class="fu">### Insertion d'un tableau</span></span>
+<span id="cb25-316"><a href="#cb25-316" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On peut ajouter un texte alternatif **alt** pour les personnes malvoyantes avec l'option **`fig-alt="Texte alternatif"`**:</span>
+<span id="cb25-317"><a href="#cb25-317" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`![Titre](lien_image){fig-alt="Texte alternatif"}`</span></span>
 <span id="cb25-318"><a href="#cb25-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-319"><a href="#cb25-319" aria-hidden="true" tabindex="-1"></a>Parlons peu parlons bien : générer manuellement un tableau en html (ou latex) mais également en markdown n'est pas la solution. En markdown, la création de tableau se fait sur un principe de pipes, au premier abord cela apparait moins confus qu'en html mais les modifications  aussi simple soit elles sont assez chronophages et pénible.</span>
+<span id="cb25-319"><a href="#cb25-319" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-320"><a href="#cb25-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-321"><a href="#cb25-321" aria-hidden="true" tabindex="-1"></a>Un exemple très simple pour s'en convaincre :</span>
+<span id="cb25-321"><a href="#cb25-321" aria-hidden="true" tabindex="-1"></a><span class="fu">### Insertion d'un tableau</span></span>
 <span id="cb25-322"><a href="#cb25-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-323"><a href="#cb25-323" aria-hidden="true" tabindex="-1"></a>**Tableau en html**:</span>
+<span id="cb25-323"><a href="#cb25-323" aria-hidden="true" tabindex="-1"></a>Parlons peu parlons bien : générer manuellement un tableau en html (ou latex) mais également en markdown n'est pas la solution. En markdown, la création de tableau se fait sur un principe de pipes, au premier abord cela apparait moins confus qu'en html mais les modifications  aussi simple soit elles sont assez chronophages et pénible.</span>
 <span id="cb25-324"><a href="#cb25-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-325"><a href="#cb25-325" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-326"><a href="#cb25-326" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;table&gt;</span></span>
-<span id="cb25-327"><a href="#cb25-327" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;tr&gt;</span></span>
-<span id="cb25-328"><a href="#cb25-328" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;td&gt;A&lt;/td&gt;</span></span>
-<span id="cb25-329"><a href="#cb25-329" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;td&gt;B&lt;/td&gt;</span></span>
-<span id="cb25-330"><a href="#cb25-330" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/tr&gt;</span></span>
+<span id="cb25-325"><a href="#cb25-325" aria-hidden="true" tabindex="-1"></a>Un exemple très simple pour s'en convaincre :</span>
+<span id="cb25-326"><a href="#cb25-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-327"><a href="#cb25-327" aria-hidden="true" tabindex="-1"></a>**Tableau en html**:</span>
+<span id="cb25-328"><a href="#cb25-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-329"><a href="#cb25-329" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-330"><a href="#cb25-330" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;table&gt;</span></span>
 <span id="cb25-331"><a href="#cb25-331" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;tr&gt;</span></span>
-<span id="cb25-332"><a href="#cb25-332" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;td&gt;C&lt;/td&gt;</span></span>
-<span id="cb25-333"><a href="#cb25-333" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;td&gt;D&lt;/td&gt;</span></span>
+<span id="cb25-332"><a href="#cb25-332" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;td&gt;A&lt;/td&gt;</span></span>
+<span id="cb25-333"><a href="#cb25-333" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;td&gt;B&lt;/td&gt;</span></span>
 <span id="cb25-334"><a href="#cb25-334" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/tr&gt;</span></span>
-<span id="cb25-335"><a href="#cb25-335" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/table&gt;</span></span>
-<span id="cb25-336"><a href="#cb25-336" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-337"><a href="#cb25-337" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-338"><a href="#cb25-338" aria-hidden="true" tabindex="-1"></a>En html, une multitude de balisage : <span class="in">`&lt;table&gt;&lt;/table&gt;`</span> (tableau), <span class="in">`&lt;tr&gt;&lt;/tr&gt;`</span> (ligne) et <span class="in">`&lt;td&gt;&lt;/td&gt;`</span> (colonne)</span>
-<span id="cb25-339"><a href="#cb25-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-340"><a href="#cb25-340" aria-hidden="true" tabindex="-1"></a>+---+---+</span>
-<span id="cb25-341"><a href="#cb25-341" aria-hidden="true" tabindex="-1"></a>| A | B |</span>
-<span id="cb25-342"><a href="#cb25-342" aria-hidden="true" tabindex="-1"></a>+---+---+</span>
-<span id="cb25-343"><a href="#cb25-343" aria-hidden="true" tabindex="-1"></a>| C | D |</span>
+<span id="cb25-335"><a href="#cb25-335" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;tr&gt;</span></span>
+<span id="cb25-336"><a href="#cb25-336" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;td&gt;C&lt;/td&gt;</span></span>
+<span id="cb25-337"><a href="#cb25-337" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;td&gt;D&lt;/td&gt;</span></span>
+<span id="cb25-338"><a href="#cb25-338" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/tr&gt;</span></span>
+<span id="cb25-339"><a href="#cb25-339" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/table&gt;</span></span>
+<span id="cb25-340"><a href="#cb25-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-341"><a href="#cb25-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-342"><a href="#cb25-342" aria-hidden="true" tabindex="-1"></a>En html, une multitude de balisage : <span class="in">`&lt;table&gt;&lt;/table&gt;`</span> (tableau), <span class="in">`&lt;tr&gt;&lt;/tr&gt;`</span> (ligne) et <span class="in">`&lt;td&gt;&lt;/td&gt;`</span> (colonne)</span>
+<span id="cb25-343"><a href="#cb25-343" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-344"><a href="#cb25-344" aria-hidden="true" tabindex="-1"></a>+---+---+</span>
-<span id="cb25-345"><a href="#cb25-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-346"><a href="#cb25-346" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb25-347"><a href="#cb25-347" aria-hidden="true" tabindex="-1"></a>**Tableau en markdown**:</span>
-<span id="cb25-348"><a href="#cb25-348" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-349"><a href="#cb25-349" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Repose sur un principe de *pipes* pas forcément facile à mémoriser</span>
-<span id="cb25-350"><a href="#cb25-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-351"><a href="#cb25-351" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-352"><a href="#cb25-352" aria-hidden="true" tabindex="-1"></a><span class="in">+---+---+</span></span>
-<span id="cb25-353"><a href="#cb25-353" aria-hidden="true" tabindex="-1"></a><span class="in">| A | B |</span></span>
-<span id="cb25-354"><a href="#cb25-354" aria-hidden="true" tabindex="-1"></a><span class="in">+---+---+</span></span>
-<span id="cb25-355"><a href="#cb25-355" aria-hidden="true" tabindex="-1"></a><span class="in">| C | D |</span></span>
+<span id="cb25-345"><a href="#cb25-345" aria-hidden="true" tabindex="-1"></a>| A | B |</span>
+<span id="cb25-346"><a href="#cb25-346" aria-hidden="true" tabindex="-1"></a>+---+---+</span>
+<span id="cb25-347"><a href="#cb25-347" aria-hidden="true" tabindex="-1"></a>| C | D |</span>
+<span id="cb25-348"><a href="#cb25-348" aria-hidden="true" tabindex="-1"></a>+---+---+</span>
+<span id="cb25-349"><a href="#cb25-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-350"><a href="#cb25-350" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb25-351"><a href="#cb25-351" aria-hidden="true" tabindex="-1"></a>**Tableau en markdown**:</span>
+<span id="cb25-352"><a href="#cb25-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-353"><a href="#cb25-353" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Repose sur un principe de *pipes* pas forcément facile à mémoriser</span>
+<span id="cb25-354"><a href="#cb25-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-355"><a href="#cb25-355" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
 <span id="cb25-356"><a href="#cb25-356" aria-hidden="true" tabindex="-1"></a><span class="in">+---+---+</span></span>
-<span id="cb25-357"><a href="#cb25-357" aria-hidden="true" tabindex="-1"></a><span class="in">: tableau markdown </span></span>
-<span id="cb25-358"><a href="#cb25-358" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-359"><a href="#cb25-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-360"><a href="#cb25-360" aria-hidden="true" tabindex="-1"></a>+---+---+</span>
-<span id="cb25-361"><a href="#cb25-361" aria-hidden="true" tabindex="-1"></a>| A | B |</span>
-<span id="cb25-362"><a href="#cb25-362" aria-hidden="true" tabindex="-1"></a>+---+---+</span>
-<span id="cb25-363"><a href="#cb25-363" aria-hidden="true" tabindex="-1"></a>| C | D |</span>
+<span id="cb25-357"><a href="#cb25-357" aria-hidden="true" tabindex="-1"></a><span class="in">| A | B |</span></span>
+<span id="cb25-358"><a href="#cb25-358" aria-hidden="true" tabindex="-1"></a><span class="in">+---+---+</span></span>
+<span id="cb25-359"><a href="#cb25-359" aria-hidden="true" tabindex="-1"></a><span class="in">| C | D |</span></span>
+<span id="cb25-360"><a href="#cb25-360" aria-hidden="true" tabindex="-1"></a><span class="in">+---+---+</span></span>
+<span id="cb25-361"><a href="#cb25-361" aria-hidden="true" tabindex="-1"></a><span class="in">: tableau markdown </span></span>
+<span id="cb25-362"><a href="#cb25-362" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-363"><a href="#cb25-363" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-364"><a href="#cb25-364" aria-hidden="true" tabindex="-1"></a>+---+---+</span>
-<span id="cb25-365"><a href="#cb25-365" aria-hidden="true" tabindex="-1"></a>: tableau markdown</span>
-<span id="cb25-366"><a href="#cb25-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-367"><a href="#cb25-367" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb25-368"><a href="#cb25-368" aria-hidden="true" tabindex="-1"></a>Et les modifications sont assez pénibles à réaliser (et encore ici on a pas mis de nom aux colonnes).</span>
-<span id="cb25-369"><a href="#cb25-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-370"><a href="#cb25-370" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-371"><a href="#cb25-371" aria-hidden="true" tabindex="-1"></a><span class="in">+--------+------+</span></span>
-<span id="cb25-372"><a href="#cb25-372" aria-hidden="true" tabindex="-1"></a><span class="in">| A      | BBBBBBB |</span></span>
-<span id="cb25-373"><a href="#cb25-373" aria-hidden="true" tabindex="-1"></a><span class="in">+--------+------+</span></span>
-<span id="cb25-374"><a href="#cb25-374" aria-hidden="true" tabindex="-1"></a><span class="in">| CCCCC | D    |</span></span>
+<span id="cb25-365"><a href="#cb25-365" aria-hidden="true" tabindex="-1"></a>| A | B |</span>
+<span id="cb25-366"><a href="#cb25-366" aria-hidden="true" tabindex="-1"></a>+---+---+</span>
+<span id="cb25-367"><a href="#cb25-367" aria-hidden="true" tabindex="-1"></a>| C | D |</span>
+<span id="cb25-368"><a href="#cb25-368" aria-hidden="true" tabindex="-1"></a>+---+---+</span>
+<span id="cb25-369"><a href="#cb25-369" aria-hidden="true" tabindex="-1"></a>: tableau markdown</span>
+<span id="cb25-370"><a href="#cb25-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-371"><a href="#cb25-371" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb25-372"><a href="#cb25-372" aria-hidden="true" tabindex="-1"></a>Et les modifications sont assez pénibles à réaliser (et encore ici on a pas mis de nom aux colonnes).</span>
+<span id="cb25-373"><a href="#cb25-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-374"><a href="#cb25-374" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
 <span id="cb25-375"><a href="#cb25-375" aria-hidden="true" tabindex="-1"></a><span class="in">+--------+------+</span></span>
-<span id="cb25-376"><a href="#cb25-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-377"><a href="#cb25-377" aria-hidden="true" tabindex="-1"></a><span class="in">+--------+---------+</span></span>
-<span id="cb25-378"><a href="#cb25-378" aria-hidden="true" tabindex="-1"></a><span class="in">| A      | BBBBBBB |</span></span>
-<span id="cb25-379"><a href="#cb25-379" aria-hidden="true" tabindex="-1"></a><span class="in">+--------+---------+</span></span>
-<span id="cb25-380"><a href="#cb25-380" aria-hidden="true" tabindex="-1"></a><span class="in">| CCCCC  | D       |</span></span>
+<span id="cb25-376"><a href="#cb25-376" aria-hidden="true" tabindex="-1"></a><span class="in">| A      | BBBBBBB |</span></span>
+<span id="cb25-377"><a href="#cb25-377" aria-hidden="true" tabindex="-1"></a><span class="in">+--------+------+</span></span>
+<span id="cb25-378"><a href="#cb25-378" aria-hidden="true" tabindex="-1"></a><span class="in">| CCCCC | D    |</span></span>
+<span id="cb25-379"><a href="#cb25-379" aria-hidden="true" tabindex="-1"></a><span class="in">+--------+------+</span></span>
+<span id="cb25-380"><a href="#cb25-380" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-381"><a href="#cb25-381" aria-hidden="true" tabindex="-1"></a><span class="in">+--------+---------+</span></span>
-<span id="cb25-382"><a href="#cb25-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-383"><a href="#cb25-383" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-384"><a href="#cb25-384" aria-hidden="true" tabindex="-1"></a>+--------+---------+</span>
-<span id="cb25-385"><a href="#cb25-385" aria-hidden="true" tabindex="-1"></a>| A      | BBBBBBB |</span>
-<span id="cb25-386"><a href="#cb25-386" aria-hidden="true" tabindex="-1"></a>+--------+---------+</span>
-<span id="cb25-387"><a href="#cb25-387" aria-hidden="true" tabindex="-1"></a>| CCCCC  | D       |</span>
+<span id="cb25-382"><a href="#cb25-382" aria-hidden="true" tabindex="-1"></a><span class="in">| A      | BBBBBBB |</span></span>
+<span id="cb25-383"><a href="#cb25-383" aria-hidden="true" tabindex="-1"></a><span class="in">+--------+---------+</span></span>
+<span id="cb25-384"><a href="#cb25-384" aria-hidden="true" tabindex="-1"></a><span class="in">| CCCCC  | D       |</span></span>
+<span id="cb25-385"><a href="#cb25-385" aria-hidden="true" tabindex="-1"></a><span class="in">+--------+---------+</span></span>
+<span id="cb25-386"><a href="#cb25-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-387"><a href="#cb25-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-388"><a href="#cb25-388" aria-hidden="true" tabindex="-1"></a>+--------+---------+</span>
-<span id="cb25-389"><a href="#cb25-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-390"><a href="#cb25-390" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb25-391"><a href="#cb25-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-392"><a href="#cb25-392" aria-hidden="true" tabindex="-1"></a>**La solution**: utiliser un éditeur de tableaux markdown.</span>
+<span id="cb25-389"><a href="#cb25-389" aria-hidden="true" tabindex="-1"></a>| A      | BBBBBBB |</span>
+<span id="cb25-390"><a href="#cb25-390" aria-hidden="true" tabindex="-1"></a>+--------+---------+</span>
+<span id="cb25-391"><a href="#cb25-391" aria-hidden="true" tabindex="-1"></a>| CCCCC  | D       |</span>
+<span id="cb25-392"><a href="#cb25-392" aria-hidden="true" tabindex="-1"></a>+--------+---------+</span>
 <span id="cb25-393"><a href="#cb25-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-394"><a href="#cb25-394" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec Quarto ou une version récente de Rmarkdown : passer en mode **Visual** et aller sur l'onglet **Table**. Le tableau peut être éditer directement après avoir indiqué le nombre de lignes et de colonne.</span>
-<span id="cb25-395"><a href="#cb25-395" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Utiliser un éditeur de tableau markdown en ligne : par exemple <span class="ot">&lt;https://www.tablesgenerator.com/markdown_tables&gt;</span>.</span>
-<span id="cb25-396"><a href="#cb25-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-394"><a href="#cb25-394" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb25-395"><a href="#cb25-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-396"><a href="#cb25-396" aria-hidden="true" tabindex="-1"></a>**La solution**: utiliser un éditeur de tableaux markdown.</span>
 <span id="cb25-397"><a href="#cb25-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-398"><a href="#cb25-398" aria-hidden="true" tabindex="-1"></a>::: callout-tip  </span>
-<span id="cb25-399"><a href="#cb25-399" aria-hidden="true" tabindex="-1"></a>Si on prévoit de faire plusieurs tableaux manuellement dans un document ou un projet, cela peut valoir le coup de générer un document dédié aux tableaux markdown. Il suffira de récupérer le code source des tableaux et de le coller dans le document final</span>
-<span id="cb25-400"><a href="#cb25-400" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-398"><a href="#cb25-398" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Avec Quarto ou une version récente de Rmarkdown : passer en mode **Visual** et aller sur l'onglet **Table**. Le tableau peut être éditer directement après avoir indiqué le nombre de lignes et de colonne.</span>
+<span id="cb25-399"><a href="#cb25-399" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Utiliser un éditeur de tableau markdown en ligne : par exemple <span class="ot">&lt;https://www.tablesgenerator.com/markdown_tables&gt;</span>.</span>
+<span id="cb25-400"><a href="#cb25-400" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-401"><a href="#cb25-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-402"><a href="#cb25-402" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb25-403"><a href="#cb25-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-404"><a href="#cb25-404" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Titre du tableau**: sous le tableau avec **`: titre tableau`**</span>
+<span id="cb25-402"><a href="#cb25-402" aria-hidden="true" tabindex="-1"></a>::: callout-tip  </span>
+<span id="cb25-403"><a href="#cb25-403" aria-hidden="true" tabindex="-1"></a>Si on prévoit de faire plusieurs tableaux manuellement dans un document ou un projet, cela peut valoir le coup de générer un document dédié aux tableaux markdown. Il suffira de récupérer le code source des tableaux et de le coller dans le document final</span>
+<span id="cb25-404"><a href="#cb25-404" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-405"><a href="#cb25-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-406"><a href="#cb25-406" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-407"><a href="#cb25-407" aria-hidden="true" tabindex="-1"></a><span class="in">| Variables | $Y_1$ | $Y_2$ |</span></span>
-<span id="cb25-408"><a href="#cb25-408" aria-hidden="true" tabindex="-1"></a><span class="in">|-----------|-------|-------|</span></span>
-<span id="cb25-409"><a href="#cb25-409" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_1$     | 100   | 261   |</span></span>
-<span id="cb25-410"><a href="#cb25-410" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_2$     | 350   | 198   |</span></span>
-<span id="cb25-411"><a href="#cb25-411" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_3$     | 125   | 175   |</span></span>
-<span id="cb25-412"><a href="#cb25-412" aria-hidden="true" tabindex="-1"></a><span class="in">: Titre tableau</span></span>
-<span id="cb25-413"><a href="#cb25-413" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-414"><a href="#cb25-414" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb25-415"><a href="#cb25-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-416"><a href="#cb25-416" aria-hidden="true" tabindex="-1"></a>| Variables | $Y_1$ | $Y_2$ |</span>
-<span id="cb25-417"><a href="#cb25-417" aria-hidden="true" tabindex="-1"></a>|-----------|-------|-------|</span>
-<span id="cb25-418"><a href="#cb25-418" aria-hidden="true" tabindex="-1"></a>| $X_1$     | 100   | 261   |</span>
-<span id="cb25-419"><a href="#cb25-419" aria-hidden="true" tabindex="-1"></a>| $X_2$     | 350   | 198   |</span>
-<span id="cb25-420"><a href="#cb25-420" aria-hidden="true" tabindex="-1"></a>| $X_3$     | 125   | 175   |</span>
-<span id="cb25-421"><a href="#cb25-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-422"><a href="#cb25-422" aria-hidden="true" tabindex="-1"></a>: Titre tableau {#tbl-tableau_md}</span>
-<span id="cb25-423"><a href="#cb25-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-424"><a href="#cb25-424" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb25-406"><a href="#cb25-406" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb25-407"><a href="#cb25-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-408"><a href="#cb25-408" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Titre du tableau**: sous le tableau avec **`: titre tableau`**</span>
+<span id="cb25-409"><a href="#cb25-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-410"><a href="#cb25-410" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-411"><a href="#cb25-411" aria-hidden="true" tabindex="-1"></a><span class="in">| Variables | $Y_1$ | $Y_2$ |</span></span>
+<span id="cb25-412"><a href="#cb25-412" aria-hidden="true" tabindex="-1"></a><span class="in">|-----------|-------|-------|</span></span>
+<span id="cb25-413"><a href="#cb25-413" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_1$     | 100   | 261   |</span></span>
+<span id="cb25-414"><a href="#cb25-414" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_2$     | 350   | 198   |</span></span>
+<span id="cb25-415"><a href="#cb25-415" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_3$     | 125   | 175   |</span></span>
+<span id="cb25-416"><a href="#cb25-416" aria-hidden="true" tabindex="-1"></a><span class="in">: Titre tableau</span></span>
+<span id="cb25-417"><a href="#cb25-417" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-418"><a href="#cb25-418" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb25-419"><a href="#cb25-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-420"><a href="#cb25-420" aria-hidden="true" tabindex="-1"></a>| Variables | $Y_1$ | $Y_2$ |</span>
+<span id="cb25-421"><a href="#cb25-421" aria-hidden="true" tabindex="-1"></a>|-----------|-------|-------|</span>
+<span id="cb25-422"><a href="#cb25-422" aria-hidden="true" tabindex="-1"></a>| $X_1$     | 100   | 261   |</span>
+<span id="cb25-423"><a href="#cb25-423" aria-hidden="true" tabindex="-1"></a>| $X_2$     | 350   | 198   |</span>
+<span id="cb25-424"><a href="#cb25-424" aria-hidden="true" tabindex="-1"></a>| $X_3$     | 125   | 175   |</span>
 <span id="cb25-425"><a href="#cb25-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-426"><a href="#cb25-426" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=true}</span>
+<span id="cb25-426"><a href="#cb25-426" aria-hidden="true" tabindex="-1"></a>: Titre tableau {#tbl-tableau_md}</span>
 <span id="cb25-427"><a href="#cb25-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-428"><a href="#cb25-428" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Modifier la largeur du tableau en format html</span></span>
+<span id="cb25-428"><a href="#cb25-428" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
 <span id="cb25-429"><a href="#cb25-429" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-430"><a href="#cb25-430" aria-hidden="true" tabindex="-1"></a>Avec un rendu html^<span class="co">[</span><span class="ot">En pdf la largeur est ajustée sur les colonnes donc pas de soucis</span><span class="co">]</span>, la largeur du tableau prend automatiquement toute la largeur de la page. Avec un nombre réduit de colonnes ce n'est pas top. On peut réduire la largeur du tableau en modifiant la mise en page de la page qui contient le tableau. </span>
+<span id="cb25-430"><a href="#cb25-430" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=true}</span>
 <span id="cb25-431"><a href="#cb25-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-432"><a href="#cb25-432" aria-hidden="true" tabindex="-1"></a>J'anticipe ici un peu les éléments de mise en page propres à Quarto. On peut insérer le tableau dans une édition en mode colonne <span class="co">[</span><span class="ot">@sec-column</span><span class="co">]</span> avec une largeur réduite (ici 20% de la largeur de la page)</span>
+<span id="cb25-432"><a href="#cb25-432" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Modifier la largeur du tableau en format html</span></span>
 <span id="cb25-433"><a href="#cb25-433" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-434"><a href="#cb25-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-435"><a href="#cb25-435" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-436"><a href="#cb25-436" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="20%"}</span></span>
-<span id="cb25-437"><a href="#cb25-437" aria-hidden="true" tabindex="-1"></a><span class="in">| Variables | $Y_1$ | $Y_2$ |</span></span>
-<span id="cb25-438"><a href="#cb25-438" aria-hidden="true" tabindex="-1"></a><span class="in">|-----------|-------|-------|</span></span>
-<span id="cb25-439"><a href="#cb25-439" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_1$     | 100   | 261   |</span></span>
-<span id="cb25-440"><a href="#cb25-440" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_2$     | 350   | 198   |</span></span>
-<span id="cb25-441"><a href="#cb25-441" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_3$     | 125   | 175   |</span></span>
-<span id="cb25-442"><a href="#cb25-442" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-443"><a href="#cb25-443" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-444"><a href="#cb25-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-445"><a href="#cb25-445" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb25-446"><a href="#cb25-446" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-447"><a href="#cb25-447" aria-hidden="true" tabindex="-1"></a>::: {.column width="20%"}</span>
-<span id="cb25-448"><a href="#cb25-448" aria-hidden="true" tabindex="-1"></a>| Variables | $Y_1$ | $Y_2$ |</span>
-<span id="cb25-449"><a href="#cb25-449" aria-hidden="true" tabindex="-1"></a>|-----------|-------|-------|</span>
-<span id="cb25-450"><a href="#cb25-450" aria-hidden="true" tabindex="-1"></a>| $X_1$     | 100   | 261   |</span>
-<span id="cb25-451"><a href="#cb25-451" aria-hidden="true" tabindex="-1"></a>| $X_2$     | 350   | 198   |</span>
-<span id="cb25-452"><a href="#cb25-452" aria-hidden="true" tabindex="-1"></a>| $X_3$     | 125   | 175   |</span>
-<span id="cb25-453"><a href="#cb25-453" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-454"><a href="#cb25-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-455"><a href="#cb25-455" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb25-456"><a href="#cb25-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-457"><a href="#cb25-457" aria-hidden="true" tabindex="-1"></a>Autre astuce (html): si on veut centrer rapidement et facilement le tableau sur la page, on peut utiliser un balisage html <span class="in">`&lt;center&gt;Tableau&lt;/center&gt;`</span> : </span>
+<span id="cb25-434"><a href="#cb25-434" aria-hidden="true" tabindex="-1"></a>Avec un rendu html^<span class="co">[</span><span class="ot">En pdf la largeur est ajustée sur les colonnes donc pas de soucis</span><span class="co">]</span>, la largeur du tableau prend automatiquement toute la largeur de la page. Avec un nombre réduit de colonnes ce n'est pas top. On peut réduire la largeur du tableau en modifiant la mise en page de la page qui contient le tableau. </span>
+<span id="cb25-435"><a href="#cb25-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-436"><a href="#cb25-436" aria-hidden="true" tabindex="-1"></a>J'anticipe ici un peu les éléments de mise en page propres à Quarto. On peut insérer le tableau dans une édition en mode colonne <span class="co">[</span><span class="ot">@sec-column</span><span class="co">]</span> avec une largeur réduite (ici 20% de la largeur de la page)</span>
+<span id="cb25-437"><a href="#cb25-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-438"><a href="#cb25-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-439"><a href="#cb25-439" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-440"><a href="#cb25-440" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="20%"}</span></span>
+<span id="cb25-441"><a href="#cb25-441" aria-hidden="true" tabindex="-1"></a><span class="in">| Variables | $Y_1$ | $Y_2$ |</span></span>
+<span id="cb25-442"><a href="#cb25-442" aria-hidden="true" tabindex="-1"></a><span class="in">|-----------|-------|-------|</span></span>
+<span id="cb25-443"><a href="#cb25-443" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_1$     | 100   | 261   |</span></span>
+<span id="cb25-444"><a href="#cb25-444" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_2$     | 350   | 198   |</span></span>
+<span id="cb25-445"><a href="#cb25-445" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_3$     | 125   | 175   |</span></span>
+<span id="cb25-446"><a href="#cb25-446" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-447"><a href="#cb25-447" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-448"><a href="#cb25-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-449"><a href="#cb25-449" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb25-450"><a href="#cb25-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-451"><a href="#cb25-451" aria-hidden="true" tabindex="-1"></a>::: {.column width="20%"}</span>
+<span id="cb25-452"><a href="#cb25-452" aria-hidden="true" tabindex="-1"></a>| Variables | $Y_1$ | $Y_2$ |</span>
+<span id="cb25-453"><a href="#cb25-453" aria-hidden="true" tabindex="-1"></a>|-----------|-------|-------|</span>
+<span id="cb25-454"><a href="#cb25-454" aria-hidden="true" tabindex="-1"></a>| $X_1$     | 100   | 261   |</span>
+<span id="cb25-455"><a href="#cb25-455" aria-hidden="true" tabindex="-1"></a>| $X_2$     | 350   | 198   |</span>
+<span id="cb25-456"><a href="#cb25-456" aria-hidden="true" tabindex="-1"></a>| $X_3$     | 125   | 175   |</span>
+<span id="cb25-457"><a href="#cb25-457" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-458"><a href="#cb25-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-459"><a href="#cb25-459" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-460"><a href="#cb25-460" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;center&gt;</span></span>
-<span id="cb25-461"><a href="#cb25-461" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="20%"}</span></span>
-<span id="cb25-462"><a href="#cb25-462" aria-hidden="true" tabindex="-1"></a><span class="in">| Variables | $Y_1$ | $Y_2$ |</span></span>
-<span id="cb25-463"><a href="#cb25-463" aria-hidden="true" tabindex="-1"></a><span class="in">|-----------|-------|-------|</span></span>
-<span id="cb25-464"><a href="#cb25-464" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_1$     | 100   | 261   |</span></span>
-<span id="cb25-465"><a href="#cb25-465" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_2$     | 350   | 198   |</span></span>
-<span id="cb25-466"><a href="#cb25-466" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_3$     | 125   | 175   |</span></span>
-<span id="cb25-467"><a href="#cb25-467" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-468"><a href="#cb25-468" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/center&gt;</span></span>
-<span id="cb25-469"><a href="#cb25-469" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-470"><a href="#cb25-470" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-471"><a href="#cb25-471" aria-hidden="true" tabindex="-1"></a>&lt;center&gt;</span>
-<span id="cb25-472"><a href="#cb25-472" aria-hidden="true" tabindex="-1"></a>::: {.column width="20%"}</span>
-<span id="cb25-473"><a href="#cb25-473" aria-hidden="true" tabindex="-1"></a>| Variables | $Y_1$ | $Y_2$ |</span>
-<span id="cb25-474"><a href="#cb25-474" aria-hidden="true" tabindex="-1"></a>|-----------|-------|-------|</span>
-<span id="cb25-475"><a href="#cb25-475" aria-hidden="true" tabindex="-1"></a>| $X_1$     | 100   | 261   |</span>
-<span id="cb25-476"><a href="#cb25-476" aria-hidden="true" tabindex="-1"></a>| $X_2$     | 350   | 198   |</span>
-<span id="cb25-477"><a href="#cb25-477" aria-hidden="true" tabindex="-1"></a>| $X_3$     | 125   | 175   |</span>
-<span id="cb25-478"><a href="#cb25-478" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-479"><a href="#cb25-479" aria-hidden="true" tabindex="-1"></a>&lt;/center&gt;</span>
-<span id="cb25-480"><a href="#cb25-480" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-481"><a href="#cb25-481" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-482"><a href="#cb25-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-483"><a href="#cb25-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-484"><a href="#cb25-484" aria-hidden="true" tabindex="-1"></a><span class="fu">### Insertion d'une équation ou d'une formule</span></span>
-<span id="cb25-485"><a href="#cb25-485" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-486"><a href="#cb25-486" aria-hidden="true" tabindex="-1"></a>Quarto utilise par défaut comme Rmarkdown l'éditeur <span class="in">`mathjax`</span>.  </span>
+<span id="cb25-459"><a href="#cb25-459" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb25-460"><a href="#cb25-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-461"><a href="#cb25-461" aria-hidden="true" tabindex="-1"></a>Autre astuce (html): si on veut centrer rapidement et facilement le tableau sur la page, on peut utiliser un balisage html <span class="in">`&lt;center&gt;Tableau&lt;/center&gt;`</span> : </span>
+<span id="cb25-462"><a href="#cb25-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-463"><a href="#cb25-463" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-464"><a href="#cb25-464" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;center&gt;</span></span>
+<span id="cb25-465"><a href="#cb25-465" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="20%"}</span></span>
+<span id="cb25-466"><a href="#cb25-466" aria-hidden="true" tabindex="-1"></a><span class="in">| Variables | $Y_1$ | $Y_2$ |</span></span>
+<span id="cb25-467"><a href="#cb25-467" aria-hidden="true" tabindex="-1"></a><span class="in">|-----------|-------|-------|</span></span>
+<span id="cb25-468"><a href="#cb25-468" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_1$     | 100   | 261   |</span></span>
+<span id="cb25-469"><a href="#cb25-469" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_2$     | 350   | 198   |</span></span>
+<span id="cb25-470"><a href="#cb25-470" aria-hidden="true" tabindex="-1"></a><span class="in">| $X_3$     | 125   | 175   |</span></span>
+<span id="cb25-471"><a href="#cb25-471" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-472"><a href="#cb25-472" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/center&gt;</span></span>
+<span id="cb25-473"><a href="#cb25-473" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-474"><a href="#cb25-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-475"><a href="#cb25-475" aria-hidden="true" tabindex="-1"></a>&lt;center&gt;</span>
+<span id="cb25-476"><a href="#cb25-476" aria-hidden="true" tabindex="-1"></a>::: {.column width="20%"}</span>
+<span id="cb25-477"><a href="#cb25-477" aria-hidden="true" tabindex="-1"></a>| Variables | $Y_1$ | $Y_2$ |</span>
+<span id="cb25-478"><a href="#cb25-478" aria-hidden="true" tabindex="-1"></a>|-----------|-------|-------|</span>
+<span id="cb25-479"><a href="#cb25-479" aria-hidden="true" tabindex="-1"></a>| $X_1$     | 100   | 261   |</span>
+<span id="cb25-480"><a href="#cb25-480" aria-hidden="true" tabindex="-1"></a>| $X_2$     | 350   | 198   |</span>
+<span id="cb25-481"><a href="#cb25-481" aria-hidden="true" tabindex="-1"></a>| $X_3$     | 125   | 175   |</span>
+<span id="cb25-482"><a href="#cb25-482" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-483"><a href="#cb25-483" aria-hidden="true" tabindex="-1"></a>&lt;/center&gt;</span>
+<span id="cb25-484"><a href="#cb25-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-485"><a href="#cb25-485" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-486"><a href="#cb25-486" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-487"><a href="#cb25-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-488"><a href="#cb25-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-489"><a href="#cb25-489" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si l'équation est insérée dans une ligne de texte : <span class="in">`$équation/formule$`</span>, par exemple <span class="in">`$y=x+1$`</span>   $y=x+1$</span>
-<span id="cb25-490"><a href="#cb25-490" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si l'équation est insérée sur une ligne entière : <span class="in">`$$équation-formule$$`</span>, par exemple <span class="in">`$$\sum_{i=0}^n p_i=1$$`</span> : </span>
+<span id="cb25-488"><a href="#cb25-488" aria-hidden="true" tabindex="-1"></a><span class="fu">### Insertion d'une équation ou d'une formule</span></span>
+<span id="cb25-489"><a href="#cb25-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-490"><a href="#cb25-490" aria-hidden="true" tabindex="-1"></a>Quarto utilise par défaut comme Rmarkdown l'éditeur <span class="in">`mathjax`</span>.  </span>
 <span id="cb25-491"><a href="#cb25-491" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-492"><a href="#cb25-492" aria-hidden="true" tabindex="-1"></a>$$\sum_{i=0}^n p_i=1$$</span>
-<span id="cb25-493"><a href="#cb25-493" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-494"><a href="#cb25-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-495"><a href="#cb25-495" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Liste de symboles pour écrire des formules</span><span class="co">](https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf)</span></span>
-<span id="cb25-496"><a href="#cb25-496" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Guide de rédaction des formules</span><span class="co">](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)</span></span>
+<span id="cb25-492"><a href="#cb25-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-493"><a href="#cb25-493" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si l'équation est insérée dans une ligne de texte : <span class="in">`$équation/formule$`</span>, par exemple <span class="in">`$y=x+1$`</span>   $y=x+1$</span>
+<span id="cb25-494"><a href="#cb25-494" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si l'équation est insérée sur une ligne entière : <span class="in">`$$équation-formule$$`</span>, par exemple <span class="in">`$$\sum_{i=0}^n p_i=1$$`</span> : </span>
+<span id="cb25-495"><a href="#cb25-495" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-496"><a href="#cb25-496" aria-hidden="true" tabindex="-1"></a>$$\sum_{i=0}^n p_i=1$$</span>
 <span id="cb25-497"><a href="#cb25-497" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-498"><a href="#cb25-498" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-499"><a href="#cb25-499" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-500"><a href="#cb25-500" aria-hidden="true" tabindex="-1"></a><span class="fu">## Balisage propres à Quarto/Rmarkdown</span></span>
+<span id="cb25-499"><a href="#cb25-499" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Liste de symboles pour écrire des formules</span><span class="co">](https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf)</span></span>
+<span id="cb25-500"><a href="#cb25-500" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Guide de rédaction des formules</span><span class="co">](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)</span></span>
 <span id="cb25-501"><a href="#cb25-501" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-502"><a href="#cb25-502" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-503"><a href="#cb25-503" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-504"><a href="#cb25-504" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:CSS Wiki</span><span class="co">](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade)</span>]{.nut}</span>
+<span id="cb25-504"><a href="#cb25-504" aria-hidden="true" tabindex="-1"></a><span class="fu">## Balisage propres à Quarto/Rmarkdown</span></span>
 <span id="cb25-505"><a href="#cb25-505" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-506"><a href="#cb25-506" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-507"><a href="#cb25-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-508"><a href="#cb25-508" aria-hidden="true" tabindex="-1"></a>Posit a introduit 3 types de balisage: </span>
+<span id="cb25-508"><a href="#cb25-508" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:CSS Wiki</span><span class="co">](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade)</span>]{.nut}</span>
 <span id="cb25-509"><a href="#cb25-509" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-510"><a href="#cb25-510" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un pour modifier des éléments de mise en page: </span>
-<span id="cb25-511"><a href="#cb25-511" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Se substitue aux balises html de type **`&lt;div&gt;`**: édition en plusieurs colonnes , contours, couleurs de fond.... Applique une classe CSS^<span class="co">[</span><span class="ot">Cascade Style Sheet</span><span class="co">]</span> à un élément ou à une partie du document. Ne pas s'inquiéter, Quarto fournit plusieurs classes CSS à appliquer directement à un document. </span>
-<span id="cb25-512"><a href="#cb25-512" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-513"><a href="#cb25-513" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un pour modifier des éléments de formatage du texte non pris en compte par le markdown: </span>
-<span id="cb25-514"><a href="#cb25-514" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Se substitue aux balises html de type **`&lt;span&gt;`** en html. Demandera nécessairement quelques connaissances en css (on se limitera ici à la couleur d'un mot).</span>
-<span id="cb25-515"><a href="#cb25-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-516"><a href="#cb25-516" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un système de **shortcode** pour insérer des éléments se substituant ou non à des balises html ou à des classes  **CSS**.</span>
-<span id="cb25-517"><a href="#cb25-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-518"><a href="#cb25-518" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-519"><a href="#cb25-519" aria-hidden="true" tabindex="-1"></a><span class="fu">### Balises de mise en page</span></span>
-<span id="cb25-520"><a href="#cb25-520" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-521"><a href="#cb25-521" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La balise **`&lt;div&gt;`** associée à une classe CSS est remplacée par une balise de type **clôture** (*fence*): **<span class="in">`:::`</span>. La partie modifiée sera ouverte et fermée par ces <span class="in">`:::`</span>.</span>
-<span id="cb25-522"><a href="#cb25-522" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-523"><a href="#cb25-523" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La balise de clôture contient au minimum 3 **:** </span>
-<span id="cb25-524"><a href="#cb25-524" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-525"><a href="#cb25-525" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le nom donné à la modification de la mise en page est appelé **classe** et est indiqué à l'ouverture de la section div dans des accolades: **`::: {.nom_classe_css  &lt;options&gt;}`**.</span>
+<span id="cb25-510"><a href="#cb25-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-511"><a href="#cb25-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-512"><a href="#cb25-512" aria-hidden="true" tabindex="-1"></a>Posit a introduit 3 types de balisage: </span>
+<span id="cb25-513"><a href="#cb25-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-514"><a href="#cb25-514" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un pour modifier des éléments de mise en page: </span>
+<span id="cb25-515"><a href="#cb25-515" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Se substitue aux balises html de type **`&lt;div&gt;`**: édition en plusieurs colonnes , contours, couleurs de fond.... Applique une classe CSS^<span class="co">[</span><span class="ot">Cascade Style Sheet</span><span class="co">]</span> à un élément ou à une partie du document. Ne pas s'inquiéter, Quarto fournit plusieurs classes CSS à appliquer directement à un document. </span>
+<span id="cb25-516"><a href="#cb25-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-517"><a href="#cb25-517" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un pour modifier des éléments de formatage du texte non pris en compte par le markdown: </span>
+<span id="cb25-518"><a href="#cb25-518" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Se substitue aux balises html de type **`&lt;span&gt;`** en html. Demandera nécessairement quelques connaissances en css (on se limitera ici à la couleur d'un mot).</span>
+<span id="cb25-519"><a href="#cb25-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-520"><a href="#cb25-520" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un système de **shortcode** pour insérer des éléments se substituant ou non à des balises html ou à des classes  **CSS**.</span>
+<span id="cb25-521"><a href="#cb25-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-522"><a href="#cb25-522" aria-hidden="true" tabindex="-1"></a>Les deux premiers types sont directement issu de Pandoc^<span class="co">[</span><span class="ot">Merci à Julien Rabaud pour la précision</span><span class="co">]</span>, le convertisseur de document utilisé par Quarto.</span>
+<span id="cb25-523"><a href="#cb25-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-524"><a href="#cb25-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-525"><a href="#cb25-525" aria-hidden="true" tabindex="-1"></a><span class="fu">### Balises de mise en page</span></span>
 <span id="cb25-526"><a href="#cb25-526" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-527"><a href="#cb25-527" aria-hidden="true" tabindex="-1"></a>**Utilisation d'une classe CSS prédéfinie (par le thème ou par Quarto)**:</span>
+<span id="cb25-527"><a href="#cb25-527" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La balise **`&lt;div&gt;`** associée à une classe CSS est remplacée par une balise de type **clôture** (*fence*): **<span class="in">`:::`</span>. La partie modifiée sera ouverte et fermée par ces <span class="in">`:::`</span></span>
 <span id="cb25-528"><a href="#cb25-528" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb25-529"><a href="#cb25-529" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-530"><a href="#cb25-530" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.nom_classe_css  &lt;options&gt;}</span></span>
-<span id="cb25-531"><a href="#cb25-531" aria-hidden="true" tabindex="-1"></a><span class="in">Texte/image....</span></span>
-<span id="cb25-532"><a href="#cb25-532" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-533"><a href="#cb25-533" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-534"><a href="#cb25-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-535"><a href="#cb25-535" aria-hidden="true" tabindex="-1"></a>En html, on aurait par exemple:</span>
-<span id="cb25-536"><a href="#cb25-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-537"><a href="#cb25-537" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-538"><a href="#cb25-538" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div&gt;</span></span>
-<span id="cb25-539"><a href="#cb25-539" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p class="nom_classe_css &lt;options&gt;</span></span>
-<span id="cb25-540"><a href="#cb25-540" aria-hidden="true" tabindex="-1"></a><span class="in">Texte/image ...</span></span>
-<span id="cb25-541"><a href="#cb25-541" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/p&gt;</span></span>
-<span id="cb25-542"><a href="#cb25-542" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
-<span id="cb25-543"><a href="#cb25-543" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-544"><a href="#cb25-544" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-545"><a href="#cb25-545" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-546"><a href="#cb25-546" aria-hidden="true" tabindex="-1"></a>Remarques: </span>
-<span id="cb25-547"><a href="#cb25-547" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-548"><a href="#cb25-548" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut mettre plusieurs classes CSS à la suite pour modifier la mise d'une partie du document. </span>
-<span id="cb25-549"><a href="#cb25-549" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-550"><a href="#cb25-550" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut modifier directement le style avec des attributs CSS sans définir de classe (pas recommandé):  </span>
-<span id="cb25-551"><a href="#cb25-551" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`::: {style = "attributs_css"}`**.</span>
-<span id="cb25-552"><a href="#cb25-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-553"><a href="#cb25-553" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut imbriquer plusieurs modifications dans une même zône du document. Pour s'y retrouver dans les ouvertures/fermetures, on peut augmenter le nombre de **:**.  </span>
-<span id="cb25-554"><a href="#cb25-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-555"><a href="#cb25-555" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-556"><a href="#cb25-556" aria-hidden="true" tabindex="-1"></a><span class="in">:::: {.nom_classe1}</span></span>
-<span id="cb25-557"><a href="#cb25-557" aria-hidden="true" tabindex="-1"></a><span class="in">:::  {.nom_classe2}</span></span>
-<span id="cb25-558"><a href="#cb25-558" aria-hidden="true" tabindex="-1"></a><span class="in">Texte</span></span>
-<span id="cb25-559"><a href="#cb25-559" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-560"><a href="#cb25-560" aria-hidden="true" tabindex="-1"></a><span class="in">::::</span></span>
-<span id="cb25-561"><a href="#cb25-561" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-562"><a href="#cb25-562" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-563"><a href="#cb25-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-564"><a href="#cb25-564" aria-hidden="true" tabindex="-1"></a>Et comme c'est plus sympa avec des exemples...</span>
-<span id="cb25-565"><a href="#cb25-565" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-566"><a href="#cb25-566" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-567"><a href="#cb25-567" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Encadrés informatifs: les callouts</span></span>
+<span id="cb25-529"><a href="#cb25-529" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La balise de clôture contient au minimum 3 **:** </span>
+<span id="cb25-530"><a href="#cb25-530" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-531"><a href="#cb25-531" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le nom donné à la modification de la mise en page est appelé **classe** et est indiqué à l'ouverture de la section div dans des accolades: **`::: {.nom_classe_css  &lt;options&gt;}`**.</span>
+<span id="cb25-532"><a href="#cb25-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-533"><a href="#cb25-533" aria-hidden="true" tabindex="-1"></a>**Utilisation d'une classe CSS prédéfinie (par le thème ou par Quarto)**:</span>
+<span id="cb25-534"><a href="#cb25-534" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-535"><a href="#cb25-535" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-536"><a href="#cb25-536" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.nom_classe_css  &lt;options&gt;}</span></span>
+<span id="cb25-537"><a href="#cb25-537" aria-hidden="true" tabindex="-1"></a><span class="in">Texte/image....</span></span>
+<span id="cb25-538"><a href="#cb25-538" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-539"><a href="#cb25-539" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-540"><a href="#cb25-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-541"><a href="#cb25-541" aria-hidden="true" tabindex="-1"></a>En html, on aurait par exemple:</span>
+<span id="cb25-542"><a href="#cb25-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-543"><a href="#cb25-543" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-544"><a href="#cb25-544" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="nom_classe_css"&gt;</span></span>
+<span id="cb25-545"><a href="#cb25-545" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;p&gt;</span></span>
+<span id="cb25-546"><a href="#cb25-546" aria-hidden="true" tabindex="-1"></a><span class="in">Texte/image ...</span></span>
+<span id="cb25-547"><a href="#cb25-547" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/p&gt;</span></span>
+<span id="cb25-548"><a href="#cb25-548" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb25-549"><a href="#cb25-549" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-550"><a href="#cb25-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-551"><a href="#cb25-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-552"><a href="#cb25-552" aria-hidden="true" tabindex="-1"></a>Remarques: </span>
+<span id="cb25-553"><a href="#cb25-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-554"><a href="#cb25-554" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut mettre plusieurs classes CSS à la suite pour modifier la mise d'une partie du document. </span>
+<span id="cb25-555"><a href="#cb25-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-556"><a href="#cb25-556" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut modifier directement le style avec des attributs CSS sans définir de classe (pas recommandé):  </span>
+<span id="cb25-557"><a href="#cb25-557" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`::: {style = "attributs_css"}`**.</span>
+<span id="cb25-558"><a href="#cb25-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-559"><a href="#cb25-559" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut imbriquer plusieurs modifications dans une même zône du document. Pour s'y retrouver dans les ouvertures/fermetures, on peut augmenter le nombre de **:**.  </span>
+<span id="cb25-560"><a href="#cb25-560" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-561"><a href="#cb25-561" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-562"><a href="#cb25-562" aria-hidden="true" tabindex="-1"></a><span class="in">:::: {.nom_classe1}</span></span>
+<span id="cb25-563"><a href="#cb25-563" aria-hidden="true" tabindex="-1"></a><span class="in">:::  {.nom_classe2}</span></span>
+<span id="cb25-564"><a href="#cb25-564" aria-hidden="true" tabindex="-1"></a><span class="in">Texte</span></span>
+<span id="cb25-565"><a href="#cb25-565" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-566"><a href="#cb25-566" aria-hidden="true" tabindex="-1"></a><span class="in">::::</span></span>
+<span id="cb25-567"><a href="#cb25-567" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-568"><a href="#cb25-568" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-569"><a href="#cb25-569" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Il s'agit d'un élément propre à Quarto (non implémenté dans Rmarkdown).  </span>
-<span id="cb25-570"><a href="#cb25-570" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-571"><a href="#cb25-571" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>C'est une zône de texte sous forme d'encadré avec un bord coloré et un icone selon le type d'information :  **note/info**, **tips/success**, **warning**, **important**, **danger**.</span>
+<span id="cb25-569"><a href="#cb25-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-570"><a href="#cb25-570" aria-hidden="true" tabindex="-1"></a>Et comme c'est plus sympa avec des exemples...</span>
+<span id="cb25-571"><a href="#cb25-571" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-572"><a href="#cb25-572" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-573"><a href="#cb25-573" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour générer cette mise en page, sans plus d'option, on utilise la classe <span class="in">`{.callout-nom_type}`</span>: </span>
-<span id="cb25-574"><a href="#cb25-574" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`{.callout-note}`</span>, <span class="in">`{.callout-warning}`</span></span>
-<span id="cb25-575"><a href="#cb25-575" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Plusieurs options: <span class="in">`{.callout-warning option}`</span></span>
-<span id="cb25-576"><a href="#cb25-576" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Si aucune option, on peut également appeler l'encadré directement avec: **`::: callout-type`**</span>
-<span id="cb25-577"><a href="#cb25-577" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-578"><a href="#cb25-578" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut mettre un titre à l'encadré (@sec-titre):</span>
-<span id="cb25-579"><a href="#cb25-579" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Mettre le titre sur la première ligne du texte de l'encadré.</span>
-<span id="cb25-580"><a href="#cb25-580" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Penser à baisser le niveau du titre par rapport à celui de la section.</span>
-<span id="cb25-581"><a href="#cb25-581" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-582"><a href="#cb25-582" aria-hidden="true" tabindex="-1"></a>Encadré d'avertissement :</span>
+<span id="cb25-573"><a href="#cb25-573" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Encadrés informatifs: les callouts</span></span>
+<span id="cb25-574"><a href="#cb25-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-575"><a href="#cb25-575" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Il s'agit d'un élément propre à Quarto (non implémenté dans Rmarkdown).  </span>
+<span id="cb25-576"><a href="#cb25-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-577"><a href="#cb25-577" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>C'est une zône de texte sous forme d'encadré avec un bord coloré et un icone selon le type d'information :  **note/info**, **tips/success**, **warning**, **important**, **danger**.</span>
+<span id="cb25-578"><a href="#cb25-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-579"><a href="#cb25-579" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour générer cette mise en page, sans plus d'option, on utilise la classe <span class="in">`{.callout-nom_type}`</span>: </span>
+<span id="cb25-580"><a href="#cb25-580" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`{.callout-note}`</span>, <span class="in">`{.callout-warning}`</span></span>
+<span id="cb25-581"><a href="#cb25-581" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Plusieurs options: <span class="in">`{.callout-warning option}`</span></span>
+<span id="cb25-582"><a href="#cb25-582" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Si aucune option, on peut également appeler l'encadré directement avec: **`::: callout-type`**</span>
 <span id="cb25-583"><a href="#cb25-583" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-584"><a href="#cb25-584" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-585"><a href="#cb25-585" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-warning}</span></span>
-<span id="cb25-586"><a href="#cb25-586" aria-hidden="true" tabindex="-1"></a><span class="in">Attention si vous faites ça, vous allez avoir des problèmes.</span></span>
-<span id="cb25-587"><a href="#cb25-587" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-588"><a href="#cb25-588" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-584"><a href="#cb25-584" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut mettre un titre à l'encadré (@sec-titre):</span>
+<span id="cb25-585"><a href="#cb25-585" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Mettre le titre sur la première ligne du texte de l'encadré.</span>
+<span id="cb25-586"><a href="#cb25-586" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Penser à baisser le niveau du titre par rapport à celui de la section.</span>
+<span id="cb25-587"><a href="#cb25-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-588"><a href="#cb25-588" aria-hidden="true" tabindex="-1"></a>Encadré d'avertissement :</span>
 <span id="cb25-589"><a href="#cb25-589" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-590"><a href="#cb25-590" aria-hidden="true" tabindex="-1"></a>Ce qui donne : </span>
-<span id="cb25-591"><a href="#cb25-591" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-592"><a href="#cb25-592" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
-<span id="cb25-593"><a href="#cb25-593" aria-hidden="true" tabindex="-1"></a>Attention si vous faites ça, vous allez avoir des problèmes.</span>
-<span id="cb25-594"><a href="#cb25-594" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-590"><a href="#cb25-590" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-591"><a href="#cb25-591" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.callout-warning}</span></span>
+<span id="cb25-592"><a href="#cb25-592" aria-hidden="true" tabindex="-1"></a><span class="in">Attention si vous faites ça, vous allez avoir des problèmes.</span></span>
+<span id="cb25-593"><a href="#cb25-593" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-594"><a href="#cb25-594" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-595"><a href="#cb25-595" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-596"><a href="#cb25-596" aria-hidden="true" tabindex="-1"></a>Avec <span class="in">`callout-note`</span> (information):</span>
+<span id="cb25-596"><a href="#cb25-596" aria-hidden="true" tabindex="-1"></a>Ce qui donne : </span>
 <span id="cb25-597"><a href="#cb25-597" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-598"><a href="#cb25-598" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-599"><a href="#cb25-599" aria-hidden="true" tabindex="-1"></a><span class="in">::: callout-note</span></span>
-<span id="cb25-600"><a href="#cb25-600" aria-hidden="true" tabindex="-1"></a><span class="in">Les **callouts** ne sont pas implémentés dans Rmarkdown</span></span>
-<span id="cb25-601"><a href="#cb25-601" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-602"><a href="#cb25-602" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-598"><a href="#cb25-598" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb25-599"><a href="#cb25-599" aria-hidden="true" tabindex="-1"></a>Attention si vous faites ça, vous allez avoir des problèmes.</span>
+<span id="cb25-600"><a href="#cb25-600" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-601"><a href="#cb25-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-602"><a href="#cb25-602" aria-hidden="true" tabindex="-1"></a>Avec <span class="in">`callout-note`</span> (information):</span>
 <span id="cb25-603"><a href="#cb25-603" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-604"><a href="#cb25-604" aria-hidden="true" tabindex="-1"></a>Ce qui donne: </span>
-<span id="cb25-605"><a href="#cb25-605" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-606"><a href="#cb25-606" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb25-607"><a href="#cb25-607" aria-hidden="true" tabindex="-1"></a>Les **callout** ne sont pas implémentés dans Rmarkdown.</span>
-<span id="cb25-608"><a href="#cb25-608" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-604"><a href="#cb25-604" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-605"><a href="#cb25-605" aria-hidden="true" tabindex="-1"></a><span class="in">::: callout-note</span></span>
+<span id="cb25-606"><a href="#cb25-606" aria-hidden="true" tabindex="-1"></a><span class="in">Les **callouts** ne sont pas implémentés dans Rmarkdown</span></span>
+<span id="cb25-607"><a href="#cb25-607" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-608"><a href="#cb25-608" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-609"><a href="#cb25-609" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-610"><a href="#cb25-610" aria-hidden="true" tabindex="-1"></a>**Ajouter des options**:</span>
+<span id="cb25-610"><a href="#cb25-610" aria-hidden="true" tabindex="-1"></a>Ce qui donne: </span>
 <span id="cb25-611"><a href="#cb25-611" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-612"><a href="#cb25-612" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Il y a plusieurs options associées à ces encadrés comme retirer l'icône, étendre le contenu lorsque celui est trop long, ......</span>
-<span id="cb25-613"><a href="#cb25-613" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Quelques options:</span>
-<span id="cb25-614"><a href="#cb25-614" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`collapse= true`** <span class="co">[</span><span class="ot">seulement format html</span><span class="co">]</span>: si le contenu est trop long, permet de l'afficher à la volée. Penser à mettre un titre à l'encadré.</span>
-<span id="cb25-615"><a href="#cb25-615" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`appareance`**: simple ou minimale.</span>
-<span id="cb25-616"><a href="#cb25-616" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>simple: pas d'icône et couleur faiblement saturé sur le titre.</span>
-<span id="cb25-617"><a href="#cb25-617" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>minimale: pas d'icône et pas de couleur sur le titre.</span>
-<span id="cb25-618"><a href="#cb25-618" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`icon= false`**  </span>
-<span id="cb25-619"><a href="#cb25-619" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-620"><a href="#cb25-620" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=true}</span>
-<span id="cb25-621"><a href="#cb25-621" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Collapse</span></span>
-<span id="cb25-622"><a href="#cb25-622" aria-hidden="true" tabindex="-1"></a><span class="in">`::: {.callout-tip collapse=true}`</span></span>
-<span id="cb25-623"><a href="#cb25-623" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-624"><a href="#cb25-624" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-625"><a href="#cb25-625" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb25-626"><a href="#cb25-626" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Apparence par défaut</span></span>
-<span id="cb25-627"><a href="#cb25-627" aria-hidden="true" tabindex="-1"></a><span class="in">`::: callout-tip`</span></span>
-<span id="cb25-628"><a href="#cb25-628" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-629"><a href="#cb25-629" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-630"><a href="#cb25-630" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip appareance=simple}</span>
-<span id="cb25-631"><a href="#cb25-631" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Apparence simple</span></span>
-<span id="cb25-632"><a href="#cb25-632" aria-hidden="true" tabindex="-1"></a><span class="in">`::: {.callout-tip appearance=simple}`</span></span>
-<span id="cb25-633"><a href="#cb25-633" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-634"><a href="#cb25-634" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-635"><a href="#cb25-635" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip appearance=minimal}</span>
-<span id="cb25-636"><a href="#cb25-636" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Apparence minimale</span></span>
-<span id="cb25-637"><a href="#cb25-637" aria-hidden="true" tabindex="-1"></a><span class="in">`::: {.callout-tip appearance=minimal}`</span></span>
-<span id="cb25-638"><a href="#cb25-638" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-639"><a href="#cb25-639" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-612"><a href="#cb25-612" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb25-613"><a href="#cb25-613" aria-hidden="true" tabindex="-1"></a>Les **callout** ne sont pas implémentés dans Rmarkdown.</span>
+<span id="cb25-614"><a href="#cb25-614" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-615"><a href="#cb25-615" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-616"><a href="#cb25-616" aria-hidden="true" tabindex="-1"></a>**Ajouter des options**:</span>
+<span id="cb25-617"><a href="#cb25-617" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-618"><a href="#cb25-618" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Il y a plusieurs options associées à ces encadrés comme retirer l'icône, étendre le contenu lorsque celui est trop long, ......</span>
+<span id="cb25-619"><a href="#cb25-619" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Quelques options:</span>
+<span id="cb25-620"><a href="#cb25-620" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`collapse= true`** <span class="co">[</span><span class="ot">seulement format html</span><span class="co">]</span>: si le contenu est trop long, permet de l'afficher à la volée. Penser à mettre un titre à l'encadré.</span>
+<span id="cb25-621"><a href="#cb25-621" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`appareance`**: simple ou minimale.</span>
+<span id="cb25-622"><a href="#cb25-622" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>simple: pas d'icône et couleur faiblement saturé sur le titre.</span>
+<span id="cb25-623"><a href="#cb25-623" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>minimale: pas d'icône et pas de couleur sur le titre.</span>
+<span id="cb25-624"><a href="#cb25-624" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`icon= false`**  </span>
+<span id="cb25-625"><a href="#cb25-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-626"><a href="#cb25-626" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=true}</span>
+<span id="cb25-627"><a href="#cb25-627" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Collapse</span></span>
+<span id="cb25-628"><a href="#cb25-628" aria-hidden="true" tabindex="-1"></a><span class="in">`::: {.callout-tip collapse=true}`</span></span>
+<span id="cb25-629"><a href="#cb25-629" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-630"><a href="#cb25-630" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-631"><a href="#cb25-631" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb25-632"><a href="#cb25-632" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Apparence par défaut</span></span>
+<span id="cb25-633"><a href="#cb25-633" aria-hidden="true" tabindex="-1"></a><span class="in">`::: callout-tip`</span></span>
+<span id="cb25-634"><a href="#cb25-634" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-635"><a href="#cb25-635" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-636"><a href="#cb25-636" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip appareance=simple}</span>
+<span id="cb25-637"><a href="#cb25-637" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Apparence simple</span></span>
+<span id="cb25-638"><a href="#cb25-638" aria-hidden="true" tabindex="-1"></a><span class="in">`::: {.callout-tip appearance=simple}`</span></span>
+<span id="cb25-639"><a href="#cb25-639" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-640"><a href="#cb25-640" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-641"><a href="#cb25-641" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip icon=false}</span>
-<span id="cb25-642"><a href="#cb25-642" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Supprimer l'icône</span></span>
-<span id="cb25-643"><a href="#cb25-643" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-644"><a href="#cb25-644" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans la section div: <span class="in">`::: {.callout-tip icon=false}`</span></span>
-<span id="cb25-645"><a href="#cb25-645" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le yaml/header du qmd: <span class="in">`callout-icon: false`</span></span>
-<span id="cb25-646"><a href="#cb25-646" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On peut refaire apparaitre l'icône dans les callout individuellement.</span>
-<span id="cb25-647"><a href="#cb25-647" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-648"><a href="#cb25-648" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-649"><a href="#cb25-649" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Multicolonnes {#sec-column}</span></span>
-<span id="cb25-650"><a href="#cb25-650" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-651"><a href="#cb25-651" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Imbrication de plusieurs balises :</span>
-<span id="cb25-652"><a href="#cb25-652" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Deux types de balises: </span>
-<span id="cb25-653"><a href="#cb25-653" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>On déclare une édition en plusieurs colonnes: **`{.columns}`**</span>
-<span id="cb25-654"><a href="#cb25-654" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>On génère chaque colonne: **`{.columns width="x%"}`**</span>
-<span id="cb25-655"><a href="#cb25-655" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Comme les balises sont liées et imbriquées,  on peut clôturer la première avec plus de **:** pour faciliter l'édition, par exemple 4: **`::: {.column}`**. </span>
+<span id="cb25-641"><a href="#cb25-641" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip appearance=minimal}</span>
+<span id="cb25-642"><a href="#cb25-642" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Apparence minimale</span></span>
+<span id="cb25-643"><a href="#cb25-643" aria-hidden="true" tabindex="-1"></a><span class="in">`::: {.callout-tip appearance=minimal}`</span></span>
+<span id="cb25-644"><a href="#cb25-644" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-645"><a href="#cb25-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-646"><a href="#cb25-646" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-647"><a href="#cb25-647" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip icon=false}</span>
+<span id="cb25-648"><a href="#cb25-648" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Supprimer l'icône</span></span>
+<span id="cb25-649"><a href="#cb25-649" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-650"><a href="#cb25-650" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans la section div: <span class="in">`::: {.callout-tip icon=false}`</span></span>
+<span id="cb25-651"><a href="#cb25-651" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le yaml/header du qmd: <span class="in">`callout-icon: false`</span></span>
+<span id="cb25-652"><a href="#cb25-652" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On peut refaire apparaitre l'icône dans les callout individuellement.</span>
+<span id="cb25-653"><a href="#cb25-653" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-654"><a href="#cb25-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-655"><a href="#cb25-655" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Multicolonnes {#sec-column}</span></span>
 <span id="cb25-656"><a href="#cb25-656" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-657"><a href="#cb25-657" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-658"><a href="#cb25-658" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-659"><a href="#cb25-659" aria-hidden="true" tabindex="-1"></a><span class="in">:::: {.columns}</span></span>
-<span id="cb25-660"><a href="#cb25-660" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-661"><a href="#cb25-661" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="50%"}</span></span>
-<span id="cb25-662"><a href="#cb25-662" aria-hidden="true" tabindex="-1"></a><span class="in">* Texte de la colonne de gauche </span></span>
-<span id="cb25-663"><a href="#cb25-663" aria-hidden="true" tabindex="-1"></a><span class="in">* Largeur: </span></span>
-<span id="cb25-664"><a href="#cb25-664" aria-hidden="true" tabindex="-1"></a><span class="in">  * 50% de la page avec l'option `width=50%`</span></span>
-<span id="cb25-665"><a href="#cb25-665" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-657"><a href="#cb25-657" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Imbrication de plusieurs balises :</span>
+<span id="cb25-658"><a href="#cb25-658" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Deux types de balises: </span>
+<span id="cb25-659"><a href="#cb25-659" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>On déclare une édition en plusieurs colonnes: **`{.columns}`**</span>
+<span id="cb25-660"><a href="#cb25-660" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>On génère chaque colonne: **`{.columns width="x%"}`**</span>
+<span id="cb25-661"><a href="#cb25-661" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Comme les balises sont liées et imbriquées,  on peut clôturer la première avec plus de **:** pour faciliter l'édition, par exemple 4: **`::: {.column}`**. </span>
+<span id="cb25-662"><a href="#cb25-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-663"><a href="#cb25-663" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-664"><a href="#cb25-664" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-665"><a href="#cb25-665" aria-hidden="true" tabindex="-1"></a><span class="in">:::: {.columns}</span></span>
 <span id="cb25-666"><a href="#cb25-666" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-667"><a href="#cb25-667" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="50%"}</span></span>
-<span id="cb25-668"><a href="#cb25-668" aria-hidden="true" tabindex="-1"></a><span class="in">* Texte de la colonne de droite</span></span>
-<span id="cb25-669"><a href="#cb25-669" aria-hidden="true" tabindex="-1"></a><span class="in">  * 50% de la page avec l'option `width=50%`</span></span>
-<span id="cb25-670"><a href="#cb25-670" aria-hidden="true" tabindex="-1"></a><span class="in">* Largeur: </span></span>
+<span id="cb25-668"><a href="#cb25-668" aria-hidden="true" tabindex="-1"></a><span class="in">* Texte de la colonne de gauche </span></span>
+<span id="cb25-669"><a href="#cb25-669" aria-hidden="true" tabindex="-1"></a><span class="in">* Largeur: </span></span>
+<span id="cb25-670"><a href="#cb25-670" aria-hidden="true" tabindex="-1"></a><span class="in">  * 50% de la page avec l'option `width=50%`</span></span>
 <span id="cb25-671"><a href="#cb25-671" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
 <span id="cb25-672"><a href="#cb25-672" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-673"><a href="#cb25-673" aria-hidden="true" tabindex="-1"></a><span class="in">::::</span></span>
-<span id="cb25-674"><a href="#cb25-674" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-675"><a href="#cb25-675" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-676"><a href="#cb25-676" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-677"><a href="#cb25-677" aria-hidden="true" tabindex="-1"></a>Ce qui donne : </span>
+<span id="cb25-673"><a href="#cb25-673" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="50%"}</span></span>
+<span id="cb25-674"><a href="#cb25-674" aria-hidden="true" tabindex="-1"></a><span class="in">* Texte de la colonne de droite</span></span>
+<span id="cb25-675"><a href="#cb25-675" aria-hidden="true" tabindex="-1"></a><span class="in">  * 50% de la page avec l'option `width=50%`</span></span>
+<span id="cb25-676"><a href="#cb25-676" aria-hidden="true" tabindex="-1"></a><span class="in">* Largeur: </span></span>
+<span id="cb25-677"><a href="#cb25-677" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
 <span id="cb25-678"><a href="#cb25-678" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-679"><a href="#cb25-679" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
-<span id="cb25-680"><a href="#cb25-680" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-681"><a href="#cb25-681" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
-<span id="cb25-682"><a href="#cb25-682" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Texte de la colonne de gauche   </span>
-<span id="cb25-683"><a href="#cb25-683" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Largeur : </span>
-<span id="cb25-684"><a href="#cb25-684" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>50% de la page avec l'option <span class="in">`width=50%`</span>  </span>
-<span id="cb25-685"><a href="#cb25-685" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-686"><a href="#cb25-686" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-687"><a href="#cb25-687" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-688"><a href="#cb25-688" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"} </span>
-<span id="cb25-689"><a href="#cb25-689" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-690"><a href="#cb25-690" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Texte de la colonne de droite    </span>
-<span id="cb25-691"><a href="#cb25-691" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Largeur : </span>
-<span id="cb25-692"><a href="#cb25-692" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>50% de la page avec l'option <span class="in">`width=50%`</span>  </span>
+<span id="cb25-679"><a href="#cb25-679" aria-hidden="true" tabindex="-1"></a><span class="in">::::</span></span>
+<span id="cb25-680"><a href="#cb25-680" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-681"><a href="#cb25-681" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-682"><a href="#cb25-682" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-683"><a href="#cb25-683" aria-hidden="true" tabindex="-1"></a>Ce qui donne : </span>
+<span id="cb25-684"><a href="#cb25-684" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-685"><a href="#cb25-685" aria-hidden="true" tabindex="-1"></a>:::: {.columns}</span>
+<span id="cb25-686"><a href="#cb25-686" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-687"><a href="#cb25-687" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"}</span>
+<span id="cb25-688"><a href="#cb25-688" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Texte de la colonne de gauche   </span>
+<span id="cb25-689"><a href="#cb25-689" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Largeur : </span>
+<span id="cb25-690"><a href="#cb25-690" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>50% de la page avec l'option <span class="in">`width=50%`</span>  </span>
+<span id="cb25-691"><a href="#cb25-691" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-692"><a href="#cb25-692" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-693"><a href="#cb25-693" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-694"><a href="#cb25-694" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-695"><a href="#cb25-695" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb25-696"><a href="#cb25-696" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-697"><a href="#cb25-697" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb25-698"><a href="#cb25-698" aria-hidden="true" tabindex="-1"></a>On peut mettre une colonne vide pour créer une marge entre les colonnes textes</span>
+<span id="cb25-694"><a href="#cb25-694" aria-hidden="true" tabindex="-1"></a>::: {.column width="50%"} </span>
+<span id="cb25-695"><a href="#cb25-695" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-696"><a href="#cb25-696" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Texte de la colonne de droite    </span>
+<span id="cb25-697"><a href="#cb25-697" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Largeur : </span>
+<span id="cb25-698"><a href="#cb25-698" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>50% de la page avec l'option <span class="in">`width=50%`</span>  </span>
 <span id="cb25-699"><a href="#cb25-699" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-700"><a href="#cb25-700" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-701"><a href="#cb25-701" aria-hidden="true" tabindex="-1"></a><span class="in">:::: {.columns}</span></span>
+<span id="cb25-700"><a href="#cb25-700" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-701"><a href="#cb25-701" aria-hidden="true" tabindex="-1"></a>::::</span>
 <span id="cb25-702"><a href="#cb25-702" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-703"><a href="#cb25-703" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="47.5%"}</span></span>
-<span id="cb25-704"><a href="#cb25-704" aria-hidden="true" tabindex="-1"></a><span class="in">* Texte de la colonne de gauche   </span></span>
-<span id="cb25-705"><a href="#cb25-705" aria-hidden="true" tabindex="-1"></a><span class="in">* Largeur : </span></span>
-<span id="cb25-706"><a href="#cb25-706" aria-hidden="true" tabindex="-1"></a><span class="in">* 50% de la page avec l'option `width=50%`  </span></span>
-<span id="cb25-707"><a href="#cb25-707" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-708"><a href="#cb25-708" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-709"><a href="#cb25-709" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-710"><a href="#cb25-710" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="10%"} </span></span>
-<span id="cb25-711"><a href="#cb25-711" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-712"><a href="#cb25-712" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-713"><a href="#cb25-713" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="47.5%"} </span></span>
-<span id="cb25-714"><a href="#cb25-714" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-715"><a href="#cb25-715" aria-hidden="true" tabindex="-1"></a><span class="in">* Texte de la colonne de droite    </span></span>
-<span id="cb25-716"><a href="#cb25-716" aria-hidden="true" tabindex="-1"></a><span class="in">* Largeur : </span></span>
-<span id="cb25-717"><a href="#cb25-717" aria-hidden="true" tabindex="-1"></a><span class="in">* 50% de la page avec l'option `width=50%`  </span></span>
+<span id="cb25-703"><a href="#cb25-703" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb25-704"><a href="#cb25-704" aria-hidden="true" tabindex="-1"></a>On peut mettre une colonne vide pour créer une marge entre les colonnes textes</span>
+<span id="cb25-705"><a href="#cb25-705" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-706"><a href="#cb25-706" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-707"><a href="#cb25-707" aria-hidden="true" tabindex="-1"></a><span class="in">:::: {.columns}</span></span>
+<span id="cb25-708"><a href="#cb25-708" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-709"><a href="#cb25-709" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="47.5%"}</span></span>
+<span id="cb25-710"><a href="#cb25-710" aria-hidden="true" tabindex="-1"></a><span class="in">* Texte de la colonne de gauche   </span></span>
+<span id="cb25-711"><a href="#cb25-711" aria-hidden="true" tabindex="-1"></a><span class="in">* Largeur : </span></span>
+<span id="cb25-712"><a href="#cb25-712" aria-hidden="true" tabindex="-1"></a><span class="in">* 50% de la page avec l'option `width=50%`  </span></span>
+<span id="cb25-713"><a href="#cb25-713" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-714"><a href="#cb25-714" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-715"><a href="#cb25-715" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-716"><a href="#cb25-716" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="10%"} </span></span>
+<span id="cb25-717"><a href="#cb25-717" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
 <span id="cb25-718"><a href="#cb25-718" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-719"><a href="#cb25-719" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
-<span id="cb25-720"><a href="#cb25-720" aria-hidden="true" tabindex="-1"></a><span class="in">::::</span></span>
-<span id="cb25-721"><a href="#cb25-721" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-722"><a href="#cb25-722" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-723"><a href="#cb25-723" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-719"><a href="#cb25-719" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.column width="47.5%"} </span></span>
+<span id="cb25-720"><a href="#cb25-720" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-721"><a href="#cb25-721" aria-hidden="true" tabindex="-1"></a><span class="in">* Texte de la colonne de droite    </span></span>
+<span id="cb25-722"><a href="#cb25-722" aria-hidden="true" tabindex="-1"></a><span class="in">* Largeur : </span></span>
+<span id="cb25-723"><a href="#cb25-723" aria-hidden="true" tabindex="-1"></a><span class="in">* 50% de la page avec l'option `width=50%`  </span></span>
 <span id="cb25-724"><a href="#cb25-724" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-725"><a href="#cb25-725" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-726"><a href="#cb25-726" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formatage du texte</span></span>
-<span id="cb25-727"><a href="#cb25-727" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-728"><a href="#cb25-728" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A mon sens moins utile, le markdown gérant l'essentiel du formatage de texte. Je passe donc brièvement dessus.</span>
-<span id="cb25-729"><a href="#cb25-729" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Demande quelques connaissances en CSS. Tous ces éléments sont bien documentés sur internet.</span>
+<span id="cb25-725"><a href="#cb25-725" aria-hidden="true" tabindex="-1"></a><span class="in">:::</span></span>
+<span id="cb25-726"><a href="#cb25-726" aria-hidden="true" tabindex="-1"></a><span class="in">::::</span></span>
+<span id="cb25-727"><a href="#cb25-727" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-728"><a href="#cb25-728" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-729"><a href="#cb25-729" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-730"><a href="#cb25-730" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-731"><a href="#cb25-731" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Syntaxe: **`[texte à modifier]{style css affecté au texte}`**.</span>
-<span id="cb25-732"><a href="#cb25-732" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-733"><a href="#cb25-733" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-734"><a href="#cb25-734" aria-hidden="true" tabindex="-1"></a><span class="in">On veut mettre le mot [texte]{style="color:red"} rouge. </span></span>
-<span id="cb25-735"><a href="#cb25-735" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-731"><a href="#cb25-731" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-732"><a href="#cb25-732" aria-hidden="true" tabindex="-1"></a><span class="fu">### Formatage du texte</span></span>
+<span id="cb25-733"><a href="#cb25-733" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-734"><a href="#cb25-734" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A mon sens moins utile, le markdown gérant l'essentiel du formatage de texte. Je passe donc brièvement dessus.</span>
+<span id="cb25-735"><a href="#cb25-735" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Demande quelques connaissances en CSS. Tous ces éléments sont bien documentés sur internet.</span>
 <span id="cb25-736"><a href="#cb25-736" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-737"><a href="#cb25-737" aria-hidden="true" tabindex="-1"></a>On veut mettre le mot <span class="co">[</span><span class="ot">texte</span><span class="co">]</span>{style="color:red"} en rouge. </span>
+<span id="cb25-737"><a href="#cb25-737" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Syntaxe: **`[texte à modifier]{style css affecté au texte}`**.</span>
 <span id="cb25-738"><a href="#cb25-738" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-739"><a href="#cb25-739" aria-hidden="true" tabindex="-1"></a>On peut bien évidemment utiliser une classe CSS prédéfinie. Par exemple avec la classe **`.border`**:</span>
-<span id="cb25-740"><a href="#cb25-740" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-741"><a href="#cb25-741" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb25-742"><a href="#cb25-742" aria-hidden="true" tabindex="-1"></a><span class="in">On veut mettre le mot [texte]{.border} avec un contour. </span></span>
-<span id="cb25-743"><a href="#cb25-743" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-739"><a href="#cb25-739" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-740"><a href="#cb25-740" aria-hidden="true" tabindex="-1"></a><span class="in">On veut mettre le mot [texte]{style="color:red"} rouge. </span></span>
+<span id="cb25-741"><a href="#cb25-741" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-742"><a href="#cb25-742" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-743"><a href="#cb25-743" aria-hidden="true" tabindex="-1"></a>On veut mettre le mot <span class="co">[</span><span class="ot">texte</span><span class="co">]</span>{style="color:red"} en rouge. </span>
 <span id="cb25-744"><a href="#cb25-744" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-745"><a href="#cb25-745" aria-hidden="true" tabindex="-1"></a>On veut mettre le mot <span class="co">[</span><span class="ot">texte</span><span class="co">]</span>{.border} avec un contour. </span>
+<span id="cb25-745"><a href="#cb25-745" aria-hidden="true" tabindex="-1"></a>On peut bien évidemment utiliser une classe CSS prédéfinie. Par exemple avec la classe **`.border`**:</span>
 <span id="cb25-746"><a href="#cb25-746" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-747"><a href="#cb25-747" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-748"><a href="#cb25-748" aria-hidden="true" tabindex="-1"></a><span class="fu">### Shortcodes d'insertion {#sec-shortcode}</span></span>
-<span id="cb25-749"><a href="#cb25-749" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-750"><a href="#cb25-750" aria-hidden="true" tabindex="-1"></a>Syntaxe: **`{{{&lt; type_shorcode options &gt;}}}`**</span>
-<span id="cb25-751"><a href="#cb25-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-747"><a href="#cb25-747" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb25-748"><a href="#cb25-748" aria-hidden="true" tabindex="-1"></a><span class="in">On veut mettre le mot [texte]{.border} avec un contour. </span></span>
+<span id="cb25-749"><a href="#cb25-749" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-750"><a href="#cb25-750" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-751"><a href="#cb25-751" aria-hidden="true" tabindex="-1"></a>On veut mettre le mot <span class="co">[</span><span class="ot">texte</span><span class="co">]</span>{.border} avec un contour. </span>
 <span id="cb25-752"><a href="#cb25-752" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-753"><a href="#cb25-753" aria-hidden="true" tabindex="-1"></a>Quelques exemples.</span>
-<span id="cb25-754"><a href="#cb25-754" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-753"><a href="#cb25-753" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-754"><a href="#cb25-754" aria-hidden="true" tabindex="-1"></a><span class="fu">### Shortcodes d'insertion {#sec-shortcode}</span></span>
 <span id="cb25-755"><a href="#cb25-755" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-756"><a href="#cb25-756" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sauts de page </span></span>
+<span id="cb25-756"><a href="#cb25-756" aria-hidden="true" tabindex="-1"></a>Syntaxe: **`{{{&lt; type_shorcode options &gt;}}}`**</span>
 <span id="cb25-757"><a href="#cb25-757" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-758"><a href="#cb25-758" aria-hidden="true" tabindex="-1"></a>Une des très bonnes implémentation de Quarto (min v1.3). On a la possibilité quel que soit soit le format de sortie d'indiquer un saut de page. Pour le format html permet d'insérer des sauts de page si le document doit être imprimer. </span>
-<span id="cb25-759"><a href="#cb25-759" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-760"><a href="#cb25-760" aria-hidden="true" tabindex="-1"></a>Le shortcode est: **`{{{&lt; pagebreak &gt;}}}`**</span>
+<span id="cb25-758"><a href="#cb25-758" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-759"><a href="#cb25-759" aria-hidden="true" tabindex="-1"></a>Quelques exemples.</span>
+<span id="cb25-760"><a href="#cb25-760" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-761"><a href="#cb25-761" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-762"><a href="#cb25-762" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-763"><a href="#cb25-763" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Insertion de video </span></span>
-<span id="cb25-764"><a href="#cb25-764" aria-hidden="true" tabindex="-1"></a>On peut insérer des vidéos (Youtube, Vimeo...) avec **`{{{&lt; video video_link option &gt;}}}`**</span>
+<span id="cb25-762"><a href="#cb25-762" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sauts de page </span></span>
+<span id="cb25-763"><a href="#cb25-763" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-764"><a href="#cb25-764" aria-hidden="true" tabindex="-1"></a>Une des très bonnes implémentation de Quarto (min v1.3). On a la possibilité quel que soit soit le format de sortie d'indiquer un saut de page. Pour le format html permet d'insérer des sauts de page si le document doit être imprimer. </span>
 <span id="cb25-765"><a href="#cb25-765" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-766"><a href="#cb25-766" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-766"><a href="#cb25-766" aria-hidden="true" tabindex="-1"></a>Le shortcode est: **`{{{&lt; pagebreak &gt;}}}`**</span>
 <span id="cb25-767"><a href="#cb25-767" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-768"><a href="#cb25-768" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb25-769"><a href="#cb25-769" aria-hidden="true" tabindex="-1"></a><span class="in">{{&lt; video https://www.youtube.com/watch?v=VEay0IMZT8w &gt;}} </span></span>
-<span id="cb25-770"><a href="#cb25-770" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-768"><a href="#cb25-768" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-769"><a href="#cb25-769" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Insertion de video </span></span>
+<span id="cb25-770"><a href="#cb25-770" aria-hidden="true" tabindex="-1"></a>On peut insérer des vidéos (Youtube, Vimeo...) avec **`{{{&lt; video video_link option &gt;}}}`**</span>
 <span id="cb25-771"><a href="#cb25-771" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-772"><a href="#cb25-772" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb25-773"><a href="#cb25-773" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=VEay0IMZT8w &gt;}}</span>
-<span id="cb25-774"><a href="#cb25-774" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb25-775"><a href="#cb25-775" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-776"><a href="#cb25-776" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-777"><a href="#cb25-777" aria-hidden="true" tabindex="-1"></a>On peut paramétrer le ratio ou la taille de la vidéo insérée:</span>
-<span id="cb25-778"><a href="#cb25-778" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-779"><a href="#cb25-779" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ratio avec l'option aspect-ratio (par défaut 16/9). Ici en 4/3: </span>
-<span id="cb25-780"><a href="#cb25-780" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-781"><a href="#cb25-781" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb25-782"><a href="#cb25-782" aria-hidden="true" tabindex="-1"></a><span class="in">{{&lt; video lien_video aspect-ratio="4x3" &gt;}}</span></span>
-<span id="cb25-783"><a href="#cb25-783" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-772"><a href="#cb25-772" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-773"><a href="#cb25-773" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-774"><a href="#cb25-774" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb25-775"><a href="#cb25-775" aria-hidden="true" tabindex="-1"></a><span class="in">{{&lt; video https://www.youtube.com/watch?v=VEay0IMZT8w &gt;}} </span></span>
+<span id="cb25-776"><a href="#cb25-776" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-777"><a href="#cb25-777" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-778"><a href="#cb25-778" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb25-779"><a href="#cb25-779" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=VEay0IMZT8w &gt;}}</span>
+<span id="cb25-780"><a href="#cb25-780" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-781"><a href="#cb25-781" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-782"><a href="#cb25-782" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-783"><a href="#cb25-783" aria-hidden="true" tabindex="-1"></a>On peut paramétrer le ratio ou la taille de la vidéo insérée:</span>
 <span id="cb25-784"><a href="#cb25-784" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-785"><a href="#cb25-785" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-786"><a href="#cb25-786" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Taille avec <span class="in">`width`</span> et <span class="in">`height`</span>: </span>
-<span id="cb25-787"><a href="#cb25-787" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-788"><a href="#cb25-788" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-789"><a href="#cb25-789" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb25-790"><a href="#cb25-790" aria-hidden="true" tabindex="-1"></a><span class="in">{{&lt; video lien_video width="500" height="350" &gt;}}</span></span>
-<span id="cb25-791"><a href="#cb25-791" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-792"><a href="#cb25-792" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-785"><a href="#cb25-785" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ratio avec l'option aspect-ratio (par défaut 16/9). Ici en 4/3: </span>
+<span id="cb25-786"><a href="#cb25-786" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-787"><a href="#cb25-787" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb25-788"><a href="#cb25-788" aria-hidden="true" tabindex="-1"></a><span class="in">{{&lt; video lien_video aspect-ratio="4x3" &gt;}}</span></span>
+<span id="cb25-789"><a href="#cb25-789" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-790"><a href="#cb25-790" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-791"><a href="#cb25-791" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-792"><a href="#cb25-792" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Taille avec <span class="in">`width`</span> et <span class="in">`height`</span>: </span>
 <span id="cb25-793"><a href="#cb25-793" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-794"><a href="#cb25-794" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-795"><a href="#cb25-795" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Insertion d'un autre document ou programme </span></span>
-<span id="cb25-796"><a href="#cb25-796" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-797"><a href="#cb25-797" aria-hidden="true" tabindex="-1"></a>***Insertion d'un document***</span>
+<span id="cb25-795"><a href="#cb25-795" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb25-796"><a href="#cb25-796" aria-hidden="true" tabindex="-1"></a><span class="in">{{&lt; video lien_video width="500" height="350" &gt;}}</span></span>
+<span id="cb25-797"><a href="#cb25-797" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb25-798"><a href="#cb25-798" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-799"><a href="#cb25-799" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut également insérer directement un document ou des lignes de codes issues d'un autre fichier:  </span>
-<span id="cb25-800"><a href="#cb25-800" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`{{{&lt; include nom_fichier &gt;}}}`** </span>
-<span id="cb25-801"><a href="#cb25-801" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-802"><a href="#cb25-802" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Exemple: on veut insérer directement le code source d'un fichier appelé *include.qmd.* Il pourrait, par exemple, être  utilisé dans plusieurs formats d'une même documentation (article et présentation):</span>
-<span id="cb25-803"><a href="#cb25-803" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`{{{&lt; include files/include.qmd &gt;}}}`**. </span>
+<span id="cb25-799"><a href="#cb25-799" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-800"><a href="#cb25-800" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-801"><a href="#cb25-801" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Insertion d'un autre document ou programme </span></span>
+<span id="cb25-802"><a href="#cb25-802" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-803"><a href="#cb25-803" aria-hidden="true" tabindex="-1"></a>***Insertion d'un document***</span>
 <span id="cb25-804"><a href="#cb25-804" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-805"><a href="#cb25-805" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-806"><a href="#cb25-806" aria-hidden="true" tabindex="-1"></a>Code source du fichier que l'on veut insérer:</span>
+<span id="cb25-805"><a href="#cb25-805" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut également insérer directement un document ou des lignes de codes issues d'un autre fichier:  </span>
+<span id="cb25-806"><a href="#cb25-806" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`{{{&lt; include nom_fichier &gt;}}}`** </span>
 <span id="cb25-807"><a href="#cb25-807" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-808"><a href="#cb25-808" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
-<span id="cb25-809"><a href="#cb25-809" aria-hidden="true" tabindex="-1"></a><span class="al">![Fichier .qmd inséré](img1/include_qmd.png)</span></span>
-<span id="cb25-810"><a href="#cb25-810" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-808"><a href="#cb25-808" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Exemple: on veut insérer directement le code source d'un fichier appelé *include.qmd.* Il pourrait, par exemple, être  utilisé dans plusieurs formats d'une même documentation (article et présentation):</span>
+<span id="cb25-809"><a href="#cb25-809" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`{{{&lt; include files/include.qmd &gt;}}}`**. </span>
+<span id="cb25-810"><a href="#cb25-810" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-811"><a href="#cb25-811" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-812"><a href="#cb25-812" aria-hidden="true" tabindex="-1"></a>Le résultat après l'inclusion:</span>
+<span id="cb25-812"><a href="#cb25-812" aria-hidden="true" tabindex="-1"></a>Code source du fichier que l'on veut insérer:</span>
 <span id="cb25-813"><a href="#cb25-813" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-814"><a href="#cb25-814" aria-hidden="true" tabindex="-1"></a>{{&lt; include files/include.qmd &gt;}}</span>
-<span id="cb25-815"><a href="#cb25-815" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-816"><a href="#cb25-816" aria-hidden="true" tabindex="-1"></a>***Insertion d'un programme***  </span>
+<span id="cb25-814"><a href="#cb25-814" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb25-815"><a href="#cb25-815" aria-hidden="true" tabindex="-1"></a><span class="al">![Fichier .qmd inséré](img1/include_qmd.png)</span></span>
+<span id="cb25-816"><a href="#cb25-816" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb25-817"><a href="#cb25-817" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-818"><a href="#cb25-818" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On a par exemple un programme R enregistré dans un fichier.</span>
-<span id="cb25-819"><a href="#cb25-819" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut l'exécuter directement sans insérer directement le programme dans un bloc de code (voir chapitre dédié aux blocs de code): </span>
-<span id="cb25-820"><a href="#cb25-820" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`{{{&lt; include nom_programme.R &gt;}}}`**</span>
+<span id="cb25-818"><a href="#cb25-818" aria-hidden="true" tabindex="-1"></a>Le résultat après l'inclusion:</span>
+<span id="cb25-819"><a href="#cb25-819" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-820"><a href="#cb25-820" aria-hidden="true" tabindex="-1"></a>{{&lt; include files/include.qmd &gt;}}</span>
 <span id="cb25-821"><a href="#cb25-821" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-822"><a href="#cb25-822" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-823"><a href="#cb25-823" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On a enregistré le script assez long **_include_prog.R** dans le répertoire files:</span>
-<span id="cb25-824"><a href="#cb25-824" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-827"><a href="#cb25-827" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb25-828"><a href="#cb25-828" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb25-829"><a href="#cb25-829" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb25-822"><a href="#cb25-822" aria-hidden="true" tabindex="-1"></a>***Insertion d'un programme***  </span>
+<span id="cb25-823"><a href="#cb25-823" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-824"><a href="#cb25-824" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On a par exemple un programme R enregistré dans un fichier.</span>
+<span id="cb25-825"><a href="#cb25-825" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut l'exécuter directement sans insérer directement le programme dans un bloc de code (voir chapitre dédié aux blocs de code): </span>
+<span id="cb25-826"><a href="#cb25-826" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**`{{{&lt; include nom_programme.R &gt;}}}`**</span>
+<span id="cb25-827"><a href="#cb25-827" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-828"><a href="#cb25-828" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-829"><a href="#cb25-829" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On a enregistré le script assez long **_include_prog.R** dans le répertoire files:</span>
 <span id="cb25-830"><a href="#cb25-830" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-831"><a href="#cb25-831" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb25-832"><a href="#cb25-832" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb25-833"><a href="#cb25-833" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-834"><a href="#cb25-834" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"fecondite_ggp.csv"</span>)</span>
-<span id="cb25-835"><a href="#cb25-835" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character,as.factor)</span>
+<span id="cb25-833"><a href="#cb25-833" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-834"><a href="#cb25-834" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-835"><a href="#cb25-835" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
 <span id="cb25-836"><a href="#cb25-836" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-837"><a href="#cb25-837" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb25-838"><a href="#cb25-838" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pays2=</span>pays)   </span>
+<span id="cb25-837"><a href="#cb25-837" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb25-838"><a href="#cb25-838" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb25-839"><a href="#cb25-839" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-840"><a href="#cb25-840" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tmp) <span class="sc">+</span></span>
-<span id="cb25-841"><a href="#cb25-841" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
-<span id="cb25-842"><a href="#cb25-842" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>( <span class="at">data=</span>tmp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>pays), <span class="fu">aes</span>(<span class="at">group=</span>pays2), <span class="at">color=</span><span class="st">"grey"</span>, <span class="at">lwd=</span><span class="fl">0.1</span>) <span class="sc">+</span>    </span>
-<span id="cb25-843"><a href="#cb25-843" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
-<span id="cb25-844"><a href="#cb25-844" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
-<span id="cb25-845"><a href="#cb25-845" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb25-846"><a href="#cb25-846" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb25-847"><a href="#cb25-847" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),  </span>
-<span id="cb25-848"><a href="#cb25-848" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
-<span id="cb25-849"><a href="#cb25-849" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
-<span id="cb25-850"><a href="#cb25-850" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"ICF"</span>, </span>
-<span id="cb25-851"><a href="#cb25-851" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
-<span id="cb25-852"><a href="#cb25-852" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
-<span id="cb25-853"><a href="#cb25-853" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
-<span id="cb25-854"><a href="#cb25-854" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb25-855"><a href="#cb25-855" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
-<span id="cb25-856"><a href="#cb25-856" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-857"><a href="#cb25-857" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-858"><a href="#cb25-858" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-859"><a href="#cb25-859" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-860"><a href="#cb25-860" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut l'exécuter directement avec le shortcode <span class="in">`include`</span> sans l'insérer explicitement dans le fichier .qmd:  </span>
-<span id="cb25-861"><a href="#cb25-861" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-862"><a href="#cb25-862" aria-hidden="true" tabindex="-1"></a><span class="al">![](img1/include.png)</span></span>
-<span id="cb25-863"><a href="#cb25-863" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-864"><a href="#cb25-864" aria-hidden="true" tabindex="-1"></a>Dans le document le graphique sera affiché: </span>
+<span id="cb25-840"><a href="#cb25-840" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"fecondite_ggp.csv"</span>)</span>
+<span id="cb25-841"><a href="#cb25-841" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate_if</span>(is.character,as.factor)</span>
+<span id="cb25-842"><a href="#cb25-842" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-843"><a href="#cb25-843" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb25-844"><a href="#cb25-844" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pays2=</span>pays)   </span>
+<span id="cb25-845"><a href="#cb25-845" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-846"><a href="#cb25-846" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tmp) <span class="sc">+</span></span>
+<span id="cb25-847"><a href="#cb25-847" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> y) <span class="sc">+</span></span>
+<span id="cb25-848"><a href="#cb25-848" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>( <span class="at">data=</span>tmp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>pays), <span class="fu">aes</span>(<span class="at">group=</span>pays2), <span class="at">color=</span><span class="st">"grey"</span>, <span class="at">lwd=</span><span class="fl">0.1</span>) <span class="sc">+</span>    </span>
+<span id="cb25-849"><a href="#cb25-849" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#C24168"</span>, <span class="at">lwd=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
+<span id="cb25-850"><a href="#cb25-850" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Taux de fécondité"</span>) <span class="sc">+</span></span>
+<span id="cb25-851"><a href="#cb25-851" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb25-852"><a href="#cb25-852" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb25-853"><a href="#cb25-853" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb25-854"><a href="#cb25-854" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="cb25-855"><a href="#cb25-855" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Années"</span>, </span>
+<span id="cb25-856"><a href="#cb25-856" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"ICF"</span>, </span>
+<span id="cb25-857"><a href="#cb25-857" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Indices conjoncturels de fécondité par pays de 1950 à 2022"</span>, </span>
+<span id="cb25-858"><a href="#cb25-858" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: GGP - Datalab Ined"</span>,) <span class="sc">+</span></span>
+<span id="cb25-859"><a href="#cb25-859" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>), <span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">1950</span>,<span class="dv">2020</span>, <span class="dv">10</span>)) <span class="sc">+</span> </span>
+<span id="cb25-860"><a href="#cb25-860" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb25-861"><a href="#cb25-861" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pays), <span class="at">ncol =</span> <span class="dv">4</span>L)</span>
+<span id="cb25-862"><a href="#cb25-862" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-863"><a href="#cb25-863" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-864"><a href="#cb25-864" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-865"><a href="#cb25-865" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-866"><a href="#cb25-866" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
-<span id="cb25-867"><a href="#cb25-867" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
-<span id="cb25-868"><a href="#cb25-868" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-869"><a href="#cb25-869" aria-hidden="true" tabindex="-1"></a><span class="in">{{&lt; include files/_include_prog.R &gt;}}</span></span>
-<span id="cb25-870"><a href="#cb25-870" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-871"><a href="#cb25-871" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb25-872"><a href="#cb25-872" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-866"><a href="#cb25-866" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut l'exécuter directement avec le shortcode <span class="in">`include`</span> sans l'insérer explicitement dans le fichier .qmd:  </span>
+<span id="cb25-867"><a href="#cb25-867" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-868"><a href="#cb25-868" aria-hidden="true" tabindex="-1"></a><span class="al">![](img1/include.png)</span></span>
+<span id="cb25-869"><a href="#cb25-869" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-870"><a href="#cb25-870" aria-hidden="true" tabindex="-1"></a>Dans le document le graphique sera affiché: </span>
+<span id="cb25-871"><a href="#cb25-871" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-872"><a href="#cb25-872" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
+<span id="cb25-873"><a href="#cb25-873" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb25-874"><a href="#cb25-874" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-875"><a href="#cb25-875" aria-hidden="true" tabindex="-1"></a><span class="in">{{&lt; include files/_include_prog.R &gt;}}</span></span>
+<span id="cb25-876"><a href="#cb25-876" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-877"><a href="#cb25-877" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-878"><a href="#cb25-878" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -2899,11 +2935,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- Marc Thévenin - Ined - 2024 | 
+ Marc Thévenin - Ined - 2024 - 
   </li>  
     <li class="nav-item">
     <a class="nav-link" href="https://gitlab.com/mthevenin">
-<p><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> |</p>
+<p><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> -</p>
 </a>
   </li>  
     <li class="nav-item">
@@ -2918,7 +2954,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

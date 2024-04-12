@@ -63,17 +63,17 @@ Pour tout le document:
 
 ::: callout-warning
 
-#### Janvier 2024: .no-lightbox ou .nolightbox
+#### Janvier 2024: .no-lightbox ou .nolightbox pour une image
 
-* la doc quarto indique que l'option de désactivisation est `{.no-lightbox}`. Chez moi cela ne fonctionne pas.  
+* la documentation Quarto indique que l'option  de désactivisation est `{.no-lightbox}`. Chez moi cela ne fonctionne pas.  
 
-* Cela fonctionne cependant avec `{.nolightbox`} qui est le nom directement hérité de l'extension externe (développé par une personne de quarto au passage). 
+* Cela fonctionne  avec l'option `{.nolightbox`} qui est le nom directement hérité de l'extension externe, devenue caduque. 
 
 :::
 
-* Si dans le yaml, l'option n'est pas activé, on peut la désactiver individuellement avec la classe `{.no-lightbox}` appliquée diirectement à l'image: `![](imgage.png){.nolightbox}`.  
+* Si dans le yaml, l'option est activée, on peut la désactiver individuellement avec  `{.nolightbox}` appliquée diretement à l'image: `![](imgage.png){.nolightbox}`.  
 
-Pour ce support, l'option est activée par défaut. Pour désactivée la première image (chapitre installation de Quarto et gestion des fichiers):  
+Pour ce support, elle est activée par défaut. Pour désactivée la première image (chapitre installation de Quarto et gestion des fichiers):  
 
 
 ```{.mf}
@@ -582,7 +582,7 @@ format:
 #### Line highlight 
 
 * Options qui permet de mettre en avant une ou plusieurs lignes d'un programme dans un bloc et de naviguer entre ces lignes.
-* Option ***`code-line-numbers:`"valeurs_lignes"**
+* Option **`code-line-numbers: "n°_lignes"`**
 
 ```{{r}}
 #| code-lines-numbers: "choix ligne(s)"
@@ -591,10 +591,10 @@ format:
 ```
 
 * Par exemple:
-    - "2" ligne  1.
+    - "2" ligne  2.
     - "2,5" lignes 2 et 5.
     - "2-5" lignes 2 à 5.
-    - "|2|4" toutes les lignes, puis ligne 2, et enfin ligne 4 
+    - "|2|4" toutes les lignes, puis ligne 2, puis ligne 4 
 
 
 ```{{r}}
@@ -633,7 +633,7 @@ Donne la séquence suivante:
 * Permet d'afficher un programme par bloc successif.
 * Chaque bloc est généré dans une slide.  
 * Pour un bon rendu, le bloc  doit être sur la même ligne sur chaque slide. Important.
-* Pour réaliser cette *animation* on utilise dans le titre des slide, l'option **`{auto-animate: "true"}`**:  `# Titre slides {auto-animate: "true"}`  
+* Pour réaliser cette *animation* on utilise dans le titre des slide, l'option **`{auto-animate: "true"}`**:  `## Titre slides {auto-animate: "true"}`  
  
 ::: {.center} 
 ::: {.box_img}  
@@ -660,7 +660,7 @@ Donne la séquence suivante:
 ```{.yaml}
 ---
 format:
-  html:
+  revealjs:
     incremental: true
 ---
 ```

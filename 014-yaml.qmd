@@ -15,8 +15,7 @@ filters:
 * La syntaxe du yaml est très sensible à l'*intendation*^[qui se traduit ici par *retrait*]. Les règles restent néanmoins assez simples.
 * Il s'agit du header du document qui comprend toutes les métadonnées du document: titre, date, options de mise en page, options d'exécution....il s'agit des différentes options entrant dans la partie  **`<head> </head>`** du code source html.
 * La syntaxe du yaml est très sensible à l'*intendation*^[On gardera le mot anglais, qui peut se traduire ici par *retrait*]. Les règles restent néanmoins assez simples.
->>>>>>> 0a794de8529633680c00924ce1e0f94c011fd8f4
-* Lors de la compilation, le yaml est le premier élément qui est évalué. En cas d'erreur elle est donc stoppée quasi instantanément.
+* Lors de la compilation, le yaml est le premier élément qui est évalué. En cas d'erreur elle sera stoppée quasi instantanément.
 
 
 ## Balisage et commentaires
@@ -75,7 +74,7 @@ titre: "Le yaml"
 
 ::::
 
-  * Si autres options: elle doivent toutes être alignées. Si la première option n'est pas sur la première colonne (comme un titre centrée ci dessus), la seconde commencera sur la même colonne
+  * Si autres options: elle doivent toutes être alignées. Si la première option n'est pas sur le premier caractère de la ligne , la seconde commencer au même niveau.
   
 :::: {.columns}
 
@@ -116,7 +115,8 @@ format: html
 
 
 * Sous options
-  * La règle est simple: les sous options commencent strictement au niveau du troisième caractère de l'option ou de la sous-option de niveau supérieur.   
+  * Les sous options commencent au moins niveau du second caractère de l'option ou de la sous-option de niveau supérieur (option parente).  
+  * Il est d'usage de placer les sous options au niveau du troisième caractère (deux espaces)
 
 Si les espaces sont indiqués par un `.` 
 
@@ -132,7 +132,7 @@ option:
 
 Exemple: 
 
-- On veut ajouter un nom d'auteur/autrice. Le nom est l'argument de l'option `author`
+- On veut ajouter un nom d'auteur/autrice:  option `author: "Bidibule`
 
 ```{.yaml}
 ---
@@ -142,7 +142,7 @@ author: "Bidibule"
 ---
 ```
 
-- Si on souhaite ajouter le lieu d'exercice, le nom devient une sous option de `author` et est renseigné comme argument de la sous option `name`. Sur le même principe le lieu d'exercice est l'argument de la sous option `affiliation.
+- Si on souhaite ajouter le lieu d'exercice, le nom devient une sous option de `author` et est renseigné avec la sous option `name: "Bidibule"`. Sur le même principe le lieu d'exercice sera donné par l'option `affiliation: "Bidibules inc"`.
 
 ```{.yaml}
 ---
@@ -150,7 +150,7 @@ title: "yaml d'un document"
 
 author:
   name: "Bidibule"
-  affiliation: "Bidibule land"  
+  affiliation: "Bidibules inc"  
 ---
 ```
  

@@ -3,25 +3,22 @@
 
 ## Mars 2024 {.unnumbered}
 
-* Il s'agit ici d'une première version d'un support de formation sur le logiciel Quarto.  
-
-* Bien que Quarto soit pleinement utilisable avec plusieurs IDE, le support s'intéresse exclusivement à son utilisation avec RStudio.
+* Il s'agit de la première version d'un support de formation sur le logiciel Quarto.  Bien que Quarto soit  utilisable d'autres interfaces, principalement Jupyterlab et VScode,  ce support s'intéresse exclusivement à son utilisation avec RStudio^[Des fiches sont dors et déjà prévu pour les autre IDE dans un contenu annexe sous forme de Blog] . 
 
 * La partie sur Git, réservée à la question du déploiement d'une page ou d'un site html sur des plateformes tels que Gitlab ou Github est indépendante du reste du contenu, et répond à un besoin de formation sur cette thématique.
 
-* Bien évidemment le support n'a pas l'ambition d'être exhaustif compte tenu de la richesse offerte par cet outil. Tout ce qui est abordé est néanmoins utilisé dans ce support. 
+* Bien évidemment le support n'a pas l'ambition d'être exhaustif compte tenu de la richesse offerte par cet outil. Tout ce qui est traité a été néanmoins utilisé dans ce support. 
   
 
+## Prochaines mises à jour [limite juin 2024] {.unnumbered}
 
-## Prochaines mises à jour [Juin 2024] {.unnumbered}
->>>>>>> 0a794de8529633680c00924ce1e0f94c011fd8f4
+* Lien vers un contenu annexe sous forme de listes de fiches (blog)
 
 * Présentation du format **manuscript** de type html, récemment introduit à Quarto (janvier 2024).
 
-* Ajout d'une section sur les branches secondaires avec Git.
+* Ajout d'une section sur les branches secondaires avec Git, et peut-être un exemple de conflit avec sa résolution.
 
-* Ajout d'une courte documentation sur les extensions.
-
+* Ajout d'une courte section sur les extensions.
 
 ## Extensions externes utilisées{.unnumbered}
 
@@ -50,11 +47,15 @@
 * Une liste impressionnante de ressources Quarto, appelée **Awesome quarto**, est mise à disposition par Mickael Canouil sur Github: 
   * <https://github.com/mcanouil/awesome-quarto?tab=readme-ov-file>
 
+* La présentation de Hugues Pecout: <https://elementr.gitpages.huma-num.fr/session_notebook/programmation_lettree/#/title-slide>
 
 * Le cheatsheet Quarto: <https://rstudio.github.io/cheatsheets/quarto.pdf>
 
 
+## Remerciements
 
+* Les ingénieurs du réseau [SO-MATE](https://mate-shs.cnrs.fr/les-groupes/so-mate-mate-shs-sud-ouest-2/) présents à la première (tentative) de formation sur Quarto... avec un peu de git en apéritif et digestif.  
+* Au Sms de l'Ined: Bénédicte Garnier, Elodie Baril, Arno Muller et Arnaud Bringé.
 
 
 

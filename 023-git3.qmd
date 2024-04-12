@@ -343,6 +343,29 @@ La page test générée:
 :::
 ::: 
 
+::: {.callout-warning collapse=true}
+
+### Paramétrer la visibilité (maj 20 mars... j'avais oublié)
+
+* Lorsque la page test est déployée le message suivant va être affiché, même si le repertoire est public.
+
+![](img2/gl_visibility1.png)
+
+Visiblement pour rendre la page visible à "tout le monde": 
+
+  * Aller dans **Settings** => **General**
+  * Descendre jusqu'à **pages**
+  * Sélectionner **Everyone With Access**
+  * Sauvegarder en bas de la liste de gestion de la visibilité
+
+![](img2/gl_visibility2.png)
+
+![](img2/gl_visibility3.png)
+
+:::
+
+
+
 
 ### Déployer son contenu html
 

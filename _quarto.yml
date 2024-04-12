@@ -12,14 +12,14 @@ lang: fr
 website: 
   page-footer: 
     center: 
-      - text: "Marc Thévenin - Ined - 2024 | "
-      - text: "{{< fa brands gitlab >}} |"
+      - text: "Marc Thévenin - Ined - 2024 - "
+      - text: "{{< fa brands gitlab >}} - "
         url: "https://gitlab.com/mthevenin"
       - text: "{{< fa brands github>}}"
         url:  "https://github.com/mthevenin"
 
 book:
-  title: "**Formation Quarto**"
+  title: "**Quarto: le support**"
   author: 
     name: "Marc Thévenin"
     affiliation: "Institut National d'Etudes Démographiques"
@@ -28,6 +28,8 @@ book:
   navbar:
     title: "Support Quarto"
     left:
+      - text: Les fiches
+        href: https://mthevenin.gitlab.io/fiches_quarto/
       - text: Elements Revealjs
         menu:
           - text: "Présentation"
@@ -95,12 +97,17 @@ book:
       - 052-site.qmd
       - 053-book.qmd
       - 054-blog.qmd    
+    - text: "---"
+    - part: "**Résumé**"
+      chapters:
+      - 061-glossaire.qmd    
     - part: ""
       chapters: 
       - 01-posit.qmd 
       - 02-quarto_resume.qmd
       - 03-support.qmd
  
+
 format:
   html:
     theme:
@@ -111,9 +118,9 @@ format:
       toggle: false
     grid:
       sidebar-width: 350px
-      body-width: 950px
-      margin-width: 300px
-      gutter-width: 1.5rem
+      body-width:    950px
+      margin-width:  300px
+      gutter-width:  1.5rem
     mainfont: "roboto"    
     mermaid: 
       theme: default

@@ -48,18 +48,15 @@ Pour le format de présentation de type **revealjs**, également compilé en htm
   
 Pour les fichiers Rmarkdown (.rmd) ou Quatro (.qmd), le texte n'est pas inséré sous forme de cellules mais dans un éditeur, avec deux options: une en mode  *source* (balisage markdown/html) ou mode *visual*.  
 
-::: callout-note
-Bien que je n'en vois pas (encore) forcément l'intérêt direct pour une programmation R, il est possible d'insérer directement un notebook ou un fragment de notebook Jupyter dans Quarto. [[lien]](https://quarto.org/docs/authoring/notebook-embed.html).
-:::
 
-* **Création d'un bloc de codes**
-
+**Création d'un bloc de codes**
 
 * Il est ouvert et fermé par ` ``` `
 
-* **Ajout d'un moteur de calcul ou d'un autre langage** (type texte):
-  * A l'ouverture, le moteur est renseigné dans des accolades: **` ```{nom_moteur}`**
-  * On peut ajouter des options: **` ```{nom_moteur, options}`**
+**Ajout d'un moteur de calcul ou d'un autre langage** (type texte): 
+
+* A l'ouverture, le moteur est renseigné dans des accolades: **` ```{nom_moteur}`**
+* On peut ajouter des options: **` ```{nom_moteur, options}`**
 
 
 ```{r}
@@ -73,16 +70,33 @@ Bien que je n'en vois pas (encore) forcément l'intérêt direct pour une progra
 
 ::: {.callout-note collapse=true}
 
-### Moteurs de calcul
+### Les moteurs 
 
-Les moteurs R, Python et Julia sont directement utilisables dans Quarto comme dans les dernières versions de Rmarkdown. Via les noyaux Jupyter, on peut utiliser d'autres applications. Par exemple avec Stata^[c'est pour l'Ined], après avoir installé le noyau Jupyter [**nbstata**](https://mthevenin.github.io/stata_fr/articles/index/posts/nbstata/nbstata.html) et ajouté l'option **`jupyter: nbstata`** au yaml, on peut exécuter directement Stata dans Quarto. Au cas où: c'est un logiciel propriétaire, donc il faut une version qui supporte Python (v17 minimum). 
+**Extraction du code avec Knitr versus Jupyter** 
 
-```{.yaml}
----
-title: "Quarto et Stata"
-jupyter: nbstata
----  
+* **Knitr:** Les moteurs R, Python et Julia sont directement utilisables, et on peut switcher dans un même document de l'un à l'autre. 
+
+* **Jupyter**: on peut utiliser d'autres outils si un noyau (kernel) a été implémenté et installé. C'est le cas de Stata avec le kernel [nbstata](https://mthevenin.github.io/stata_fr/articles/index/posts/nbstata/nbstata.html) avec au moins une v17 de l'application. Avec Jupyter il n'est pas possible de switcher d'un moteur à un autre. 
+  * Dans le yaml on déclare le noyau avec `jupyter: nom_noyau`: `jupyter: python3`, `jupyter: ir` (R)... 
+  * Sans déclarer le noyau si on exécute seulement du code Python dans le document Jupyter sera utilisé par défaut.
+  
+**Bloquer l'exécution du code** 
+
+* En ajoutant un point **.** avant la déclaration du moteur, le code ne sera pas exécuté: ` ```{.r} `, ` ``` {.python} `
+* La couleur syntaxique sera conservée si elle est reconnu par Pandoc:
+* Massivement utilisé pour ce support, permet d'ajouter une multitude de langage:
+  * Markdown avec ` ```{.md} ` ,  ` ```{.mf} `
+  * Yaml: ` ```{.yaml} `
+  * html, css, sass, js: ` ```{.html} ` , ` ```{.css} `,  ```{.js} `
+* Pour R spécifiquement ` ``` {{r}} ` permet d'afficher l'ouverture et la fermeture du moteur R: 
+
+```{{r}}
+# Tout le bloc de codes du fichier source qmd est affiché
+
+1+1
 ```
+
+On retrouvera souvent cette façon de procéder  dans ce chapitre.
 
 :::
 
@@ -106,7 +120,6 @@ Options s'appliquant à tout les blocs du document. Dans un projet avec un fichi
 execute:
   echo: false
 ---  
-
 ``` 
  
  
@@ -115,7 +128,6 @@ execute:
 execute:
   echo: false
 ---  
-
 ```
  
 **Dans le bloc de codes**  
@@ -142,7 +154,7 @@ Avec cette nouvelle méthode.
 
 **Exemple**: pour supprimer l'exécution du programme dans le bloc avec l'option `eval: FALSE/false` 
 
-* n option de l'ouverture du moteur: ` ```{r, eval: FALSE}`
+* **Option à l'ouverture du moteur**: ` ```{r, eval: FALSE}`
 
 ```{r, eval=FALSE}
 #| echo: fenced
@@ -169,7 +181,6 @@ Donne également:
 # On fait une addition
 1+1
 ```
-
 
 Dans le yaml du document ou du projet, cette option d'exécution est introduite par l'option  **`execute`**:
 
@@ -272,17 +283,6 @@ La moyenne est de **`r moy`**.
 
 ### Graphiques et tableaux  
 
-
-::: callout-warning
-
-### Certaines options seulement dans le yaml?  
-
-La documentation n'est pas forcément très claire sur certaines options. A la rédaction de ce support, j'avoue m'emmêler un peu sur certaines .  
-<br>
-Des options ne semble donc pas s'activer pour les graphiques et les tableaux lorsqu'elle sont passées dans le bloc: par exemple `fig-cap-location` pour le positionnement vertical du titre ou `fig-align` pour la positionnement horizontal... mystère. On peut visiblement seulement les passer dans le yaml, ce qui permet cependant d'obtenir une mise en page homogène d'un document.
-:::
-
-
 #### Graphiques
 
 * [[Doc Quarto: Options1]](https://quarto.org/docs/reference/formats/html.html#figures)
@@ -294,8 +294,8 @@ Des options ne semble donc pas s'activer pour les graphiques et les tableaux lor
 
 Par défaut les titres sont positionnés en dessous du graphique.
 
-* Positionnement: dans le yam `fig-cap-location`: `bottom` (défaut) / `top` / `margin` (à droite du graphique sous la table des matières si elle est activée).
-* Titre: `fig-cap: "XXXX"`.
+* Positionnement: **dans le yaml seulement** `fig-cap-location`: `bottom` (défaut) / `top` / `margin` (voir chapitre 15).
+* Titre du graphique: `fig-cap: "XXXX"`.
 
 Localisation en haut du graphique:
 
@@ -316,10 +316,9 @@ y <- mtcars$mpg
 plot(x, y) 
 ```
 
-
-<center>
+:::: {.center} 
 ::: {.column width="70%"}
-::: {.box_img}
+::: {.box_img}   
 ```{r}
 #| label: "fig-scatter_cars"
 #| fig-cap: "**Position top du titre défini dans le `yaml`**"
@@ -331,8 +330,8 @@ y <- mtcars$mpg
 plot(x, y)
 ```
 :::
-:::
-</center>
+:::  
+::::   
 
 
 **Remarque**: on peut utiliser du formatage markdown dans le titre.  
@@ -346,13 +345,13 @@ Peu d'options, à retenir principalement le titre avec `tbl-cap: "XXXX"`
 
 * [[Doc Quarto: Options]](https://quarto.org/docs/reference/formats/html.html#tables)
 
-Le titre est ici positionné en haut du tableau par défaut. Si on veut le mettre sous le tableau, dans le yaml du document: `fig-cap-location: bottom`.
+Le titre est ici positionné en haut du tableau par défaut. Si on veut le mettre sous le tableau, dans le yaml du document: `tbl-cap-location: bottom`.
 
 Changement de la position du titre dans le yaml:
 
 ```{.yaml}
 ---
-fig-cap-location: bottom
+tbl-cap-location: bottom
 ---
 ```
 
@@ -395,7 +394,7 @@ Demonstration (cliquer sur **`<> Code`** en haut à droite, ou sur **Code** au d
 
 ### Afficher/cacher le bloc de codes à la volée
 
-* Option `code-fold`** (yaml et corps de bloc).  
+* Option **`code-fold`** (yaml et corps de bloc).  
 
 * Dans le yaml: 
   * **`code-fold: false/true/show`**
@@ -451,7 +450,7 @@ Si `#| code-fold:show`
 
 ### Afficher le code source du fichier
 
-* Introduit pas la sous option **`code-tools`** du format html dans le yaml. 
+* Introduit par l'option **`code-tools`** du format html dans le yaml. 
 * Non compatible avec le format de présentation **revealjs**...dommage.
 
 ```{.yaml}
@@ -484,12 +483,34 @@ format:
   html:
     code-tools:
       source: true
-    code_fold: true
+
+code-fold: true
 ---
 ```
 
 
-### Accéder à la documentation des fonctions 
+Si aucun autre format n'est compilé (pdf, word): 
+
+```{.yaml}
+---
+code-tools: true/false
+
+code-fold: true/false/show
+---
+```
+
+```{.yaml}
+---
+code-tools:
+  source: true/false
+
+code-fold: true/false/show
+---
+```
+
+
+
+### Accéder à la documentation web des fonctions 
 
 * Pour R seulement. Implémentation dans Quarto du package [downlit](https://downlit.r-lib.org/).
 * Permet d'accéder à la documentation en ligne d'une fonction utilisée dans le programme.
