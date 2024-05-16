@@ -24,7 +24,7 @@ filters:
 
 En tête du code source du fichier .qmd, la zône du yaml est balisée par **3 tirets**: 
 
-```{.yaml}
+```{.yaml filename="Zône pour les options du yaml"}
 ---
 options du yaml
 ---
@@ -47,7 +47,7 @@ Tout simplement avec **`#`**
 ::: {.column width="47.5%"}
 :::callout-tip
 ### OK
-
+<br>
 ```{.yaml}
 ---
 titre: "Le yaml"
@@ -63,6 +63,7 @@ titre: "Le yaml"
 
 :::callout-tip
 ### OK
+<br>
 
 ```{.yaml}
 ---
@@ -81,7 +82,7 @@ titre: "Le yaml"
 ::: {.column width="47.5%"}
 :::callout-warning
 ### Erreur
-
+<br>
 ```{.yaml}
 ---
        titre: "Le yaml"
@@ -99,7 +100,7 @@ format: html
 
 :::callout-tip
 ### OK
-
+<br>
 ```{.yaml}
 ---
        titre: "Le yaml"
@@ -120,7 +121,7 @@ format: html
 
 Si les espaces sont indiqués par un `.` 
 
-```{.yaml}
+```{.yaml filename="Règles de retrait"}
 ---
 option: 
 ..sous-option1: argument
@@ -134,7 +135,7 @@ Exemple:
 
 - On veut ajouter un nom d'auteur/autrice:  option `author: "Bidibule`
 
-```{.yaml}
+```{.yaml filename="Ajout de deux options"}
 ---
 title: "yaml d'un document"
 
@@ -144,7 +145,7 @@ author: "Bidibule"
 
 - Si on souhaite ajouter le lieu d'exercice, le nom devient une sous option de `author` et est renseigné avec la sous option `name: "Bidibule"`. Sur le même principe le lieu d'exercice sera donné par l'option `affiliation: "Bidibules inc"`.
 
-```{.yaml}
+```{.yaml filename="Ajout de sous options"}
 ---
 title: "yaml d'un document"
 
@@ -154,13 +155,13 @@ author:
 ---
 ```
  
-Exemple 2: format hml et pdf
+Exemple 2: format hmtl et pdf
 
 Le html est le format par défaut d'un notebook ou d'une présentation via le format **reveal js**. Si on veut indiquer explicitement le format html, c'est l'argument de l'option `format`. 
 Si on veut ajouter des sous options au format html comme des thèmes (document, bloc de code) et/ou un autre format (pdf), sur le même principe que l'exemple précédent, `html:` devient une sous option de l'option format. Si on ne souhaite pas ajouter d'autres options pour la compilation en pdf, la sous option est renseignée par `pdf:default`.  Elle se trouve sur le même niveau de retrait que `html:`.
 
 
-```{.yaml}
+```{.yaml filename="Options pour deux formats"}
 ---
 title: "yaml d'un document"
 
@@ -174,7 +175,7 @@ format:
 
 Ce qui nous donne au final le template suivant: 
 
-```{.yaml}
+```{.yaml filename="Un yaml avec options et sous options"}
 ---
 title: "yaml d'un document"
 
@@ -189,7 +190,7 @@ format:
   pdf: default
 ---    
 
-<!-- corps du document -->
+<!-- corps du document qmd -->
 
 ```
 
@@ -211,8 +212,7 @@ Exemple: on active une table des matière pour chaque .qmd du projet dans _quart
 Dans cette section on a juste regardé les règles de retrait des options. Dans le fichier de configuration les sous options peuvent prendre la forme de liens vers des fichiers .qmd comme les différents chapitres d'un book. La même règle est appliquée. A ce stade, juste pour information:
 
 
-```{.yaml}
-# Dans un fichier _quarto.yml
+```{.yaml filename="Exemple d'un fichier _quarto.yml"}
 
 book:
   title: "Formation Quarto"
@@ -222,12 +222,6 @@ book:
     - chap3.qmd
 ```
   
-
-
-
-
-
-
 
 
 

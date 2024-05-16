@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quarto: le support - 2&nbsp; Quarto et Rmarkdown</title>
+<title>Formation Quarto - 2&nbsp; Quarto et Rmarkdown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Support Quarto</span>
+    <span class="navbar-title">Quarto: le support</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Recherche"></div>
@@ -134,10 +134,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Les fiches</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-elements-revealjs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Elements Revealjs</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-présentation-revealjs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Présentation Revealjs</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-elements-revealjs">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-présentation-revealjs">    
         <li>
     <a class="dropdown-item" href="https://mthevenin.gitlab.io/quarto_revealjs/">
  <span class="dropdown-text">Présentation</span></a>
@@ -430,7 +430,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#principales-différences" id="toc-principales-différences" class="nav-link" data-scroll-target="#principales-différences"><span class="header-section-number">2.2</span> Principales différences</a></li>
   <li><a href="#passer-de-rmarkdown-à-quarto" id="toc-passer-de-rmarkdown-à-quarto" class="nav-link" data-scroll-target="#passer-de-rmarkdown-à-quarto"><span class="header-section-number">2.3</span> Passer de Rmarkdown à Quarto</a>
   <ul>
-  <li><a href="#compilation-du-fichier" id="toc-compilation-du-fichier" class="nav-link" data-scroll-target="#compilation-du-fichier"><span class="header-section-number">2.3.1</span> Compilation du fichier</a></li>
+  <li><a href="#compilation-des-fichiers" id="toc-compilation-des-fichiers" class="nav-link" data-scroll-target="#compilation-des-fichiers"><span class="header-section-number">2.3.1</span> Compilation des fichiers</a></li>
   <li><a href="#convertir-un-fichier-.rmd-en-.qmd" id="toc-convertir-un-fichier-.rmd-en-.qmd" class="nav-link" data-scroll-target="#convertir-un-fichier-.rmd-en-.qmd"><span class="header-section-number">2.3.2</span> Convertir un fichier .rmd en .qmd</a></li>
   </ul></li>
   <li><a href="#doit-on-définitivement-abandonner-rmarkdown" id="toc-doit-on-définitivement-abandonner-rmarkdown" class="nav-link" data-scroll-target="#doit-on-définitivement-abandonner-rmarkdown"><span class="header-section-number">2.4</span> Doit-on définitivement abandonner Rmarkdown ????</a></li>
@@ -459,6 +459,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A faire pour mi juin ça manque clairement de clarté:</p>
+<ul>
+<li>Préciser les différences entre <code>quarto render</code> et <code>quarto preview</code></li>
+<li>Exécution de Python, Julia, Stata via Jupyter</li>
+</ul>
+</div>
+</div>
 <section id="rappel-sur-la-composition-des-documents" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="rappel-sur-la-composition-des-documents"><span class="header-section-number">2.1</span> Rappel sur la composition des documents</h2>
 <p>Un document de type html (format par défaut) est composé de deux parties<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
@@ -497,37 +514,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><strong>La durée de compilation en html et fichiers des outputs</strong></p>
 <p>La durée de compilation d’un fichier .qmd est plus longue que pour Rmarkdown. Quarto embarque plus de fonctionnalités ce qui se traduit par un poids des documents bien plus élevé.</p>
-<p>A ce stade une grosse différence apparaît. Un output html Rmarkdown ne comporte qu’un seul fichier (<strong><code>nom-fichier.html</code></strong>) alors que pour Quarto un répertoire supplémentaire, appelé <strong>nom-fichier_libs</strong> est généré. Celui ci comporte tous les éléments de mise en forme du document sous forme de fichiers <strong>css</strong>, <strong>js</strong>… Lors d’une transmission par mail, ce repértoire devra également être ajouté, à moins d’indiquer dans une option que l’on souhaite générer un fichier html unique pour l’output. Ceci est réalisé dans la configuration du document avec une option spécifique: <strong><code>self-contained: true</code> ou “<code>embed-resources:true</code></strong>.</p>
-<div class="columns">
-<div class="column" style="width:42.5%;">
-<p><strong>Rmarkdown: un seul fichier html en output</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<p>A ce stade une grosse différence apparaît. Un output html Rmarkdown ne comporte qu’un seul fichier (<strong><code>nom-fichier.html</code></strong>) alors que pour Quarto un répertoire supplémentaire, appelé <strong>nom-fichier_libs</strong> est généré. Celui ci comporte tous les éléments de mise en forme du document sous forme de fichiers <strong>css</strong>, <strong>js</strong>… Lors d’une transmission par mail, ce repértoire devra également être ajouté, à moins d’indiquer dans une option que l’on souhaite générer un fichier html unique pour l’output. Ceci est réalisé dans la configuration du document avec une option spécifique: <code>self-contained: true</code> ou <code>embed-resources:true</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Rmarkdown: un seul fichier html généré</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="Rmarkdown: un seul fichier html généré"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"XXXXX"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>output: html</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column" style="width:5%;">
-
-</div><div class="column" style="width:42.5%;">
-<p><strong>Quarto: un seul fichier html en output</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Quarto: un seul fichier html généré</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="Quarto: un seul fichier html généré"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>title: <span class="st">"XXXXX"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>format: html</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>embed<span class="op">-</span>resources: <span class="bu">true</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
 </section>
 <section id="passer-de-rmarkdown-à-quarto" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="passer-de-rmarkdown-à-quarto"><span class="header-section-number">2.3</span> Passer de Rmarkdown à Quarto</h2>
-<section id="compilation-du-fichier" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="compilation-du-fichier"><span class="header-section-number">2.3.1</span> Compilation du fichier</h3>
+<section id="compilation-des-fichiers" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="compilation-des-fichiers"><span class="header-section-number">2.3.1</span> Compilation des fichiers</h3>
 <ul>
-<li><p>Rstudio: le bouton <strong>Render</strong> remplace le bouton <strong>Knitr</strong>, ce dernier étant réservé à l’exécutio de scripts R. Pour les autres moteurs (Python, Julia, Stata) c’est le notebook Jupyter qui exécute les scripts de programmation.</p></li>
-<li><p>R: un package <code>quarto</code> permet comme Rmarkdown de compiler les fichiers via la console. Il me semble très accessoire</p></li>
-<li><p>Quarto incite à travailler en mode projet et à utiliser le terminal<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Quelques lignes de codes relativement simple permettent de gérer la compilation. Le répertoire racine est celui du projet:</p>
+<li><p>Rstudio: le bouton <strong>Render</strong> remplace le bouton <strong>Knitr</strong>, ce dernier étant réservé nativement à l’exécution de scripts R. Pour les autres moteurs de calcul (Python, Julia, Stata) c’est le notebook Jupyter qui exécute les scripts de programmation.</p></li>
+<li><p>R: un package <code>quarto</code> permet comme Rmarkdown de compiler les fichiers via la console. Il me semble plutôt accessoire.</p></li>
+<li><p>Quarto pousse à travailler en mode projet et à utiliser le terminal<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. A l’aide de commandes relativement simples, on peut gèrer la compilation des documents:</p>
 <ul>
 <li><code>quarto render</code> compile l’ensemble des fichiers .qmd d’un projet (par défaut en html).</li>
-<li><code>quarto render --to pdf</code> l’ensemble des fichiers .qmd en pdf.</li>
+<li><code>quarto render --to pdf</code> compile l’ensemble des fichiers .qmd en pdf.</li>
 </ul></li>
 </ul>
 <p>Hors projet, il est possible de compiler un fichier dans le terminal en indiquant l’emplacement du fichier <code>absolute_path/quarto render nom.qmd</code>.</p>
@@ -582,9 +601,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="doit-on-définitivement-abandonner-rmarkdown" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="doit-on-définitivement-abandonner-rmarkdown"><span class="header-section-number">2.4</span> Doit-on définitivement abandonner Rmarkdown ????</h2>
-<p><strong>Non!</strong></p>
-<p>Quarto offre de nouvelles possibilités certes mais il n’est pas encore 100% stable<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Si on est moins regardant sur les questions de forme et d’esthétique des outputs, si l’utilisation de Rmarkdown s’arrête à la production de notebook simples en format html, le package reste une excellente solution, en particulier sous sa dernière version. La compilation est plus rapide et les documents pèsent bien moins lourd.</p>
-Mode visual, options des blocs de codes directement dans le corp du programme, nouveau balisage css remplaçant les balises
+<p>Quarto offre de nouvelles possibilités certes mais il n’est pas encore 100% stable<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Si on est moins regardant sur les questions de forme et d’esthétique des outputs, si l’utilisation de Rmarkdown s’arrête à la production de notebook simples en format html, le package reste une excellente solution, en particulier sous sa dernière version. La compilation est plus rapide et les documents pèsent bien moins lourd.</p>
+Mode visual, options des blocs de codes directement dans le corp du programme, nouveaux balisages pour
 <div>
 <p>ou <span> … sont également intégrés dans les dernières versions de Rmarkdown.</span></p>
 
@@ -603,8 +621,9 @@ Mode visual, options des blocs de codes directement dans le corp du programme, n
 <ol>
 <li id="fn1"><p>C’est la même structuration en Latex<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Avec le noyau Jupyter <a href="https://github.com/hugetim/nbstata">[<strong>nbstata</strong>]</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Astuce très utile: click droit pour coller <code>Ctrl+v</code> ne fonctionne pas<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Février 2024: mais cela s’améliore de version en version<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Quarto conseille d’utiliser cette dernière qui s’applique totalement tant aux articles/notebook html qu’aux présentations revealjs <a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Attention <code>ctrl+v</code> ne fonctionne pas. Soit click droit + coller ou <code>ctrl+shift+v</code><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Février 2024: mais cela s’améliore de version en version<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1087,94 +1106,94 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quarto et Rmarkdown</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rappel sur la composition des documents</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>Un document de type html (format par défaut) est composé de deux parties^<span class="co">[</span><span class="ot">C'est la même structuration en Latex</span><span class="co">]</span>.   </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le **corps du document**: le **body** <span class="co">[</span><span class="ot"> balise html &lt;body&gt;</span><span class="co">]</span>. Trivialement obligatoire si on a quelque chose à écrire. </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Les **métadonnées**: le **header** [balise html &lt;head&gt;]. Optionnel, mais comporte toute une série d'options allant du titre, date, activation d'une table des matières,..., aux options d'exécution des programmes ou de compilation du document. Il prend ici le nom de **YAML**.  Ces métadonnées peuvent se trouver dans un fichier de configuration externe dont le type est **`.yml`**.</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>A faire pour mi juin ça manque clairement de clarté:  </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Préciser les différences entre <span class="in">`quarto render`</span> et <span class="in">`quarto preview`</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Exécution de Python, Julia, Stata via Jupyter</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Principales différences </span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>**Indépendance par rapport à R**   </span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Quarto étant un logiciel, il est indépendant de R mais également de RStudio. Si le passage de Rmarkdown à Quarto se fait naturellement du côté de R, c'est le public Python qui est la principale cible de ce nouvel outil. En conséquences: </span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Quarto peut pleinement s'utiliser avec d'autres interfaces comme **VSCode** ou **Jupyterlab**.</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Exécution directe des programmes via les noyaux Jupyter de Python, Julia mais aussi Stata^<span class="co">[</span><span class="ot">Avec le noyau Jupyter [[**nbstata**]</span><span class="co">](https://github.com/hugetim/nbstata)</span>]. </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rappel sur la composition des documents</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>Un document de type html (format par défaut) est composé de deux parties^<span class="co">[</span><span class="ot">C'est la même structuration en Latex</span><span class="co">]</span>.   </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le **corps du document**: le **body** <span class="co">[</span><span class="ot"> balise html &lt;body&gt;</span><span class="co">]</span>. Trivialement obligatoire si on a quelque chose à écrire. </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Les **métadonnées**: le **header** [balise html &lt;head&gt;]. Optionnel, mais comporte toute une série d'options allant du titre, date, activation d'une table des matières,..., aux options d'exécution des programmes ou de compilation du document. Il prend ici le nom de **YAML**.  Ces métadonnées peuvent se trouver dans un fichier de configuration externe dont le type est **`.yml`**.</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>**Qualité des outputs**     </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Principales différences </span></span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Amélioration des rendus des documents:</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Calage sur les normes html actuelles (html5).</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Documents en PDF de très grande qualité..... mais avec des durées de compilation particulièrement long. </span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>**Compilation multiformats**     </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>**Indépendance par rapport à R**   </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Quarto étant un logiciel, il est indépendant de R mais également de RStudio. Si le passage de Rmarkdown à Quarto se fait naturellement du côté de R, c'est le public Python qui est la principale cible de ce nouvel outil. En conséquences: </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Quarto peut pleinement s'utiliser avec d'autres interfaces comme **VSCode** ou **Jupyterlab**.</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Exécution directe des programmes via les noyaux Jupyter de Python, Julia mais aussi Stata^<span class="co">[</span><span class="ot">Avec le noyau Jupyter [[**nbstata**]</span><span class="co">](https://github.com/hugetim/nbstata)</span>]. </span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>On peut simultanément produire un output en plusieurs formats (html, pdf, docx...) tout en gérant leur spécificité code source spécifique avec contenu dit **conditionnel**: éléments pour un contenu dynamique (html), élements pour un contenu statique (pdf, docs).</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>**Qualité des outputs**     </span>
 <span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>**Vocabulaire des éléments de configuration/métadonnées (yaml)**    </span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>Même si pour la configuration d'un document ou d'un projet des options supplémentaires ont été ajoutées afin d'améliorer la mise en page des documents, la gestion des blocs de codes ou la gestion de la compilation, les différences ne sont pas si nombreuses que cela par rapport à la dernière version de Rmarkdown. </span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>C'est surtout dans certains éléments de vocabulaire que certaines modifications seront les plus visibles lors de la transformation d'un document ou d'un projet Rmarkdown existant en Quarto.  </span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>Deux exemples: </span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Amélioration des rendus des documents:</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Calage sur les normes html actuelles (html5).</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Documents en PDF de très grande qualité..... mais avec des durées de compilation particulièrement long. </span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>**Compilation multiformats**     </span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>On peut simultanément produire un output en plusieurs formats (html, pdf, docx...) tout en gérant leur spécificité code source spécifique avec contenu dit **conditionnel**: éléments pour un contenu dynamique (html), élements pour un contenu statique (pdf, docs).</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour indiquer le format du document, l'option **`output:`** est remplacée par l'option **`format:`**.</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le fichier de configuration d'un projet s'appelle maintenant **`_quarto.yml`** au lieu de **_site.yml**.</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>**Vocabulaire des éléments de configuration/métadonnées (yaml)**    </span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>Même si pour la configuration d'un document ou d'un projet des options supplémentaires ont été ajoutées afin d'améliorer la mise en page des documents, la gestion des blocs de codes ou la gestion de la compilation, les différences ne sont pas si nombreuses que cela par rapport à la dernière version de Rmarkdown. </span>
 <span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>**La durée de compilation en html et fichiers des outputs**  </span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>C'est surtout dans certains éléments de vocabulaire que certaines modifications seront les plus visibles lors de la transformation d'un document ou d'un projet Rmarkdown existant en Quarto.  </span>
 <span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>La durée de compilation d'un fichier .qmd est plus longue que pour Rmarkdown. Quarto embarque plus de fonctionnalités ce qui se traduit par un poids des documents bien plus élevé. </span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>Deux exemples: </span>
 <span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>A ce stade une grosse différence apparaît. Un output html Rmarkdown ne comporte qu'un seul fichier (**`nom-fichier.html`**) alors que pour Quarto un répertoire supplémentaire, appelé **nom-fichier_libs** est généré.  Celui ci comporte tous les éléments de mise en forme du document sous forme de fichiers **css**,  **js**... Lors d'une transmission par mail, ce repértoire devra également être ajouté, à moins d'indiquer dans une option que l'on souhaite générer un fichier html unique pour l'output. Ceci est réalisé  dans la configuration du document avec une option spécifique: **`self-contained: true` ou "`embed-resources:true`**. </span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour indiquer le format du document, l'option **`output:`** est remplacée par l'option **`format:`**.</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le fichier de configuration d'un projet s'appelle maintenant **`_quarto.yml`** au lieu de **_site.yml**.</span>
 <span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>::: {.columns}</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>::: {.column width="42.5%"}</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>**Rmarkdown: un seul fichier html en output** </span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="in">title: "XXXXX"</span></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="in">output: html</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>::: {.column width="5%"} </span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>::: {.column width="42.5%"}</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>**Quarto: un seul fichier html en output**   </span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>**La durée de compilation en html et fichiers des outputs**  </span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>La durée de compilation d'un fichier .qmd est plus longue que pour Rmarkdown. Quarto embarque plus de fonctionnalités ce qui se traduit par un poids des documents bien plus élevé. </span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>A ce stade une grosse différence apparaît. Un output html Rmarkdown ne comporte qu'un seul fichier (**`nom-fichier.html`**) alors que pour Quarto un répertoire supplémentaire, appelé **nom-fichier_libs** est généré.  Celui ci comporte tous les éléments de mise en forme du document sous forme de fichiers **css**,  **js**... Lors d'une transmission par mail, ce repértoire devra également être ajouté, à moins d'indiquer dans une option que l'on souhaite générer un fichier html unique pour l'output. Ceci est réalisé  dans la configuration du document avec une option spécifique: <span class="in">`self-contained: true`</span> ou <span class="in">`embed-resources:true`</span>^<span class="co">[</span><span class="ot">Quarto conseille d'utiliser cette dernière qui s'applique totalement tant aux articles/notebook html qu'aux présentations revealjs </span><span class="co">]</span>. </span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf  filename="Rmarkdown: un seul fichier html généré"}</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="in">title: "XXXXX"</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="in">output: html</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="in">  </span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="in">title: "XXXXX"</span></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="in">format: html</span></span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="in">embed-resources: true</span></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf filename="Quarto: un seul fichier html généré"}</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="in">title: "XXXXX"</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="in">format: html</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="in">embed-resources: true</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="in">---</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="fu">## Passer de Rmarkdown à Quarto</span></span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="fu">### Compilation du fichier</span></span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Rstudio: le bouton **Render** remplace le bouton **Knitr**, ce dernier étant réservé à l'exécutio   de scripts R. Pour les autres moteurs (Python, Julia, Stata) c'est le notebook Jupyter qui exécute les scripts de programmation. </span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>R: un package <span class="in">`quarto`</span>  permet comme Rmarkdown de compiler les fichiers via la console. Il me semble très accessoire</span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Quarto incite à travailler en mode projet et à utiliser le terminal^<span class="co">[</span><span class="ot">Astuce très utile: click droit pour coller `Ctrl+v` ne fonctionne pas</span><span class="co">]</span>. Quelques lignes de codes relativement simple permettent de gérer la compilation. Le répertoire racine est celui du projet: </span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`quarto render`</span> compile l'ensemble des fichiers .qmd d'un projet (par défaut en html).</span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`quarto render --to pdf`</span> l'ensemble des fichiers .qmd en pdf.</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>Hors projet, il est possible de compiler un fichier dans le terminal en indiquant l'emplacement du fichier <span class="in">`absolute_path/quarto render nom.qmd`</span>.</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## Passer de Rmarkdown à Quarto</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### Compilation des fichiers</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Rstudio: le bouton **Render** remplace le bouton **Knitr**, ce dernier étant réservé nativement à l'exécution de scripts R. Pour les autres moteurs de calcul (Python, Julia, Stata) c'est le notebook Jupyter qui exécute les scripts de programmation. </span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>R: un package <span class="in">`quarto`</span>  permet comme Rmarkdown de compiler les fichiers via la console. Il me semble plutôt accessoire. </span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Quarto pousse à travailler en mode projet et à utiliser le terminal^<span class="co">[</span><span class="ot">Attention `ctrl+v` ne fonctionne pas. Soit click droit + coller ou `ctrl+shift+v`</span><span class="co">]</span>. A l'aide de commandes relativement simples, on peut  gèrer la compilation des documents: </span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`quarto render`</span> compile l'ensemble des fichiers .qmd d'un projet (par défaut en html).</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`quarto render --to pdf`</span> compile l'ensemble des fichiers .qmd en pdf.</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>Hors projet, il est possible de compiler un fichier dans le terminal en indiquant l'emplacement du fichier <span class="in">`absolute_path/quarto render nom.qmd`</span>.  </span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="fu">###  Convertir un fichier .rmd en .qmd</span></span>
 <span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
@@ -1219,15 +1238,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Doit-on définitivement abandonner Rmarkdown ????</span></span>
 <span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>**Non!**</span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>Quarto offre de nouvelles possibilités certes mais il n'est pas encore 100% stable^<span class="co">[</span><span class="ot">Février 2024: mais cela s'améliore de version en version</span><span class="co">]</span>. Si on est moins regardant sur les questions de forme et d'esthétique des outputs, si l'utilisation de Rmarkdown s'arrête à la production de notebook simples en format html, le package reste une excellente solution, en particulier sous sa dernière version. La compilation est plus rapide et les documents pèsent bien moins lourd.</span>
 <span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>Quarto offre de nouvelles possibilités certes mais il n'est pas encore 100% stable^<span class="co">[</span><span class="ot">Février 2024: mais cela s'améliore de version en version</span><span class="co">]</span>. Si on est moins regardant sur les questions de forme et d'esthétique des outputs, si l'utilisation de Rmarkdown s'arrête à la production de notebook simples en format html, le package reste une excellente solution, en particulier sous sa dernière version. La compilation est plus rapide et les documents pèsent bien moins lourd.</span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>Mode visual, options des blocs de codes directement dans le corp du programme, nouveaux balisages pour &lt;div&gt; ou &lt;span&gt; ... sont également intégrés dans les dernières versions de Rmarkdown. </span>
 <span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>Mode visual, options des blocs de codes directement dans le corp du programme, nouveau balisage css remplaçant les balises  &lt;div&gt; ou &lt;span&gt; ... sont également intégrés dans les dernières versions de Rmarkdown. </span>
-<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1257,7 +1273,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

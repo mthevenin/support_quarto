@@ -19,18 +19,18 @@ website:
         url:  "https://github.com/mthevenin"
 
 book:
-  title: "**Quarto: le support**"
+  title: "**Formation Quarto**"
   author: 
     name: "Marc Thévenin"
     affiliation: "Institut National d'Etudes Démographiques"
     email: "marc.thevenin@ined.fr"
   date: today
   navbar:
-    title: "Support Quarto"
+    title: "Quarto: le support"
     left:
       - text: Les fiches
         href: https://mthevenin.gitlab.io/fiches_quarto/
-      - text: Elements Revealjs
+      - text: Présentation Revealjs
         menu:
           - text: "Présentation"
             href: https://mthevenin.gitlab.io/quarto_revealjs/
@@ -107,7 +107,6 @@ book:
       - 02-quarto_resume.qmd
       - 03-support.qmd
  
-
 format:
   html:
     theme:
@@ -118,12 +117,12 @@ format:
       toggle: false
     grid:
       sidebar-width: 350px
-      body-width:    950px
-      margin-width:  300px
-      gutter-width:  1.5rem
-    mainfont: "roboto"    
+      body-width: 950px
+      margin-width: 300px
+      gutter-width: 1.5rem
+#    mainfont: "roboto"    
     mermaid: 
-      theme: default
+      theme: default 
 
 highlight-style: atom-one
 lightbox: true

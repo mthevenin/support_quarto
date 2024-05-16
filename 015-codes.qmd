@@ -41,17 +41,26 @@ Pour le format de présentation de type **revealjs**, également compilé en htm
 
 ## Introduction
 
-* ***Chunk***, ***Code block***, ***cells***: des expressions différentes qui expriment la même chose
-  * **Chunk**: RStudio/Rmarkdown.
+* ***Chunk***, ***Code block***, ***cells***: des expressions  qui expriment la même chose:
+  * **Chunk**: Rstudio/Rmarkdown.
   * **Code block**: Quarto.
   * **Cells**: terme générique aux notebooks, par exemples Jupyter ou plus récemment Observable pour la visualisation typée javascript. Succession de cellules sous forme de texte formaté ou non, et de scripts (R, Python,...).
   
-Pour les fichiers Rmarkdown (.rmd) ou Quatro (.qmd), le texte n'est pas inséré sous forme de cellules mais dans un éditeur, avec deux options: une en mode  *source* (balisage markdown/html) ou mode *visual*.  
+Pour les fichiers Rmarkdown (.rmd) ou Quatro (.qmd), le texte n'est pas inséré sous forme de cellules mais dans un éditeur classique, avec deux options: un mode  *source* (balisage markdown/html) et un mode *visual*.  
 
 
 **Création d'un bloc de codes**
 
 * Il est ouvert et fermé par ` ``` `
+
+::: callout-tip
+On peut générer un bloc automatiquement en cliquant sur ce bouton (à droite du Render):
+
+![](img1/add_chunk.png){.nolightbox}
+:::
+
+
+
 
 **Ajout d'un moteur de calcul ou d'un autre langage** (type texte): 
 
@@ -59,7 +68,7 @@ Pour les fichiers Rmarkdown (.rmd) ou Quatro (.qmd), le texte n'est pas inséré
 * On peut ajouter des options: **` ```{nom_moteur, options}`**
 
 
-```{r}
+```{r filename="Un bloc de code (chunk)"}
 #| echo: fenced
 
 # Code R
@@ -74,29 +83,27 @@ Pour les fichiers Rmarkdown (.rmd) ou Quatro (.qmd), le texte n'est pas inséré
 
 **Extraction du code avec Knitr versus Jupyter** 
 
-* **Knitr:** Les moteurs R, Python et Julia sont directement utilisables, et on peut switcher dans un même document de l'un à l'autre. 
+* **Knitr:** Maintenant les moteurs R, Python et Julia sont directement utilisables, et on peut switcher dans un même document de l'un à l'autre. 
 
 * **Jupyter**: on peut utiliser d'autres outils si un noyau (kernel) a été implémenté et installé. C'est le cas de Stata avec le kernel [nbstata](https://mthevenin.github.io/stata_fr/articles/index/posts/nbstata/nbstata.html) avec au moins une v17 de l'application. Avec Jupyter il n'est pas possible de switcher d'un moteur à un autre. 
-  * Dans le yaml on déclare le noyau avec `jupyter: nom_noyau`: `jupyter: python3`, `jupyter: ir` (R)... 
-  * Sans déclarer le noyau si on exécute seulement du code Python dans le document Jupyter sera utilisé par défaut.
-  
+  * Dans le yaml on déclare le noyau avec `jupyter: nom_noyau`: `jupyter: python3` (Python), `jupyter: ir` (R), `jupyter: nbstata` (Stata) ... 
+  * Pour Python, Julia et Stata cette déclaration dans le yaml n'est plus obligatoire depuis la version 1.4.
+
 **Bloquer l'exécution du code** 
 
-* En ajoutant un point **.** avant la déclaration du moteur, le code ne sera pas exécuté: ` ```{.r} `, ` ``` {.python} `
-* La couleur syntaxique sera conservée si elle est reconnu par Pandoc:
-* Massivement utilisé pour ce support, permet d'ajouter une multitude de langage:
+* En ajoutant un point **.** avant la déclaration du moteur, le code ne sera pas exécuté: ` ```{.r} `, ` ``` {.python} `.  Le code sera alors considéré comme un verbatim.
+* La couleur syntaxique sera conservée si elle est reconnue par Pandoc:
   * Markdown avec ` ```{.md} ` ,  ` ```{.mf} `
   * Yaml: ` ```{.yaml} `
   * html, css, sass, js: ` ```{.html} ` , ` ```{.css} `,  ```{.js} `
 * Pour R spécifiquement ` ``` {{r}} ` permet d'afficher l'ouverture et la fermeture du moteur R: 
 
 ```{{r}}
-# Tout le bloc de codes du fichier source qmd est affiché
+# Tout le bloc de codes sera affiché dont ```{r}
 
 1+1
 ```
 
-On retrouvera souvent cette façon de procéder  dans ce chapitre.
 
 :::
 
@@ -105,18 +112,21 @@ On retrouvera souvent cette façon de procéder  dans ce chapitre.
 
 ### Introduction des options
 
-Les options peuvent être activées dans le yaml et/ou dans le bloc de code. La nouveauté avec Quarto et les versions récentes de rmarkdown est de pouvoir renseigner les options directement dans le corps du bloc. Cette pratique est recommandée.
+Les options peuvent être activées dans le yaml et/ou dans le bloc de code. La nouveauté avec Quarto et les versions récentes de rmarkdown est de pouvoir renseigner les options directement dans le corps du programme. Cette pratique est recommandée.
 
 
-**Dans le yaml**
+[**Options dans le yaml**]{.badge .bg-primary style="font-size:1.1rem;"}
 
-Options s'appliquant à tout les blocs du document. Dans un projet avec un fichier de configuration `_quarto.yml`, les options d'un document peuvent contredire celle qui s'applique à tous les documents du projet. Celles du document ont auront au final la priorité sur celles du projet:
+Options qui s'appliqueront par défaut à tout les blocs du document. Dans un projet avec un fichier de configuration `_quarto.yml`, les options d'un document peuvent contredire celle qui s'applique à tous les documents du projet. Celles du document ont auront au final la priorité sur celles du projet^[Une exception que l'on peut déjà retenir concerne le thème bootstrap appliquée au projet].
 
 ***Exemple***: si dans le yaml du projet le report des blocs de codes sont désactivées (`echo:false`), on peut réactiver l'option dans le yaml d'un document particulier avec `echo: true`.
 
  
 ```{.yaml filename="Dans le fichier _quarto.yml"}
 ---
+project: 
+  type: website
+
 execute:
   echo: false
 ---  
@@ -125,22 +135,28 @@ execute:
  
 ```{.yaml filename="Dans le Yaml d'un document"}
 ---
+title: "page sans affichage des codes"
+
 execute:
-  echo: false
+  echo: true
 ---  
 ```
  
-**Dans le bloc de codes**  
+
+Sur le même principe on pourra contredire dans un bloc individuellement une option qui s'applique par défaut à tout le document.
+
+
+[**Options dans un bloc de codes**]{.badge .bg-primary style="font-size:1.1rem;"}  
 
 * Pour les options communes à Quarto et Rmarkdown, la méthode ` ```{r, options} ` fonctionne toujours.
 
 * ***Nouveauté de Quarto et des versions récentes de rmarkdown***: on peut insérer les options directement dans le corps du programme. 
 
-* Cette nouvelle possibilité prend simplement la forme d'un commentaire introduit par **`#|`** au début du bloc: 
-   * **Syntaxe `|# option: true/false/expression/none/valeur_numérique...`**.
-   * Les arguments `true`/`false` peuvent être mis en minuscule ou majuscule contrairement aux options renseignées directement dans la déclaration du moteur, qui sont en majuscules.
+* Cette nouvelle possibilité prend simplement la forme d'un commentaire introduit par **`#|`** au début du programme: 
+  * **Syntaxe `|# option: true/false/expression/none/valeur_numérique...`**.
+  * Les arguments `true`/`false` peuvent être mis en minuscule ou majuscule contrairement aux options renseignées directement dans la déclaration du moteur, qui sont en majuscules.
     
-Avec cette nouvelle méthode.  
+Avec cette nouvelle méthode^[Pour Stata les options seront introduites par `*|`]:  
 
 ```{{r}}
 #| option1:...
@@ -152,49 +168,25 @@ Avec cette nouvelle méthode.
 ```
 
 
-**Exemple**: pour supprimer l'exécution du programme dans le bloc avec l'option `eval: FALSE/false` 
+**Exemple**: pour supprimer l'exécution du code: option `eval`
 
-* **Option à l'ouverture du moteur**: ` ```{r, eval: FALSE}`
+* **Option à l'ouverture du bloc**: ` ```{r, eval= FALSE}`
 
 ```{r, eval=FALSE}
 #| echo: fenced
 
-# On fait une addition
 1+1
 ```
 
-* ***Dans le corps du bloc***:
 
-```{r}
-#| echo: fenced
+* ***Dans le corps du bloc***: `#| eval: false`
+
+```{{r}}
 #| eval: false
 
-# On fait une addition
 1+1
 ```
 
-Donne également:
-
-```{r}
-#| eval: false
-
-# On fait une addition
-1+1
-```
-
-Dans le yaml du document ou du projet, cette option d'exécution est introduite par l'option  **`execute`**:
-
-```{.yaml}
----
-title: "XXXXXXXX"
-  
-execute:
-  eval: false
----
-```
-
-
-Elle s'appliquera donc par défaut à tous les blocs, mais on pourra revenir en arrière (`#| eval: false`) pour des blocs individuels.
 
 
 ### Options d'exécution et de report des résultats
@@ -202,10 +194,10 @@ Elle s'appliquera donc par défaut à tous les blocs, mais on pourra revenir en 
 Les principales options sont: 
 
 * `eval`:true/false.  
-  * Exécution du programme. Si `false`, le programme est un simple verbatim.
+  * Exécution du programme. Si `false`, le programme sera un simple verbatim.
   * Par défaut true.
 
-* `echo`: true/false/fenced^[Merci Quarto pour le nouvel attribut `fenced` utilisé massivement pour ce chapitre. Pour ce genre de documentation technique permet de reporter, sans exécution du programme, l'ensemble du bloc avec les balises d'ouvertures et de fermeture ` ``` `.]
+* `echo`: true/false/fenced^[`fenced`, alternative à ` ```{{r}}`.]
   * Report du programme dans le document.
   * Par défaut `true` **à l'exception du format revealjs** (important).
 
@@ -213,9 +205,9 @@ Les principales options sont:
   * Affiche les messages et les warning de l'output.
   * par défaut `true`.
 
-Dans le yaml on aurait par défaut (sauf revealjs): 
+Dans le yaml on aurait par défaut (sauf revealjs => echo:`false`): 
 
-```{.yaml}
+```{.yaml filename="Options d'exécution et de report par défaut"}
 ---
 title: "XXXXXXXXX"  
   
@@ -229,11 +221,11 @@ execute:
 
 <br>
 
-**Enregistrer et réutiliser les outputs (résultats) d'un bloc de code**  
+[**Enregistrer et réutiliser les outputs (résultats)**]{.badge .bg-primary style="font-size:1.1rem;"}
 
 * Permet de racourcir la durée de compilation d'une page.
 
-* Certains outputs comme des graphiques peuvent mettre du temps à être exécuté.
+* Certains outputs comme des graphiques peuvent mettre du temps à être exécutés.
 
 * S'il n'ont pas été modifiés, on peut les enregistrer afin qu'ils soit directement ajoutés au document sans nouvelle exécution du programme.
 
@@ -242,25 +234,13 @@ execute:
   * Au choix dans un bloc de code:  **`#| cache: true`**.
 
 
-**Reporter automatiquement un résultat dans le corps du document**  
+[**Reporter un résultat dans le document**]{.badge .bg-primary style="font-size: 1.1rem;"} 
 
 * On peut également dans le corp du document reporter directement un résultat en utilisant un fragment de code, souvent de type objet:
 
   * ``` `{moteur} fragment_code` ```
 
-**Exemple**:
-
-* On calcule une moyenne dans le bloc de code: 
-
-```{.mf}
-val = c(10,15,5,2,12,7)
-moy = mean(val)
-  
-```
-
-
-* Programme qui calcule une moyenne :
-
+**Exemple avec le calcul d'une moyenne et son report dans une phrase**:
 
 ```{r}
 #| echo: true
@@ -274,7 +254,7 @@ moy = mean(val)
 
 On reporte directement la moyenne dans le corp du texte: 
 
-![](img1/inline.png)
+![](img1/inline.png){.nolightbox}
 
 ::: {.box_img}
 La moyenne est de **`r moy`**.
@@ -294,12 +274,13 @@ La moyenne est de **`r moy`**.
 
 Par défaut les titres sont positionnés en dessous du graphique.
 
-* Positionnement: **dans le yaml seulement** `fig-cap-location`: `bottom` (défaut) / `top` / `margin` (voir chapitre 15).
-* Titre du graphique: `fig-cap: "XXXX"`.
+* Titre du graphique dans le bloc: `fig-cap: "XXXX"`.
+* Positionnement: **dans le yaml seulement** `fig-cap-location`: `bottom` (défaut) / `top` / `margin`.
+
 
 Localisation en haut du graphique:
 
-```{.yaml}
+```{.yaml filename="Localisation du titre des graphiques en haut"}
 ---
 fig-cap-location: top
 ---
@@ -319,7 +300,7 @@ plot(x, y)
 :::: {.center} 
 ::: {.column width="70%"}
 ::: {.box_img}   
-```{r}
+```{r filename="Ajout d'un titre à un graphique"}
 #| label: "fig-scatter_cars"
 #| fig-cap: "**Position top du titre défini dans le `yaml`**"
 #| echo: false
@@ -338,7 +319,7 @@ plot(x, y)
 
 #### Tableaux
 
-Attention, il ne s'agit pas des tableaux générés directement en markdown.    
+Attention, il ne s'agit pas ici des tableaux générés directement en markdown.    
 
 Les options sont introduites par `tbl-nom_option`.    
 Peu d'options, à retenir principalement le titre avec `tbl-cap: "XXXX"`
@@ -355,7 +336,7 @@ tbl-cap-location: bottom
 ---
 ```
 
-Titre du tableau dans le bloc^[L'option `tbl-label:` est explicité dans la section dédiée aux [références croisées](https://mthevenin.gitlab.io/support_quarto/053-cross_ref.html)]:
+Titre du tableau dans le bloc^[L'option `tbl-label:` est explicitée dans la section dédiée aux [références croisées](https://mthevenin.gitlab.io/support_quarto/053-cross_ref.html)]:
 
 ```{.mf}
 #| tbl-cap: "Base voitures"
@@ -383,7 +364,7 @@ knitr:: kable(head(mtcars[, 1:4]))
 * Quarto a introduit une série de nouvelles options propres aux outputs **html**, spécifiques ou non au yaml. 
 * Dans le yaml, ces options sont des sous options du format html. 
 
-Demonstration (cliquer sur **`<> Code`** en haut à droite, ou sur **Code** au dessus du du résultat:    
+Demonstration (cliquer sur **`</> Code`** en haut à droite, ou sur **Code** au dessus du résultat de l'addition:    
 
 ::: {.center}
 ::: {.box_img}  
@@ -402,7 +383,7 @@ Demonstration (cliquer sur **`<> Code`** en haut à droite, ou sur **Code** au d
   * Si `true`: par défaut les blocs sont cachés et on peut les ouvrir individuellement.
   * Si `show`: par défaut les blocs sont ouverts et on peut les cacher individuellement.
 
-```{.yaml}
+```{.yaml filename="Afficher/cacher le code à la volée"}
 ---
 format:
   html:
@@ -448,12 +429,12 @@ Si `#| code-fold:show`
 ```
 
 
-### Afficher le code source du fichier
+### Accéder à la source du fichier Quarto
 
 * Introduit par l'option **`code-tools`** du format html dans le yaml. 
 * Non compatible avec le format de présentation **revealjs**...dommage.
 
-```{.yaml}
+```{.yaml filename="Activer l'accès au fichier source"}
 ---
 format:
   html:
@@ -489,27 +470,6 @@ code-fold: true
 ```
 
 
-Si aucun autre format n'est compilé (pdf, word): 
-
-```{.yaml}
----
-code-tools: true/false
-
-code-fold: true/false/show
----
-```
-
-```{.yaml}
----
-code-tools:
-  source: true/false
-
-code-fold: true/false/show
----
-```
-
-
-
 ### Accéder à la documentation web des fonctions 
 
 * Pour R seulement. Implémentation dans Quarto du package [downlit](https://downlit.r-lib.org/).
@@ -517,8 +477,7 @@ code-fold: true/false/show
 * Dans le yaml du document: **`code-link: true`**.
 
 
-### Titre du bloc, Annotation et titre du bloc
-
+###  Annotation et titre du bloc
 
 #### Commenter une ou plusieurs lignes de programme: **`annotation`**
 
@@ -528,7 +487,7 @@ Très utile pour documenter des lignes de programme.
 
 
 - A la fin d'une ligne on indique un numéro de l'annotation avec **`#<numero>`**
-- Après la fermeture du bloc avec ` ``` `, on rédige le commentaire pour chaque ligne avec:  
+- Après la fermeture du bloc, on rédige le commentaire pour chaque ligne commentée avec:  
   `numero. commentaire...`
   
 Exemple: 
@@ -536,7 +495,6 @@ Exemple:
 * Dans le bloc de code:
 
 ![](img1/annotation.png)
-
 
 * Dans le corp du texte, juste sous le bloc de codes:
 
@@ -548,7 +506,8 @@ Exemple:
 
 Résultat:
 
-::: {.column width="70%"}
+
+::: {.column width="80%"}
 ::: {.box_img} 
 ```{r}
 data("mtcars")          #<1>
@@ -564,13 +523,14 @@ plot(x, y)              #<3>
 :::
 
 
+
 ***Remarques***:  
 
 * Pour les documents en format html (notebook, revealjs), on peut afficher de manière dynamique les commentaires. Dans le yaml: 
   * **`code-annotation: hover`**: le commentaire est affiché lorsqu'on passe avec la souris sur la ligne. commentée.
   * **`code-annotation: select`**: le commentaire est affiché lorsqu'on clique sur le numéro du commentaire à droite de la ligne.
   
-* Pour les formats non dynamiques (pdf, word...) seulement l'option statique est disponible. Dans le yaml elle correspond à l'option: **`code-annotation: below`**
+* Pour les formats non dynamiques (pdf, word...) seulement l'option statique par défaut est disponible. Dans le yaml elle correspond à l'option: **`code-annotation: below`**
 * Il n'est pas possible de sélectionner le type d'affichage du commentaire pour chaque bloc individuellement. 
   
   
@@ -586,14 +546,26 @@ Pour finir, et à mon sens pas si gadget que cela, on peut ajouter un titre au b
 ```
 ````
 
+Résultat:  
+
 ```{r filename="On va faire une addition"}
 1+1
 ```
 
+On peut également inséré le titre directement dans le corps du programme avec l'option `#| filename: "titre du programme" `
 
-::: callout-warning
-Pour le format PDF le rendu n'est pas terrible, je ne conseille pas de l'utiliser pour une documentation 
+```{{r}}
+#| filename: "On va faire une addition"
+
+1+1
+```
+
+
+::: {.alert .alert-warning .alert-dismissible}
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+Pour le format PDF le rendu n'est pas terrible, je ne conseille pas de l'utiliser, pour l'instant, dans une documentation. 
 :::
+
 
 
 
