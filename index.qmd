@@ -14,7 +14,7 @@ author-title: ""
 
 <div class="card text-white bg-primary mb-3" style="max-width: 500px;">
   <div class="card-header"><a href="01-posit.html" style="text-decoration:none; font-weight:900 ">{{< animate zoomIn "Posit & Quarto" >}}</a></div>
-  <div class="card-body">Quelques information sur le changement de nom de RStudio (l'entreprise) et la sortie du logiciel Quarto en juillet 2022
+  <div class="card-body">Quelques informations sur le changement de nom de RStudio (l'entreprise) et la sortie du logiciel Quarto en juillet 2022
   </div>
 </div>
 
