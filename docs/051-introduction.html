@@ -423,14 +423,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#les-types-de-contenu" id="toc-les-types-de-contenu" class="nav-link active" data-scroll-target="#les-types-de-contenu"><span class="header-section-number">16.1</span> Les types de contenu</a></li>
-  <li><a href="#création-du-projet" id="toc-création-du-projet" class="nav-link" data-scroll-target="#création-du-projet"><span class="header-section-number">16.2</span> Création du projet</a></li>
-  <li><a href="#compilation-densemble" id="toc-compilation-densemble" class="nav-link" data-scroll-target="#compilation-densemble"><span class="header-section-number">16.3</span> Compilation d’ensemble</a></li>
-  <li><a href="#le-fichier-_quarto.yml" id="toc-le-fichier-_quarto.yml" class="nav-link" data-scroll-target="#le-fichier-_quarto.yml"><span class="header-section-number">16.4</span> Le fichier _quarto.yml</a></li>
-  <li><a href="#le-fichier-_quarto.yml-1" id="toc-le-fichier-_quarto.yml-1" class="nav-link" data-scroll-target="#le-fichier-_quarto.yml-1"><span class="header-section-number">16.5</span> Le fichier _quarto.yml</a>
+  <li><a href="#compilation-densemble" id="toc-compilation-densemble" class="nav-link" data-scroll-target="#compilation-densemble"><span class="header-section-number">16.2</span> Compilation d’ensemble</a></li>
+  <li><a href="#le-fichier-_quarto.yml" id="toc-le-fichier-_quarto.yml" class="nav-link" data-scroll-target="#le-fichier-_quarto.yml"><span class="header-section-number">16.3</span> Le fichier _quarto.yml</a></li>
+  <li><a href="#le-fichier-_quarto.yml-1" id="toc-le-fichier-_quarto.yml-1" class="nav-link" data-scroll-target="#le-fichier-_quarto.yml-1"><span class="header-section-number">16.4</span> Le fichier _quarto.yml</a>
   <ul>
-  <li><a href="#options-du-project" id="toc-options-du-project" class="nav-link" data-scroll-target="#options-du-project"><span class="header-section-number">16.5.1</span> Options du project</a></li>
-  <li><a href="#sec-freeze" id="toc-sec-freeze" class="nav-link" data-scroll-target="#sec-freeze"><span class="header-section-number">16.5.2</span> L’option <strong><code>freeze</code></strong></a></li>
-  <li><a href="#plusieurs-fichiers-.yml" id="toc-plusieurs-fichiers-.yml" class="nav-link" data-scroll-target="#plusieurs-fichiers-.yml"><span class="header-section-number">16.5.3</span> Plusieurs fichiers .yml</a></li>
+  <li><a href="#options-du-project" id="toc-options-du-project" class="nav-link" data-scroll-target="#options-du-project"><span class="header-section-number">16.4.1</span> Options du project</a></li>
+  <li><a href="#sec-freeze" id="toc-sec-freeze" class="nav-link" data-scroll-target="#sec-freeze"><span class="header-section-number">16.4.2</span> L’option <strong><code>freeze</code></strong></a></li>
+  <li><a href="#plusieurs-fichiers-.yml" id="toc-plusieurs-fichiers-.yml" class="nav-link" data-scroll-target="#plusieurs-fichiers-.yml"><span class="header-section-number">16.4.3</span> Plusieurs fichiers .yml</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -501,7 +500,7 @@ Note
 <ul>
 <li>On peut associer dans un même projet plusieurs types de contenu.</li>
 <li>Le plus souple est le website car on peut y associer un book ou un blog.</li>
-<li>Il n’est pas possible de créer un projet de type book et d’y associer un contenu de type blog.</li>
+<li>Officiellement il n’est pas possible de créer un projet de type book et d’y associer un contenu de type blog. Cela est néanmoins possible, mais avec de fortes limitations.</li>
 </ul>
 <p>Voici les quelques associations possibles</p>
 <ul>
@@ -513,18 +512,14 @@ Note
 <li>Projet de type book [sidebar]:
 <ul>
 <li>Ajout d’un website [navbar]</li>
+<li>Avec de fortes limitations, ajout d’une liste manuelle d’articles sous forme de blog. ## Création du projet</li>
 </ul></li>
-</ul>
-</section>
-<section id="création-du-projet" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="création-du-projet"><span class="header-section-number">16.2</span> Création du projet</h2>
-<ul>
 <li>Pour débuter ou pour se faire la main, je conseille de partir d’un projet généré automatiquement dans <strong>new project</strong>. A force on ira piocher des informations sur les répertoires git mettant à disposition les codes sources, et on réutilisera directement les configurations issus de projets créer précédemment (ce que je fait systématiquemen maintenant).</li>
 </ul>
 <p>Pour créer un projet par type de contenu: file <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> new project <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> new directory =&gt; choix du type de contenu.</p>
 </section>
-<section id="compilation-densemble" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="compilation-densemble"><span class="header-section-number">16.3</span> Compilation d’ensemble</h2>
+<section id="compilation-densemble" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="compilation-densemble"><span class="header-section-number">16.2</span> Compilation d’ensemble</h2>
 <p>On peut bien évidemment compiler les fichiers un par un. Pour la moindre modification du fichier <strong><code>_quarto.yml</code></strong> qui porterait sur l’ajout ou la suppression de fichier, un changement de chapitrage pour les books, ou une modification d’une option qui s’applique à tous les fichiers sources (options du thème par exemple) demandera un compilation d’ensemble</p>
 <p>Pour compiler l’ensemble des fichiers .qmd contenus dans le projet, dans le terminal:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -544,8 +539,8 @@ Avertissement
 </div>
 </div>
 </section>
-<section id="le-fichier-_quarto.yml" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="le-fichier-_quarto.yml"><span class="header-section-number">16.4</span> Le fichier _quarto.yml</h2>
+<section id="le-fichier-_quarto.yml" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="le-fichier-_quarto.yml"><span class="header-section-number">16.3</span> Le fichier _quarto.yml</h2>
 <p>Le fichier _quarto.yml comporte à minima les éléments suivants:</p>
 <ul>
 <li>Le type de projet: website ou book</li>
@@ -561,18 +556,18 @@ Avertissement
 </ul></li>
 </ul>
 </section>
-<section id="le-fichier-_quarto.yml-1" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="le-fichier-_quarto.yml-1"><span class="header-section-number">16.5</span> Le fichier _quarto.yml</h2>
-<section id="options-du-project" class="level3" data-number="16.5.1">
-<h3 data-number="16.5.1" class="anchored" data-anchor-id="options-du-project"><span class="header-section-number">16.5.1</span> Options du project</h3>
+<section id="le-fichier-_quarto.yml-1" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="le-fichier-_quarto.yml-1"><span class="header-section-number">16.4</span> Le fichier _quarto.yml</h2>
+<section id="options-du-project" class="level3" data-number="16.4.1">
+<h3 data-number="16.4.1" class="anchored" data-anchor-id="options-du-project"><span class="header-section-number">16.4.1</span> Options du project</h3>
 <ul>
 <li><strong><code>project</code></strong>:
 <ul>
 <li>Indiquer le type de projet: <strong><code>type: website</code></strong> ou <strong><code>type: book</code></strong>.</li>
-<li>Indiquer le répertoire de destination (par défaut **_site<strong>): </strong><code>output-dir: nom_repertoire</code>**
+<li>Indiquer le répertoire de destination (par défaut **_site<strong>): </strong><code>output-dir: nom_repertoire</code>**.
 <ul>
-<li>Pour Github: <code>output-dir: docs</code></li>
-<li>Pour Gitlab: <code>output-dir: public</code></li>
+<li>Pour Github: <code>output-dir: docs</code>.</li>
+<li>Pour Gitlab: <code>output-dir: public</code>.</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -581,8 +576,8 @@ Avertissement
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  output<span class="op">-</span><span class="kw">dir</span>: public</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ce <code>_quarto.yml</code> est suffisant pour générer un blog.</p>
 </section>
-<section id="sec-freeze" class="level3" data-number="16.5.2">
-<h3 data-number="16.5.2" class="anchored" data-anchor-id="sec-freeze"><span class="header-section-number">16.5.2</span> L’option <strong><code>freeze</code></strong></h3>
+<section id="sec-freeze" class="level3" data-number="16.4.2">
+<h3 data-number="16.4.2" class="anchored" data-anchor-id="sec-freeze"><span class="header-section-number">16.4.2</span> L’option <strong><code>freeze</code></strong></h3>
 <p>Par définition ce type de documentation impliques plusieurs fichiers .qmd, voire des dizaines. Par défaut <code>quarto render</code> repasse tout à la moulinette. La durée de compilation peut être excessivement longue, surtout si un nombre limité de fichiers ont été créés ou modifiés entre deux compilations.</p>
 <p>Quarto donne la possibilité de réduire la durée de compilation aux fichiers dont les blocs de code ont été modifiés avec la sous option de <strong><code>execute</code></strong>: <strong><code>freeze: auto/true/false</code></strong>:</p>
 <ul>
@@ -591,8 +586,8 @@ Avertissement
 <li><p><code>freeze: false</code>: Tout est de nouveau compilé.</p></li>
 </ul>
 </section>
-<section id="plusieurs-fichiers-.yml" class="level3" data-number="16.5.3">
-<h3 data-number="16.5.3" class="anchored" data-anchor-id="plusieurs-fichiers-.yml"><span class="header-section-number">16.5.3</span> Plusieurs fichiers .yml</h3>
+<section id="plusieurs-fichiers-.yml" class="level3" data-number="16.4.3">
+<h3 data-number="16.4.3" class="anchored" data-anchor-id="plusieurs-fichiers-.yml"><span class="header-section-number">16.4.3</span> Plusieurs fichiers .yml</h3>
 <p>On peut créer des fichiers yaml en plus du fichier <code>_quarto.yml</code>. Il seront fusionnés avec le fichier de configuration principal lors de la compilation. C’est ce que fait par exemple Quarto lorsqu’on génère un projet blog via <em>New project</em> . Dans les fichiers générés on aura:</p>
 <ul>
 <li>Le fichier <code>_quarto.yml</code> qui définit le type de projet (un simple website).</li>
@@ -1175,152 +1170,151 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut associer dans un même projet plusieurs types de contenu. </span>
 <span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le plus souple est le website car on peut y associer un book ou un blog. </span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Il n'est pas possible de créer un projet de type book et d'y associer un contenu de type blog. </span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Officiellement il n'est pas possible de créer un projet de type book et d'y associer un contenu de type blog. Cela est néanmoins possible, mais avec de fortes limitations. </span>
 <span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>Voici les quelques associations possibles</span>
 <span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Projet de type website <span class="co">[</span><span class="ot">navbar</span><span class="co">]</span>:</span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Ajout d'un book <span class="co">[</span><span class="ot">sidebar</span><span class="co">]</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Ajout d'un blog <span class="co">[</span><span class="ot">listing</span><span class="co">]</span></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Projet de type book <span class="co">[</span><span class="ot">sidebar</span><span class="co">]</span>:</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Ajout d'un website <span class="co">[</span><span class="ot">navbar</span><span class="co">]</span></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Création du projet</span></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour débuter ou pour se faire la main, je conseille de partir d'un projet généré automatiquement dans **new project**. A force on ira piocher des informations sur les répertoires git mettant à disposition les codes sources, et on réutilisera directement les configurations issus de projets créer précédemment (ce que je fait systématiquemen maintenant).</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>Pour créer un projet par type de contenu: file {{&lt; fa solid arrow-right &gt;}} new project {{&lt; fa solid arrow-right &gt;}} new directory =&gt; choix du type de contenu.</span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Compilation d'ensemble</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>On peut bien évidemment compiler les fichiers un par un. Pour  la moindre modification du fichier **`_quarto.yml`** qui porterait sur l'ajout ou la suppression de fichier, un changement de chapitrage pour les books, ou une modification  d'une option qui s'applique à tous les fichiers sources (options du thème par exemple) demandera un compilation d'ensemble</span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>Pour compiler l'ensemble des fichiers .qmd contenus dans le projet, dans le terminal:</span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="in">quarto render</span></span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>Utile pour le format book on peut préciser le format de l'output et éviter une compilation multiformat si elle n'est pas nécessaire</span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="in">quarto render --to pdf</span></span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>Si on visualise le rendu directement dans le répertoire de destination, <span class="in">`_site`</span>, <span class="in">`docs`</span> ou <span class="in">`public`</span> pour un déploiement sur github ou gitlab,  certaines options semblent ne pas fonctionner ou s'activer correctement. C'est le cas de la barre de recherche. C'est *normal* car elles reposent sur serveur propre à une fonctionnalité javascript. Pour vérifier que *tout s'active normalement*, il faut donc se fier au rendu du **viewer** de Rstudio. On peut exécuter dans le terminal **`quarto preview`** pour checker toutes les fonctionnalités incluses dans la documentation. Attention l'ouverture et la navigation via le serveur local généré avec <span class="in">`quarto preview`</span> est plus longue par rapport aux fichiers html stockés dans le répertoire de destination.</span>
-<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Le fichier _quarto.yml</span></span>
-<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>Le fichier _quarto.yml comporte à minima les éléments suivants: </span>
-<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le type de projet: website ou book</span>
-<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Selon le type de projet: </span>
-<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>La liste des fichiers qui lui seront directement associés: fichiers .qmd dans le répertoire du projet ou fichiers externes de type lien html.</span>
-<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Des options propres au type de contenu. Par exemple pour le mode book, afficher un icône qui permet de télécharger la version pdf.</span>
-<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour la très grande majorité des options, il est toujours possible dans le yaml d'un fichier .qmd de changer certains paramètres définis globalement dans le fichier <span class="in">`_quarto.yml`</span>:</span>
-<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Exemples: on peut désactiver la table des matière^<span class="co">[</span><span class="ot">Ce que j'ai fait pour la page d'accueil de ce support</span><span class="co">]</span>, changer les options par défaut d'exécution des blocs de codes dans un ou plusieurs fichiers.qmd. </span>
-<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Contre exemple: les éléments liés au thème ne peuvent pas être modifiés directement dans le yaml d'une page</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Ajout d'un book      <span class="co">[</span><span class="ot">sidebar</span><span class="co">]</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Ajout d'un blog      <span class="co">[</span><span class="ot">listing</span><span class="co">]</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Projet de type book    <span class="co">[</span><span class="ot">sidebar</span><span class="co">]</span>:</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Ajout d'un website   <span class="co">[</span><span class="ot">navbar</span><span class="co">]</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Avec de fortes limitations, ajout d'une liste manuelle d'articles sous forme de blog.</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Création du projet</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour débuter ou pour se faire la main, je conseille de partir d'un projet généré automatiquement dans **new project**. A force on ira piocher des informations sur les répertoires git mettant à disposition les codes sources, et on réutilisera directement les configurations issus de projets créer précédemment (ce que je fait systématiquemen maintenant).</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>Pour créer un projet par type de contenu: file {{&lt; fa solid arrow-right &gt;}} new project {{&lt; fa solid arrow-right &gt;}} new directory =&gt; choix du type de contenu.</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## Compilation d'ensemble</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>On peut bien évidemment compiler les fichiers un par un. Pour  la moindre modification du fichier **`_quarto.yml`** qui porterait sur l'ajout ou la suppression de fichier, un changement de chapitrage pour les books, ou une modification  d'une option qui s'applique à tous les fichiers sources (options du thème par exemple) demandera un compilation d'ensemble</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>Pour compiler l'ensemble des fichiers .qmd contenus dans le projet, dans le terminal:</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="in">quarto render</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>Utile pour le format book on peut préciser le format de l'output et éviter une compilation multiformat si elle n'est pas nécessaire</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="in">quarto render --to pdf</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>Si on visualise le rendu directement dans le répertoire de destination, <span class="in">`_site`</span>, <span class="in">`docs`</span> ou <span class="in">`public`</span> pour un déploiement sur github ou gitlab,  certaines options semblent ne pas fonctionner ou s'activer correctement. C'est le cas de la barre de recherche. C'est *normal* car elles reposent sur serveur propre à une fonctionnalité javascript. Pour vérifier que *tout s'active normalement*, il faut donc se fier au rendu du **viewer** de Rstudio. On peut exécuter dans le terminal **`quarto preview`** pour checker toutes les fonctionnalités incluses dans la documentation. Attention l'ouverture et la navigation via le serveur local généré avec <span class="in">`quarto preview`</span> est plus longue par rapport aux fichiers html stockés dans le répertoire de destination.</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Le fichier _quarto.yml</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>Le fichier _quarto.yml comporte à minima les éléments suivants: </span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le type de projet: website ou book</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Selon le type de projet: </span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>La liste des fichiers qui lui seront directement associés: fichiers .qmd dans le répertoire du projet ou fichiers externes de type lien html.</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Des options propres au type de contenu. Par exemple pour le mode book, afficher un icône qui permet de télécharger la version pdf.</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour la très grande majorité des options, il est toujours possible dans le yaml d'un fichier .qmd de changer certains paramètres définis globalement dans le fichier <span class="in">`_quarto.yml`</span>:</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Exemples: on peut désactiver la table des matière^<span class="co">[</span><span class="ot">Ce que j'ai fait pour la page d'accueil de ce support</span><span class="co">]</span>, changer les options par défaut d'exécution des blocs de codes dans un ou plusieurs fichiers.qmd. </span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Contre exemple: les éléments liés au thème ne peuvent pas être modifiés directement dans le yaml d'une page</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a><span class="fu">## Le fichier _quarto.yml</span></span>
-<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Options du project</span></span>
-<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**`project`**: </span>
-<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Indiquer le type de projet: **`type: website`** ou **`type: book`**.</span>
-<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Indiquer le répertoire de destination (par défaut **_site**): **`output-dir: nom_repertoire`**</span>
-<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Pour Github: <span class="in">`output-dir: docs`</span></span>
-<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Pour Gitlab: <span class="in">`output-dir: public`</span></span>
-<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a><span class="in">project:</span></span>
-<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a><span class="in">  type: website</span></span>
-<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a><span class="in">  output-dir: public</span></span>
-<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>Ce <span class="in">`_quarto.yml`</span> est suffisant pour générer un blog.</span>
-<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### L'option **`freeze`** {#sec-freeze}</span></span>
-<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>Par définition ce type de documentation impliques plusieurs fichiers .qmd, voire des dizaines.</span>
-<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>Par défaut <span class="in">`quarto render`</span> repasse tout à la moulinette. La durée de compilation peut être excessivement longue, surtout si un nombre limité de fichiers ont été créés ou modifiés entre deux compilations.  </span>
-<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>Quarto donne la possibilité de réduire la durée de compilation aux fichiers dont les blocs de code ont été modifiés avec la sous option de **`execute`**: **`freeze: auto/true/false`**: </span>
-<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`freeze: auto`</span>: hors scripts tous les fichiers sont compilés. La compilation des blocs de codes se fait seulement en cas de modification.</span>
-<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`freeze: true`</span>: hors scripts tous les fichiers sont compilés. Même si un script a été modifié, les blocs de code ne sont pas exécutés de nouveau. On devra compiler le document individuellement pour exécuter les blocs de codes. Cette option est privilégié pour les contenus de type blog.</span>
-<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`freeze: false`</span>: Tout est de nouveau compilé.</span>
-<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a><span class="fu">### Plusieurs fichiers .yml</span></span>
-<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>On peut créer des fichiers yaml en plus du fichier <span class="in">`_quarto.yml`</span>. Il seront fusionnés avec le fichier de configuration principal lors de la compilation. C'est ce que fait par exemple Quarto lorsqu'on génère un projet blog via *New project* . Dans les fichiers générés on aura:</span>
-<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le fichier <span class="in">`_quarto.yml`</span> qui définit le type de projet (un simple website).</span>
-<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un fichier <span class="in">`metadata.yml`</span> dans le répertoire **post** qui fixe la règle d'exécution des blocs de code des articles.</span>
-<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a>Par défaut ces yaml supplémentaires s'appellent *`_metadata.yml`*. Si le fichier de configuration <span class="in">`_quarto.yml`</span> semble trop long on peut le scinder en plusieurs fichiers dans la répertoire racine du projet: </span>
-<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On génère plusieurs fichiers .yml avec des noms différents.</span>
-<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le fichier **`_quarto.yml`** on liste les autres fichiers .yml qui devront être fusionnés avec lui lors de la compilation avec l'option **`metadata_files:`**.</span>
-<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a><span class="fu">### **`_quarto.yml`**</span></span>
-<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml filename="_quarto.yml"}</span></span>
-<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a><span class="in">project:</span></span>
-<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a><span class="in">  type: website</span></span>
-<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a><span class="in">  output_dir: public</span></span>
-<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a><span class="in">metadata_files:</span></span>
-<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a><span class="in">  - _navbar.yml</span></span>
-<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a><span class="in">  - _format.yml</span></span>
-<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a><span class="fu">### **`_navbar.yml`**</span></span>
-<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml filename="_navbar.yml"}</span></span>
-<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a><span class="in">website: </span></span>
-<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a><span class="in">  navbar:</span></span>
-<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a><span class="in">    left:</span></span>
-<span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a><span class="in">      - href: index.qmd</span></span>
-<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a><span class="in">        text: "Accueil"</span></span>
-<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a><span class="in">      - href: page1.qmd</span></span>
-<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a><span class="in">        text: "Titre1"</span></span>
-<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a><span class="in">      - href: page2.qmd</span></span>
-<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a><span class="in">        text: "Titre2"</span></span>
-<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a><span class="fu">### **`_format.yml`**</span></span>
-<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml filename="_format.yml"}</span></span>
-<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a><span class="in">format:</span></span>
-<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
-<span id="cb7-162"><a href="#cb7-162" aria-hidden="true" tabindex="-1"></a><span class="in">    theme:</span></span>
-<span id="cb7-163"><a href="#cb7-163" aria-hidden="true" tabindex="-1"></a><span class="in">      light: [flatly, styles.scss]</span></span>
-<span id="cb7-164"><a href="#cb7-164" aria-hidden="true" tabindex="-1"></a><span class="in">      dark:  [darkly, styles_dark.scss]</span></span>
-<span id="cb7-165"><a href="#cb7-165" aria-hidden="true" tabindex="-1"></a><span class="in">    css: styles.css</span></span>
-<span id="cb7-166"><a href="#cb7-166" aria-hidden="true" tabindex="-1"></a><span class="in">    code-tools:</span></span>
-<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a><span class="in">      source: true</span></span>
-<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a><span class="in">      toggle: false</span></span>
-<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a><span class="in">    grid:</span></span>
-<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a><span class="in">      sidebar-width: 350px</span></span>
-<span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a><span class="in">      body-width: 950px</span></span>
-<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a><span class="in">      margin-width: 300px</span></span>
-<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a><span class="in">      gutter-width: 1.5rem</span></span>
-<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a><span class="in">    mainfont: "roboto"  </span></span>
-<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Le fichier _quarto.yml</span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Options du project</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**`project`**: </span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Indiquer le type de projet: **`type: website`** ou **`type: book`**.</span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Indiquer le répertoire de destination (par défaut **_site**): **`output-dir: nom_repertoire`**.</span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Pour Github: <span class="in">`output-dir: docs`</span>.</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Pour Gitlab: <span class="in">`output-dir: public`</span>.</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a><span class="in">project:</span></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a><span class="in">  type: website</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a><span class="in">  output-dir: public</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>Ce <span class="in">`_quarto.yml`</span> est suffisant pour générer un blog.</span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a><span class="fu">### L'option **`freeze`** {#sec-freeze}</span></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>Par définition ce type de documentation impliques plusieurs fichiers .qmd, voire des dizaines.</span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>Par défaut <span class="in">`quarto render`</span> repasse tout à la moulinette. La durée de compilation peut être excessivement longue, surtout si un nombre limité de fichiers ont été créés ou modifiés entre deux compilations.  </span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>Quarto donne la possibilité de réduire la durée de compilation aux fichiers dont les blocs de code ont été modifiés avec la sous option de **`execute`**: **`freeze: auto/true/false`**: </span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`freeze: auto`</span>: hors scripts tous les fichiers sont compilés. La compilation des blocs de codes se fait seulement en cas de modification.</span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`freeze: true`</span>: hors scripts tous les fichiers sont compilés. Même si un script a été modifié, les blocs de code ne sont pas exécutés de nouveau. On devra compiler le document individuellement pour exécuter les blocs de codes. Cette option est privilégié pour les contenus de type blog.</span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`freeze: false`</span>: Tout est de nouveau compilé.</span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a><span class="fu">### Plusieurs fichiers .yml</span></span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>On peut créer des fichiers yaml en plus du fichier <span class="in">`_quarto.yml`</span>. Il seront fusionnés avec le fichier de configuration principal lors de la compilation. C'est ce que fait par exemple Quarto lorsqu'on génère un projet blog via *New project* . Dans les fichiers générés on aura:</span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le fichier <span class="in">`_quarto.yml`</span> qui définit le type de projet (un simple website).</span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un fichier <span class="in">`metadata.yml`</span> dans le répertoire **post** qui fixe la règle d'exécution des blocs de code des articles.</span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>Par défaut ces yaml supplémentaires s'appellent *`_metadata.yml`*. Si le fichier de configuration <span class="in">`_quarto.yml`</span> semble trop long on peut le scinder en plusieurs fichiers dans la répertoire racine du projet: </span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On génère plusieurs fichiers .yml avec des noms différents.</span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le fichier **`_quarto.yml`** on liste les autres fichiers .yml qui devront être fusionnés avec lui lors de la compilation avec l'option **`metadata_files:`**.</span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### **`_quarto.yml`**</span></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml filename="_quarto.yml"}</span></span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a><span class="in">project:</span></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a><span class="in">  type: website</span></span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a><span class="in">  output_dir: public</span></span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a><span class="in">metadata_files:</span></span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a><span class="in">  - _navbar.yml</span></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a><span class="in">  - _format.yml</span></span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a><span class="fu">### **`_navbar.yml`**</span></span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml filename="_navbar.yml"}</span></span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a><span class="in">website: </span></span>
+<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a><span class="in">  navbar:</span></span>
+<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a><span class="in">    left:</span></span>
+<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a><span class="in">      - href: index.qmd</span></span>
+<span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a><span class="in">        text: "Accueil"</span></span>
+<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a><span class="in">      - href: page1.qmd</span></span>
+<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a><span class="in">        text: "Titre1"</span></span>
+<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a><span class="in">      - href: page2.qmd</span></span>
+<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a><span class="in">        text: "Titre2"</span></span>
+<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a><span class="fu">### **`_format.yml`**</span></span>
+<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{.yaml filename="_format.yml"}</span></span>
+<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a><span class="in">format:</span></span>
+<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a><span class="in">  html:</span></span>
+<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a><span class="in">    theme:</span></span>
+<span id="cb7-162"><a href="#cb7-162" aria-hidden="true" tabindex="-1"></a><span class="in">      light: [flatly, styles.scss]</span></span>
+<span id="cb7-163"><a href="#cb7-163" aria-hidden="true" tabindex="-1"></a><span class="in">      dark:  [darkly, styles_dark.scss]</span></span>
+<span id="cb7-164"><a href="#cb7-164" aria-hidden="true" tabindex="-1"></a><span class="in">    css: styles.css</span></span>
+<span id="cb7-165"><a href="#cb7-165" aria-hidden="true" tabindex="-1"></a><span class="in">    code-tools:</span></span>
+<span id="cb7-166"><a href="#cb7-166" aria-hidden="true" tabindex="-1"></a><span class="in">      source: true</span></span>
+<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a><span class="in">      toggle: false</span></span>
+<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a><span class="in">    grid:</span></span>
+<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a><span class="in">      sidebar-width: 350px</span></span>
+<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a><span class="in">      body-width: 950px</span></span>
+<span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a><span class="in">      margin-width: 300px</span></span>
+<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a><span class="in">      gutter-width: 1.5rem</span></span>
+<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a><span class="in">    mainfont: "roboto"  </span></span>
+<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

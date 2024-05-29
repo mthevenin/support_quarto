@@ -683,7 +683,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Activation de l’option lightbox: <code>freeze: true</code></li>
 <li>Le français pour les titres: <code>lang: fr</code></li>
-<li>Option <code>freeze</code> (<a href="051-introduction.html#sec-freeze" class="quarto-xref"><span>Section 16.5.2</span></a>).</li>
+<li>Option <code>freeze</code> (<a href="051-introduction.html#sec-freeze" class="quarto-xref"><span>Section 16.4.2</span></a>).</li>
 <li>Changement du répertoire de destination: <code>output_dir: public</code>.</li>
 <li>Très optionnel, un petit élément de style dans le fichier <strong>style.css</strong> pour le contour des images.</li>
 </ul></li>
@@ -1964,7 +1964,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

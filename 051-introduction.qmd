@@ -30,17 +30,16 @@ Au final avec Quarto seulement deux types de projets *stricto sensu* sont reconn
 
 * On peut associer dans un même projet plusieurs types de contenu. 
 * Le plus souple est le website car on peut y associer un book ou un blog. 
-* Il n'est pas possible de créer un projet de type book et d'y associer un contenu de type blog. 
+* Officiellement il n'est pas possible de créer un projet de type book et d'y associer un contenu de type blog. Cela est néanmoins possible, mais avec de fortes limitations. 
 
 Voici les quelques associations possibles
 
 * Projet de type website [navbar]:
-  * Ajout d'un book [sidebar]
-  * Ajout d'un blog [listing]
-* Projet de type book [sidebar]:
-  * Ajout d'un website [navbar]
- 
-
+  * Ajout d'un book      [sidebar]
+  * Ajout d'un blog      [listing]
+* Projet de type book    [sidebar]:
+  * Ajout d'un website   [navbar]
+  * Avec de fortes limitations, ajout d'une liste manuelle d'articles sous forme de blog.
 ## Création du projet
 
 * Pour débuter ou pour se faire la main, je conseille de partir d'un projet généré automatiquement dans **new project**. A force on ira piocher des informations sur les répertoires git mettant à disposition les codes sources, et on réutilisera directement les configurations issus de projets créer précédemment (ce que je fait systématiquemen maintenant).
@@ -88,9 +87,9 @@ Le fichier _quarto.yml comporte à minima les éléments suivants:
 
 * **`project`**: 
   * Indiquer le type de projet: **`type: website`** ou **`type: book`**.
-  * Indiquer le répertoire de destination (par défaut **_site**): **`output-dir: nom_repertoire`**
-    * Pour Github: `output-dir: docs`
-    * Pour Gitlab: `output-dir: public`
+  * Indiquer le répertoire de destination (par défaut **_site**): **`output-dir: nom_repertoire`**.
+    * Pour Github: `output-dir: docs`.
+    * Pour Gitlab: `output-dir: public`.
 
 ```{.mf}
 project:

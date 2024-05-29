@@ -2,14 +2,14 @@
 # Introduction aux formats
 
 
-::: callout-note
+::: callout-nojupyter notebookte
 
 La **version 1.4** de Quarto (janvier 2024) ajoute deux nouveaux formats de type html:
 
-* Le format **manuscript**.
-* Le format **dashboard**.
+* Le format **manuscript**: <https://quarto.org/docs/manuscripts/>
+* Le format **dashboard**:  <https://quarto.org/docs/dashboards/>
 
-Ces nouveaux formats seront traités dans une prochaine version de ce support.
+Seront traités dans une version ultérieure sous forme de fiche.
 
 :::
 

@@ -40,7 +40,7 @@ On va vraiment chipoter.
 
 ::: {.box_img}  
 
-* Durée de compilation bien plus longue qu'avec Rmarkdown.
+* Durée de compilation  plus longue qu'avec Rmarkdown. Attention tout de même, tout ceci varie plus ou moins fortement d'une machine à une autre. Dans le contexte de l'Ined en utilisant la version de Rstudio sous serveur, la compilation des documents est vraiment très rapide.
 
 * En terme de stockage tout *pèse plus lourd*. 
 
@@ -48,4 +48,17 @@ On va vraiment chipoter.
 
 * Bien que très optionnels, certains outils sont réservés exclusivement pour un déploiement de la documentation sur Github, ce qui est bien dommage. A titre d'exemple, l'icône Gitlab issu de la librarie ***fontawesome*** n'est pas directement disponible.
 
+
 :::
+
+::: callout-important  
+
+#### Quarto à l'Ined sous serveur margaux
+
+* La durée de compilation est extrêmement rapide.
+* On rencontre des problèmes pour charger certains packages R dans un document Quarto (et Rmarkdown). C'est par exemple le cas du package **`questionr`**.
+
+:::
+
+
+

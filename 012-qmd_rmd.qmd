@@ -78,20 +78,30 @@ embed-resources: true
 ```
 
 
-## Passer de Rmarkdown à Quarto
+**A l'ined [important]**: ce problème de durée de compilation des document est levé si on utilise la version serveur (margaux) de RStudio.... mais on peut rencontrer des problèmes de chargement de certaines librairies R. C'est le cas du packages `questionr` (idem rmarkdown). 
+
+
+## Passer de Rmarkdown à Quarto  
 
 ### Compilation des fichiers
 
-* Rstudio: le bouton **Render** remplace le bouton **Knitr**, ce dernier étant réservé nativement à l'exécution de scripts R. Pour les autres moteurs de calcul (Python, Julia, Stata) c'est le notebook Jupyter qui exécute les scripts de programmation. 
+* Rstudio: le bouton **Render** remplace le bouton **Knitr**, ce dernier étant réservé nativement à l'exécution de scripts R. Pour les autres moteurs de calcul (Python, Julia, Stata) c'est le notebook Jupyter qui exécute les scripts de programmation.   
 
 * R: un package `quarto`  permet comme Rmarkdown de compiler les fichiers via la console. Il me semble plutôt accessoire. 
 
 * Quarto pousse à travailler en mode projet et à utiliser le terminal^[Attention `ctrl+v` ne fonctionne pas. Soit click droit + coller ou `ctrl+shift+v`]. A l'aide de commandes relativement simples, on peut  gèrer la compilation des documents: 
-  * `quarto render` compile l'ensemble des fichiers .qmd d'un projet (par défaut en html).
+  * `quarto render` compile l'ensemble des fichiers .qmd d'un projet (par défaut en html)
+    * Donc éviter de l'utiliser si on a modifié seulement un fichier d'un site ou d'un book.
+    * Lorsque le fichier de configuration _quarto.yml a été modifié, il faut absolument l'utiliser pour que les modifications s'appliquent à tous les fichiers du projets (pages d'un site, chapitres d'un book).
   * `quarto render --to pdf` compile l'ensemble des fichiers .qmd en pdf.
+  * Hors projet, il est possible de compiler un fichier dans le terminal en indiquant l'emplacement du fichier `absolute_path/quarto render nom.qmd`.  
+  
+**Quarto render versus quarto preview**  
 
-Hors projet, il est possible de compiler un fichier dans le terminal en indiquant l'emplacement du fichier `absolute_path/quarto render nom.qmd`.  
-
+* Dans les faits, lorsqu'on compile avec le bouton RENDER, c'est la commande `quarto preview` qui est exécutée. 
+* Quarto preview permet d'afficher l'aperçu de la page compilée dans la fenêtre Viewer ou la présentation dans la fenêtre Presentation. Quarto monte alors un serveur local (localhost:XXXX) dans un répertoire temporaire de la machine que l'on peut ouvrir en cliquant sur "*Show in a new window*".
+* Si dans le terminal on compile via ma commande `quarto preview`, le rendu sera directement ouvert et mis à jour après avoir sauvegardé le fichier .qmd (raccourci clavier **CTRL+S**).
+* Attention l'affichage et la mise à jour du rendu via `quarto preview` me semble particulièrement lente. Sur un deuxième écran, j'ai plutôt tendance à ouvrir et mettre à jour directement le fichier html (j'ai 5 à 10 secondes de différences). Plus embêtant encore lorsqu'on navigue sur un site, le quarto preview est exécuté systématiquement lorsqu'on navigue d'une page à une autre. 
 
 ###  Convertir un fichier .rmd en .qmd
 

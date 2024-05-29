@@ -7,7 +7,7 @@ filters:
 
 ## Introduction
 
-Ayant une utilisation assez minimale de git, et plutôt réservée au partage de documentation, je recommande fortement de lire le support réalisé par l'Insee dans la documentation **UtilitR**. Il est par ailleurs indéxé dans la partie **Gallery** du site de Quarto.
+Ayant une utilisation assez minimale de git, et plutôt réservée au partage de documentation, je recommande fortement de lire le support réalisé par l'Insee dans la documentation **UtilitR**, indéxé dans la partie **Gallery** du site de Quarto.
 <https://www.book.utilitr.org/03_fiches_thematiques/fiche_git_utilisation>. 
 
 ### Principes et atouts de Git
@@ -16,33 +16,42 @@ Ayant une utilisation assez minimale de git, et plutôt réservée au partage de
 <br>
 
 
-Sur les grands principes, l'outil Git permet de réaliser des opérations sur des fichiers entre un ordinateur local et un serveur distant (appelé **remote**). Dans un travail en équipe, sous son aspect "*cloud*" (à mettre entre guillemets), il permet donc relier plusieurs utilisateurs sur un même projet.
+Sur son utilisation le plus courante et là où il est le plus documenté, l'outil Git permet de réaliser des opérations entre fichiers stockés dans un répertoire local (ou de travail) et un répertoire - plus ou moins - *distant* (**remote**). Dans un travail en équipe, sous cet aspect "*cloud*" , il permettra donc relier plusieurs utilisateurs sur un même projet. Sous son aspect originel de logiciel de contrôle de versions, ces opérations se feront sur des éléments ayant fait l'objet d'un changement entre deux temps choisis par l'utilisateur. 
+
+Attention l'outil git est totalement indépendant des plateformes^[On parle également de forge] qui font sa popularité, on peut travailler exclusivement en local sur une même machine, en choississant un répertoire de travail/développement et un répertoire qui fera seulement office de stockage à un instant t. Mieux encore, sans logique de transferts et sous le seul angle de contrôle de versions d'un ou plusieurs fichiers, n'importe quel répertoire de travail peut être ***gité***^[j'ai pas trouvé mieux] pour contrôler toutes les étapes de développement d'un projet.
+
+Cette partie s'inscrivant dans un support dédié à la construction d'une documentation avec un outil de *programmation lettrée *, on n'abordera donc pas toutes les possibilités et les manipulations offertes par git. C'est donc plutôt sous l'angle d'opérations de transferts de fichiers pour déployer un contenu Quarto qu'est abordé cette partie.
+
 
 Atouts: 
   
-- Les opérations entre les fichiers locaux et ceux sur un dépôt distant (**remote**) sont réalisées sur des **deltas**, c'est à dire sur des modifications. Elles sont appliquées  seulement sur des fichiers qui font l'objet d'une: **création**, **suppression** ou **modification**.
+- Les opérations de transferts sont effectuées sur des **deltas**, c'est à dire sur des modifications qui ont été déclarées par l'utilisateur à un instant t (**commit**). Ces modifications prennent la forme de  **création**, **suppression** ou **changement du contenu** de fichiers. 
 
-- **Contrôle de versions**: git garde la trace dans le temps de toutes les modifications: 
-  - Historique des opérations récupérées sous forme d'une timeline graphique, dont la nature de la modification est indiquée par un titre.
-  - La visualisation des modifications intervenues dans des fichiers est facilitée par des codes couleurs: [**Rouge**]{style="color:#dc3545"} avant le changement, [**Vert**]{style="color:#198754"} au moment du changement. Il est alors toujours possible de revenir en "arrière", par exemple en récupérant un élément supprimé ou modifié.
+- On peut exclure des fichiers de ces opérations de versionnage et de transferts. 
 
-- **Les branches**: Dans un répertoire git une branche principale est créée (la **main**). On peut créer et travailler sur des branches parallèles et contrôler la fusion des éléments modifiés avec la branche principale. Dans un travail collaboratif, via un clonage du répertoire le/la propriétaire du dépôt distant sera en charge de valider et réaliser ces opérations de fusion. Toutes ces opérations sont également indéxées, et on peut suivre l'historique de création, modification et fusion des branches secondaires avec la branche principale.
+- Git permet de garder la trace de toutes les modifications apportées à des fichiers: 
+
+  - Historique des opérations récupérées sous forme d'une timeline, dont la nature de la modification est indiquée par un titre. Attention ces traces ne sont pas effectuée pas les enregistrements de fichiers mais par une opération spécifique et engendrée par l'utilisateur. Dans le jargon git, cette opération est appelée **commit**. Le versionnage se fera entre 2 **commits** même si ces fichiers ont été enregistrés de multiples fois entre ces deux temps.
+  
+  - On peut accéder à tous les éléments modifiés. Si on supprime un fichier, git considérera qu'on a supprimé l'ensemble du texte d'un fichier et non physiquement un fichier. On pourra accéder à tout moment à la totalité du texte supprimé via la suppression du fichier.
+  
+  - La visualisation des modifications intervenues dans des fichiers est facilitée par des codes couleurs: [**Rouge**]{style="color:#dc3545"} pour l'état au commit précédent, [**Vert**]{style="color:#198754"} pour l'état  au nouveau commit. 
+
+- **Les branches**: Dans un répertoire versionné par git, une branche dite principale automatiquement créée (**main** ou **master**^[L'assassinat de Georges Floyd en 2020 est passé par là]). On peut créer et travailler sur des branches parallèles et contrôler la fusion des éléments modifiés avec la branche principale. Dans un travail collaboratif via une opération de clonage, le/la propriétaire du dépôt distant sera en charge de valider et de réaliser ces opérations de fusion avec la branche principale. Toutes ces opérations seront également indéxées dans le versionnage, et on pourra suivre l'historique de création, modification et fusion des branches secondaires avec la branche principale.
+
+- **Les conflits**: oui c'est un atout de git... 
+
+
 
 ::: callout-note
 
-### Clonage et fork d'un répertoire distant
+#### Clonage et duplication
 
-Dans un travail collaboratif en équipe la branche principale est clonée par les personnes participant au projet, le *propriétaire* du répertoire distant donnant les autorisations dans ce sens aux autres participant.e.s.  
-
-Git permet également un travail collaboratif plus ouvert, hors équipe, en donnant la possibilité à quiconque de proposer des modifications du projet présent sur le répertoire distant. 
-
-* Le répertoire fera l'objet d'un **fork**. Il s'agit également d'une forme de clonage, mais les modifications des fichiers seront systématiquement envoyés sur une branche secondaire du dépôt distant. 
-
-Remarque: le propriétaire du dépôt distant ne peut pas "**forker**" son répertoire distant.
+En collaboratif la branche principale est clonée par les personnes participant au projet, le *propriétaire* du répertoire distant donnant les autorisations dans ce sens aux autres participant.e.s. Le travail sur branches sera ici plus que recommandé, en particuliers lorsque plusieurs personnes travailleront sur un même fichier. Le propriétaire du dépôt réalisera les fusions, et donc la mise à jour de la branche principale. Sur les célèbres plateformes, si le dépôt est public il pourra être librement cloné.
+et également un trav
+Git permet aussi un travail collaboratif plus ouvert, hors équipe, en donnant la possibilité à quiconque de proposer une modification. Le répertoire (public) pourra être dupliqué (**fork**). Les modifications des fichiers seront systématiquement envoyés sur une branche secondaire du dépôt distant. Au propriétaire de les accepter ou non.
 
 :::
-
-*  **Exclusion de fichiers** [très important]: on peut gérer des exclusions de fichiers, par leur noms, leur extension, leur localisation (dossier). Sauf exceptions (base d'exemples pour une formation), il est fortement recommandé d'exclure les bases de données des opérations de synchronisation entre le local et le distant.  
 
 
 ### Github versus Gitlab
@@ -56,11 +65,13 @@ Remarque: le propriétaire du dépôt distant ne peut pas "**forker**" son répe
   * Seulement sur le site plateforme. Pas de récupération posible du code source pour installer un git local ou institutionnel (Humanum, Insee, Service informatique de l'Ined...). 
   
 * Fonctionnalités clés en main, plus facile d'accès *a priori* pour les personnes moins à l'aise avec le jargon informatique.
-  * A noter l'existence d'un outil appelé **Github Desktop** qui facilite la réalisation les opérations git de base, avec en plus la possibilité de switcher à la volée d'un projet à un autre. A titre personnel, je réalise toutes les opérations avec mes depôts Github avec RStudio à l'aide de ce **github desktop**.
+  * A noter l'existence d'un outil appelé **Github Desktop** qui facilite la réalisation les opérations git de base, avec en plus la possibilité de switcher à la volée d'un projet à un autre. A titre personnel, je réalise toutes les opérations avec mes depôts Github à l'aide de ce **github desktop**.
   
-* Quarto joue la carte 100% Github avec l'intégration d'outils dédiées. Plus généralement les librairies R pour faciliter la connection initiale entre RStudio et un compte sur une plateforme git, sont pensées pour fonctionner avec cette plateforme.  
- 
-* En mode **private** (restreint) on ne peut pas déployer de pages sans passer à la caisse.   
+* Quarto ou plutôt Posit en général joue la carte 100% Github avec l'intégration d'outils dédiées. Plus généralement les package R pour faciliter la connection initiale entre RStudio et un compte sur une plateforme git sont pensés pour fonctionner avec cette plateforme. Avec le package **`usethis`** on peut générer un dépôt github sans passer par la case clonage, et donc par la création du dépôt sur la plateforme au préalable.
+
+* Du côté moins, en mode **private** (restreint) on ne peut pas déployer de pages sans passer à la caisse. C'est très ennuyeux.
+
+* Du côté plus, toujours en mode **private** Github ne limite pas (encore) le nombre de collaboration. Sur Gitlab, ce nombre a été récemment limité à 5 personnes.
 
 #### Gitlab 
 
@@ -70,28 +81,30 @@ Remarque: le propriétaire du dépôt distant ne peut pas "**forker**" son répe
 
 * Récupération du code source de Gitlab, ce qui rend possible la création d'une plateforme Git sur un serveur institutionnel . 
 
-* Pensé pour les développeurs informatiques, on peut ne pas toujours comprendre  le pourquoi du comment même si ça *marche*^[Je parle bien évidemment pour moi]. Pour le déploiement des pages, on aura quelques étapes supplémentaires à réaliser si les éléments de paramétrisation d'un fichier de configuration obligatoire, et propre à gitlab restent cryptiques... Ce qui est mon cas.  
+* Pour le déploiement de contenu type html/Qharto, on aura quelques étapes supplémentaires à réaliser.  
   
-* En mode private, on peut déployer des pages en mode **private** sans passer à la caisse contrairement à Github. On peut également gérer très librement ses adresses http. C'est top.
+* Côté plus, en mode private on peut déployer des pages sans passer à la caisse contrairement à Github. On peut également gérer très librement ses adresses url. C'est top.
 
-* Retour d'expérience un peu désagréable: avec un compte strictement individual (hors humanum par exemple) possibilité d'une prise contact rapide par l'équipe commerciale de Gitlab, avec des relances si on ne souhaite pas donner suite à leur proposition de rendez-vous.
+* Côté moins, toujours en mode private, forte limitation du nombre de collaborateurs à 5 (anciennement 10). C'est ennuyeux. 
+
+* Retour d'expérience un peu désagréable: avec un compte strictement individuel, possible prise contact par l'équipe commerciale de Gitlab, avec relances si on ne souhaite pas donner suite à leur proposition de rendez-vous.
 
 
 ## Installation 
 
-* Git étant indépendant des fameuses plateformes Github et Gitlab, il doit être installé. Mais peut-être est-il déjà installé? C'est normalement le cas avec RStudio.
+* Git étant indépendant des fameuses plateformes Github et Gitlab, il doit être installé. Mais peut-être est-il déjà installé? C'est normalement le cas avec RStudio. Je conseille néanmoins d'installer la dernière version de git directement, ce qui permettra également de l'utiliser en dehors de RStudio.
   * Vérification dans un terminal (dont Rstudio):  `git --version` 
   * Sinon téléchargement sur le site officiel: <https://git-scm.com/download/>
   
 Après l'installation ou la vérification de l'installation de Git: 
 
-* Ne pas oublier d'associer git à une adresse mail, et accessoirement à votre civilité.
+* Ne pas oublier d'associer git à une adresse mail, et accessoirement à votre civilité ou à un avatar.
 
 Dans un terminal (Rstudio, invite commande windows,...): 
 
 ```{.mf}
-$ git config --global user.email EMAIL-ADRESSE
-$ git config --global user.name "PRENOM et/NOM"
+git config --global user.email EMAIL-ADRESSE
+git config --global user.name "PRENOM et/NOM"
 ```
   
 
@@ -99,8 +112,8 @@ $ git config --global user.name "PRENOM et/NOM"
 
 ::: callout-note
 
-* Procédures de connection via **https** et **clé SSH** effectuées fin 2023 - début 2024
-  * HTTPS:
+* Procédures de connection via **https** et **clé SSH** effectuées fin 2023/début 2024 et mai 2024 via le serveur margaux de l'Ined.  
+  * HTTPS (token/mdp):
     * package `usethis`: github.
     * package  `gitcreds`: github et gitlab.
   * SSH: 
@@ -110,11 +123,11 @@ $ git config --global user.name "PRENOM et/NOM"
   * Connection https existantes pour Github et Gitlab => nouveaux token générés.
   * Pas de connection SSH existante avec protocole ed25519. Création d'une nouvelle clé.
 
-* Ordinateur personnel:
+* Serveur margaux Ined (mai 2024)
   * Parti de zero.
-  * HTTPS: Nouveau token généré pour cette connection.
-  * SSH: Utilisation de la clé ssh générée précédemment.
-
+  * HTTPS: Nouveau token généré pour cette connection. 
+  * Pas de connection SSH existante. Création d'une nouvelle clé avec protocole ed25519.
+  
 :::
 
 
@@ -126,16 +139,16 @@ $ git config --global user.name "PRENOM et/NOM"
 
 * Package `usethis`
 
-```{r}
+```{r filename="Package usethis "}
 #| eval: false
 
-# install.packages("usethis")
-# library(usethise)
+install.packages("usethis")
+library(usethise)
 ```
 
-En exécutant la commande suivante, une fenêtre s'ouvre pour générer le token.
+En exécutant la commande suivante, une fenêtre s'ouvre pour générer le token dans github.
 
-```{r}
+```{r filename="Création d'un token"}
 #| eval: false
 usethis::create_github_token()
 ```
@@ -154,24 +167,25 @@ usethis::create_github_token()
 Note: au cas où... ce token n'est bien évidemment plus valide.  
 
 * Attention à la date d'expiration du token.
-  * On peut choisir "No Expiration" donc un token perpetuel, ce qui n'empêchera pas de le modifier par la suite.
+  * Par défaut 30 jours, on peut augmenter la durée.
+  * La durée maximale est d'un an. 
 * Cliquer en bas de la page sur **Generate token**.
-* On reçoit généralement un mail lorsqu'un token arrive à expiration.
+* On reçoit un mail à la création du token et quelques jours avant sa date d'expiration.
 
 **Ajouter le token dans RStudio**
 
 * Package **`gitcreds`**
 
-```{r}
+```{r filename="Package gitcreds"}
 #| eval: false
 
-# install.packages("gitcreds")
-# library(gitcreds)
+ install.packages("gitcreds")
+ library(gitcreds)
 ```
 
 * Par défaut il va sélectionner  Github, on peut toutefois renseigner l'adresse générique de la plateforme
 
-```{r}
+```{r filename="Ajouter le token dans Rstudio"}
 #| eval: false
 
 library(gitcreds)
@@ -198,7 +212,7 @@ Si on change par la suite de token, plusieurs options sont disponibles:
 
 1: Keep these credentials
 2: Replace these credentials
-3: See the password / toke
+3: See the password / token
 ```
 
 **L'option 2 permet de changer de token**.
@@ -236,21 +250,23 @@ Le token/password est généré directement sur le compte Gitlab.
 :::
 ::::
 
+On peut accéder sur Github à la page de création des token en allant sur **Profile** {{< fa solid arrow-right >}} **Settings** (tout en bas) {{< fa solid arrow-right >}} **Developer Settings** (Menu vertical à gauche).
+
 
 **Ajouter le token dans RStudio**
 
 * Même procédure qu'avec Github avec le package **`gitcreds`**.
 * On devra explicitement indiquer l'adresse générique de Gitlab dans la fonction.
 
-```{r}
+```{r filename="package gitcreds"}
 #| eval: false
 
-# install.packages("gitcreds")
-# library(gitcreds)
+install.packages("gitcreds")
+library(gitcreds)
 ```
 
 
-```{r}
+```{r filename="Ajouter dans Rstudio le token"}
 #| eval: false
 
 library(gitcreds)
@@ -287,6 +303,22 @@ Si on change par la suite de token, plusieurs options sont disponibles:
 2: Replace these credentials
 3: See the password / toke
 ```
+
+
+#### Vérifier la connection
+
+Vous pouvez vérifier la connection en clonant un dépôt. Coller par exemple le lien suivant lors de la création du projet: 
+
+```{.mf filename="Test dépôt Github"}
+https://github.com/mthevenin/test_connection_formation.git
+```
+
+
+```{.mf filename="Test dépôt Gitlab"}
+https://gitlab.com/mthevenin/test_connection_formation.git
+```
+
+
 
 
 ### Via une clé de cryptage SSH
@@ -426,7 +458,6 @@ flowchart LR
 
 
 
-
 #### Activer la clé dans RStudio 
 
 Dans le terminal:
@@ -434,7 +465,7 @@ Dans le terminal:
 * Vérifier que l'authentification SSH fonctionne 
 
 ```{.mf}
-$ eval $(ssh-agent -s)
+eval $(ssh-agent -s)
 ```
 
 Output, par exemple: **`Agent pid 1463`**
@@ -442,7 +473,7 @@ Output, par exemple: **`Agent pid 1463`**
 * Ajouter la clé 
 
 ```{.mf}
-$ ssh-add ~/.ssh/id_ed25519
+ssh-add ~/.ssh/id_ed25519
 ```
 
 Output: **`Identity added: /c/Users/thevenin_m/.ssh/id_ed25519 (ined\thevenin_m@MOB0XXXX)`**
@@ -474,12 +505,14 @@ Welcome to GitLab, @mthevenin!
 
 #### Vérifier la connection
 
-* Même façon de procéder que pour le token. Pensez néanmoins à changer le nom du répertoire (ou supprimer celui créer précedemment). 
+Vous pouvez vérifier la connection en clonant un dépôt. Coller par exemple le lien suivant lors de la création du projet: 
 
-* Coller le lien suivant avec votre identifiant:  
+```{.mf filename="Test dépôt Github"}
+git@github.com:mthevenin/test_connection_formation.git
+```
 
-```{.mf}
-git@gitlab.com:nom_id/test_connection.git
+```{.mf filename="Test dépôt Gitlab"}
+git@gitlab.com:mthevenin/test_connection_formation.git
 ```
 
 * Si lors du clonage le message suivant s'affiche, taper **yes**:
@@ -487,8 +520,4 @@ git@gitlab.com:nom_id/test_connection.git
 ::: {.box_img}
 ![](img2/ssh1.png)
 :::
-
-
-
-
 

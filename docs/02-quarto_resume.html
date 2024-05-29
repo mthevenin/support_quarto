@@ -475,11 +475,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>On va vraiment chipoter.</p>
 <div class="box_img">
 <ul>
-<li><p>Durée de compilation bien plus longue qu’avec Rmarkdown.</p></li>
+<li><p>Durée de compilation plus longue qu’avec Rmarkdown. Attention tout de même, tout ceci varie plus ou moins fortement d’une machine à une autre. Dans le contexte de l’Ined en utilisant la version de Rstudio sous serveur, la compilation des documents est vraiment très rapide.</p></li>
 <li><p>En terme de stockage tout <em>pèse plus lourd</em>.</p></li>
 <li><p>On constate (encore) une certaine versatilité: <em>Ca marche et ça marche plus</em> et sans savoir vraiment pourquoi. L’outil est donc toujours en phase active de debogage….mais on remarque une stabilisation de plus en plus grandissante avec les versions les plus récentes.</p></li>
 <li><p>Bien que très optionnels, certains outils sont réservés exclusivement pour un déploiement de la documentation sur Github, ce qui est bien dommage. A titre d’exemple, l’icône Gitlab issu de la librarie <strong><em>fontawesome</em></strong> n’est pas directement disponible.</p></li>
 </ul>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quarto à l’Ined sous serveur margaux
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>La durée de compilation est extrêmement rapide.</li>
+<li>On rencontre des problèmes pour charger certains packages R dans un document Quarto (et Rmarkdown). C’est par exemple le cas du package <strong><code>questionr</code></strong>.</li>
+</ul>
+</div>
 </div>
 
 
@@ -1007,7 +1023,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Durée de compilation bien plus longue qu'avec Rmarkdown.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Durée de compilation  plus longue qu'avec Rmarkdown. Attention tout de même, tout ceci varie plus ou moins fortement d'une machine à une autre. Dans le contexte de l'Ined en utilisant la version de Rstudio sous serveur, la compilation des documents est vraiment très rapide.</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En terme de stockage tout *pèse plus lourd*. </span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
@@ -1015,7 +1031,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Bien que très optionnels, certains outils sont réservés exclusivement pour un déploiement de la documentation sur Github, ce qui est bien dommage. A titre d'exemple, l'icône Gitlab issu de la librarie ***fontawesome*** n'est pas directement disponible.</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>::: callout-important  </span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Quarto à l'Ined sous serveur margaux</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La durée de compilation est extrêmement rapide.</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On rencontre des problèmes pour charger certains packages R dans un document Quarto (et Rmarkdown). C'est par exemple le cas du package **`questionr`**.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

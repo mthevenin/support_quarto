@@ -112,9 +112,6 @@ Lorsque Quarto est installé, le menu **file** de RStudio ajoute deux options su
 **Projets website, book, blog**:  
 Pour les documents avec des structures enrichies, la création se fait via un projet: **new project=> new directory**: **Quarto website**, **Quarto book**, **Quarto blog** et depuis janvier 2024 (v1.4) un projet **Quarto manuscript**.
 
-::: callout-note
-Le projet de type **manuscript** sera traité dans une version ultérieure du suppport
-:::
 
 ::: {.center}
 ::: {.box_img}
@@ -130,7 +127,7 @@ Le projet de type **manuscript** sera traité dans une version ultérieure du su
 
 * **A l'ouverture**:  
   - Un ou plusieurs fichiers `.qmd`. Pour les blogs, dont le contenu est organisé sous forme d'articles, des sous répertoires avec deux exemples d'articles (.qmd).
-  - Un fichier de configuration `_quarto.yaml` minimal propre au contenu.
+  - Un fichier de configuration `_quarto.yml` minimal propre au contenu.
   - Un fichier .Rproj.
 
 
@@ -141,6 +138,58 @@ Pour travailler sur les fichiers associés à un projet, pensez à toujours ouvr
 
 * Dans le terminal le dossier racine se positionnera sur celui du projet.
 * Dans la fenêtre **files** de RStudio, on peut accédere directements à l'ensemble des fichiers du projet.
+
+:::
+
+
+::: {.callout-tip collapse=true}
+
+### Privilégier le terminal pour créer un projet quarto
+
+
+#### Via la création d'un projet Quarto 
+
+La création peut d'un projet avec un squelette peut se faire directement via le terminal de RStudio avec une simple ligne de commande après s'être positionné sur un répertoire racine. Je dis cela car l'ouverture de la fenêtre de création d'un projet R peut prendre pas mal de seconde, chez moi c'est plutôt  30 secondes.  
+
+Dans le terminal: 
+
+* `quarto create project website`
+* `quarto create project book` 
+* `quarto create project blog`
+
+On vous demandera ensuite de choisir un nom pour le répertoire et de choisir l'IDE (Rstudio ou Vscode).
+
+En animation:
+
+::: {.center} 
+::: {.box_img}
+![](img1/video1.gif)
+:::
+:::
+
+#### Via la création d'un projet R
+
+* Dans la console R on peut générer un projet R avec la fonction `create_project()` du package **`usethise`**
+* Dans le terminal de RStudio, on pourra créer directement les fichiers ou les répertoires qui seront utiles avec la commande `touch`
+
+Etapes de l'animation qui suit:
+
+* On génère le répertoire du projet dans le terminal: `mkdir mon_book`^[c'est un sous répertoire du répertoire quarto qui se trouve sur le bureau, le terminal est positionné sur ce répertoire].
+* On charge le pakqge `usethis` dans la console R: `library(usethis)`
+* On génère le projet avec la fonction `create_project()` en renseignant le chemin du répertoire *mon_book*: `create_project("c:/users/thevenin_m/desktop/quarto/mon_book/")`
+* Rstudio va réouvrir une session en se positionnant dans le répertoire du projet. La fonction génère automatiquement un sous répertoire R, on peut le supprimer si on estime ne pas en avoir besoin: dans le terminal `rm -r R`^[rm pour remove, -r pour indiquer qu'on supprime un répertoire et R pour le nom du répertoire]
+* On peut créer directement des fichiers vides avec la commande `touch`:
+  * `touch _quarto.yml` [configuratin du book]
+  * `touch index.qmd`   [page d'accueil du book, toujours conserver le nom index]
+  * `touch chapitre1.qmd`
+  * `touch chapitre2.qmd`
+
+
+::: {.center} 
+::: {.box_img}
+![](img1/video2.gif)
+:::
+:::
 
 :::
 

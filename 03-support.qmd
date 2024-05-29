@@ -3,22 +3,12 @@
 
 ## Mars 2024 {.unnumbered}
 
-* Il s'agit de la première version d'un support de formation sur le logiciel Quarto.  Bien que Quarto soit  utilisable d'autres interfaces, principalement Jupyterlab et VScode,  ce support s'intéresse exclusivement à son utilisation avec RStudio^[Des fiches sont dors et déjà prévu pour les autre IDE dans un contenu annexe sous forme de Blog] . 
+* Il s'agit de la première version d'un support de formation sur le logiciel Quarto.  Bien que le logiciel soit  utilisable d'autres interfaces, principalement Jupyterlab et VScode,  ce support s'intéresse exclusivement à son utilisation avec RStudio^[Des fiches sont dors et déjà prévu pour les autre IDE dans un contenu annexe sous forme de Blog] . 
 
 * La partie sur Git, réservée à la question du déploiement d'une page ou d'un site html sur des plateformes tels que Gitlab ou Github est indépendante du reste du contenu, et répond à un besoin de formation sur cette thématique.
 
 * Bien évidemment le support n'a pas l'ambition d'être exhaustif compte tenu de la richesse offerte par cet outil. Tout ce qui est traité a été néanmoins utilisé dans ce support. 
   
-
-## Prochaines mises à jour [limite juin 2024] {.unnumbered}
-
-* Lien vers un contenu annexe sous forme de listes de fiches (blog)
-
-* Présentation du format **manuscript** de type html, récemment introduit à Quarto (janvier 2024).
-
-* Ajout d'une section sur les branches secondaires avec Git, et peut-être un exemple de conflit avec sa résolution.
-
-* Ajout d'une courte section sur les extensions.
 
 ## Extensions externes utilisées{.unnumbered}
 
@@ -51,13 +41,32 @@
 
 * Le cheatsheet Quarto: <https://rstudio.github.io/cheatsheets/quarto.pdf>
 
-
+ 
 ## Remerciements
 
 * Les ingénieurs du réseau [SO-MATE](https://mate-shs.cnrs.fr/les-groupes/so-mate-mate-shs-sud-ouest-2/) présents à la première (tentative) de formation sur Quarto... avec un peu de git en apéritif et digestif.  
 * Au Sms de l'Ined: Bénédicte Garnier, Elodie Baril, Arno Muller et Arnaud Bringé.
 
 
+::: {.callout-note collapse=true}
+
+### Versions du support
+
+
+**Juin 2024**:  
+
+* Remarques sur les durées de compilation variables d'une machine à une autre et contextualisation de son utilisation à l'Ined via la version Rstudio du serveur margaux (avec des + et des -).
+* Mise à jour de l'esthétique du support.
+* Quelques précisions sur la différence entre `quarto render` et `quarto preview` [chapitre 2].
+* Création d'un projet Quarto via le terminal et la console R [chapitre 1].
+* Option `filename` dans le corp du bloc de codes [chapitre 5].
+
+**Mars 2024**: 
+
+* Première version du support
+
+
+:::
 
 
 

@@ -447,6 +447,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#github-1" id="toc-github-1" class="nav-link" data-scroll-target="#github-1"><span class="header-section-number">6.3.1.1</span> Github</a></li>
   <li><a href="#gitlab-1" id="toc-gitlab-1" class="nav-link" data-scroll-target="#gitlab-1"><span class="header-section-number">6.3.1.2</span> Gitlab</a></li>
+  <li><a href="#vérifier-la-connection" id="toc-vérifier-la-connection" class="nav-link" data-scroll-target="#vérifier-la-connection"><span class="header-section-number">6.3.1.3</span> Vérifier la connection</a></li>
   </ul></li>
   <li><a href="#via-une-clé-de-cryptage-ssh" id="toc-via-une-clé-de-cryptage-ssh" class="nav-link" data-scroll-target="#via-une-clé-de-cryptage-ssh"><span class="header-section-number">6.3.2</span> Via une clé de cryptage SSH</a>
   <ul class="collapse">
@@ -454,7 +455,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#github-2" id="toc-github-2" class="nav-link" data-scroll-target="#github-2"><span class="header-section-number">6.3.2.2</span> Github</a></li>
   <li><a href="#gitlab-2" id="toc-gitlab-2" class="nav-link" data-scroll-target="#gitlab-2"><span class="header-section-number">6.3.2.3</span> Gitlab</a></li>
   <li><a href="#activer-la-clé-dans-rstudio" id="toc-activer-la-clé-dans-rstudio" class="nav-link" data-scroll-target="#activer-la-clé-dans-rstudio"><span class="header-section-number">6.3.2.4</span> Activer la clé dans RStudio</a></li>
-  <li><a href="#vérifier-la-connection" id="toc-vérifier-la-connection" class="nav-link" data-scroll-target="#vérifier-la-connection"><span class="header-section-number">6.3.2.5</span> Vérifier la connection</a></li>
+  <li><a href="#vérifier-la-connection-1" id="toc-vérifier-la-connection-1" class="nav-link" data-scroll-target="#vérifier-la-connection-1"><span class="header-section-number">6.3.2.5</span> Vérifier la connection</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -484,20 +485,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.1</span> Introduction</h2>
-<p>Ayant une utilisation assez minimale de git, et plutôt réservée au partage de documentation, je recommande fortement de lire le support réalisé par l’Insee dans la documentation <strong>UtilitR</strong>. Il est par ailleurs indéxé dans la partie <strong>Gallery</strong> du site de Quarto. <a href="https://www.book.utilitr.org/03_fiches_thematiques/fiche_git_utilisation" class="uri">https://www.book.utilitr.org/03_fiches_thematiques/fiche_git_utilisation</a>.</p>
+<p>Ayant une utilisation assez minimale de git, et plutôt réservée au partage de documentation, je recommande fortement de lire le support réalisé par l’Insee dans la documentation <strong>UtilitR</strong>, indéxé dans la partie <strong>Gallery</strong> du site de Quarto. <a href="https://www.book.utilitr.org/03_fiches_thematiques/fiche_git_utilisation" class="uri">https://www.book.utilitr.org/03_fiches_thematiques/fiche_git_utilisation</a>.</p>
 <section id="principes-et-atouts-de-git" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="principes-et-atouts-de-git"><span class="header-section-number">6.1.1</span> Principes et atouts de Git</h3>
 <p><span class="nut"><a href="https://fr.wikipedia.org/wiki/Git">:GIT WIKI</a></span> <br></p>
-<p>Sur les grands principes, l’outil Git permet de réaliser des opérations sur des fichiers entre un ordinateur local et un serveur distant (appelé <strong>remote</strong>). Dans un travail en équipe, sous son aspect “<em>cloud</em>” (à mettre entre guillemets), il permet donc relier plusieurs utilisateurs sur un même projet.</p>
+<p>Sur son utilisation le plus courante et là où il est le plus documenté, l’outil Git permet de réaliser des opérations entre fichiers stockés dans un répertoire local (ou de travail) et un répertoire - plus ou moins - <em>distant</em> (<strong>remote</strong>). Dans un travail en équipe, sous cet aspect “<em>cloud</em>” , il permettra donc relier plusieurs utilisateurs sur un même projet. Sous son aspect originel de logiciel de contrôle de versions, ces opérations se feront sur des éléments ayant fait l’objet d’un changement entre deux temps choisis par l’utilisateur.</p>
+<p>Attention l’outil git est totalement indépendant des plateformes<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> qui font sa popularité, on peut travailler exclusivement en local sur une même machine, en choississant un répertoire de travail/développement et un répertoire qui fera seulement office de stockage à un instant t. Mieux encore, sans logique de transferts et sous le seul angle de contrôle de versions d’un ou plusieurs fichiers, n’importe quel répertoire de travail peut être <strong><em>gité</em></strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> pour contrôler toutes les étapes de développement d’un projet.</p>
+<p>Cette partie s’inscrivant dans un support dédié à la construction d’une documentation avec un outil de <em>programmation lettrée </em>, on n’abordera donc pas toutes les possibilités et les manipulations offertes par git. C’est donc plutôt sous l’angle d’opérations de transferts de fichiers pour déployer un contenu Quarto qu’est abordé cette partie.</p>
 <p>Atouts:</p>
 <ul>
-<li><p>Les opérations entre les fichiers locaux et ceux sur un dépôt distant (<strong>remote</strong>) sont réalisées sur des <strong>deltas</strong>, c’est à dire sur des modifications. Elles sont appliquées seulement sur des fichiers qui font l’objet d’une: <strong>création</strong>, <strong>suppression</strong> ou <strong>modification</strong>.</p></li>
-<li><p><strong>Contrôle de versions</strong>: git garde la trace dans le temps de toutes les modifications:</p>
+<li><p>Les opérations de transferts sont effectuées sur des <strong>deltas</strong>, c’est à dire sur des modifications qui ont été déclarées par l’utilisateur à un instant t (<strong>commit</strong>). Ces modifications prennent la forme de <strong>création</strong>, <strong>suppression</strong> ou <strong>changement du contenu</strong> de fichiers.</p></li>
+<li><p>On peut exclure des fichiers de ces opérations de versionnage et de transferts.</p></li>
+<li><p>Git permet de garder la trace de toutes les modifications apportées à des fichiers:</p>
 <ul>
-<li>Historique des opérations récupérées sous forme d’une timeline graphique, dont la nature de la modification est indiquée par un titre.</li>
-<li>La visualisation des modifications intervenues dans des fichiers est facilitée par des codes couleurs: <span style="color:#dc3545"><strong>Rouge</strong></span> avant le changement, <span style="color:#198754"><strong>Vert</strong></span> au moment du changement. Il est alors toujours possible de revenir en “arrière”, par exemple en récupérant un élément supprimé ou modifié.</li>
+<li><p>Historique des opérations récupérées sous forme d’une timeline, dont la nature de la modification est indiquée par un titre. Attention ces traces ne sont pas effectuée pas les enregistrements de fichiers mais par une opération spécifique et engendrée par l’utilisateur. Dans le jargon git, cette opération est appelée <strong>commit</strong>. Le versionnage se fera entre 2 <strong>commits</strong> même si ces fichiers ont été enregistrés de multiples fois entre ces deux temps.</p></li>
+<li><p>On peut accéder à tous les éléments modifiés. Si on supprime un fichier, git considérera qu’on a supprimé l’ensemble du texte d’un fichier et non physiquement un fichier. On pourra accéder à tout moment à la totalité du texte supprimé via la suppression du fichier.</p></li>
+<li><p>La visualisation des modifications intervenues dans des fichiers est facilitée par des codes couleurs: <span style="color:#dc3545"><strong>Rouge</strong></span> pour l’état au commit précédent, <span style="color:#198754"><strong>Vert</strong></span> pour l’état au nouveau commit.</p></li>
 </ul></li>
-<li><p><strong>Les branches</strong>: Dans un répertoire git une branche principale est créée (la <strong>main</strong>). On peut créer et travailler sur des branches parallèles et contrôler la fusion des éléments modifiés avec la branche principale. Dans un travail collaboratif, via un clonage du répertoire le/la propriétaire du dépôt distant sera en charge de valider et réaliser ces opérations de fusion. Toutes ces opérations sont également indéxées, et on peut suivre l’historique de création, modification et fusion des branches secondaires avec la branche principale.</p></li>
+<li><p><strong>Les branches</strong>: Dans un répertoire versionné par git, une branche dite principale automatiquement créée (<strong>main</strong> ou <strong>master</strong><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>). On peut créer et travailler sur des branches parallèles et contrôler la fusion des éléments modifiés avec la branche principale. Dans un travail collaboratif via une opération de clonage, le/la propriétaire du dépôt distant sera en charge de valider et de réaliser ces opérations de fusion avec la branche principale. Toutes ces opérations seront également indéxées dans le versionnage, et on pourra suivre l’historique de création, modification et fusion des branches secondaires avec la branche principale.</p></li>
+<li><p><strong>Les conflits</strong>: oui c’est un atout de git…</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -505,21 +511,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Clonage et fork d’un répertoire distant
+Clonage et duplication
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dans un travail collaboratif en équipe la branche principale est clonée par les personnes participant au projet, le <em>propriétaire</em> du répertoire distant donnant les autorisations dans ce sens aux autres participant.e.s.</p>
-<p>Git permet également un travail collaboratif plus ouvert, hors équipe, en donnant la possibilité à quiconque de proposer des modifications du projet présent sur le répertoire distant.</p>
-<ul>
-<li>Le répertoire fera l’objet d’un <strong>fork</strong>. Il s’agit également d’une forme de clonage, mais les modifications des fichiers seront systématiquement envoyés sur une branche secondaire du dépôt distant.</li>
-</ul>
-<p>Remarque: le propriétaire du dépôt distant ne peut pas “<strong>forker</strong>” son répertoire distant.</p>
+<p>En collaboratif la branche principale est clonée par les personnes participant au projet, le <em>propriétaire</em> du répertoire distant donnant les autorisations dans ce sens aux autres participant.e.s. Le travail sur branches sera ici plus que recommandé, en particuliers lorsque plusieurs personnes travailleront sur un même fichier. Le propriétaire du dépôt réalisera les fusions, et donc la mise à jour de la branche principale. Sur les célèbres plateformes, si le dépôt est public il pourra être librement cloné. et également un trav Git permet aussi un travail collaboratif plus ouvert, hors équipe, en donnant la possibilité à quiconque de proposer une modification. Le répertoire (public) pourra être dupliqué (<strong>fork</strong>). Les modifications des fichiers seront systématiquement envoyés sur une branche secondaire du dépôt distant. Au propriétaire de les accepter ou non.</p>
 </div>
 </div>
-<ul>
-<li><strong>Exclusion de fichiers</strong> [très important]: on peut gérer des exclusions de fichiers, par leur noms, leur extension, leur localisation (dossier). Sauf exceptions (base d’exemples pour une formation), il est fortement recommandé d’exclure les bases de données des opérations de synchronisation entre le local et le distant.</li>
-</ul>
 </section>
 <section id="github-versus-gitlab" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="github-versus-gitlab"><span class="header-section-number">6.1.2</span> Github versus Gitlab</h3>
@@ -533,10 +531,11 @@ Clonage et fork d’un répertoire distant
 </ul></li>
 <li><p>Fonctionnalités clés en main, plus facile d’accès <em>a priori</em> pour les personnes moins à l’aise avec le jargon informatique.</p>
 <ul>
-<li>A noter l’existence d’un outil appelé <strong>Github Desktop</strong> qui facilite la réalisation les opérations git de base, avec en plus la possibilité de switcher à la volée d’un projet à un autre. A titre personnel, je réalise toutes les opérations avec mes depôts Github avec RStudio à l’aide de ce <strong>github desktop</strong>.</li>
+<li>A noter l’existence d’un outil appelé <strong>Github Desktop</strong> qui facilite la réalisation les opérations git de base, avec en plus la possibilité de switcher à la volée d’un projet à un autre. A titre personnel, je réalise toutes les opérations avec mes depôts Github à l’aide de ce <strong>github desktop</strong>.</li>
 </ul></li>
-<li><p>Quarto joue la carte 100% Github avec l’intégration d’outils dédiées. Plus généralement les librairies R pour faciliter la connection initiale entre RStudio et un compte sur une plateforme git, sont pensées pour fonctionner avec cette plateforme.</p></li>
-<li><p>En mode <strong>private</strong> (restreint) on ne peut pas déployer de pages sans passer à la caisse.</p></li>
+<li><p>Quarto ou plutôt Posit en général joue la carte 100% Github avec l’intégration d’outils dédiées. Plus généralement les package R pour faciliter la connection initiale entre RStudio et un compte sur une plateforme git sont pensés pour fonctionner avec cette plateforme. Avec le package <strong><code>usethis</code></strong> on peut générer un dépôt github sans passer par la case clonage, et donc par la création du dépôt sur la plateforme au préalable.</p></li>
+<li><p>Du côté moins, en mode <strong>private</strong> (restreint) on ne peut pas déployer de pages sans passer à la caisse. C’est très ennuyeux.</p></li>
+<li><p>Du côté plus, toujours en mode <strong>private</strong> Github ne limite pas (encore) le nombre de collaboration. Sur Gitlab, ce nombre a été récemment limité à 5 personnes.</p></li>
 </ul>
 </section>
 <section id="gitlab" class="level4" data-number="6.1.2.2">
@@ -545,9 +544,10 @@ Clonage et fork d’un répertoire distant
 <ul>
 <li><p>Même si la composition du capital peut faire grincer quelques dents, Gitlab reste relativement indépendant d’un géant comme Microsoft.</p></li>
 <li><p>Récupération du code source de Gitlab, ce qui rend possible la création d’une plateforme Git sur un serveur institutionnel .</p></li>
-<li><p>Pensé pour les développeurs informatiques, on peut ne pas toujours comprendre le pourquoi du comment même si ça <em>marche</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Pour le déploiement des pages, on aura quelques étapes supplémentaires à réaliser si les éléments de paramétrisation d’un fichier de configuration obligatoire, et propre à gitlab restent cryptiques… Ce qui est mon cas.</p></li>
-<li><p>En mode private, on peut déployer des pages en mode <strong>private</strong> sans passer à la caisse contrairement à Github. On peut également gérer très librement ses adresses http. C’est top.</p></li>
-<li><p>Retour d’expérience un peu désagréable: avec un compte strictement individual (hors humanum par exemple) possibilité d’une prise contact rapide par l’équipe commerciale de Gitlab, avec des relances si on ne souhaite pas donner suite à leur proposition de rendez-vous.</p></li>
+<li><p>Pour le déploiement de contenu type html/Qharto, on aura quelques étapes supplémentaires à réaliser.</p></li>
+<li><p>Côté plus, en mode private on peut déployer des pages sans passer à la caisse contrairement à Github. On peut également gérer très librement ses adresses url. C’est top.</p></li>
+<li><p>Côté moins, toujours en mode private, forte limitation du nombre de collaborateurs à 5 (anciennement 10). C’est ennuyeux.</p></li>
+<li><p>Retour d’expérience un peu désagréable: avec un compte strictement individuel, possible prise contact par l’équipe commerciale de Gitlab, avec relances si on ne souhaite pas donner suite à leur proposition de rendez-vous.</p></li>
 </ul>
 </section>
 </section>
@@ -555,7 +555,7 @@ Clonage et fork d’un répertoire distant
 <section id="installation" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="installation"><span class="header-section-number">6.2</span> Installation</h2>
 <ul>
-<li>Git étant indépendant des fameuses plateformes Github et Gitlab, il doit être installé. Mais peut-être est-il déjà installé? C’est normalement le cas avec RStudio.
+<li>Git étant indépendant des fameuses plateformes Github et Gitlab, il doit être installé. Mais peut-être est-il déjà installé? C’est normalement le cas avec RStudio. Je conseille néanmoins d’installer la dernière version de git directement, ce qui permettra également de l’utiliser en dehors de RStudio.
 <ul>
 <li>Vérification dans un terminal (dont Rstudio): <code>git --version</code></li>
 <li>Sinon téléchargement sur le site officiel: <a href="https://git-scm.com/download/" class="uri">https://git-scm.com/download/</a></li>
@@ -563,11 +563,11 @@ Clonage et fork d’un répertoire distant
 </ul>
 <p>Après l’installation ou la vérification de l’installation de Git:</p>
 <ul>
-<li>Ne pas oublier d’associer git à une adresse mail, et accessoirement à votre civilité.</li>
+<li>Ne pas oublier d’associer git à une adresse mail, et accessoirement à votre civilité ou à un avatar.</li>
 </ul>
 <p>Dans un terminal (Rstudio, invite commande windows,…):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">$</span> git config <span class="op">--</span>global user.email EMAIL<span class="op">-</span>ADRESSE</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">$</span> git config <span class="op">--</span>global user.name <span class="st">"PRENOM et/NOM"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git config <span class="op">--</span>global user.email EMAIL<span class="op">-</span>ADRESSE</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>git config <span class="op">--</span>global user.name <span class="st">"PRENOM et/NOM"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="connection-initiale-avec-une-plateforme" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="connection-initiale-avec-une-plateforme"><span class="header-section-number">6.3</span> Connection initiale avec une plateforme</h2>
@@ -582,9 +582,9 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Procédures de connection via <strong>https</strong> et <strong>clé SSH</strong> effectuées fin 2023 - début 2024
+<li>Procédures de connection via <strong>https</strong> et <strong>clé SSH</strong> effectuées fin 2023/début 2024 et mai 2024 via le serveur margaux de l’Ined.
 <ul>
-<li>HTTPS:
+<li>HTTPS (token/mdp):
 <ul>
 <li>package <code>usethis</code>: github.</li>
 <li>package <code>gitcreds</code>: github et gitlab.</li>
@@ -599,11 +599,11 @@ Note
 <li>Connection https existantes pour Github et Gitlab =&gt; nouveaux token générés.</li>
 <li>Pas de connection SSH existante avec protocole ed25519. Création d’une nouvelle clé.</li>
 </ul></li>
-<li>Ordinateur personnel:
+<li>Serveur margaux Ined (mai 2024)
 <ul>
 <li>Parti de zero.</li>
 <li>HTTPS: Nouveau token généré pour cette connection.</li>
-<li>SSH: Utilisation de la clé ssh générée précédemment.</li>
+<li>Pas de connection SSH existante. Création d’une nouvelle clé avec protocole ed25519.</li>
 </ul></li>
 </ul>
 </div>
@@ -617,12 +617,22 @@ Note
 <li>Package <code>usethis</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("usethis")</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(usethise)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Package usethis </strong></pre>
 </div>
-<p>En exécutant la commande suivante, une fenêtre s’ouvre pour générer le token.</p>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethise)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>En exécutant la commande suivante, une fenêtre s’ouvre pour générer le token dans github.</p>
 <div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Création d'un token</strong></pre>
+</div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <div class="box_img">
 <p><a href="img2/token_github1.png" class="lightbox" data-gallery="gh1"><img src="img2/token_github1.png" class="img-fluid"></a></p>
@@ -634,25 +644,36 @@ Note
 <ul>
 <li>Attention à la date d’expiration du token.
 <ul>
-<li>On peut choisir “No Expiration” donc un token perpetuel, ce qui n’empêchera pas de le modifier par la suite.</li>
+<li>Par défaut 30 jours, on peut augmenter la durée.</li>
+<li>La durée maximale est d’un an.</li>
 </ul></li>
 <li>Cliquer en bas de la page sur <strong>Generate token</strong>.</li>
-<li>On reçoit généralement un mail lorsqu’un token arrive à expiration.</li>
+<li>On reçoit un mail à la création du token et quelques jours avant sa date d’expiration.</li>
 </ul>
 <p><strong>Ajouter le token dans RStudio</strong></p>
 <ul>
 <li>Package <strong><code>gitcreds</code></strong></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("gitcreds")</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(gitcreds)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Package gitcreds</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">install.packages</span>(<span class="st">"gitcreds"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">library</span>(gitcreds)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <ul>
 <li>Par défaut il va sélectionner Github, on peut toutefois renseigner l’adresse générique de la plateforme</li>
 </ul>
 <div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Ajouter le token dans Rstudio</strong></pre>
+</div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gitcreds)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gitcreds_set</span>(<span class="at">url =</span> <span class="st">"https://github.com"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <p>Si aucun token n’a déjà été ajouté, on colle directement dans la console la valeur du token généré dans l’étape précédente .</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>? Enter password <span class="bu">or</span> token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -668,7 +689,7 @@ Note
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>: Keep these credentials</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>: Replace these credentials</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>: See the password <span class="op">/</span> toke</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>: See the password <span class="op">/</span> token</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>L’option 2 permet de changer de token</strong>.</p>
 </section>
 <section id="gitlab-1" class="level4" data-number="6.3.1.2">
@@ -684,7 +705,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 32.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/token_gitlab1.png" class="lightbox" data-gallery="gl1" data-glightbox="description: .lightbox-desc-3" title="Edit profile"><img src="img2/token_gitlab1.png" class="img-fluid figure-img" alt="Edit profile"></a></p>
+<p><a href="img2/token_gitlab1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="gl1" title="Edit profile"><img src="img2/token_gitlab1.png" class="img-fluid figure-img" alt="Edit profile"></a></p>
 <figcaption>Edit profile</figcaption>
 </figure>
 </div>
@@ -695,7 +716,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 32.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/token_gitlab2.png" class="lightbox" data-gallery="gl1" data-glightbox="description: .lightbox-desc-4" title="Access token"><img src="img2/token_gitlab2.png" class="img-fluid figure-img" alt="Access token"></a></p>
+<p><a href="img2/token_gitlab2.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="gl1" title="Access token"><img src="img2/token_gitlab2.png" class="img-fluid figure-img" alt="Access token"></a></p>
 <figcaption>Access token</figcaption>
 </figure>
 </div>
@@ -706,7 +727,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 32.6%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/token_gitlab3.png" class="lightbox" data-gallery="gl1" data-glightbox="description: .lightbox-desc-5" title="Personal access token"><img src="img2/token_gitlab3.png" class="img-fluid figure-img" alt="Personal access token"></a></p>
+<p><a href="img2/token_gitlab3.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="gl1" title="Personal access token"><img src="img2/token_gitlab3.png" class="img-fluid figure-img" alt="Personal access token"></a></p>
 <figcaption>Personal access token</figcaption>
 </figure>
 </div>
@@ -721,7 +742,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 48.8%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/token_gitlab4.png" class="lightbox" data-gallery="gl1" data-glightbox="description: .lightbox-desc-6" title="Sélection Read/write repository"><img src="img2/token_gitlab4.png" class="img-fluid figure-img" alt="Sélection Read/write repository"></a></p>
+<p><a href="img2/token_gitlab4.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="gl1" title="Sélection Read/write repository"><img src="img2/token_gitlab4.png" class="img-fluid figure-img" alt="Sélection Read/write repository"></a></p>
 <figcaption>Sélection Read/write repository</figcaption>
 </figure>
 </div>
@@ -732,25 +753,36 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 48.8%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/token_gitlab5.png" class="lightbox" data-gallery="gl1" data-glightbox="description: .lightbox-desc-7" title="Récupérer le token"><img src="img2/token_gitlab5.png" class="img-fluid figure-img" alt="Récupérer le token"></a></p>
+<p><a href="img2/token_gitlab5.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="gl1" title="Récupérer le token"><img src="img2/token_gitlab5.png" class="img-fluid figure-img" alt="Récupérer le token"></a></p>
 <figcaption>Récupérer le token</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
+<p>On peut accéder sur Github à la page de création des token en allant sur <strong>Profile</strong> <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <strong>Settings</strong> (tout en bas) <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <strong>Developer Settings</strong> (Menu vertical à gauche).</p>
 <p><strong>Ajouter le token dans RStudio</strong></p>
 <ul>
 <li>Même procédure qu’avec Github avec le package <strong><code>gitcreds</code></strong>.</li>
 <li>On devra explicitement indiquer l’adresse générique de Gitlab dans la fonction.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("gitcreds")</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(gitcreds)</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>package gitcreds</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"gitcreds"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gitcreds)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Ajouter dans Rstudio le token</strong></pre>
+</div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gitcreds)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gitcreds_set</span>(<span class="at">url =</span> <span class="st">"https://gitlab.com"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <p>Si aucun token n’est déjà été ajouté, on colle directement dans la console la valeur du token généré dans l’étape précédente .</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Sélection : <span class="dv">2</span></span>
@@ -772,6 +804,22 @@ Note
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>: Keep these credentials</span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>: Replace these credentials</span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>: See the password <span class="op">/</span> toke</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="vérifier-la-connection" class="level4" data-number="6.3.1.3">
+<h4 data-number="6.3.1.3" class="anchored" data-anchor-id="vérifier-la-connection"><span class="header-section-number">6.3.1.3</span> Vérifier la connection</h4>
+<p>Vous pouvez vérifier la connection en clonant un dépôt. Coller par exemple le lien suivant lors de la création du projet:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Test dépôt Github</strong></pre>
+</div>
+<div class="sourceCode" id="cb13" data-filename="Test dépôt Github"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>github.com<span class="op">/</span>mthevenin<span class="op">/</span>test_connection_formation.git</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Test dépôt Gitlab</strong></pre>
+</div>
+<div class="sourceCode" id="cb14" data-filename="Test dépôt Gitlab"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>gitlab.com<span class="op">/</span>mthevenin<span class="op">/</span>test_connection_formation.git</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="via-une-clé-de-cryptage-ssh" class="level3" data-number="6.3.2">
@@ -805,7 +853,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 49.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/ssh_rstudio1.png" class="lightbox" data-gallery="ssh1" data-glightbox="description: .lightbox-desc-8" title="Création de la clé SSH"><img src="img2/ssh_rstudio1.png" class="img-fluid figure-img" alt="Création de la clé SSH"></a></p>
+<p><a href="img2/ssh_rstudio1.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="ssh1" title="Création de la clé SSH"><img src="img2/ssh_rstudio1.png" class="img-fluid figure-img" alt="Création de la clé SSH"></a></p>
 <figcaption>Création de la clé SSH</figcaption>
 </figure>
 </div>
@@ -816,7 +864,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 49.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/ssh_rstudio2.png" class="lightbox" data-gallery="ssh1" data-glightbox="description: .lightbox-desc-9" title="Récupération de la clé SSH"><img src="img2/ssh_rstudio2.png" class="img-fluid figure-img" alt="Récupération de la clé SSH"></a></p>
+<p><a href="img2/ssh_rstudio2.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="ssh1" title="Récupération de la clé SSH"><img src="img2/ssh_rstudio2.png" class="img-fluid figure-img" alt="Récupération de la clé SSH"></a></p>
 <figcaption>Récupération de la clé SSH</figcaption>
 </figure>
 </div>
@@ -862,7 +910,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 49.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/ssh_github1.png" class="lightbox" data-gallery="gh2" data-glightbox="description: .lightbox-desc-10" title="Aller sur l’avatar"><img src="img2/ssh_github1.png" class="img-fluid figure-img" alt="Aller sur l’avatar"></a></p>
+<p><a href="img2/ssh_github1.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="gh2" title="Aller sur l’avatar"><img src="img2/ssh_github1.png" class="img-fluid figure-img" alt="Aller sur l’avatar"></a></p>
 <figcaption>Aller sur l’avatar</figcaption>
 </figure>
 </div>
@@ -873,7 +921,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 49.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/ssh_github2.png" class="lightbox" data-gallery="gh2" data-glightbox="description: .lightbox-desc-11" title="Aller sur settings"><img src="img2/ssh_github2.png" class="img-fluid figure-img" alt="Aller sur settings"></a></p>
+<p><a href="img2/ssh_github2.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="gh2" title="Aller sur settings"><img src="img2/ssh_github2.png" class="img-fluid figure-img" alt="Aller sur settings"></a></p>
 <figcaption>Aller sur settings</figcaption>
 </figure>
 </div>
@@ -888,7 +936,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 49.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/ssh_github3.png" class="lightbox" data-gallery="gh2" data-glightbox="description: .lightbox-desc-12" title="Page SSH et GPH keys"><img src="img2/ssh_github3.png" class="img-fluid figure-img" alt="Page SSH et GPH keys"></a></p>
+<p><a href="img2/ssh_github3.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="gh2" title="Page SSH et GPH keys"><img src="img2/ssh_github3.png" class="img-fluid figure-img" alt="Page SSH et GPH keys"></a></p>
 <figcaption>Page SSH et GPH keys</figcaption>
 </figure>
 </div>
@@ -899,7 +947,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 49.5%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/ssh_github4.png" class="lightbox" data-gallery="gh2" data-glightbox="description: .lightbox-desc-13" title="Ajouter la clé"><img src="img2/ssh_github4.png" class="img-fluid figure-img" alt="Ajouter la clé"></a></p>
+<p><a href="img2/ssh_github4.png" class="lightbox" data-glightbox="description: .lightbox-desc-13" data-gallery="gh2" title="Ajouter la clé"><img src="img2/ssh_github4.png" class="img-fluid figure-img" alt="Ajouter la clé"></a></p>
 <figcaption>Ajouter la clé</figcaption>
 </figure>
 </div>
@@ -948,7 +996,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/ssh_gitlab1.png" class="lightbox" data-gallery="gl2" data-glightbox="description: .lightbox-desc-14" title="Avatar=>Préférences"><img src="img2/ssh_gitlab1.png" class="img-fluid figure-img" alt="Avatar=>Préférences"></a></p>
+<p><a href="img2/ssh_gitlab1.png" class="lightbox" data-glightbox="description: .lightbox-desc-14" data-gallery="gl2" title="Avatar=>Préférences"><img src="img2/ssh_gitlab1.png" class="img-fluid figure-img" alt="Avatar=>Préférences"></a></p>
 <figcaption>Avatar=&gt;Préférences</figcaption>
 </figure>
 </div>
@@ -956,7 +1004,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/ssh_gitlab2.png" class="lightbox" data-gallery="gl2" data-glightbox="description: .lightbox-desc-15" title="Aller dans SSH keys"><img src="img2/ssh_gitlab2.png" class="img-fluid figure-img" alt="Aller dans SSH keys"></a></p>
+<p><a href="img2/ssh_gitlab2.png" class="lightbox" data-glightbox="description: .lightbox-desc-15" data-gallery="gl2" title="Aller dans SSH keys"><img src="img2/ssh_gitlab2.png" class="img-fluid figure-img" alt="Aller dans SSH keys"></a></p>
 <figcaption>Aller dans SSH keys</figcaption>
 </figure>
 </div>
@@ -964,7 +1012,7 @@ Note
 <div class="box_img quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/ssh_gitlab3.png" class="lightbox" data-gallery="gl2" data-glightbox="description: .lightbox-desc-16" title="Ajouter la clé"><img src="img2/ssh_gitlab3.png" class="img-fluid figure-img" alt="Ajouter la clé"></a></p>
+<p><a href="img2/ssh_gitlab3.png" class="lightbox" data-glightbox="description: .lightbox-desc-16" data-gallery="gl2" title="Ajouter la clé"><img src="img2/ssh_gitlab3.png" class="img-fluid figure-img" alt="Ajouter la clé"></a></p>
 <figcaption>Ajouter la clé</figcaption>
 </figure>
 </div>
@@ -978,33 +1026,41 @@ Note
 <ul>
 <li>Vérifier que l’authentification SSH fonctionne</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">$</span> eval <span class="kw">$</span>(ssh<span class="op">-</span>agent <span class="op">-</span>s)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>eval <span class="kw">$</span>(ssh<span class="op">-</span>agent <span class="op">-</span>s)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Output, par exemple: <strong><code>Agent pid 1463</code></strong></p>
 <ul>
 <li>Ajouter la clé</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">$</span> ssh<span class="op">-</span>add ~<span class="op">/</span>.ssh<span class="op">/</span>id_ed25519</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ssh<span class="op">-</span>add ~<span class="op">/</span>.ssh<span class="op">/</span>id_ed25519</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Output: <strong><code>Identity added: /c/Users/thevenin_m/.ssh/id_ed25519 (ined\thevenin_m@MOB0XXXX)</code></strong></p>
 <p>On peut enfin vérifier, que tout est ok avec les messages de bienvenue suivants:</p>
 <ul>
 <li>Github:</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ssh <span class="op">-</span>T git@github.com</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Hi mthevenin! You've successfully authenticated, but GitHub does <span class="bu">not</span> provide shell access.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ssh <span class="op">-</span>T git@github.com</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Hi mthevenin! You've successfully authenticated, but GitHub does <span class="bu">not</span> provide shell access.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Gitlab:</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ssh <span class="op">-</span>T git@gitlab.com</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Welcome <span class="at">to</span> GitLab, @mthevenin!</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ssh <span class="op">-</span>T git@gitlab.com</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Welcome <span class="at">to</span> GitLab, @mthevenin!</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 </section>
-<section id="vérifier-la-connection" class="level4" data-number="6.3.2.5">
-<h4 data-number="6.3.2.5" class="anchored" data-anchor-id="vérifier-la-connection"><span class="header-section-number">6.3.2.5</span> Vérifier la connection</h4>
-<ul>
-<li><p>Même façon de procéder que pour le token. Pensez néanmoins à changer le nom du répertoire (ou supprimer celui créer précedemment).</p></li>
-<li><p>Coller le lien suivant avec votre identifiant:</p></li>
-</ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>git@gitlab.com:nom_id<span class="op">/</span>test_connection.git</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="vérifier-la-connection-1" class="level4" data-number="6.3.2.5">
+<h4 data-number="6.3.2.5" class="anchored" data-anchor-id="vérifier-la-connection-1"><span class="header-section-number">6.3.2.5</span> Vérifier la connection</h4>
+<p>Vous pouvez vérifier la connection en clonant un dépôt. Coller par exemple le lien suivant lors de la création du projet:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Test dépôt Github</strong></pre>
+</div>
+<div class="sourceCode" id="cb21" data-filename="Test dépôt Github"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>git@github.com:mthevenin<span class="op">/</span>test_connection_formation.git</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Test dépôt Gitlab</strong></pre>
+</div>
+<div class="sourceCode" id="cb22" data-filename="Test dépôt Gitlab"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>git@gitlab.com:mthevenin<span class="op">/</span>test_connection_formation.git</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ul>
 <li>Si lors du clonage le message suivant s’affiche, taper <strong>yes</strong>:</li>
 </ul>
@@ -1037,7 +1093,9 @@ Note
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Je parle bien évidemment pour moi<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>On parle également de forge<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>j’ai pas trouvé mieux<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>L’assassinat de Georges Floyd en 2020 est passé par là<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1511,499 +1569,528 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb20" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">  - nutshell</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Installation et connection</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>Ayant une utilisation assez minimale de git, et plutôt réservée au partage de documentation, je recommande fortement de lire le support réalisé par l'Insee dans la documentation **UtilitR**. Il est par ailleurs indéxé dans la partie **Gallery** du site de Quarto.</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://www.book.utilitr.org/03_fiches_thematiques/fiche_git_utilisation&gt;</span>. </span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="fu">### Principes et atouts de Git</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:GIT WIKI</span><span class="co">](https://fr.wikipedia.org/wiki/Git)</span>]{.nut}</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>Sur les grands principes, l'outil Git permet de réaliser des opérations sur des fichiers entre un ordinateur local et un serveur distant (appelé **remote**). Dans un travail en équipe, sous son aspect "*cloud*" (à mettre entre guillemets), il permet donc relier plusieurs utilisateurs sur un même projet.</span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>Atouts: </span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Les opérations entre les fichiers locaux et ceux sur un dépôt distant (**remote**) sont réalisées sur des **deltas**, c'est à dire sur des modifications. Elles sont appliquées  seulement sur des fichiers qui font l'objet d'une: **création**, **suppression** ou **modification**.</span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Contrôle de versions**: git garde la trace dans le temps de toutes les modifications: </span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Historique des opérations récupérées sous forme d'une timeline graphique, dont la nature de la modification est indiquée par un titre.</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>La visualisation des modifications intervenues dans des fichiers est facilitée par des codes couleurs: <span class="co">[</span><span class="ot">**Rouge**</span><span class="co">]</span>{style="color:#dc3545"} avant le changement, <span class="co">[</span><span class="ot">**Vert**</span><span class="co">]</span>{style="color:#198754"} au moment du changement. Il est alors toujours possible de revenir en "arrière", par exemple en récupérant un élément supprimé ou modifié.</span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Les branches**: Dans un répertoire git une branche principale est créée (la **main**). On peut créer et travailler sur des branches parallèles et contrôler la fusion des éléments modifiés avec la branche principale. Dans un travail collaboratif, via un clonage du répertoire le/la propriétaire du dépôt distant sera en charge de valider et réaliser ces opérations de fusion. Toutes ces opérations sont également indéxées, et on peut suivre l'historique de création, modification et fusion des branches secondaires avec la branche principale.</span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### Clonage et fork d'un répertoire distant</span></span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>Dans un travail collaboratif en équipe la branche principale est clonée par les personnes participant au projet, le *propriétaire* du répertoire distant donnant les autorisations dans ce sens aux autres participant.e.s.  </span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>Git permet également un travail collaboratif plus ouvert, hors équipe, en donnant la possibilité à quiconque de proposer des modifications du projet présent sur le répertoire distant. </span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le répertoire fera l'objet d'un **fork**. Il s'agit également d'une forme de clonage, mais les modifications des fichiers seront systématiquement envoyés sur une branche secondaire du dépôt distant. </span>
-<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>Remarque: le propriétaire du dépôt distant ne peut pas "**forker**" son répertoire distant.</span>
-<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a><span class="ss">*  </span>**Exclusion de fichiers** <span class="co">[</span><span class="ot">très important</span><span class="co">]</span>: on peut gérer des exclusions de fichiers, par leur noms, leur extension, leur localisation (dossier). Sauf exceptions (base d'exemples pour une formation), il est fortement recommandé d'exclure les bases de données des opérations de synchronisation entre le local et le distant.  </span>
-<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a><span class="fu">### Github versus Gitlab</span></span>
-<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Github </span></span>
-<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:GITHUB WIKI</span><span class="co">](https://fr.wikipedia.org/wiki/GitHub)</span>]{.nut}</span>
-<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Propriété de Microsoft depuis 2018. Risque de tout perdre si Microsoft décide de supprimer l'outil. L'exemple de l'IDE Atom supprimé en 2019 après son rachat est un cas d'école récent. </span>
-<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Seulement sur le site plateforme. Pas de récupération posible du code source pour installer un git local ou institutionnel (Humanum, Insee, Service informatique de l'Ined...). </span>
-<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Fonctionnalités clés en main, plus facile d'accès *a priori* pour les personnes moins à l'aise avec le jargon informatique.</span>
-<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>A noter l'existence d'un outil appelé **Github Desktop** qui facilite la réalisation les opérations git de base, avec en plus la possibilité de switcher à la volée d'un projet à un autre. A titre personnel, je réalise toutes les opérations avec mes depôts Github avec RStudio à l'aide de ce **github desktop**.</span>
-<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Quarto joue la carte 100% Github avec l'intégration d'outils dédiées. Plus généralement les librairies R pour faciliter la connection initiale entre RStudio et un compte sur une plateforme git, sont pensées pour fonctionner avec cette plateforme.  </span>
-<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En mode **private** (restreint) on ne peut pas déployer de pages sans passer à la caisse.   </span>
-<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Gitlab </span></span>
-<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:GITLAB WIKI</span><span class="co">](https://fr.wikipedia.org/wiki/GitLab)</span>]{.nut}</span>
-<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Même si la composition du capital peut faire grincer quelques dents, Gitlab reste relativement indépendant d'un géant comme Microsoft.</span>
-<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Récupération du code source de Gitlab, ce qui rend possible la création d'une plateforme Git sur un serveur institutionnel . </span>
-<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pensé pour les développeurs informatiques, on peut ne pas toujours comprendre  le pourquoi du comment même si ça *marche*^<span class="co">[</span><span class="ot">Je parle bien évidemment pour moi</span><span class="co">]</span>. Pour le déploiement des pages, on aura quelques étapes supplémentaires à réaliser si les éléments de paramétrisation d'un fichier de configuration obligatoire, et propre à gitlab restent cryptiques... Ce qui est mon cas.  </span>
-<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En mode private, on peut déployer des pages en mode **private** sans passer à la caisse contrairement à Github. On peut également gérer très librement ses adresses http. C'est top.</span>
-<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Retour d'expérience un peu désagréable: avec un compte strictement individual (hors humanum par exemple) possibilité d'une prise contact rapide par l'équipe commerciale de Gitlab, avec des relances si on ne souhaite pas donner suite à leur proposition de rendez-vous.</span>
-<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation </span></span>
-<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Git étant indépendant des fameuses plateformes Github et Gitlab, il doit être installé. Mais peut-être est-il déjà installé? C'est normalement le cas avec RStudio.</span>
-<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Vérification dans un terminal (dont Rstudio):  <span class="in">`git --version`</span> </span>
-<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Sinon téléchargement sur le site officiel: <span class="ot">&lt;https://git-scm.com/download/&gt;</span></span>
-<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a>Après l'installation ou la vérification de l'installation de Git: </span>
-<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ne pas oublier d'associer git à une adresse mail, et accessoirement à votre civilité.</span>
-<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-90"><a href="#cb20-90" aria-hidden="true" tabindex="-1"></a>Dans un terminal (Rstudio, invite commande windows,...): </span>
-<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a><span class="in">$ git config --global user.email EMAIL-ADRESSE</span></span>
-<span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a><span class="in">$ git config --global user.name "PRENOM et/NOM"</span></span>
-<span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## Connection initiale avec une plateforme</span></span>
-<span id="cb20-99"><a href="#cb20-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Procédures de connection via **https** et **clé SSH** effectuées fin 2023 - début 2024</span>
-<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>HTTPS:</span>
-<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>package <span class="in">`usethis`</span>: github.</span>
-<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>package  <span class="in">`gitcreds`</span>: github et gitlab.</span>
-<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>SSH: </span>
-<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>protocole: ed25519.</span>
-<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Mobile Ined:</span>
-<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Connection https existantes pour Github et Gitlab =&gt; nouveaux token générés.</span>
-<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Pas de connection SSH existante avec protocole ed25519. Création d'une nouvelle clé.</span>
-<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ordinateur personnel:</span>
-<span id="cb20-114"><a href="#cb20-114" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Parti de zero.</span>
-<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>HTTPS: Nouveau token généré pour cette connection.</span>
-<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>SSH: Utilisation de la clé ssh générée précédemment.</span>
-<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a><span class="fu">### Connection via un token/password {#sec-token}</span></span>
-<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Github</span></span>
-<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a>**Générer un Token**</span>
-<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Package <span class="in">`usethis`</span></span>
-<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("usethis")</span></span>
-<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a><span class="co"># library(usethise)</span></span>
-<span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a>En exécutant la commande suivante, une fenêtre s'ouvre pour générer le token.</span>
-<span id="cb20-139"><a href="#cb20-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb20-144"><a href="#cb20-144" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span>
-<span id="cb20-145"><a href="#cb20-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-146"><a href="#cb20-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-147"><a href="#cb20-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-148"><a href="#cb20-148" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/token_github1.png)</span>{group=gh1}</span>
-<span id="cb20-150"><a href="#cb20-150" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-151"><a href="#cb20-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-152"><a href="#cb20-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-153"><a href="#cb20-153" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-154"><a href="#cb20-154" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/token_github2.png)</span>{group=gh1}</span>
-<span id="cb20-155"><a href="#cb20-155" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-156"><a href="#cb20-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-157"><a href="#cb20-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-158"><a href="#cb20-158" aria-hidden="true" tabindex="-1"></a>Note: au cas où... ce token n'est bien évidemment plus valide.  </span>
-<span id="cb20-159"><a href="#cb20-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-160"><a href="#cb20-160" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Attention à la date d'expiration du token.</span>
-<span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On peut choisir "No Expiration" donc un token perpetuel, ce qui n'empêchera pas de le modifier par la suite.</span>
-<span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer en bas de la page sur **Generate token**.</span>
-<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On reçoit généralement un mail lorsqu'un token arrive à expiration.</span>
-<span id="cb20-164"><a href="#cb20-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a>**Ajouter le token dans RStudio**</span>
-<span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-167"><a href="#cb20-167" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Package **`gitcreds`**</span>
-<span id="cb20-168"><a href="#cb20-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-171"><a href="#cb20-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-172"><a href="#cb20-172" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb20-173"><a href="#cb20-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-174"><a href="#cb20-174" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("gitcreds")</span></span>
-<span id="cb20-175"><a href="#cb20-175" aria-hidden="true" tabindex="-1"></a><span class="co"># library(gitcreds)</span></span>
-<span id="cb20-176"><a href="#cb20-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-177"><a href="#cb20-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-178"><a href="#cb20-178" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Par défaut il va sélectionner  Github, on peut toutefois renseigner l'adresse générique de la plateforme</span>
-<span id="cb20-179"><a href="#cb20-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-182"><a href="#cb20-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-183"><a href="#cb20-183" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb20-184"><a href="#cb20-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-185"><a href="#cb20-185" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gitcreds)</span>
-<span id="cb20-186"><a href="#cb20-186" aria-hidden="true" tabindex="-1"></a><span class="fu">gitcreds_set</span>(<span class="at">url =</span> <span class="st">"https://github.com"</span>)</span>
-<span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-189"><a href="#cb20-189" aria-hidden="true" tabindex="-1"></a>Si aucun token n'a déjà été ajouté, on colle directement dans la console la valeur du token généré dans l'étape précédente . </span>
-<span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a><span class="in">? Enter password or token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></span>
-<span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-195"><a href="#cb20-195" aria-hidden="true" tabindex="-1"></a>Si on change par la suite de token, plusieurs options sont disponibles:</span>
-<span id="cb20-196"><a href="#cb20-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a><span class="in">-&gt; Your current credentials for 'https://github.com':</span></span>
-<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a><span class="in">  protocol: https</span></span>
-<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a><span class="in">  host    : github.com</span></span>
-<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a><span class="in">  username: PersonalAccessToken</span></span>
-<span id="cb20-203"><a href="#cb20-203" aria-hidden="true" tabindex="-1"></a><span class="in">  password: &lt;-- hidden --&gt;</span></span>
-<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-205"><a href="#cb20-205" aria-hidden="true" tabindex="-1"></a><span class="in">-&gt; What would you like to do? </span></span>
-<span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-207"><a href="#cb20-207" aria-hidden="true" tabindex="-1"></a><span class="in">1: Keep these credentials</span></span>
-<span id="cb20-208"><a href="#cb20-208" aria-hidden="true" tabindex="-1"></a><span class="in">2: Replace these credentials</span></span>
-<span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a><span class="in">3: See the password / toke</span></span>
-<span id="cb20-210"><a href="#cb20-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-211"><a href="#cb20-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-212"><a href="#cb20-212" aria-hidden="true" tabindex="-1"></a>**L'option 2 permet de changer de token**.</span>
-<span id="cb20-213"><a href="#cb20-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-214"><a href="#cb20-214" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Gitlab</span></span>
-<span id="cb20-215"><a href="#cb20-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-216"><a href="#cb20-216" aria-hidden="true" tabindex="-1"></a>**Générer un token**</span>
-<span id="cb20-217"><a href="#cb20-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-218"><a href="#cb20-218" aria-hidden="true" tabindex="-1"></a>Le token/password est généré directement sur le compte Gitlab.</span>
-<span id="cb20-219"><a href="#cb20-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-220"><a href="#cb20-220" aria-hidden="true" tabindex="-1"></a>**Edit profile** =&gt; **Acces Token** =&gt; **add new token**.</span>
-<span id="cb20-221"><a href="#cb20-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-222"><a href="#cb20-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-223"><a href="#cb20-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-224"><a href="#cb20-224" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">30,-1,30,-1,30</span><span class="co">]</span>" layout-valign="bottom"}  </span>
-<span id="cb20-225"><a href="#cb20-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-226"><a href="#cb20-226" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
-<span id="cb20-227"><a href="#cb20-227" aria-hidden="true" tabindex="-1"></a><span class="al">![Edit profile](img2/token_gitlab1.png)</span>{group=gl1}</span>
-<span id="cb20-228"><a href="#cb20-228" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-229"><a href="#cb20-229" aria-hidden="true" tabindex="-1"></a>::: {.box_img}    </span>
-<span id="cb20-230"><a href="#cb20-230" aria-hidden="true" tabindex="-1"></a><span class="al">![Access token](img2/token_gitlab2.png)</span>{group=gl1}</span>
-<span id="cb20-231"><a href="#cb20-231" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-232"><a href="#cb20-232" aria-hidden="true" tabindex="-1"></a>::: {.box_img}   </span>
-<span id="cb20-233"><a href="#cb20-233" aria-hidden="true" tabindex="-1"></a><span class="al">![Personal access token](img2/token_gitlab3.png)</span>{group=gl1}</span>
-<span id="cb20-234"><a href="#cb20-234" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-235"><a href="#cb20-235" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-236"><a href="#cb20-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-237"><a href="#cb20-237" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">20,-1,20,</span><span class="co">]</span>" layout-valign="bottom"}  </span>
-<span id="cb20-238"><a href="#cb20-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-239"><a href="#cb20-239" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
-<span id="cb20-240"><a href="#cb20-240" aria-hidden="true" tabindex="-1"></a><span class="al">![Sélection Read/write repository](img2/token_gitlab4.png)</span>{group=gl1}</span>
-<span id="cb20-241"><a href="#cb20-241" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-242"><a href="#cb20-242" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
-<span id="cb20-243"><a href="#cb20-243" aria-hidden="true" tabindex="-1"></a><span class="al">![Récupérer le token](img2/token_gitlab5.png)</span>{group=gl1}</span>
-<span id="cb20-244"><a href="#cb20-244" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-245"><a href="#cb20-245" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb20-246"><a href="#cb20-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-247"><a href="#cb20-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-248"><a href="#cb20-248" aria-hidden="true" tabindex="-1"></a>**Ajouter le token dans RStudio**</span>
-<span id="cb20-249"><a href="#cb20-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-250"><a href="#cb20-250" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Même procédure qu'avec Github avec le package **`gitcreds`**.</span>
-<span id="cb20-251"><a href="#cb20-251" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On devra explicitement indiquer l'adresse générique de Gitlab dans la fonction.</span>
-<span id="cb20-252"><a href="#cb20-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-255"><a href="#cb20-255" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-256"><a href="#cb20-256" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb20-257"><a href="#cb20-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-258"><a href="#cb20-258" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("gitcreds")</span></span>
-<span id="cb20-259"><a href="#cb20-259" aria-hidden="true" tabindex="-1"></a><span class="co"># library(gitcreds)</span></span>
-<span id="cb20-260"><a href="#cb20-260" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-261"><a href="#cb20-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-262"><a href="#cb20-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-265"><a href="#cb20-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-266"><a href="#cb20-266" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb20-267"><a href="#cb20-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-268"><a href="#cb20-268" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gitcreds)</span>
-<span id="cb20-269"><a href="#cb20-269" aria-hidden="true" tabindex="-1"></a><span class="fu">gitcreds_set</span>(<span class="at">url =</span> <span class="st">"https://gitlab.com"</span>)</span>
-<span id="cb20-270"><a href="#cb20-270" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-271"><a href="#cb20-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-272"><a href="#cb20-272" aria-hidden="true" tabindex="-1"></a>Si aucun token n'est déjà été ajouté, on colle directement dans la console la valeur du token généré dans l'étape précédente . </span>
-<span id="cb20-273"><a href="#cb20-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-274"><a href="#cb20-274" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-275"><a href="#cb20-275" aria-hidden="true" tabindex="-1"></a><span class="in">Sélection : 2</span></span>
-<span id="cb20-276"><a href="#cb20-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-277"><a href="#cb20-277" aria-hidden="true" tabindex="-1"></a><span class="in">-&gt; Removing current credentials...</span></span>
-<span id="cb20-278"><a href="#cb20-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-279"><a href="#cb20-279" aria-hidden="true" tabindex="-1"></a><span class="in">? Enter new password or token: </span></span>
-<span id="cb20-280"><a href="#cb20-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-281"><a href="#cb20-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-282"><a href="#cb20-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-283"><a href="#cb20-283" aria-hidden="true" tabindex="-1"></a><span class="in">? Enter password or token: &lt;Coller ici le token qui a été généré et copié dans gitlab&gt;</span></span>
-<span id="cb20-284"><a href="#cb20-284" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-285"><a href="#cb20-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-286"><a href="#cb20-286" aria-hidden="true" tabindex="-1"></a>Si on change par la suite de token, plusieurs options sont disponibles:</span>
-<span id="cb20-287"><a href="#cb20-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-288"><a href="#cb20-288" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-289"><a href="#cb20-289" aria-hidden="true" tabindex="-1"></a><span class="in">-&gt; Your current credentials for 'https://github.com':</span></span>
-<span id="cb20-290"><a href="#cb20-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-291"><a href="#cb20-291" aria-hidden="true" tabindex="-1"></a><span class="in">  protocol: https</span></span>
-<span id="cb20-292"><a href="#cb20-292" aria-hidden="true" tabindex="-1"></a><span class="in">  host    : github.com</span></span>
-<span id="cb20-293"><a href="#cb20-293" aria-hidden="true" tabindex="-1"></a><span class="in">  username: PersonalAccessToken</span></span>
-<span id="cb20-294"><a href="#cb20-294" aria-hidden="true" tabindex="-1"></a><span class="in">  password: &lt;-- hidden --&gt;</span></span>
-<span id="cb20-295"><a href="#cb20-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-296"><a href="#cb20-296" aria-hidden="true" tabindex="-1"></a><span class="in">-&gt; What would you like to do? </span></span>
-<span id="cb20-297"><a href="#cb20-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-298"><a href="#cb20-298" aria-hidden="true" tabindex="-1"></a><span class="in">1: Keep these credentials</span></span>
-<span id="cb20-299"><a href="#cb20-299" aria-hidden="true" tabindex="-1"></a><span class="in">2: Replace these credentials</span></span>
-<span id="cb20-300"><a href="#cb20-300" aria-hidden="true" tabindex="-1"></a><span class="in">3: See the password / toke</span></span>
-<span id="cb20-301"><a href="#cb20-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-302"><a href="#cb20-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-303"><a href="#cb20-303" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-304"><a href="#cb20-304" aria-hidden="true" tabindex="-1"></a><span class="fu">### Via une clé de cryptage SSH</span></span>
-<span id="cb20-305"><a href="#cb20-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-306"><a href="#cb20-306" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:GIT SSH</span><span class="co">](https://en.wikipedia.org/wiki/Ssh-keygen)</span>]{.nut}</span>
-<span id="cb20-307"><a href="#cb20-307" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb20-308"><a href="#cb20-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-309"><a href="#cb20-309" aria-hidden="true" tabindex="-1"></a>Procédure un peu plus longue, mais à l'exception d'une étape la procédure est commune aux deux plateformes.</span>
-<span id="cb20-310"><a href="#cb20-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-311"><a href="#cb20-311" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Je ne traiterai pas du sujet HTTPS (token) versus SSH (cryptage), mais visiblement les préférences que je peux lire à gauche et à droite penche plutôt vers le HTTPS. Je note néanmoins beaucoup plus de tutoriels pour la solution cryptée.   </span>
-<span id="cb20-312"><a href="#cb20-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-313"><a href="#cb20-313" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut paramétrer et utiliser les deux techniques de sécurité, le choix de l'une ou l'autre se fera lors du clônage d'un dépôt distant.  </span>
-<span id="cb20-314"><a href="#cb20-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-315"><a href="#cb20-315" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Clé SSH**: repose sur un cryptage.</span>
-<span id="cb20-316"><a href="#cb20-316" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Les protocoles de cryptage évolue dans le temps. C'est la quatrième et dernière génération qui est proposée par RStudio. </span>
-<span id="cb20-317"><a href="#cb20-317" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>La dernière génération est appelée **ed25519**. C'est la seule option dans RStudio.</span>
-<span id="cb20-318"><a href="#cb20-318" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une même clé SSH peut-être utilisée pour Github et Gitlab.   </span>
-<span id="cb20-319"><a href="#cb20-319" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-320"><a href="#cb20-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-321"><a href="#cb20-321" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Générer une clé  dans Rstudio  </span></span>
-<span id="cb20-322"><a href="#cb20-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-323"><a href="#cb20-323" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Tools** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-324"><a href="#cb20-324" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Global Options** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-325"><a href="#cb20-325" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Git/SVN** dans la barre de menu verticale {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-326"><a href="#cb20-326" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Create SSH key**: On génère la clé sous la zône d'enregistrement {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-327"><a href="#cb20-327" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**View public key**: On visualise et récupère la clé SSH en la copiant {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-328"><a href="#cb20-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-329"><a href="#cb20-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-330"><a href="#cb20-330" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">50,-1,50</span><span class="co">]</span>" layout-valign="bottom" }</span>
-<span id="cb20-331"><a href="#cb20-331" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-332"><a href="#cb20-332" aria-hidden="true" tabindex="-1"></a><span class="al">![Création de la clé SSH](img2/ssh_rstudio1.png)</span>{group=ssh1}</span>
-<span id="cb20-333"><a href="#cb20-333" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-334"><a href="#cb20-334" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-335"><a href="#cb20-335" aria-hidden="true" tabindex="-1"></a><span class="al">![Récupération de la clé SSH](img2/ssh_rstudio2.png)</span>{group=ssh1}</span>
-<span id="cb20-336"><a href="#cb20-336" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-337"><a href="#cb20-337" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb20-338"><a href="#cb20-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-339"><a href="#cb20-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-340"><a href="#cb20-340" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Github</span></span>
-<span id="cb20-341"><a href="#cb20-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-342"><a href="#cb20-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-345"><a href="#cb20-345" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb20-346"><a href="#cb20-346" aria-hidden="true" tabindex="-1"></a><span class="in">%%| fig-width: 6.5</span></span>
-<span id="cb20-347"><a href="#cb20-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-348"><a href="#cb20-348" aria-hidden="true" tabindex="-1"></a><span class="in">flowchart LR</span></span>
-<span id="cb20-349"><a href="#cb20-349" aria-hidden="true" tabindex="-1"></a><span class="in">  A(Avatar) --&gt; B(Settings)</span></span>
-<span id="cb20-350"><a href="#cb20-350" aria-hidden="true" tabindex="-1"></a><span class="in">  B --&gt; C(SSH and GPH Keys)</span></span>
-<span id="cb20-351"><a href="#cb20-351" aria-hidden="true" tabindex="-1"></a><span class="in">  C --&gt; D(New SSH key)</span></span>
-<span id="cb20-352"><a href="#cb20-352" aria-hidden="true" tabindex="-1"></a><span class="in">    D --&gt; E(Coller la clé)</span></span>
-<span id="cb20-353"><a href="#cb20-353" aria-hidden="true" tabindex="-1"></a><span class="in">    subgraph AJOUTER LA CLE</span></span>
-<span id="cb20-354"><a href="#cb20-354" aria-hidden="true" tabindex="-1"></a><span class="in">    E --- F(Mettre un titre)</span></span>
-<span id="cb20-355"><a href="#cb20-355" aria-hidden="true" tabindex="-1"></a><span class="in">    F --&gt; G(ADD SSH KEY)</span></span>
-<span id="cb20-356"><a href="#cb20-356" aria-hidden="true" tabindex="-1"></a><span class="in">    end</span></span>
-<span id="cb20-357"><a href="#cb20-357" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-358"><a href="#cb20-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-359"><a href="#cb20-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-360"><a href="#cb20-360" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur l'avatar à droite {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-361"><a href="#cb20-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-362"><a href="#cb20-362" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur la barre verticale qui s'ouvre, aller sur **Settings** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-363"><a href="#cb20-363" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-364"><a href="#cb20-364" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aller sur la page **SSH and GPH keys** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-365"><a href="#cb20-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-366"><a href="#cb20-366" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aller sur **New SSH key** en haut à droite {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-367"><a href="#cb20-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-368"><a href="#cb20-368" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Coller la clé générée dans RStudio, si on ajoute plusieurs clés, renseigner le titre pour identifier son rôle {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-369"><a href="#cb20-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-370"><a href="#cb20-370" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur **Add SSH key**</span>
-<span id="cb20-371"><a href="#cb20-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-372"><a href="#cb20-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-373"><a href="#cb20-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-374"><a href="#cb20-374" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">50,-1,50</span><span class="co">]</span>" layout-valign="bottom" }</span>
-<span id="cb20-375"><a href="#cb20-375" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-376"><a href="#cb20-376" aria-hidden="true" tabindex="-1"></a><span class="al">![Aller sur l'avatar](img2/ssh_github1.png)</span>{group=gh2}</span>
-<span id="cb20-377"><a href="#cb20-377" aria-hidden="true" tabindex="-1"></a>::: </span>
-<span id="cb20-378"><a href="#cb20-378" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-379"><a href="#cb20-379" aria-hidden="true" tabindex="-1"></a><span class="al">![Aller sur settings](img2/ssh_github2.png)</span>{group=gh2}</span>
-<span id="cb20-380"><a href="#cb20-380" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-381"><a href="#cb20-381" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb20-382"><a href="#cb20-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-383"><a href="#cb20-383" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">50,-1,50</span><span class="co">]</span>" layout-valign="bottom" }</span>
-<span id="cb20-384"><a href="#cb20-384" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-385"><a href="#cb20-385" aria-hidden="true" tabindex="-1"></a><span class="al">![Page SSH et GPH keys](img2/ssh_github3.png)</span>{group=gh2}</span>
-<span id="cb20-386"><a href="#cb20-386" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-387"><a href="#cb20-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-388"><a href="#cb20-388" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-389"><a href="#cb20-389" aria-hidden="true" tabindex="-1"></a><span class="al">![Ajouter la clé](img2/ssh_github4.png)</span>{group=gh2}</span>
-<span id="cb20-390"><a href="#cb20-390" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-391"><a href="#cb20-391" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb20-392"><a href="#cb20-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-393"><a href="#cb20-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-394"><a href="#cb20-394" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Gitlab</span></span>
-<span id="cb20-395"><a href="#cb20-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-396"><a href="#cb20-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-399"><a href="#cb20-399" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
-<span id="cb20-400"><a href="#cb20-400" aria-hidden="true" tabindex="-1"></a><span class="in">%%| fig-width: 6.5</span></span>
-<span id="cb20-401"><a href="#cb20-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-402"><a href="#cb20-402" aria-hidden="true" tabindex="-1"></a><span class="in">flowchart LR</span></span>
-<span id="cb20-403"><a href="#cb20-403" aria-hidden="true" tabindex="-1"></a><span class="in">  A(Avatar) --&gt; B(Preference)</span></span>
-<span id="cb20-404"><a href="#cb20-404" aria-hidden="true" tabindex="-1"></a><span class="in">  B --&gt; C(SSH KEY)</span></span>
-<span id="cb20-405"><a href="#cb20-405" aria-hidden="true" tabindex="-1"></a><span class="in">  C --&gt; D(Add new key)  </span></span>
-<span id="cb20-406"><a href="#cb20-406" aria-hidden="true" tabindex="-1"></a><span class="in">    D --&gt; E(Coller la clé)</span></span>
-<span id="cb20-407"><a href="#cb20-407" aria-hidden="true" tabindex="-1"></a><span class="in">    subgraph AJOUTER LA CLE</span></span>
-<span id="cb20-408"><a href="#cb20-408" aria-hidden="true" tabindex="-1"></a><span class="in">    E --- F(Mettre un titre)</span></span>
-<span id="cb20-409"><a href="#cb20-409" aria-hidden="true" tabindex="-1"></a><span class="in">    F --- G(Changer la date d'expiration)</span></span>
-<span id="cb20-410"><a href="#cb20-410" aria-hidden="true" tabindex="-1"></a><span class="in">    G --&gt; H(ADD KEY)</span></span>
-<span id="cb20-411"><a href="#cb20-411" aria-hidden="true" tabindex="-1"></a><span class="in">    end</span></span>
-<span id="cb20-412"><a href="#cb20-412" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-413"><a href="#cb20-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-414"><a href="#cb20-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-415"><a href="#cb20-415" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur votre avatar    {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-416"><a href="#cb20-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-417"><a href="#cb20-417" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aller sur *preference*      {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-418"><a href="#cb20-418" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur **SSH Keys**    {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-419"><a href="#cb20-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-420"><a href="#cb20-420" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur **Add new key** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-421"><a href="#cb20-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-422"><a href="#cb20-422" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Coller votre clé générée dans RStudio {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-423"><a href="#cb20-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-424"><a href="#cb20-424" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ajouter un titre si vous comptez avoir plusieurs clés  {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-425"><a href="#cb20-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-426"><a href="#cb20-426" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Modifier la date d'expiration (X si aucune expiration) {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb20-427"><a href="#cb20-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-428"><a href="#cb20-428" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur **Add key**</span>
-<span id="cb20-429"><a href="#cb20-429" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-430"><a href="#cb20-430" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-431"><a href="#cb20-431" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">33,33,33</span><span class="co">]</span>" layout-valign="bottom"}</span>
-<span id="cb20-432"><a href="#cb20-432" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-433"><a href="#cb20-433" aria-hidden="true" tabindex="-1"></a><span class="al">![Avatar=&gt;Préférences](img2/ssh_gitlab1.png)</span>{group=gl2}</span>
-<span id="cb20-434"><a href="#cb20-434" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-435"><a href="#cb20-435" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-436"><a href="#cb20-436" aria-hidden="true" tabindex="-1"></a><span class="al">![Aller dans SSH keys](img2/ssh_gitlab2.png)</span>{group=gl2}</span>
-<span id="cb20-437"><a href="#cb20-437" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-438"><a href="#cb20-438" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-439"><a href="#cb20-439" aria-hidden="true" tabindex="-1"></a><span class="al">![Ajouter la clé](img2/ssh_gitlab3.png)</span>{group=gl2}</span>
-<span id="cb20-440"><a href="#cb20-440" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-441"><a href="#cb20-441" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb20-442"><a href="#cb20-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-443"><a href="#cb20-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-444"><a href="#cb20-444" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-445"><a href="#cb20-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-446"><a href="#cb20-446" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Activer la clé dans RStudio </span></span>
-<span id="cb20-447"><a href="#cb20-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-448"><a href="#cb20-448" aria-hidden="true" tabindex="-1"></a>Dans le terminal:</span>
-<span id="cb20-449"><a href="#cb20-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-450"><a href="#cb20-450" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Vérifier que l'authentification SSH fonctionne </span>
-<span id="cb20-451"><a href="#cb20-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-452"><a href="#cb20-452" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-453"><a href="#cb20-453" aria-hidden="true" tabindex="-1"></a><span class="in">$ eval $(ssh-agent -s)</span></span>
-<span id="cb20-454"><a href="#cb20-454" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-455"><a href="#cb20-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-456"><a href="#cb20-456" aria-hidden="true" tabindex="-1"></a>Output, par exemple: **`Agent pid 1463`**</span>
-<span id="cb20-457"><a href="#cb20-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-458"><a href="#cb20-458" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ajouter la clé </span>
-<span id="cb20-459"><a href="#cb20-459" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-460"><a href="#cb20-460" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-461"><a href="#cb20-461" aria-hidden="true" tabindex="-1"></a><span class="in">$ ssh-add ~/.ssh/id_ed25519</span></span>
-<span id="cb20-462"><a href="#cb20-462" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-463"><a href="#cb20-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-464"><a href="#cb20-464" aria-hidden="true" tabindex="-1"></a>Output: **`Identity added: /c/Users/thevenin_m/.ssh/id_ed25519 (ined\thevenin_m@MOB0XXXX)`**</span>
-<span id="cb20-465"><a href="#cb20-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-466"><a href="#cb20-466" aria-hidden="true" tabindex="-1"></a>On peut enfin vérifier, que tout est ok avec les messages de bienvenue suivants:</span>
-<span id="cb20-467"><a href="#cb20-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-468"><a href="#cb20-468" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Github:</span>
-<span id="cb20-469"><a href="#cb20-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-470"><a href="#cb20-470" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-471"><a href="#cb20-471" aria-hidden="true" tabindex="-1"></a><span class="in">ssh -T git@github.com</span></span>
-<span id="cb20-472"><a href="#cb20-472" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-473"><a href="#cb20-473" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-474"><a href="#cb20-474" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-475"><a href="#cb20-475" aria-hidden="true" tabindex="-1"></a><span class="in">Hi mthevenin! You've successfully authenticated, but GitHub does not provide shell access.</span></span>
-<span id="cb20-476"><a href="#cb20-476" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-477"><a href="#cb20-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-478"><a href="#cb20-478" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Gitlab:</span>
-<span id="cb20-479"><a href="#cb20-479" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-480"><a href="#cb20-480" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-481"><a href="#cb20-481" aria-hidden="true" tabindex="-1"></a><span class="in">ssh -T git@gitlab.com</span></span>
-<span id="cb20-482"><a href="#cb20-482" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-483"><a href="#cb20-483" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-484"><a href="#cb20-484" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-485"><a href="#cb20-485" aria-hidden="true" tabindex="-1"></a><span class="in">Welcome to GitLab, @mthevenin!</span></span>
-<span id="cb20-486"><a href="#cb20-486" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-487"><a href="#cb20-487" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-488"><a href="#cb20-488" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-489"><a href="#cb20-489" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
-<span id="cb20-490"><a href="#cb20-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-491"><a href="#cb20-491" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vérifier la connection</span></span>
-<span id="cb20-492"><a href="#cb20-492" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-493"><a href="#cb20-493" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Même façon de procéder que pour le token. Pensez néanmoins à changer le nom du répertoire (ou supprimer celui créer précedemment). </span>
-<span id="cb20-494"><a href="#cb20-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-495"><a href="#cb20-495" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Coller le lien suivant avec votre identifiant:  </span>
-<span id="cb20-496"><a href="#cb20-496" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-497"><a href="#cb20-497" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb20-498"><a href="#cb20-498" aria-hidden="true" tabindex="-1"></a><span class="in">git@gitlab.com:nom_id/test_connection.git</span></span>
-<span id="cb20-499"><a href="#cb20-499" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-501"><a href="#cb20-501" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si lors du clonage le message suivant s'affiche, taper **yes**:</span>
-<span id="cb20-502"><a href="#cb20-502" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-503"><a href="#cb20-503" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb20-504"><a href="#cb20-504" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/ssh1.png)</span></span>
-<span id="cb20-505"><a href="#cb20-505" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb20-506"><a href="#cb20-506" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-507"><a href="#cb20-507" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-508"><a href="#cb20-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-509"><a href="#cb20-509" aria-hidden="true" tabindex="-1"></a></span>
+<div class="sourceCode" id="cb23" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="an">filters:</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">  - nutshell</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Installation et connection</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>Ayant une utilisation assez minimale de git, et plutôt réservée au partage de documentation, je recommande fortement de lire le support réalisé par l'Insee dans la documentation **UtilitR**, indéxé dans la partie **Gallery** du site de Quarto.</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://www.book.utilitr.org/03_fiches_thematiques/fiche_git_utilisation&gt;</span>. </span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="fu">### Principes et atouts de Git</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:GIT WIKI</span><span class="co">](https://fr.wikipedia.org/wiki/Git)</span>]{.nut}</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>Sur son utilisation le plus courante et là où il est le plus documenté, l'outil Git permet de réaliser des opérations entre fichiers stockés dans un répertoire local (ou de travail) et un répertoire - plus ou moins - *distant* (**remote**). Dans un travail en équipe, sous cet aspect "*cloud*" , il permettra donc relier plusieurs utilisateurs sur un même projet. Sous son aspect originel de logiciel de contrôle de versions, ces opérations se feront sur des éléments ayant fait l'objet d'un changement entre deux temps choisis par l'utilisateur. </span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>Attention l'outil git est totalement indépendant des plateformes^<span class="co">[</span><span class="ot">On parle également de forge</span><span class="co">]</span> qui font sa popularité, on peut travailler exclusivement en local sur une même machine, en choississant un répertoire de travail/développement et un répertoire qui fera seulement office de stockage à un instant t. Mieux encore, sans logique de transferts et sous le seul angle de contrôle de versions d'un ou plusieurs fichiers, n'importe quel répertoire de travail peut être ***gité***^<span class="co">[</span><span class="ot">j'ai pas trouvé mieux</span><span class="co">]</span> pour contrôler toutes les étapes de développement d'un projet.</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>Cette partie s'inscrivant dans un support dédié à la construction d'une documentation avec un outil de *programmation lettrée *, on n'abordera donc pas toutes les possibilités et les manipulations offertes par git. C'est donc plutôt sous l'angle d'opérations de transferts de fichiers pour déployer un contenu Quarto qu'est abordé cette partie.</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>Atouts: </span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Les opérations de transferts sont effectuées sur des **deltas**, c'est à dire sur des modifications qui ont été déclarées par l'utilisateur à un instant t (**commit**). Ces modifications prennent la forme de  **création**, **suppression** ou **changement du contenu** de fichiers. </span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On peut exclure des fichiers de ces opérations de versionnage et de transferts. </span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Git permet de garder la trace de toutes les modifications apportées à des fichiers: </span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Historique des opérations récupérées sous forme d'une timeline, dont la nature de la modification est indiquée par un titre. Attention ces traces ne sont pas effectuée pas les enregistrements de fichiers mais par une opération spécifique et engendrée par l'utilisateur. Dans le jargon git, cette opération est appelée **commit**. Le versionnage se fera entre 2 **commits** même si ces fichiers ont été enregistrés de multiples fois entre ces deux temps.</span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>On peut accéder à tous les éléments modifiés. Si on supprime un fichier, git considérera qu'on a supprimé l'ensemble du texte d'un fichier et non physiquement un fichier. On pourra accéder à tout moment à la totalité du texte supprimé via la suppression du fichier.</span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>La visualisation des modifications intervenues dans des fichiers est facilitée par des codes couleurs: <span class="co">[</span><span class="ot">**Rouge**</span><span class="co">]</span>{style="color:#dc3545"} pour l'état au commit précédent, <span class="co">[</span><span class="ot">**Vert**</span><span class="co">]</span>{style="color:#198754"} pour l'état  au nouveau commit. </span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Les branches**: Dans un répertoire versionné par git, une branche dite principale automatiquement créée (**main** ou **master**^<span class="co">[</span><span class="ot">L'assassinat de Georges Floyd en 2020 est passé par là</span><span class="co">]</span>). On peut créer et travailler sur des branches parallèles et contrôler la fusion des éléments modifiés avec la branche principale. Dans un travail collaboratif via une opération de clonage, le/la propriétaire du dépôt distant sera en charge de valider et de réaliser ces opérations de fusion avec la branche principale. Toutes ces opérations seront également indéxées dans le versionnage, et on pourra suivre l'historique de création, modification et fusion des branches secondaires avec la branche principale.</span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Les conflits**: oui c'est un atout de git... </span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Clonage et duplication</span></span>
+<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>En collaboratif la branche principale est clonée par les personnes participant au projet, le *propriétaire* du répertoire distant donnant les autorisations dans ce sens aux autres participant.e.s. Le travail sur branches sera ici plus que recommandé, en particuliers lorsque plusieurs personnes travailleront sur un même fichier. Le propriétaire du dépôt réalisera les fusions, et donc la mise à jour de la branche principale. Sur les célèbres plateformes, si le dépôt est public il pourra être librement cloné.</span>
+<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a>et également un trav</span>
+<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a>Git permet aussi un travail collaboratif plus ouvert, hors équipe, en donnant la possibilité à quiconque de proposer une modification. Le répertoire (public) pourra être dupliqué (**fork**). Les modifications des fichiers seront systématiquement envoyés sur une branche secondaire du dépôt distant. Au propriétaire de les accepter ou non.</span>
+<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-54"><a href="#cb23-54" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-55"><a href="#cb23-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-56"><a href="#cb23-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-57"><a href="#cb23-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### Github versus Gitlab</span></span>
+<span id="cb23-58"><a href="#cb23-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-59"><a href="#cb23-59" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Github </span></span>
+<span id="cb23-60"><a href="#cb23-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-61"><a href="#cb23-61" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:GITHUB WIKI</span><span class="co">](https://fr.wikipedia.org/wiki/GitHub)</span>]{.nut}</span>
+<span id="cb23-62"><a href="#cb23-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-63"><a href="#cb23-63" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Propriété de Microsoft depuis 2018. Risque de tout perdre si Microsoft décide de supprimer l'outil. L'exemple de l'IDE Atom supprimé en 2019 après son rachat est un cas d'école récent. </span>
+<span id="cb23-64"><a href="#cb23-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-65"><a href="#cb23-65" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Seulement sur le site plateforme. Pas de récupération posible du code source pour installer un git local ou institutionnel (Humanum, Insee, Service informatique de l'Ined...). </span>
+<span id="cb23-66"><a href="#cb23-66" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-67"><a href="#cb23-67" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Fonctionnalités clés en main, plus facile d'accès *a priori* pour les personnes moins à l'aise avec le jargon informatique.</span>
+<span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>A noter l'existence d'un outil appelé **Github Desktop** qui facilite la réalisation les opérations git de base, avec en plus la possibilité de switcher à la volée d'un projet à un autre. A titre personnel, je réalise toutes les opérations avec mes depôts Github à l'aide de ce **github desktop**.</span>
+<span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Quarto ou plutôt Posit en général joue la carte 100% Github avec l'intégration d'outils dédiées. Plus généralement les package R pour faciliter la connection initiale entre RStudio et un compte sur une plateforme git sont pensés pour fonctionner avec cette plateforme. Avec le package **`usethis`** on peut générer un dépôt github sans passer par la case clonage, et donc par la création du dépôt sur la plateforme au préalable.</span>
+<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Du côté moins, en mode **private** (restreint) on ne peut pas déployer de pages sans passer à la caisse. C'est très ennuyeux.</span>
+<span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Du côté plus, toujours en mode **private** Github ne limite pas (encore) le nombre de collaboration. Sur Gitlab, ce nombre a été récemment limité à 5 personnes.</span>
+<span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Gitlab </span></span>
+<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:GITLAB WIKI</span><span class="co">](https://fr.wikipedia.org/wiki/GitLab)</span>]{.nut}</span>
+<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Même si la composition du capital peut faire grincer quelques dents, Gitlab reste relativement indépendant d'un géant comme Microsoft.</span>
+<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-82"><a href="#cb23-82" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Récupération du code source de Gitlab, ce qui rend possible la création d'une plateforme Git sur un serveur institutionnel . </span>
+<span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-84"><a href="#cb23-84" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour le déploiement de contenu type html/Qharto, on aura quelques étapes supplémentaires à réaliser.  </span>
+<span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Côté plus, en mode private on peut déployer des pages sans passer à la caisse contrairement à Github. On peut également gérer très librement ses adresses url. C'est top.</span>
+<span id="cb23-87"><a href="#cb23-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-88"><a href="#cb23-88" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Côté moins, toujours en mode private, forte limitation du nombre de collaborateurs à 5 (anciennement 10). C'est ennuyeux. </span>
+<span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-90"><a href="#cb23-90" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Retour d'expérience un peu désagréable: avec un compte strictement individuel, possible prise contact par l'équipe commerciale de Gitlab, avec relances si on ne souhaite pas donner suite à leur proposition de rendez-vous.</span>
+<span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## Installation </span></span>
+<span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Git étant indépendant des fameuses plateformes Github et Gitlab, il doit être installé. Mais peut-être est-il déjà installé? C'est normalement le cas avec RStudio. Je conseille néanmoins d'installer la dernière version de git directement, ce qui permettra également de l'utiliser en dehors de RStudio.</span>
+<span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Vérification dans un terminal (dont Rstudio):  <span class="in">`git --version`</span> </span>
+<span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Sinon téléchargement sur le site officiel: <span class="ot">&lt;https://git-scm.com/download/&gt;</span></span>
+<span id="cb23-98"><a href="#cb23-98" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a>Après l'installation ou la vérification de l'installation de Git: </span>
+<span id="cb23-100"><a href="#cb23-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-101"><a href="#cb23-101" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ne pas oublier d'associer git à une adresse mail, et accessoirement à votre civilité ou à un avatar.</span>
+<span id="cb23-102"><a href="#cb23-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-103"><a href="#cb23-103" aria-hidden="true" tabindex="-1"></a>Dans un terminal (Rstudio, invite commande windows,...): </span>
+<span id="cb23-104"><a href="#cb23-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-105"><a href="#cb23-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-106"><a href="#cb23-106" aria-hidden="true" tabindex="-1"></a><span class="in">git config --global user.email EMAIL-ADRESSE</span></span>
+<span id="cb23-107"><a href="#cb23-107" aria-hidden="true" tabindex="-1"></a><span class="in">git config --global user.name "PRENOM et/NOM"</span></span>
+<span id="cb23-108"><a href="#cb23-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-109"><a href="#cb23-109" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-110"><a href="#cb23-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-111"><a href="#cb23-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Connection initiale avec une plateforme</span></span>
+<span id="cb23-112"><a href="#cb23-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-113"><a href="#cb23-113" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb23-114"><a href="#cb23-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-115"><a href="#cb23-115" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Procédures de connection via **https** et **clé SSH** effectuées fin 2023/début 2024 et mai 2024 via le serveur margaux de l'Ined.  </span>
+<span id="cb23-116"><a href="#cb23-116" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>HTTPS (token/mdp):</span>
+<span id="cb23-117"><a href="#cb23-117" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>package <span class="in">`usethis`</span>: github.</span>
+<span id="cb23-118"><a href="#cb23-118" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>package  <span class="in">`gitcreds`</span>: github et gitlab.</span>
+<span id="cb23-119"><a href="#cb23-119" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>SSH: </span>
+<span id="cb23-120"><a href="#cb23-120" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>protocole: ed25519.</span>
+<span id="cb23-121"><a href="#cb23-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-122"><a href="#cb23-122" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Mobile Ined:</span>
+<span id="cb23-123"><a href="#cb23-123" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Connection https existantes pour Github et Gitlab =&gt; nouveaux token générés.</span>
+<span id="cb23-124"><a href="#cb23-124" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Pas de connection SSH existante avec protocole ed25519. Création d'une nouvelle clé.</span>
+<span id="cb23-125"><a href="#cb23-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-126"><a href="#cb23-126" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Serveur margaux Ined (mai 2024)</span>
+<span id="cb23-127"><a href="#cb23-127" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Parti de zero.</span>
+<span id="cb23-128"><a href="#cb23-128" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>HTTPS: Nouveau token généré pour cette connection. </span>
+<span id="cb23-129"><a href="#cb23-129" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Pas de connection SSH existante. Création d'une nouvelle clé avec protocole ed25519.</span>
+<span id="cb23-130"><a href="#cb23-130" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-131"><a href="#cb23-131" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-132"><a href="#cb23-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-133"><a href="#cb23-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-134"><a href="#cb23-134" aria-hidden="true" tabindex="-1"></a><span class="fu">### Connection via un token/password {#sec-token}</span></span>
+<span id="cb23-135"><a href="#cb23-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-136"><a href="#cb23-136" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Github</span></span>
+<span id="cb23-137"><a href="#cb23-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-138"><a href="#cb23-138" aria-hidden="true" tabindex="-1"></a>**Générer un Token**</span>
+<span id="cb23-139"><a href="#cb23-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-140"><a href="#cb23-140" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Package <span class="in">`usethis`</span></span>
+<span id="cb23-141"><a href="#cb23-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-142"><a href="#cb23-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r filename="Package usethis "}</span></span>
+<span id="cb23-143"><a href="#cb23-143" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb23-144"><a href="#cb23-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-145"><a href="#cb23-145" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages("usethis")</span></span>
+<span id="cb23-146"><a href="#cb23-146" aria-hidden="true" tabindex="-1"></a><span class="in">library(usethise)</span></span>
+<span id="cb23-147"><a href="#cb23-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-148"><a href="#cb23-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-149"><a href="#cb23-149" aria-hidden="true" tabindex="-1"></a>En exécutant la commande suivante, une fenêtre s'ouvre pour générer le token dans github.</span>
+<span id="cb23-150"><a href="#cb23-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-151"><a href="#cb23-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{r filename="Création d'un token"}</span></span>
+<span id="cb23-152"><a href="#cb23-152" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb23-153"><a href="#cb23-153" aria-hidden="true" tabindex="-1"></a><span class="in">usethis::create_github_token()</span></span>
+<span id="cb23-154"><a href="#cb23-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-155"><a href="#cb23-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-156"><a href="#cb23-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-157"><a href="#cb23-157" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-158"><a href="#cb23-158" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/token_github1.png)</span>{group=gh1}</span>
+<span id="cb23-159"><a href="#cb23-159" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-160"><a href="#cb23-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-161"><a href="#cb23-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-162"><a href="#cb23-162" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/token_github2.png)</span>{group=gh1}</span>
+<span id="cb23-164"><a href="#cb23-164" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-165"><a href="#cb23-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-166"><a href="#cb23-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-167"><a href="#cb23-167" aria-hidden="true" tabindex="-1"></a>Note: au cas où... ce token n'est bien évidemment plus valide.  </span>
+<span id="cb23-168"><a href="#cb23-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-169"><a href="#cb23-169" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Attention à la date d'expiration du token.</span>
+<span id="cb23-170"><a href="#cb23-170" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Par défaut 30 jours, on peut augmenter la durée.</span>
+<span id="cb23-171"><a href="#cb23-171" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>La durée maximale est d'un an. </span>
+<span id="cb23-172"><a href="#cb23-172" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer en bas de la page sur **Generate token**.</span>
+<span id="cb23-173"><a href="#cb23-173" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On reçoit un mail à la création du token et quelques jours avant sa date d'expiration.</span>
+<span id="cb23-174"><a href="#cb23-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-175"><a href="#cb23-175" aria-hidden="true" tabindex="-1"></a>**Ajouter le token dans RStudio**</span>
+<span id="cb23-176"><a href="#cb23-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-177"><a href="#cb23-177" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Package **`gitcreds`**</span>
+<span id="cb23-178"><a href="#cb23-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-179"><a href="#cb23-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r filename="Package gitcreds"}</span></span>
+<span id="cb23-180"><a href="#cb23-180" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb23-181"><a href="#cb23-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-182"><a href="#cb23-182" aria-hidden="true" tabindex="-1"></a><span class="in"> install.packages("gitcreds")</span></span>
+<span id="cb23-183"><a href="#cb23-183" aria-hidden="true" tabindex="-1"></a><span class="in"> library(gitcreds)</span></span>
+<span id="cb23-184"><a href="#cb23-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-185"><a href="#cb23-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-186"><a href="#cb23-186" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Par défaut il va sélectionner  Github, on peut toutefois renseigner l'adresse générique de la plateforme</span>
+<span id="cb23-187"><a href="#cb23-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-188"><a href="#cb23-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r filename="Ajouter le token dans Rstudio"}</span></span>
+<span id="cb23-189"><a href="#cb23-189" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb23-190"><a href="#cb23-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-191"><a href="#cb23-191" aria-hidden="true" tabindex="-1"></a><span class="in">library(gitcreds)</span></span>
+<span id="cb23-192"><a href="#cb23-192" aria-hidden="true" tabindex="-1"></a><span class="in">gitcreds_set(url = "https://github.com")</span></span>
+<span id="cb23-193"><a href="#cb23-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-194"><a href="#cb23-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-195"><a href="#cb23-195" aria-hidden="true" tabindex="-1"></a>Si aucun token n'a déjà été ajouté, on colle directement dans la console la valeur du token généré dans l'étape précédente . </span>
+<span id="cb23-196"><a href="#cb23-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-197"><a href="#cb23-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-198"><a href="#cb23-198" aria-hidden="true" tabindex="-1"></a><span class="in">? Enter password or token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></span>
+<span id="cb23-199"><a href="#cb23-199" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-200"><a href="#cb23-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-201"><a href="#cb23-201" aria-hidden="true" tabindex="-1"></a>Si on change par la suite de token, plusieurs options sont disponibles:</span>
+<span id="cb23-202"><a href="#cb23-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-203"><a href="#cb23-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-204"><a href="#cb23-204" aria-hidden="true" tabindex="-1"></a><span class="in">-&gt; Your current credentials for 'https://github.com':</span></span>
+<span id="cb23-205"><a href="#cb23-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-206"><a href="#cb23-206" aria-hidden="true" tabindex="-1"></a><span class="in">  protocol: https</span></span>
+<span id="cb23-207"><a href="#cb23-207" aria-hidden="true" tabindex="-1"></a><span class="in">  host    : github.com</span></span>
+<span id="cb23-208"><a href="#cb23-208" aria-hidden="true" tabindex="-1"></a><span class="in">  username: PersonalAccessToken</span></span>
+<span id="cb23-209"><a href="#cb23-209" aria-hidden="true" tabindex="-1"></a><span class="in">  password: &lt;-- hidden --&gt;</span></span>
+<span id="cb23-210"><a href="#cb23-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-211"><a href="#cb23-211" aria-hidden="true" tabindex="-1"></a><span class="in">-&gt; What would you like to do? </span></span>
+<span id="cb23-212"><a href="#cb23-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-213"><a href="#cb23-213" aria-hidden="true" tabindex="-1"></a><span class="in">1: Keep these credentials</span></span>
+<span id="cb23-214"><a href="#cb23-214" aria-hidden="true" tabindex="-1"></a><span class="in">2: Replace these credentials</span></span>
+<span id="cb23-215"><a href="#cb23-215" aria-hidden="true" tabindex="-1"></a><span class="in">3: See the password / token</span></span>
+<span id="cb23-216"><a href="#cb23-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-217"><a href="#cb23-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-218"><a href="#cb23-218" aria-hidden="true" tabindex="-1"></a>**L'option 2 permet de changer de token**.</span>
+<span id="cb23-219"><a href="#cb23-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-220"><a href="#cb23-220" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Gitlab</span></span>
+<span id="cb23-221"><a href="#cb23-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-222"><a href="#cb23-222" aria-hidden="true" tabindex="-1"></a>**Générer un token**</span>
+<span id="cb23-223"><a href="#cb23-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-224"><a href="#cb23-224" aria-hidden="true" tabindex="-1"></a>Le token/password est généré directement sur le compte Gitlab.</span>
+<span id="cb23-225"><a href="#cb23-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-226"><a href="#cb23-226" aria-hidden="true" tabindex="-1"></a>**Edit profile** =&gt; **Acces Token** =&gt; **add new token**.</span>
+<span id="cb23-227"><a href="#cb23-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-228"><a href="#cb23-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-229"><a href="#cb23-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-230"><a href="#cb23-230" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">30,-1,30,-1,30</span><span class="co">]</span>" layout-valign="bottom"}  </span>
+<span id="cb23-231"><a href="#cb23-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-232"><a href="#cb23-232" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
+<span id="cb23-233"><a href="#cb23-233" aria-hidden="true" tabindex="-1"></a><span class="al">![Edit profile](img2/token_gitlab1.png)</span>{group=gl1}</span>
+<span id="cb23-234"><a href="#cb23-234" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-235"><a href="#cb23-235" aria-hidden="true" tabindex="-1"></a>::: {.box_img}    </span>
+<span id="cb23-236"><a href="#cb23-236" aria-hidden="true" tabindex="-1"></a><span class="al">![Access token](img2/token_gitlab2.png)</span>{group=gl1}</span>
+<span id="cb23-237"><a href="#cb23-237" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-238"><a href="#cb23-238" aria-hidden="true" tabindex="-1"></a>::: {.box_img}   </span>
+<span id="cb23-239"><a href="#cb23-239" aria-hidden="true" tabindex="-1"></a><span class="al">![Personal access token](img2/token_gitlab3.png)</span>{group=gl1}</span>
+<span id="cb23-240"><a href="#cb23-240" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-241"><a href="#cb23-241" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-242"><a href="#cb23-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-243"><a href="#cb23-243" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">20,-1,20,</span><span class="co">]</span>" layout-valign="bottom"}  </span>
+<span id="cb23-244"><a href="#cb23-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-245"><a href="#cb23-245" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
+<span id="cb23-246"><a href="#cb23-246" aria-hidden="true" tabindex="-1"></a><span class="al">![Sélection Read/write repository](img2/token_gitlab4.png)</span>{group=gl1}</span>
+<span id="cb23-247"><a href="#cb23-247" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-248"><a href="#cb23-248" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
+<span id="cb23-249"><a href="#cb23-249" aria-hidden="true" tabindex="-1"></a><span class="al">![Récupérer le token](img2/token_gitlab5.png)</span>{group=gl1}</span>
+<span id="cb23-250"><a href="#cb23-250" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-251"><a href="#cb23-251" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb23-252"><a href="#cb23-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-253"><a href="#cb23-253" aria-hidden="true" tabindex="-1"></a>On peut accéder sur Github à la page de création des token en allant sur **Profile** {{&lt; fa solid arrow-right &gt;}} **Settings** (tout en bas) {{&lt; fa solid arrow-right &gt;}} **Developer Settings** (Menu vertical à gauche).</span>
+<span id="cb23-254"><a href="#cb23-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-255"><a href="#cb23-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-256"><a href="#cb23-256" aria-hidden="true" tabindex="-1"></a>**Ajouter le token dans RStudio**</span>
+<span id="cb23-257"><a href="#cb23-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-258"><a href="#cb23-258" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Même procédure qu'avec Github avec le package **`gitcreds`**.</span>
+<span id="cb23-259"><a href="#cb23-259" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On devra explicitement indiquer l'adresse générique de Gitlab dans la fonction.</span>
+<span id="cb23-260"><a href="#cb23-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-261"><a href="#cb23-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r filename="package gitcreds"}</span></span>
+<span id="cb23-262"><a href="#cb23-262" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb23-263"><a href="#cb23-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-264"><a href="#cb23-264" aria-hidden="true" tabindex="-1"></a><span class="in">install.packages("gitcreds")</span></span>
+<span id="cb23-265"><a href="#cb23-265" aria-hidden="true" tabindex="-1"></a><span class="in">library(gitcreds)</span></span>
+<span id="cb23-266"><a href="#cb23-266" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-267"><a href="#cb23-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-268"><a href="#cb23-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-269"><a href="#cb23-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{r filename="Ajouter dans Rstudio le token"}</span></span>
+<span id="cb23-270"><a href="#cb23-270" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb23-271"><a href="#cb23-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-272"><a href="#cb23-272" aria-hidden="true" tabindex="-1"></a><span class="in">library(gitcreds)</span></span>
+<span id="cb23-273"><a href="#cb23-273" aria-hidden="true" tabindex="-1"></a><span class="in">gitcreds_set(url = "https://gitlab.com")</span></span>
+<span id="cb23-274"><a href="#cb23-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-275"><a href="#cb23-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-276"><a href="#cb23-276" aria-hidden="true" tabindex="-1"></a>Si aucun token n'est déjà été ajouté, on colle directement dans la console la valeur du token généré dans l'étape précédente . </span>
+<span id="cb23-277"><a href="#cb23-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-278"><a href="#cb23-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-279"><a href="#cb23-279" aria-hidden="true" tabindex="-1"></a><span class="in">Sélection : 2</span></span>
+<span id="cb23-280"><a href="#cb23-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-281"><a href="#cb23-281" aria-hidden="true" tabindex="-1"></a><span class="in">-&gt; Removing current credentials...</span></span>
+<span id="cb23-282"><a href="#cb23-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-283"><a href="#cb23-283" aria-hidden="true" tabindex="-1"></a><span class="in">? Enter new password or token: </span></span>
+<span id="cb23-284"><a href="#cb23-284" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-285"><a href="#cb23-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-286"><a href="#cb23-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-287"><a href="#cb23-287" aria-hidden="true" tabindex="-1"></a><span class="in">? Enter password or token: &lt;Coller ici le token qui a été généré et copié dans gitlab&gt;</span></span>
+<span id="cb23-288"><a href="#cb23-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-289"><a href="#cb23-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-290"><a href="#cb23-290" aria-hidden="true" tabindex="-1"></a>Si on change par la suite de token, plusieurs options sont disponibles:</span>
+<span id="cb23-291"><a href="#cb23-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-292"><a href="#cb23-292" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-293"><a href="#cb23-293" aria-hidden="true" tabindex="-1"></a><span class="in">-&gt; Your current credentials for 'https://github.com':</span></span>
+<span id="cb23-294"><a href="#cb23-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-295"><a href="#cb23-295" aria-hidden="true" tabindex="-1"></a><span class="in">  protocol: https</span></span>
+<span id="cb23-296"><a href="#cb23-296" aria-hidden="true" tabindex="-1"></a><span class="in">  host    : github.com</span></span>
+<span id="cb23-297"><a href="#cb23-297" aria-hidden="true" tabindex="-1"></a><span class="in">  username: PersonalAccessToken</span></span>
+<span id="cb23-298"><a href="#cb23-298" aria-hidden="true" tabindex="-1"></a><span class="in">  password: &lt;-- hidden --&gt;</span></span>
+<span id="cb23-299"><a href="#cb23-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-300"><a href="#cb23-300" aria-hidden="true" tabindex="-1"></a><span class="in">-&gt; What would you like to do? </span></span>
+<span id="cb23-301"><a href="#cb23-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-302"><a href="#cb23-302" aria-hidden="true" tabindex="-1"></a><span class="in">1: Keep these credentials</span></span>
+<span id="cb23-303"><a href="#cb23-303" aria-hidden="true" tabindex="-1"></a><span class="in">2: Replace these credentials</span></span>
+<span id="cb23-304"><a href="#cb23-304" aria-hidden="true" tabindex="-1"></a><span class="in">3: See the password / toke</span></span>
+<span id="cb23-305"><a href="#cb23-305" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-306"><a href="#cb23-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-307"><a href="#cb23-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-308"><a href="#cb23-308" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vérifier la connection</span></span>
+<span id="cb23-309"><a href="#cb23-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-310"><a href="#cb23-310" aria-hidden="true" tabindex="-1"></a>Vous pouvez vérifier la connection en clonant un dépôt. Coller par exemple le lien suivant lors de la création du projet: </span>
+<span id="cb23-311"><a href="#cb23-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-312"><a href="#cb23-312" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf filename="Test dépôt Github"}</span></span>
+<span id="cb23-313"><a href="#cb23-313" aria-hidden="true" tabindex="-1"></a><span class="in">https://github.com/mthevenin/test_connection_formation.git</span></span>
+<span id="cb23-314"><a href="#cb23-314" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-315"><a href="#cb23-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-316"><a href="#cb23-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-317"><a href="#cb23-317" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf filename="Test dépôt Gitlab"}</span></span>
+<span id="cb23-318"><a href="#cb23-318" aria-hidden="true" tabindex="-1"></a><span class="in">https://gitlab.com/mthevenin/test_connection_formation.git</span></span>
+<span id="cb23-319"><a href="#cb23-319" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-320"><a href="#cb23-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-321"><a href="#cb23-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-322"><a href="#cb23-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-323"><a href="#cb23-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-324"><a href="#cb23-324" aria-hidden="true" tabindex="-1"></a><span class="fu">### Via une clé de cryptage SSH</span></span>
+<span id="cb23-325"><a href="#cb23-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-326"><a href="#cb23-326" aria-hidden="true" tabindex="-1"></a>[<span class="co">[</span><span class="ot">:GIT SSH</span><span class="co">](https://en.wikipedia.org/wiki/Ssh-keygen)</span>]{.nut}</span>
+<span id="cb23-327"><a href="#cb23-327" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb23-328"><a href="#cb23-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-329"><a href="#cb23-329" aria-hidden="true" tabindex="-1"></a>Procédure un peu plus longue, mais à l'exception d'une étape la procédure est commune aux deux plateformes.</span>
+<span id="cb23-330"><a href="#cb23-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-331"><a href="#cb23-331" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Je ne traiterai pas du sujet HTTPS (token) versus SSH (cryptage), mais visiblement les préférences que je peux lire à gauche et à droite penche plutôt vers le HTTPS. Je note néanmoins beaucoup plus de tutoriels pour la solution cryptée.   </span>
+<span id="cb23-332"><a href="#cb23-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-333"><a href="#cb23-333" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut paramétrer et utiliser les deux techniques de sécurité, le choix de l'une ou l'autre se fera lors du clônage d'un dépôt distant.  </span>
+<span id="cb23-334"><a href="#cb23-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-335"><a href="#cb23-335" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Clé SSH**: repose sur un cryptage.</span>
+<span id="cb23-336"><a href="#cb23-336" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Les protocoles de cryptage évolue dans le temps. C'est la quatrième et dernière génération qui est proposée par RStudio. </span>
+<span id="cb23-337"><a href="#cb23-337" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>La dernière génération est appelée **ed25519**. C'est la seule option dans RStudio.</span>
+<span id="cb23-338"><a href="#cb23-338" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Une même clé SSH peut-être utilisée pour Github et Gitlab.   </span>
+<span id="cb23-339"><a href="#cb23-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-340"><a href="#cb23-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-341"><a href="#cb23-341" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Générer une clé  dans Rstudio  </span></span>
+<span id="cb23-342"><a href="#cb23-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-343"><a href="#cb23-343" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Tools** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-344"><a href="#cb23-344" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Global Options** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-345"><a href="#cb23-345" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Git/SVN** dans la barre de menu verticale {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-346"><a href="#cb23-346" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Create SSH key**: On génère la clé sous la zône d'enregistrement {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-347"><a href="#cb23-347" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**View public key**: On visualise et récupère la clé SSH en la copiant {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-348"><a href="#cb23-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-349"><a href="#cb23-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-350"><a href="#cb23-350" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">50,-1,50</span><span class="co">]</span>" layout-valign="bottom" }</span>
+<span id="cb23-351"><a href="#cb23-351" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-352"><a href="#cb23-352" aria-hidden="true" tabindex="-1"></a><span class="al">![Création de la clé SSH](img2/ssh_rstudio1.png)</span>{group=ssh1}</span>
+<span id="cb23-353"><a href="#cb23-353" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-354"><a href="#cb23-354" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-355"><a href="#cb23-355" aria-hidden="true" tabindex="-1"></a><span class="al">![Récupération de la clé SSH](img2/ssh_rstudio2.png)</span>{group=ssh1}</span>
+<span id="cb23-356"><a href="#cb23-356" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-357"><a href="#cb23-357" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb23-358"><a href="#cb23-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-359"><a href="#cb23-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-360"><a href="#cb23-360" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Github</span></span>
+<span id="cb23-361"><a href="#cb23-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-362"><a href="#cb23-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-365"><a href="#cb23-365" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb23-366"><a href="#cb23-366" aria-hidden="true" tabindex="-1"></a><span class="in">%%| fig-width: 6.5</span></span>
+<span id="cb23-367"><a href="#cb23-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-368"><a href="#cb23-368" aria-hidden="true" tabindex="-1"></a><span class="in">flowchart LR</span></span>
+<span id="cb23-369"><a href="#cb23-369" aria-hidden="true" tabindex="-1"></a><span class="in">  A(Avatar) --&gt; B(Settings)</span></span>
+<span id="cb23-370"><a href="#cb23-370" aria-hidden="true" tabindex="-1"></a><span class="in">  B --&gt; C(SSH and GPH Keys)</span></span>
+<span id="cb23-371"><a href="#cb23-371" aria-hidden="true" tabindex="-1"></a><span class="in">  C --&gt; D(New SSH key)</span></span>
+<span id="cb23-372"><a href="#cb23-372" aria-hidden="true" tabindex="-1"></a><span class="in">    D --&gt; E(Coller la clé)</span></span>
+<span id="cb23-373"><a href="#cb23-373" aria-hidden="true" tabindex="-1"></a><span class="in">    subgraph AJOUTER LA CLE</span></span>
+<span id="cb23-374"><a href="#cb23-374" aria-hidden="true" tabindex="-1"></a><span class="in">    E --- F(Mettre un titre)</span></span>
+<span id="cb23-375"><a href="#cb23-375" aria-hidden="true" tabindex="-1"></a><span class="in">    F --&gt; G(ADD SSH KEY)</span></span>
+<span id="cb23-376"><a href="#cb23-376" aria-hidden="true" tabindex="-1"></a><span class="in">    end</span></span>
+<span id="cb23-377"><a href="#cb23-377" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-378"><a href="#cb23-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-379"><a href="#cb23-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-380"><a href="#cb23-380" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur l'avatar à droite {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-381"><a href="#cb23-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-382"><a href="#cb23-382" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur la barre verticale qui s'ouvre, aller sur **Settings** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-383"><a href="#cb23-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-384"><a href="#cb23-384" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aller sur la page **SSH and GPH keys** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-385"><a href="#cb23-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-386"><a href="#cb23-386" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aller sur **New SSH key** en haut à droite {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-387"><a href="#cb23-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-388"><a href="#cb23-388" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Coller la clé générée dans RStudio, si on ajoute plusieurs clés, renseigner le titre pour identifier son rôle {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-389"><a href="#cb23-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-390"><a href="#cb23-390" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur **Add SSH key**</span>
+<span id="cb23-391"><a href="#cb23-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-392"><a href="#cb23-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-393"><a href="#cb23-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-394"><a href="#cb23-394" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">50,-1,50</span><span class="co">]</span>" layout-valign="bottom" }</span>
+<span id="cb23-395"><a href="#cb23-395" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-396"><a href="#cb23-396" aria-hidden="true" tabindex="-1"></a><span class="al">![Aller sur l'avatar](img2/ssh_github1.png)</span>{group=gh2}</span>
+<span id="cb23-397"><a href="#cb23-397" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb23-398"><a href="#cb23-398" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-399"><a href="#cb23-399" aria-hidden="true" tabindex="-1"></a><span class="al">![Aller sur settings](img2/ssh_github2.png)</span>{group=gh2}</span>
+<span id="cb23-400"><a href="#cb23-400" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-401"><a href="#cb23-401" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb23-402"><a href="#cb23-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-403"><a href="#cb23-403" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">50,-1,50</span><span class="co">]</span>" layout-valign="bottom" }</span>
+<span id="cb23-404"><a href="#cb23-404" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-405"><a href="#cb23-405" aria-hidden="true" tabindex="-1"></a><span class="al">![Page SSH et GPH keys](img2/ssh_github3.png)</span>{group=gh2}</span>
+<span id="cb23-406"><a href="#cb23-406" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-407"><a href="#cb23-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-408"><a href="#cb23-408" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-409"><a href="#cb23-409" aria-hidden="true" tabindex="-1"></a><span class="al">![Ajouter la clé](img2/ssh_github4.png)</span>{group=gh2}</span>
+<span id="cb23-410"><a href="#cb23-410" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-411"><a href="#cb23-411" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb23-412"><a href="#cb23-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-413"><a href="#cb23-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-414"><a href="#cb23-414" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Gitlab</span></span>
+<span id="cb23-415"><a href="#cb23-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-416"><a href="#cb23-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-419"><a href="#cb23-419" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb23-420"><a href="#cb23-420" aria-hidden="true" tabindex="-1"></a><span class="in">%%| fig-width: 6.5</span></span>
+<span id="cb23-421"><a href="#cb23-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-422"><a href="#cb23-422" aria-hidden="true" tabindex="-1"></a><span class="in">flowchart LR</span></span>
+<span id="cb23-423"><a href="#cb23-423" aria-hidden="true" tabindex="-1"></a><span class="in">  A(Avatar) --&gt; B(Preference)</span></span>
+<span id="cb23-424"><a href="#cb23-424" aria-hidden="true" tabindex="-1"></a><span class="in">  B --&gt; C(SSH KEY)</span></span>
+<span id="cb23-425"><a href="#cb23-425" aria-hidden="true" tabindex="-1"></a><span class="in">  C --&gt; D(Add new key)  </span></span>
+<span id="cb23-426"><a href="#cb23-426" aria-hidden="true" tabindex="-1"></a><span class="in">    D --&gt; E(Coller la clé)</span></span>
+<span id="cb23-427"><a href="#cb23-427" aria-hidden="true" tabindex="-1"></a><span class="in">    subgraph AJOUTER LA CLE</span></span>
+<span id="cb23-428"><a href="#cb23-428" aria-hidden="true" tabindex="-1"></a><span class="in">    E --- F(Mettre un titre)</span></span>
+<span id="cb23-429"><a href="#cb23-429" aria-hidden="true" tabindex="-1"></a><span class="in">    F --- G(Changer la date d'expiration)</span></span>
+<span id="cb23-430"><a href="#cb23-430" aria-hidden="true" tabindex="-1"></a><span class="in">    G --&gt; H(ADD KEY)</span></span>
+<span id="cb23-431"><a href="#cb23-431" aria-hidden="true" tabindex="-1"></a><span class="in">    end</span></span>
+<span id="cb23-432"><a href="#cb23-432" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-433"><a href="#cb23-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-434"><a href="#cb23-434" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-435"><a href="#cb23-435" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur votre avatar    {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-436"><a href="#cb23-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-437"><a href="#cb23-437" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aller sur *preference*      {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-438"><a href="#cb23-438" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur **SSH Keys**    {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-439"><a href="#cb23-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-440"><a href="#cb23-440" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur **Add new key** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-441"><a href="#cb23-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-442"><a href="#cb23-442" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Coller votre clé générée dans RStudio {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-443"><a href="#cb23-443" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-444"><a href="#cb23-444" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ajouter un titre si vous comptez avoir plusieurs clés  {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-445"><a href="#cb23-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-446"><a href="#cb23-446" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Modifier la date d'expiration (X si aucune expiration) {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb23-447"><a href="#cb23-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-448"><a href="#cb23-448" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur **Add key**</span>
+<span id="cb23-449"><a href="#cb23-449" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-450"><a href="#cb23-450" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-451"><a href="#cb23-451" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">33,33,33</span><span class="co">]</span>" layout-valign="bottom"}</span>
+<span id="cb23-452"><a href="#cb23-452" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-453"><a href="#cb23-453" aria-hidden="true" tabindex="-1"></a><span class="al">![Avatar=&gt;Préférences](img2/ssh_gitlab1.png)</span>{group=gl2}</span>
+<span id="cb23-454"><a href="#cb23-454" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-455"><a href="#cb23-455" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-456"><a href="#cb23-456" aria-hidden="true" tabindex="-1"></a><span class="al">![Aller dans SSH keys](img2/ssh_gitlab2.png)</span>{group=gl2}</span>
+<span id="cb23-457"><a href="#cb23-457" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-458"><a href="#cb23-458" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-459"><a href="#cb23-459" aria-hidden="true" tabindex="-1"></a><span class="al">![Ajouter la clé](img2/ssh_gitlab3.png)</span>{group=gl2}</span>
+<span id="cb23-460"><a href="#cb23-460" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb23-461"><a href="#cb23-461" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb23-462"><a href="#cb23-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-463"><a href="#cb23-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-464"><a href="#cb23-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-465"><a href="#cb23-465" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Activer la clé dans RStudio </span></span>
+<span id="cb23-466"><a href="#cb23-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-467"><a href="#cb23-467" aria-hidden="true" tabindex="-1"></a>Dans le terminal:</span>
+<span id="cb23-468"><a href="#cb23-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-469"><a href="#cb23-469" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Vérifier que l'authentification SSH fonctionne </span>
+<span id="cb23-470"><a href="#cb23-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-471"><a href="#cb23-471" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-472"><a href="#cb23-472" aria-hidden="true" tabindex="-1"></a><span class="in">eval $(ssh-agent -s)</span></span>
+<span id="cb23-473"><a href="#cb23-473" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-474"><a href="#cb23-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-475"><a href="#cb23-475" aria-hidden="true" tabindex="-1"></a>Output, par exemple: **`Agent pid 1463`**</span>
+<span id="cb23-476"><a href="#cb23-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-477"><a href="#cb23-477" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ajouter la clé </span>
+<span id="cb23-478"><a href="#cb23-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-479"><a href="#cb23-479" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-480"><a href="#cb23-480" aria-hidden="true" tabindex="-1"></a><span class="in">ssh-add ~/.ssh/id_ed25519</span></span>
+<span id="cb23-481"><a href="#cb23-481" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-482"><a href="#cb23-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-483"><a href="#cb23-483" aria-hidden="true" tabindex="-1"></a>Output: **`Identity added: /c/Users/thevenin_m/.ssh/id_ed25519 (ined\thevenin_m@MOB0XXXX)`**</span>
+<span id="cb23-484"><a href="#cb23-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-485"><a href="#cb23-485" aria-hidden="true" tabindex="-1"></a>On peut enfin vérifier, que tout est ok avec les messages de bienvenue suivants:</span>
+<span id="cb23-486"><a href="#cb23-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-487"><a href="#cb23-487" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Github:</span>
+<span id="cb23-488"><a href="#cb23-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-489"><a href="#cb23-489" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-490"><a href="#cb23-490" aria-hidden="true" tabindex="-1"></a><span class="in">ssh -T git@github.com</span></span>
+<span id="cb23-491"><a href="#cb23-491" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-492"><a href="#cb23-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-493"><a href="#cb23-493" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-494"><a href="#cb23-494" aria-hidden="true" tabindex="-1"></a><span class="in">Hi mthevenin! You've successfully authenticated, but GitHub does not provide shell access.</span></span>
+<span id="cb23-495"><a href="#cb23-495" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-496"><a href="#cb23-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-497"><a href="#cb23-497" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Gitlab:</span>
+<span id="cb23-498"><a href="#cb23-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-499"><a href="#cb23-499" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-500"><a href="#cb23-500" aria-hidden="true" tabindex="-1"></a><span class="in">ssh -T git@gitlab.com</span></span>
+<span id="cb23-501"><a href="#cb23-501" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-502"><a href="#cb23-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-503"><a href="#cb23-503" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb23-504"><a href="#cb23-504" aria-hidden="true" tabindex="-1"></a><span class="in">Welcome to GitLab, @mthevenin!</span></span>
+<span id="cb23-505"><a href="#cb23-505" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-506"><a href="#cb23-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-507"><a href="#cb23-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-508"><a href="#cb23-508" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
+<span id="cb23-509"><a href="#cb23-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-510"><a href="#cb23-510" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Vérifier la connection</span></span>
+<span id="cb23-511"><a href="#cb23-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-512"><a href="#cb23-512" aria-hidden="true" tabindex="-1"></a>Vous pouvez vérifier la connection en clonant un dépôt. Coller par exemple le lien suivant lors de la création du projet: </span>
+<span id="cb23-513"><a href="#cb23-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-514"><a href="#cb23-514" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf filename="Test dépôt Github"}</span></span>
+<span id="cb23-515"><a href="#cb23-515" aria-hidden="true" tabindex="-1"></a><span class="in">git@github.com:mthevenin/test_connection_formation.git</span></span>
+<span id="cb23-516"><a href="#cb23-516" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-517"><a href="#cb23-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-518"><a href="#cb23-518" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf filename="Test dépôt Gitlab"}</span></span>
+<span id="cb23-519"><a href="#cb23-519" aria-hidden="true" tabindex="-1"></a><span class="in">git@gitlab.com:mthevenin/test_connection_formation.git</span></span>
+<span id="cb23-520"><a href="#cb23-520" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb23-521"><a href="#cb23-521" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-522"><a href="#cb23-522" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si lors du clonage le message suivant s'affiche, taper **yes**:</span>
+<span id="cb23-523"><a href="#cb23-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-524"><a href="#cb23-524" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb23-525"><a href="#cb23-525" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/ssh1.png)</span></span>
+<span id="cb23-526"><a href="#cb23-526" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -2034,7 +2121,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

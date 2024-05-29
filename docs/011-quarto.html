@@ -483,7 +483,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="box_img quarto-layout-cell" style="flex-basis: 46.9%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/c12.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="g1" title="https://quarto.org/docs/get-started/"><img src="img1/c12.png" class="img-fluid figure-img" alt="https://quarto.org/docs/get-started/"></a></p>
+<p><a href="img1/c12.png" class="lightbox" data-gallery="g1" data-glightbox="description: .lightbox-desc-1" title="https://quarto.org/docs/get-started/"><img src="img1/c12.png" class="img-fluid figure-img" alt="https://quarto.org/docs/get-started/"></a></p>
 <figcaption><a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></figcaption>
 </figure>
 </div>
@@ -494,7 +494,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="box_img quarto-layout-cell" style="flex-basis: 46.9%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img1/c13.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="g1" title="https://quarto.org/docs/download/"><img src="img1/c13.png" class="img-fluid figure-img" alt="https://quarto.org/docs/download/"></a></p>
+<p><a href="img1/c13.png" class="lightbox" data-gallery="g1" data-glightbox="description: .lightbox-desc-2" title="https://quarto.org/docs/download/"><img src="img1/c13.png" class="img-fluid figure-img" alt="https://quarto.org/docs/download/"></a></p>
 <figcaption><a href="https://quarto.org/docs/download/" class="uri">https://quarto.org/docs/download/</a></figcaption>
 </figure>
 </div>
@@ -524,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quarto_version</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] '1.4.547'</code></pre>
+<pre><code>[1] '1.4.551'</code></pre>
 </div>
 </div>
 <div class="code-with-filename">
@@ -596,19 +596,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1.4" class="anchored" data-anchor-id="création-dun-projet"><span class="header-section-number">1.4</span> Création d’un projet</h2>
 <p><strong>Projets website, book, blog</strong>:<br>
 Pour les documents avec des structures enrichies, la création se fait via un projet: <strong>new project=&gt; new directory</strong>: <strong>Quarto website</strong>, <strong>Quarto book</strong>, <strong>Quarto blog</strong> et depuis janvier 2024 (v1.4) un projet <strong>Quarto manuscript</strong>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Le projet de type <strong>manuscript</strong> sera traité dans une version ultérieure du suppport</p>
-</div>
-</div>
 <div class="center">
 <div class="box_img">
 <p><a href="img1/c11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img1/c11.png" class="img-fluid" style="width:70.0%"></a></p>
@@ -622,7 +609,7 @@ Note
 <li><p><strong>A l’ouverture</strong>:</p>
 <ul>
 <li>Un ou plusieurs fichiers <code>.qmd</code>. Pour les blogs, dont le contenu est organisé sous forme d’articles, des sous répertoires avec deux exemples d’articles (.qmd).</li>
-<li>Un fichier de configuration <code>_quarto.yaml</code> minimal propre au contenu.</li>
+<li>Un fichier de configuration <code>_quarto.yml</code> minimal propre au contenu.</li>
 <li>Un fichier .Rproj.</li>
 </ul></li>
 </ul>
@@ -641,6 +628,64 @@ Privilégier l’ouverture du fichier <strong>.Rproj</strong>
 <li>Dans le terminal le dossier racine se positionnera sur celui du projet.</li>
 <li>Dans la fenêtre <strong>files</strong> de RStudio, on peut accédere directements à l’ensemble des fichiers du projet.</li>
 </ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Privilégier le terminal pour créer un projet quarto
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="via-la-création-dun-projet-quarto" class="level4" data-number="1.4.0.1">
+<h4 data-number="1.4.0.1" class="anchored" data-anchor-id="via-la-création-dun-projet-quarto"><span class="header-section-number">1.4.0.1</span> Via la création d’un projet Quarto</h4>
+<p>La création peut d’un projet avec un squelette peut se faire directement via le terminal de RStudio avec une simple ligne de commande après s’être positionné sur un répertoire racine. Je dis cela car l’ouverture de la fenêtre de création d’un projet R peut prendre pas mal de seconde, chez moi c’est plutôt 30 secondes.</p>
+<p>Dans le terminal:</p>
+<ul>
+<li><code>quarto create project website</code></li>
+<li><code>quarto create project book</code></li>
+<li><code>quarto create project blog</code></li>
+</ul>
+<p>On vous demandera ensuite de choisir un nom pour le répertoire et de choisir l’IDE (Rstudio ou Vscode).</p>
+<p>En animation:</p>
+<div class="center">
+<div class="box_img">
+<p><a href="img1/video1.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img1/video1.gif" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+<section id="via-la-création-dun-projet-r" class="level4" data-number="1.4.0.2">
+<h4 data-number="1.4.0.2" class="anchored" data-anchor-id="via-la-création-dun-projet-r"><span class="header-section-number">1.4.0.2</span> Via la création d’un projet R</h4>
+<ul>
+<li>Dans la console R on peut générer un projet R avec la fonction <code>create_project()</code> du package <strong><code>usethise</code></strong></li>
+<li>Dans le terminal de RStudio, on pourra créer directement les fichiers ou les répertoires qui seront utiles avec la commande <code>touch</code></li>
+</ul>
+<p>Etapes de l’animation qui suit:</p>
+<ul>
+<li>On génère le répertoire du projet dans le terminal: <code>mkdir mon_book</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
+<li>On charge le pakqge <code>usethis</code> dans la console R: <code>library(usethis)</code></li>
+<li>On génère le projet avec la fonction <code>create_project()</code> en renseignant le chemin du répertoire <em>mon_book</em>: <code>create_project("c:/users/thevenin_m/desktop/quarto/mon_book/")</code></li>
+<li>Rstudio va réouvrir une session en se positionnant dans le répertoire du projet. La fonction génère automatiquement un sous répertoire R, on peut le supprimer si on estime ne pas en avoir besoin: dans le terminal <code>rm -r R</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+<li>On peut créer directement des fichiers vides avec la commande <code>touch</code>:
+<ul>
+<li><code>touch _quarto.yml</code> [configuratin du book]</li>
+<li><code>touch index.qmd</code> [page d’accueil du book, toujours conserver le nom index]</li>
+<li><code>touch chapitre1.qmd</code></li>
+<li><code>touch chapitre2.qmd</code></li>
+</ul></li>
+</ul>
+<div class="center">
+<div class="box_img">
+<p><a href="img1/video2.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img1/video2.gif" class="img-fluid"></a></p>
+</div>
+</div>
+</section>
+</div>
 </div>
 </div>
 <p><strong>Remarques</strong></p>
@@ -669,6 +714,8 @@ A l’absolu, une même documentation peut simultanément comporter tous ces typ
 <hr>
 <ol>
 <li id="fn1"><p>Nécessite une version <code>Rtools</code> relativement à jour: min v4<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>c’est un sous répertoire du répertoire quarto qui se trouve sur le bureau, le terminal est positionné sur ce répertoire<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>rm pour remove, -r pour indiquer qu’on supprime un répertoire et R pour le nom du répertoire<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1258,54 +1305,103 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>**Projets website, book, blog**:  </span>
 <span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a>Pour les documents avec des structures enrichies, la création se fait via un projet: **new project=&gt; new directory**: **Quarto website**, **Quarto book**, **Quarto blog** et depuis janvier 2024 (v1.4) un projet **Quarto manuscript**.</span>
 <span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>Le projet de type **manuscript** sera traité dans une version ultérieure du suppport</span>
-<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
-<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="al">![](img1/c11.png)</span>{width=70%}</span>
-<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Quarto website**: <span class="co">[</span><span class="ot">Exemple...sans surprise</span><span class="co">](https://quarto.org/)</span></span>
-<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Quarto book**:    <span class="co">[</span><span class="ot">Exemple</span><span class="co">](https://mthevenin.github.io/analyse_duree/)</span></span>
-<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Quarto blog**:    <span class="co">[</span><span class="ot">Exemple</span><span class="co">](https://mthevenin.github.io/assistoolsms/)</span></span>
-<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Quarto manuscript**: <span class="co">[</span><span class="ot">Exemple</span><span class="co">](https://quarto-ext.github.io/manuscript-template-jupyter/)</span></span>
-<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**A l'ouverture**:  </span>
-<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un ou plusieurs fichiers <span class="in">`.qmd`</span>. Pour les blogs, dont le contenu est organisé sous forme d'articles, des sous répertoires avec deux exemples d'articles (.qmd).</span>
-<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un fichier de configuration <span class="in">`_quarto.yaml`</span> minimal propre au contenu.</span>
-<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un fichier .Rproj.</span>
-<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a><span class="al">![](img1/c11.png)</span>{width=70%}</span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Quarto website**: <span class="co">[</span><span class="ot">Exemple...sans surprise</span><span class="co">](https://quarto.org/)</span></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Quarto book**:    <span class="co">[</span><span class="ot">Exemple</span><span class="co">](https://mthevenin.github.io/analyse_duree/)</span></span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Quarto blog**:    <span class="co">[</span><span class="ot">Exemple</span><span class="co">](https://mthevenin.github.io/assistoolsms/)</span></span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Quarto manuscript**: <span class="co">[</span><span class="ot">Exemple</span><span class="co">](https://quarto-ext.github.io/manuscript-template-jupyter/)</span></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**A l'ouverture**:  </span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un ou plusieurs fichiers <span class="in">`.qmd`</span>. Pour les blogs, dont le contenu est organisé sous forme d'articles, des sous répertoires avec deux exemples d'articles (.qmd).</span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un fichier de configuration <span class="in">`_quarto.yml`</span> minimal propre au contenu.</span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Un fichier .Rproj.</span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a><span class="fu">### Privilégier l'ouverture du fichier **.Rproj**</span></span>
 <span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a><span class="fu">### Privilégier l'ouverture du fichier **.Rproj**</span></span>
-<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a>Pour travailler sur les fichiers associés à un projet, pensez à toujours ouvrir le fichier **nom_projet.Rproj** et non des fichiers individuels:   </span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a>Pour travailler sur les fichiers associés à un projet, pensez à toujours ouvrir le fichier **nom_projet.Rproj** et non des fichiers individuels:   </span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le terminal le dossier racine se positionnera sur celui du projet.</span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans la fenêtre **files** de RStudio, on peut accédere directements à l'ensemble des fichiers du projet.</span>
 <span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le terminal le dossier racine se positionnera sur celui du projet.</span>
-<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans la fenêtre **files** de RStudio, on peut accédere directements à l'ensemble des fichiers du projet.</span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=true}</span>
 <span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a>**Remarques**  </span>
+<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a><span class="fu">### Privilégier le terminal pour créer un projet quarto</span></span>
+<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a>***Multicontenu***:</span>
+<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Via la création d'un projet Quarto </span></span>
 <span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a>On peut monter relativement rapidement un contenu de type blog à l'intérieur d'un projet de type website. C'est ce que j'ai fait par exemple sur ce support Stata  [<span class="co">[</span><span class="ot">lien</span><span class="co">]</span>](https://mthevenin.github.io/stata_fr/).     </span>
-<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a>A l'absolu, une même documentation peut simultanément comporter tous ces types de contenu. Ce support est à la fois un *book* avec un chapitrage dans la barre verticale à gauche (*sidebar*) et un *website* avec des éléments de navigation dans une barre horizontale en haut (*navbar*). Et on pourrait sans problème y ajouter un contenu blog dans la page d'accueil si le type de projet avaient été un *website* plutôt qu'un *book*. </span>
-<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a>***Déploiement sur une plateforme git***:  </span>
-<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a>Si on souhaite déployer sa documentation sur une plateforme git comme gitlab ou github, ont doit créer un projet pour effectuer les opérations de synchronisation en le repertoire local et le répertoire distant (*remote)*: </span>
-<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**New project** =&gt; **Version control** =&gt; **Git**</span>
-<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On peut produire dans un premier temps sa documentation dans un projet dédié, puis reverser les fichiers sources dans un projet git.</span>
-<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Après avoir créer un répertoire distant dans une plateforme git, on clone le répertoire disant, et générer directement sa documentation dans ce projet. Je recommander plutôt cette méthode. </span>
-<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a>  </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a>La création peut d'un projet avec un squelette peut se faire directement via le terminal de RStudio avec une simple ligne de commande après s'être positionné sur un répertoire racine. Je dis cela car l'ouverture de la fenêtre de création d'un projet R peut prendre pas mal de seconde, chez moi c'est plutôt  30 secondes.  </span>
+<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a>Dans le terminal: </span>
+<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`quarto create project website`</span></span>
+<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`quarto create project book`</span> </span>
+<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`quarto create project blog`</span></span>
+<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a>On vous demandera ensuite de choisir un nom pour le répertoire et de choisir l'IDE (Rstudio ou Vscode).</span>
+<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a>En animation:</span>
+<span id="cb7-162"><a href="#cb7-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-163"><a href="#cb7-163" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb7-164"><a href="#cb7-164" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb7-165"><a href="#cb7-165" aria-hidden="true" tabindex="-1"></a><span class="al">![](img1/video1.gif)</span></span>
+<span id="cb7-166"><a href="#cb7-166" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Via la création d'un projet R</span></span>
+<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans la console R on peut générer un projet R avec la fonction <span class="in">`create_project()`</span> du package **`usethise`**</span>
+<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le terminal de RStudio, on pourra créer directement les fichiers ou les répertoires qui seront utiles avec la commande <span class="in">`touch`</span></span>
+<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a>Etapes de l'animation qui suit:</span>
+<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On génère le répertoire du projet dans le terminal: <span class="in">`mkdir mon_book`</span>^<span class="co">[</span><span class="ot">c'est un sous répertoire du répertoire quarto qui se trouve sur le bureau, le terminal est positionné sur ce répertoire</span><span class="co">]</span>.</span>
+<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On charge le pakqge <span class="in">`usethis`</span> dans la console R: <span class="in">`library(usethis)`</span></span>
+<span id="cb7-178"><a href="#cb7-178" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On génère le projet avec la fonction <span class="in">`create_project()`</span> en renseignant le chemin du répertoire *mon_book*: <span class="in">`create_project("c:/users/thevenin_m/desktop/quarto/mon_book/")`</span></span>
+<span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Rstudio va réouvrir une session en se positionnant dans le répertoire du projet. La fonction génère automatiquement un sous répertoire R, on peut le supprimer si on estime ne pas en avoir besoin: dans le terminal <span class="in">`rm -r R`</span>^<span class="co">[</span><span class="ot">rm pour remove, -r pour indiquer qu'on supprime un répertoire et R pour le nom du répertoire</span><span class="co">]</span></span>
+<span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut créer directement des fichiers vides avec la commande <span class="in">`touch`</span>:</span>
+<span id="cb7-181"><a href="#cb7-181" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`touch _quarto.yml`</span> <span class="co">[</span><span class="ot">configuratin du book</span><span class="co">]</span></span>
+<span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`touch index.qmd`</span>   <span class="co">[</span><span class="ot">page d'accueil du book, toujours conserver le nom index</span><span class="co">]</span></span>
+<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`touch chapitre1.qmd`</span></span>
+<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span><span class="in">`touch chapitre2.qmd`</span></span>
+<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-187"><a href="#cb7-187" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb7-188"><a href="#cb7-188" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb7-189"><a href="#cb7-189" aria-hidden="true" tabindex="-1"></a><span class="al">![](img1/video2.gif)</span></span>
+<span id="cb7-190"><a href="#cb7-190" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-191"><a href="#cb7-191" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-192"><a href="#cb7-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-193"><a href="#cb7-193" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-194"><a href="#cb7-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-195"><a href="#cb7-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-196"><a href="#cb7-196" aria-hidden="true" tabindex="-1"></a>**Remarques**  </span>
+<span id="cb7-197"><a href="#cb7-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-198"><a href="#cb7-198" aria-hidden="true" tabindex="-1"></a>***Multicontenu***:</span>
+<span id="cb7-199"><a href="#cb7-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-200"><a href="#cb7-200" aria-hidden="true" tabindex="-1"></a>On peut monter relativement rapidement un contenu de type blog à l'intérieur d'un projet de type website. C'est ce que j'ai fait par exemple sur ce support Stata  [<span class="co">[</span><span class="ot">lien</span><span class="co">]</span>](https://mthevenin.github.io/stata_fr/).     </span>
+<span id="cb7-201"><a href="#cb7-201" aria-hidden="true" tabindex="-1"></a>A l'absolu, une même documentation peut simultanément comporter tous ces types de contenu. Ce support est à la fois un *book* avec un chapitrage dans la barre verticale à gauche (*sidebar*) et un *website* avec des éléments de navigation dans une barre horizontale en haut (*navbar*). Et on pourrait sans problème y ajouter un contenu blog dans la page d'accueil si le type de projet avaient été un *website* plutôt qu'un *book*. </span>
+<span id="cb7-202"><a href="#cb7-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-203"><a href="#cb7-203" aria-hidden="true" tabindex="-1"></a>***Déploiement sur une plateforme git***:  </span>
+<span id="cb7-204"><a href="#cb7-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-205"><a href="#cb7-205" aria-hidden="true" tabindex="-1"></a>Si on souhaite déployer sa documentation sur une plateforme git comme gitlab ou github, ont doit créer un projet pour effectuer les opérations de synchronisation en le repertoire local et le répertoire distant (*remote)*: </span>
+<span id="cb7-206"><a href="#cb7-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-207"><a href="#cb7-207" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**New project** =&gt; **Version control** =&gt; **Git**</span>
+<span id="cb7-208"><a href="#cb7-208" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On peut produire dans un premier temps sa documentation dans un projet dédié, puis reverser les fichiers sources dans un projet git.</span>
+<span id="cb7-209"><a href="#cb7-209" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Après avoir créer un répertoire distant dans une plateforme git, on clone le répertoire disant, et générer directement sa documentation dans ce projet. Je recommander plutôt cette méthode. </span>
+<span id="cb7-210"><a href="#cb7-210" aria-hidden="true" tabindex="-1"></a>  </span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1335,7 +1431,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
