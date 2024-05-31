@@ -6,10 +6,8 @@ bibliography: bidibule.bib
 
 ::: callout-note
 
-#### Formation Bordeaux 21-03-2024
-
 * Chapitres qui ne figurent pas dans ce résumé: les parties relatives à git et aux contenus de type website, book, blog... un peu difficile à résumer.
-* Pas vraiment relu le contenu de cette page.
+
 * Version pdf: 
   * [Output](files/resume_pdf/resume.pdf)
   * [Code source](files/resume_pdf/resume.qmd)
@@ -17,75 +15,80 @@ bibliography: bidibule.bib
 
 ## Chapitre 2: De Rmarkdown à Quarto
 
-* Pour des documents simple, un simple changement de l'extension peu suffire: `.rmd` en `.qmd`
+* Pour des documents simples, un changement du nom de l'extension peut suffire: `.rmd` en `.qmd`
 * Le chunk `r setup...` peut être supprimé.
-* Dans le yaml du document (metadonnées) pensez à changer l'option pour le format: `format:` et non `output:`
+* Dans le yaml du document (metadonnées) pensez à changer l'option pour le format: `format:` et non `output:`. 
 
 * Compilation des fichiers dans le terminal avec Quarto:  
   * `quarto render`: par défaut html, tous les fichiers du projets (si book, wensite)
   * `quarto render nom_fichier.qmd` pour un fichier particulier.
   * On peut changer le format de l'output, par exemple pour un format pdf: `quarto render <file> --to pdf`
+  * Dans l'interface, le bouton **Render** effectue en fait un `quarto preview` qui permet d'afficher l'output dans le viewer.
 
 
 ## Chapitre 3: Edition d'un document 
 
 ### Balises markdown {#sec-md} 
 
-* Mettre un commentaire dans un fichier .qmd
+[**Commentaires**]{.badge .bg-primary style="font-size:1rem"} 
 
 ```{.mf}
 <!-- Commentaire -->
+
+<!-- 
+Commentaire 
+-->
 ```
 
 
-**Formatage texte**:  
+[**Formatage texte**]{.badge .bg-primary style="font-size:1rem"} 
 
-* `*`: texte en italique {{< fa solid arrow-right >}} `*texte*` *texte*
-* `**`: texte en gras {{< fa solid arrow-right >}} `**texte**`  **texte**
-* `**`: texte en gras et italique {{< fa solid arrow-right >}} `***texte***` ***texte***
-* `~~`: texte barré {{< fa solid arrow-right >}} `~~texte~~`  ~~texte~~
+* `*`: texte en italique => `*texte*` *texte*
+* `**`: texte en gras => `**texte**`  **texte**
+* `**`: texte en gras et italique => `***texte***` ***texte***
+* `~~`: texte barré => `~~texte~~`  ~~texte~~
 
-**Saut de ligne**: 
+[**Saut de ligne**]{.badge .bg-primary style="font-size:1rem"} 
 
 * A la fin de la phrase: `\`
 * Deux espaces à la fin de la phrase
 * Ajout d'une ligne vide pour augmenter l'espace entre deux lignes
 
-**Titre/header**:  
+[**Titre/header**]{.badge .bg-primary style="font-size:1rem"}  
 
 * `#`: de 1 à 6 => `#`, `##`,..., `######`
 
-**Listes**: 
+[**Listes**]{.badge .bg-primary style="font-size:1rem"}  
 
-* Une ligne vide obligatoire avec la phrase précédent la liste
-* Non ordonnée: un symbole `*`, `+`, `-` en début de ligne pour une liste non ordonnée.
-* Ordonnée: une série numérique `1.`, `2.`
+* Avec quarto ou Rmarkdown, insérer obligatoirement une ligne vide avec la phrase précédent la liste.
+* Liste non ordonnée: un symbole `*`, `+`, `-` en début de ligne pour une liste non ordonnée.
+* Liste ordonnée: une série numérique `1.`, `2.`
 * Sous liste: au niveau du premier caractère de la phrase de liste de niveau supérieur.
 
-**Insertion d'un lien**:
+[**Insertion d'un lien**]{.badge .bg-primary style="font-size:1rem"} 
 
 * Chemin explicite sans titre: `<lien>`
 * Titre:  `[Titre](lien)`
 
-**Insertion d'une image**: 
+[**Insertion d'une image**]{.badge .bg-primary style="font-size:1rem"}  
 
 * Sans option: `![](lien insertion image)`
 * Avec option: `![](lien insertion image){options}`
 
-**Insertion d'un tableau markdown**: 
+[**Insertion d'un tableau markdown**]{.badge .bg-primary style="font-size:1rem"}  
 
-* Système de pipe.
+* Système de pipes. Edition pas évidente, donc:
 * Utiliser mode visual de Quarto ou un éditeur en ligne
 
-**Insertion d'une équation/formule**:
+[**Insertion d'une équation/formule**]{.badge .bg-primary style="font-size:1rem"} 
 
 * Dans une ligne de texte: `$ équation/formule $`
 * Dans une ligne pleine:   `$$ équation/formule $$`
 
 ### Propre à Quarto
 
-* Section libre (<div> en html)
-  * Ouverte et fermée au minimum par 3: `:` {{< fa solid arrow-right >}} `:::`
+* Définition d'une partie du document dont le contenu sera stylisé (balise `<div>` en html^[Elle n'a aucune propriété particulier: on dit seulement à son ouverture et à sa fermenture "*De là à là*"])
+  * Ouverte et fermée au minimum par 3: `:` => `:::`
   * Classe css associée
 
 ```{.yaml}
@@ -108,9 +111,10 @@ Texte/image....
 * Dans un fichier `.yml`
 * * Dans un fichier `.qmd`:  début du document .qmd ouvert et fermé par `---`
 * Règle d'intendation (retrait) des options stricte: 
-  * Sous option sur le 3ème caractère.
-* Présence d'un argument obligatoire après l'option
-* Une même option ne peut être renseignée deux fois
+  * Sous option au moins sur le 2ème caractère de l'option parente. 
+  * Pour facilité la lecture, il est d'usage de se positionner sur le 3ème caractère.
+* Présence d'un argument obligatoire après l'option.
+* Une même option ne peut être renseignée deux fois.
 * Une option inconnue n'engendre pas de message d'erreur si elle restecte les règles de syntaxe.
 
 ```{.yaml}
@@ -120,12 +124,15 @@ option1: true/false
 option2: 
   sous-option2: 
 
-option3: "Texte"
+option3:
+  - élément1 d'une liste
+  - élement2 d'une liste
+
+option4: "Texte"
 ---
 ```
 
 ## Chapitres 5: blocs de codes
-
 
 ### Déclaration d'un bloc et options
 
@@ -137,10 +144,10 @@ option3: "Texte"
 programme R
 ```
 
-**Ajouter des options dans le bloc**: 
+[**Ajout d'options dans le bloc**]{.badge .bg-primary style="font-size:1rem"}  
 
-* Hérité premières version de rmarkdown: ` ```{r, options} `
-* Privilégier dans le bloc de code la syntaxe: `#| option: true/false/...`
+* Hérité des premières version de rmarkdown: ` ```{r, options} `
+* Privilégier dans le bloc de codes la syntaxe: `#| option: true/false/...`
 
 ```{{r}}
 #| option1: true/false
@@ -149,16 +156,17 @@ programme R
 programme R
 ```
 
-**Options dans le yaml**:
+[**Options dans le yaml**]{.badge .bg-primary style="font-size:1rem"} 
 
-* Options partagées par tous les blocs.
-* On peut revenir en arrière dans un ou plusieurs bloc individuellement avec la méthode précédente.
+* Options partagées par défaut par tous les blocs:
 
 ```{.yaml}
 ---
 option-bloc: true
 ---
 ```
+
+* On peut revenir en arrière dans un ou plusieurs bloc individuellement:
 
 ```{{r}}
 #| option-bloc: false
@@ -169,18 +177,18 @@ programme R
 
 ### Quelques options d'exécution: 
 
-* Exécution du programme: `eval: true/false` 
-  * Par défaut `true`
-* Report du programme: `echo: true/false/fenced`  
-  * Par défaut `true` **à l' exception du format revealjs**
-* Affichage message et warning: `message/warning: true/false`
-  * Par défaut true
-* Enregistrer et réutilisé les résultats d'un programme (graphique,tableau formaté): 
-  * `cache: true/false` 
+* Exécution du programme: `eval: true/false`.
+  * Par défaut `true`.
+* Report du programme: `echo: true/false/fenced`.  
+  * Par défaut `true` **à l' exception du format revealjs**.
+* Affichage message et warning: `message/warning: true/false`.
+  * Par défaut `true`.
+* Enregistrer et réutiliser les résultats d'un programme (graphique,tableau formaté) pour accélérer la compilation: 
+  * `cache: true/false`. 
 * Report d'un résultat dans le corps du document (inline code)
   * `{moteur} fragment_programme`
 
-Dans le yaml: sous option de `execute:`
+Dans le yaml, sous options de `execute:`
 
 ```{.yaml}
 ---
@@ -205,29 +213,29 @@ Dans un bloc de codes:
 
 ### Quelques options pour les graphiques et tableaux 
 
-**Graphiques**   
+[**Graphiques**]{.badge .bg-primary style="font-size:1rem"} 
 
 * Dans le yaml et/ou dans le bloc de code
 * préfixées par `fig-`: `fig-nom_option`
-  * Exemple dans le bloc: `#| fig-cap: "Title"`
-  * Exemple dans le yaml (seulement): `#| fig-cap-location: top` [par défaut `bottom`]
+  * Dans le bloc: `#| fig-cap: "Title"`
+  * Dans le yaml^[cette option ne peut être renseignée que dans le yaml]: `#| fig-cap-location: top` [par défaut `bottom`]
 
-**Tableaux**   
+[**Tableaux**]{.badge .bg-primary style="font-size:1rem"}   
 
 * Dans le yaml et/ou dans le bloc de code
 * Préfixés par `tbl-`: `tbl-nom_option`
   * Exemple dans le bloc: `#| tbl-cap: "Title"`
-  * Exemple dans le yaml (seulement): `#| tbl-cap-location: bottom` [par défaut `top`]
+  * Exemple dans le yaml^[cette option ne peut être renseignée que dans le yaml]: `#| tbl-cap-location: bottom` [par défaut `top`]
   
 
 ### Options propres à Quarto  
 
-* Afficher/cacher à la volée le programme: `code-fold: false/true/show`. Par défaut `false`
-  * Attention: option principale du yaml et non sous option du format html
+* Afficher/cacher à la volée le programme: `code-fold: false/true/show`. Par défaut `false`.
+  * Attention: option principale du yaml et non sous option du format html.
 
 * Afficher le code source de la page .qmd: 
-  * Option `code-tools: true/false` 
-  * Sous option de `code-tools` avec `source: true/false` 
+  * Option `code-tools: true/false`. 
+  * Sous option de `code-tools` avec `source: true/false`. 
   
 * Si associé à `code-fold` un menu est disponible.
 
@@ -254,7 +262,7 @@ code-fold: true/false/show
 ---
 ```
 
-Si pas d'autres formats compilés:
+Si aucun autre format compilé:
 
 ```{.yaml}
 ---
@@ -272,10 +280,11 @@ code-fold: true/false/show
 ```    
   
   
-* Accéder à la documentation web des fonctions: dans le yaml {{< fa solid arrow-right >}} `code-link: true/false` 
+* Accéder à la documentation web des fonctions: dans le yaml => `code-link: true/false` 
 
-* Titre d'un bloc: directement après avoir indiqué le moteur {{< fa solid arrow-right >}} ` ```{r filename="Titre du bloc"} `
-
+* Titre d'un bloc: 
+  * Directement après avoir indiqué le moteur => ` ```{r filename="Titre du bloc"} `
+  * En option dans le bloc => `#| filename: "Titre du bloc"` 
 * Annotations/commentaires de ligne du programme:
   * A la fin d'une ligne ajouter: `# <1>`, `# <2>`... 
   * Sous le bloc du programme renseigner les commentaire: 
@@ -285,10 +294,10 @@ code-fold: true/false/show
     
 ## Chapitre 9: Introduction aux formats
 
-* Formats compilé déclaré dans le yaml avec l'option `format`.
-* Par défaut, le format document/notebook html est compilé. Sa déclaration est donc optionnelle.
+* Les formats compilés sont déclarés dans le yaml avec l'option `format`.
+* Par défaut c'est le format document/notebook html est compilé. Sa déclaration est donc optionnelle.
 
-**Un seul format**
+[**Un seul format**]{.badge .bg-primary style="font-size:1rem"} 
 
 Si déclarée:
 
@@ -334,7 +343,7 @@ format:
 ---
 ```
  
-**Si plusieurs format (html + pdf)**: 
+[**Plusieurs formats: html et pdf**]{.badge .bg-primary style="font-size:1rem"} 
 
 ```{.yaml}
 --- 
@@ -367,19 +376,19 @@ toc: true/false
 
 ## Chapitre 10: format html
 
-* Deux types: le document/notebook ou la présentation (revealjs)
-* Partagent des options communes
+* Deux types: document/notebook ou présentation (revealjs).
+* Partagent des options communes.
 
 Exemples d'options communes document/notebook et présentation revealjs
 
-* **Lightbox**: agrandir et ouvrir les images/graphiques dans un fenêtre {{< fa solid arrow-right >}} dans le yaml `lightbox: true`.
+* **Lightbox**: agrandir et ouvrir les images/graphiques dans un fenêtre => dans le yaml `lightbox: true`.
   * On peut désactiver l'option pour un.e ou plusieurs image/graphique: 
     * Image (insertion markdown): option `{.nolightbox}`.
     * Graphique généré dans un programme: option `#| lightbox: false`.
 
 * **Onglet**: 
   * Dans une section libre (`:::`), classe css  `{.tabset}`
-  * Contenu de chaque onglet dans une section  (## titre). Utiliser un nombre de # cohérent avec le nombre de sections dans la page. Si dans la profondeur de la table des matières est de 3, le nombre de `#` sera de préférence `####`: 
+  * Contenu de chaque onglet dans une section  (## titre). Utiliser un nombre de # cohérent avec le nombre de sections dans la page. Si la profondeur de la table des matières est de 3, le nombre de `#` sera de préférence `####`: 
 
 ```{.mf}
 ::: {.tabset}
@@ -394,7 +403,7 @@ Contenu onglet 2
   
 ### Document/notebook
 
-* Changer les langues des titres (caractéristiques auteur.e, table des matières...) {{< fa solid arrow-right >}} dans le yaml `lang: fr` pour le français
+* Changer les langues des titres (caractéristiques auteur.e, table des matières...) => dans le yaml `lang: fr` pour le français
 
 * Résumé et description du document: dans le yaml options `abstract: |` et `description |`
   * Contenu sur la ligne suivante avec au moins un espace après le début de la ligne
@@ -418,7 +427,7 @@ abstract: |
   * A gauche la sidebar: sous option `sidebar: valeur`
   * Au centre le body: `body: valeur`
   * A droite la margin: `margin: valeur`
-  * Attention les valeurs renseignées (en px) ne sont pas des largeurs absolues, mais des largeurs maximales qui s'adapteront au contenu.
+  * Attention les valeurs renseignées (en px) ne sont pas des largeurs absolues, mais des largeurs maximales qui s'adapteront au contenu. Ce n'est pas très intuitif au premier abord.
  * Largeurs par défaut: 
  
 ```{.yaml} 
@@ -437,7 +446,7 @@ format:
 
 Les blocs de codes:
 
-* Rappel: les blocs de code ne sont pas affichés par défaut. Dans le yaml ou dans des blocs spécifiques indiquer explicitement qu'on souhaite les afficher (`echo: true` `code-fold:true`).
+* *Important**: les blocs de code ne sont pas affichés par défaut. Dans le yaml ou dans des blocs spécifiques indiquer explicitement qu'on souhaite les afficher (`echo: true` `code-fold:true`).
 
 * Ligne(s) en surbrillance: option `#| code-lines-numbers: "choix ligne(s)"`
   * Par exemple:
@@ -447,32 +456,32 @@ Les blocs de codes:
     * `"|2|4"` toutes les lignes, puis ligne 2, puis ligne 4 
 
 * Animation des blocs: dans le titre des slides option `{auto-animate: "true"}`
-  * On répète dans plusieurs slides les lignes qui seront affichés
+  * On répète dans plusieurs slides les lignes qui seront affichés.
   * Penser à ce que dans chaque chaque slide le début du programme se trouve sur une ligne identique pour avoir un bon rendu.
   
   
 Affichage:
 
-* liens sous forme d'iframe (conseillé): activer dans le yaml l'option `preview-links: true`
+* Liens sous forme d'iframe (conseillé): activer dans le yaml l'option `preview-links: true`
 
 * Affichage incrémental des éléments d'une liste:
-  * Pour toute la présentation: dans le yaml `incremental: true`
-  * Pour une slide en particulier, dans une section div (:::): `::: {.incremental}`
-  * Si activé pour toutes les slides, on peut désactiver l'option pour une slide: `::: {.nonincremental}`
-* Ajouter un effet: `{.fragment option}`. Exemple `{.fragment .fade-up}`
+  * Pour toute la présentation: dans le yaml `incremental: true`.
+  * Pour une slide en particulier, dans une section div (:::): `::: {.incremental}`.
+  * Si activé pour toutes les slides, on peut désactiver l'option pour une slide: `::: {.nonincremental}`.
+* Ajouter un effet: `{.fragment option}`. Exemple `{.fragment .fade-up}`.
 
-* Réduction de la taille d'affichage du texte: dans le titre d'une slide option `{.smaller}`
+* Réduction de la taille d'affichage du texte: dans le titre d'une slide option `{.smaller}`.
 
-* Dépasser la limite verticale des slides: dans le yaml option `scrollable: true`
+* Dépasser la limite verticale des slides: dans le yaml option `scrollable: true`.
 
 Facilité l'affichage dans une slide: 
   
-* Réduction de la taille d'affichage du texte: dans le titre d'une slide option `{.smaller}`
+* Réduction de la taille d'affichage du texte: dans le titre d'une slide option `{.smaller}`.
 
-* Dépasser la limite verticale des slides: dans le yaml option `scrollable: true`
+* Dépasser la limite verticale des slides: dans le yaml option `scrollable: true`.
 
 * Edition en plusieurs colonnes avec des section div (:::) css `::: {.columns}` et `::: {.columns width: "x%"}`.
-  Exemple avec une colonne vide pour générer l'espace entre les textes des deux colonnes:
+  Exemple avec une colonne vide pour générer un petit espace (5%) entre les textes des deux colonnes:
 
 ```{.mf}
 ::: {.columns}
@@ -520,9 +529,9 @@ geometry:
 
 *  Changement de la police: dans le yaml option **`fontfamily: nom_font`**
 
-**Contenu conditionnel**
+[**Contenu conditionnel**]{.badge .bg-primary style="font-size:1rem"} 
 
-* On peut réservé un contenu à un ou plusieurs formats spécifiques. Dans certaines situations, cela s'avère nécessaire : mise en pages de plusieurs images sous forme de vignettes avec l'option lightbox donnera un rendu insatisfaisant en pdf ou docx.
+* On peut réserver un contenu à un ou plusieurs formats spécifiques. Dans certaines situations, cela s'avère nécessaire : mise en page de plusieurs images sous forme de vignettes avec l'option lightbox donnera un rendu insatisfaisant en pdf ou docx.
 * Des section <div> permettent de réservé ou d'exclure un contenu à un ou plusieurs format: 
   * `::: {.content-visible  when-format="type_format"}`
   * `::: {.content-visible  unless-format="type_format"}`
@@ -644,7 +653,7 @@ format:
 ```
 
 
-**CSS**   
+[**CSS**]{.badge .bg-primary style="font-size:1rem"}    
 
 * Suite de classes de styles  qui seront appliquées à tout le document ou à des éléments du document:
 * Automatiquement: body (couleur de fond du document par exemple), style des liens ....
@@ -671,7 +680,7 @@ Dans le fichier .qmd
 ```
   
 
-**SCSS**  
+[**SCSS**]{.badge .bg-primary style="font-size:1rem"}  
 
 * Variables SASS: Affectation en amont d'attributs de styles comme des couleurs qui seront affectées plus facilement à des styles css
 

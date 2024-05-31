@@ -376,7 +376,7 @@ Et c'est justement ce qu'on va faire dans la section suivante.
 
 :::
 
-## Conflit et sa résolution
+## Les conflits 
 
 On va générer un conflit très simple sur un fichier readme.md en l'éditant dans un premier temps sur le dépôt distant puis sur le répertoire local, sans avoir effectué un pull.
 
@@ -398,7 +398,7 @@ Résultat:
 L'état dans RStudio au moment du conflit  
 
 ::: {.center}
-::: {box.img}
+::: {.box_img}
 ![Conflit](img2/conflit1.png)
 :::
 :::
@@ -409,15 +409,15 @@ L'ensemble des opérations effectuées:
 
 
 ::: {.center}
-::: {box.img}
-![Conflit](img2/video_conflit1.gif)
+::: {.box_img}
+![Résolution du conflit](img2/video_conflit1.gif)
 :::
 :::
 
 
-Dans le fichier readme.md la partie en conflit est balisée et la modification effectuée en amont sur gitlab a été reportée
+Dans le fichier readme.md la partie en conflit est balisée et la modification effectuée en amont sur gitlab a été reportée:
 
-```{.mf filename="Report du conflit dans le fichier Readme.md }
+```{.mf}
 <<<<<<< HEAD
   Modification du readme dans RStudio
 =======
@@ -440,19 +440,278 @@ On va donc devoir choisir entre les deux modifications. Ici on va prendre celle 
 * On refait l'opération de transfert du local au distant
 
 ::: {.center}
-::: {box.img}
+::: {.box_img}
 ![Conflit](img2/video_conflit2.gif)
 :::
 :::
 
 
-Et tout rentre dans l'ordre \(^_^)/
+Et tout rentre dans l'ordre **`\(^_^)/`**
 
 
 Cela va nous amener tout naturellement à parler du travail sur des branches secondaires à la branche principale. 
 
 
 ## Introduction au travail sur les branches
+
+* Dans un travail en équipe, la question ne se pose même pas...oui. Et quelques soit le partage des rôles: travail sur des fichiers différents ou travail sur des mêmes fichiers. Important: le propriétaire du dépôt devra également travailler sur une branche secondaire...aucun privilège sur ce côté là.
+* En solo, la pratique de travail sur branche(s) secondaire(s) est recommandée. Je pense toutefois que cela dépend de ce qu'on fait: 
+  * Une documentation Quarto ou Rmarkdown...pas encore convaincu. 
+  * Un programme d'analyse... pourquoi pas.
+  * Le dévelopement d'une application, d'une fonction, d'un package: cela pourra être bien utile lorsqu'on sera amené à tester plusieurs voies de programmation.
+
+En restant en local, on validera les modifications réalisées dans une branche annexe sur la branche principale par une opération de fusion (`git merge`). On pourra également fusionné dans l'autre sens si des modifications on été faites sur la branche principale (mais ce n'est pas le but). Pour une fusion sur un dépôt distant, par exemple localisé sur Github ou Gitlab, une demande de fusion est effectuée préalablement. Elle est appelée **pull request**. C'est au propriétaire du dépôt de valider les modifications, et en cas de conflit avec la branche principale la fusion sera complètement bloquée.    
+
+Le travail sur branches secondaires permet donc de conserver l'intégrité à tout moment de la branche principale. Sur le même principe une branche secondaire peut se voire attribuer elle-même une ou plusieurs secondaires. Il n'y a donc pas de limite à la ramification.
+
+En cas de conflit lors d'une demande de fusion: 
+
+* En local les éléments de conflit seront reporté sur la branche secondaire, et la fusion ne sera possible qu'une fois sa résolution réalisée. Une remarque s'impose ici. Si on ne travaille pas sur la branche principale, ce qui doit être la pratique lorqu'on développe sur une branche secondaire, aucun conflit ne doit pouvoir se produire.
+* En distant et en équipe avec un **pull request**, la fusion étant bloquée c'est à la personne qui a fait la demande de fusion de résoudre le conflit en local. Les éléments entrant en conflit avec la branche principale seront reportés sur sont répertoire au niveau local. Une fois le conflit résolu, il devra effectuer un nouveau **pull request**.
+
+Tout ceci étant à ce stade bien abstrait, on va par l'exemple faire quelques opérations sur branche secondaire avec RStudio: un premier exemple en restant au niveau local et un second exemple avec un **pull request** sur un dépôt github. 
+
+Pour le premier exemple on va utiliser l'interface html dynamique [**ungit**](https://github.com/FredrikNoren/ungit).  
+
+
+### Utilisation basique des branches en local
+
+* Création d'un projet Rstudio
+   * New project => New directory => New directory. On coche la case **Create with a Git repository**
+* Dans le terminal, on s'assure d'en avoir 2. Dans l'un des deux on ouvre l'interface **ungit** avec tout simplement **`ungit`**. On switch sur l'autre terminal.
+
+::: {.center}
+::: {.box_img}
+![Création du projet avec répertoire git](img2/branche1.png){group="branche"}
+
+:::
+:::
+
+.3 Premier commit sur la branche principale avec la création d'un nouveau fichier
+
+```{.bash}
+touch prog.R
+git add .
+git commit -m "first add"
+```
+
+
+::: {.center}
+::: {.box_img}
+![Commit sur la branche principale](img2/branche2.png){group="branche"}
+:::
+:::
+
+ 
+**Création d'une branche**  
+
+* Commande **`git branch`**
+* Syntaxe: **`git branch nom_branche`**
+
+**Aller sur la nouvelle branche** 
+
+* Commande **`git checkout`**
+* Syntaxe: **`git checkout nom_branche`**
+
+Ici on va appelé la nouvelle branche *modif*:  
+
+```{.bash}
+git branch modif
+git checkout
+```
+
+
+::: {.center} 
+::: {.box_img} 
+![Création d'une nouvelle branche et switch sur cette branche](img2/branche3.png){group="branche"}
+:::
+:::
+
+On va modifier le fichier *prog.R*
+
+```{.r}
+1+1
+2+2
+3+3
+```
+
+On fait sur la nouvelle branche un commit sur cette modification. 
+
+```{.bash}
+touch prog.R
+git add .`
+git commit -m "modif prog"
+```
+
+::: {.center}  
+::: {.box_img} 
+![Commit sur une modification de prog.R dans la branche secondaire](img2/branche4.png){group="branche"}
+:::
+:::
+
+**Fusion dans la branche principale des modifications réalisées dans la branche secondaire**
+
+* On retourne dans la branche principale avec **`git checkout master`**
+
+* On remarque que le fichier prog.R est dans l'état avant sa modification dans la branche *modif*. Dans l'interface d'ungit l'arborescence est clairement indiquée.
+
+
+::: {.center} 
+::: {.box_img} 
+![Retour sur la branche principale](img2/branche5.png){group="branche"}
+:::
+:::
+
+* Pour fusionner le commit dans la branche principale:
+  * Commande **`git merge`**
+  * Syntaxe: **`git merge nom_branche`**
+  
+Ici: 
+
+```{.bash}
+git merge modif
+```
+
+Les modifications apportées au fichier prog.R lui sont alors appliquées dans la branche principale
+
+::: {.center} 
+::: {.box_img} 
+![Fusion des modifications dans la branche principale](img2/branche6.png){group="branche"}
+:::
+:::
+
+### Fusion d'une branche secondaire sur un dépôt distant (Github)
+
+
+[Création d'un dépôt distant - clonage - modification une branche secondaire]{.badge .bg-primary style="font-size:1.1rem;"}  
+
+* On va générer un dépôt distant sur github (*pull_request*)
+* On va le cloner dans un projet R
+* On va créer une branche secondaire (*modif*). Dans cette branche:
+  * On va créer un fichier (prog.R) et le modifier
+  * On fait un commit sur ces modifications
+
+::: {.center} 
+::: {.box_img} 
+![](img2/video_branche1.gif)
+:::
+:::
+
+[Engendrer un pull request sur le dépôt distant]{.badge .bg-primary style="font-size:1.1rem;"} 
+
+En restant dans la branche secondaire on utilise `git push origin nom_branche`. Ici:
+
+```{.bash}
+git push origin modif
+```
+
+En output du terminal, il est indiqué qu'un **pull request** a été ajouté au dépôt distant.
+
+```{.bash}
+$ git push origin modif
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 550 bytes | 110.00 KiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'modif' on GitHub by visiting:
+remote:      https://github.com/mthevenin/pull_request/pull/new/modif
+remote:
+To https://github.com/mthevenin/pull_request.git
+ * [new branch]      modif -> modif
+```
+
+Lorsqu'on retourne sur le dépôt distant:
+
+
+::: {.center} 
+::: {.box_img} 
+![La branche main sur le dépôt distant](img2/branche7.png){group="branche2"}
+:::
+:::
+
+Sur le dépôt distant, la branche main n'a pas été modifiée. Seulement le fichier readme généré à la création est présent.  
+Si on switch sur la branche *modif*, les fichiers qui ont fait l'objet du commit sont bien présents. 
+
+::: {.center} 
+::: {.box_img} 
+![La branche modif sur le dépôt distant](img2/branche8.png){group="branche2"}
+:::
+:::
+
+Lorsqu'on clique sur **Compare & pull request** on est invité à proposer une demande de fusion au propriétaire du dépôt. On valide la demande en cliquant sur **Create pull request** 
+
+::: {.center} 
+::: {.box_img} 
+![Faire une demande de fusion](img2/branche9.png){group="branche2"}
+:::
+:::
+
+
+En collaboratif, le propriétaire sera prévenu par mail qu'une demande de fusion a été effectuée. Ici, en solo, la fenêtre de validation s'ouvrira directement. La présence de conflits sera indiquée. Si tout est ok, on valide la fusion la fusion en cliquant sur **Merge pull request** puis sur **Confirm merge**. Si un conflit est présent, il ne sera pas possible d'effectuer cette fusion.
+
+::: {.center} 
+::: {.box_img} 
+![Validation de la fusion](img2/branche10.png){group="branche2"}
+:::
+:::
+
+Lorsqu'on revient sur la branche principale du dépôt distant 
+
+::: {.center} 
+::: {.box_img} 
+![La branche main après fusion](img2/branche11.png){group="branche2"}
+:::
+:::
+
+Et sur la branche principale en local?  
+Elle n'a pas été synchronisée. Même si on ne travaille pas dessus, on peut rapidement effectuer cette synchronisation avec un pull.
+
+```{.bash}
+git checkout main
+git pull
+```
+
+L'output:
+
+```{.bash}
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+```
+
+
+```{.bash}
+thevenin_m@MOB02095 MINGW64 ~/Desktop/pull_request (main)
+$ git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 903 bytes | 53.00 KiB/s, done.
+From https://github.com/mthevenin/pull_request
+   a8c4daf..15740db  main       -> origin/main
+Updating a8c4daf..15740db
+Fast-forward
+ .gitignore         |  4 ++++
+ prog.R             |  3 +++
+ pull_request.Rproj | 13 +++++++++++++
+ 3 files changed, 20 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 prog.R
+ create mode 100644 pull_request.Rproj
+```
+
+
+Sur Gitlab, sous forme d'animation^[Avec un petit manque de fluidité sur les manips par manque de pratique sur Gitlab], à partir du `git pull origin nom_branch`: 
+
+::: {.center} 
+::: {.box_img} 
+![Pull request sur Gitlab](img2/video_branche2.gif){group="branche2"}
+:::
+:::
+
 
 
 

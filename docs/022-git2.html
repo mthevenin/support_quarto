@@ -222,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Présentation</span></a>
+ <span class="menu-text"><strong>Présentation</strong></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -442,8 +442,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#transférer-les-fichiers-du-local-au-distant-push" id="toc-transférer-les-fichiers-du-local-au-distant-push" class="nav-link" data-scroll-target="#transférer-les-fichiers-du-local-au-distant-push"><span class="header-section-number">7.3.3</span> Transférer les fichiers du local au distant: push</a></li>
   <li><a href="#du-distant-au-local-pull" id="toc-du-distant-au-local-pull" class="nav-link" data-scroll-target="#du-distant-au-local-pull"><span class="header-section-number">7.3.4</span> Du distant au local: pull</a></li>
   </ul></li>
-  <li><a href="#conflit-et-sa-résolution" id="toc-conflit-et-sa-résolution" class="nav-link" data-scroll-target="#conflit-et-sa-résolution"><span class="header-section-number">7.4</span> Conflit et sa résolution</a></li>
-  <li><a href="#introduction-au-travail-sur-les-branches" id="toc-introduction-au-travail-sur-les-branches" class="nav-link" data-scroll-target="#introduction-au-travail-sur-les-branches"><span class="header-section-number">7.5</span> Introduction au travail sur les branches</a></li>
+  <li><a href="#les-conflits" id="toc-les-conflits" class="nav-link" data-scroll-target="#les-conflits"><span class="header-section-number">7.4</span> Les conflits</a></li>
+  <li><a href="#introduction-au-travail-sur-les-branches" id="toc-introduction-au-travail-sur-les-branches" class="nav-link" data-scroll-target="#introduction-au-travail-sur-les-branches"><span class="header-section-number">7.5</span> Introduction au travail sur les branches</a>
+  <ul>
+  <li><a href="#utilisation-basique-des-branches-en-local" id="toc-utilisation-basique-des-branches-en-local" class="nav-link" data-scroll-target="#utilisation-basique-des-branches-en-local"><span class="header-section-number">7.5.1</span> Utilisation basique des branches en local</a></li>
+  <li><a href="#fusion-dune-branche-secondaire-sur-un-dépôt-distant-github" id="toc-fusion-dune-branche-secondaire-sur-un-dépôt-distant-github" class="nav-link" data-scroll-target="#fusion-dune-branche-secondaire-sur-un-dépôt-distant-github"><span class="header-section-number">7.5.2</span> Fusion d’une branche secondaire sur un dépôt distant (Github)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -899,8 +903,8 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 </div>
 </section>
 </section>
-<section id="conflit-et-sa-résolution" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="conflit-et-sa-résolution"><span class="header-section-number">7.4</span> Conflit et sa résolution</h2>
+<section id="les-conflits" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="les-conflits"><span class="header-section-number">7.4</span> Les conflits</h2>
 <p>On va générer un conflit très simple sur un fichier readme.md en l’éditant dans un premier temps sur le dépôt distant puis sur le répertoire local, sans avoir effectué un pull.</p>
 <ul>
 <li>Edition sur le dépot distant avec le texte “<em>Modification du readme dans gitlab</em>”
@@ -924,7 +928,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 </ul>
 <p>L’état dans RStudio au moment du conflit</p>
 <div class="center">
-<div class="{box.img}">
+<div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="img2/conflit1.png" class="lightbox" data-glightbox="description: .lightbox-desc-24" data-gallery="quarto-lightbox-gallery-24" title="Conflit"><img src="img2/conflit1.png" class="img-fluid figure-img" alt="Conflit"></a></p>
@@ -935,33 +939,33 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 </div>
 <p>L’ensemble des opérations effectuées:</p>
 <div class="center">
-<div class="{box.img}">
+<div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/video_conflit1.gif" class="lightbox" data-glightbox="description: .lightbox-desc-25" data-gallery="quarto-lightbox-gallery-25" title="Conflit"><img src="img2/video_conflit1.gif" class="img-fluid figure-img" alt="Conflit"></a></p>
-<figcaption>Conflit</figcaption>
+<p><a href="img2/video_conflit1.gif" class="lightbox" data-glightbox="description: .lightbox-desc-25" data-gallery="quarto-lightbox-gallery-25" title="Résolution du conflit"><img src="img2/video_conflit1.gif" class="img-fluid figure-img" alt="Résolution du conflit"></a></p>
+<figcaption>Résolution du conflit</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Dans le fichier readme.md la partie en conflit est balisée et la modification effectuée en amont sur gitlab a été reportée</p>
-<p>```{.mf filename=“Report du conflit dans le fichier Readme.md } &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD Modification du readme dans RStudio ======= Modification du readme dans gitlab<br>
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 7c9442d47454d13263230b659af853eeed84afe5</p>
-<pre><code>
-**Résolution du conflit**
-
-On va donc devoir choisir entre les deux modifications. Ici on va prendre celle réaliser sur RStudio: 
-
-* On conserve le texte de la modification RStudio
-* On supprime les balises
-
-```{.mf}
-  Modification du readme dans RStudio</code></pre>
+<p>Dans le fichier readme.md la partie en conflit est balisée et la modification effectuée en amont sur gitlab a été reportée:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  Modification du readme dans RStudio</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">=======</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>Modification du readme dans gitlab  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt; <span class="dv">7</span>c9442d47454d13263230b659af853eeed84afe5</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Résolution du conflit</strong></p>
+<p>On va donc devoir choisir entre les deux modifications. Ici on va prendre celle réaliser sur RStudio:</p>
+<ul>
+<li>On conserve le texte de la modification RStudio</li>
+<li>On supprime les balises</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  Modification du readme dans RStudio</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>On refait l’opération de transfert du local au distant</li>
 </ul>
 <div class="center">
-<div class="{box.img}">
+<div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="img2/video_conflit2.gif" class="lightbox" data-glightbox="description: .lightbox-desc-26" data-gallery="quarto-lightbox-gallery-26" title="Conflit"><img src="img2/video_conflit2.gif" class="img-fluid figure-img" alt="Conflit"></a></p>
@@ -970,26 +974,294 @@ On va donc devoir choisir entre les deux modifications. Ici on va prendre celle 
 </div>
 </div>
 </div>
-<p>Et tout rentre dans l’ordre (^_^)/</p>
+<p>Et tout rentre dans l’ordre <strong><code>\(^_^)/</code></strong></p>
 <p>Cela va nous amener tout naturellement à parler du travail sur des branches secondaires à la branche principale.</p>
 </section>
 <section id="introduction-au-travail-sur-les-branches" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="introduction-au-travail-sur-les-branches"><span class="header-section-number">7.5</span> Introduction au travail sur les branches</h2>
+<ul>
+<li>Dans un travail en équipe, la question ne se pose même pas…oui. Et quelques soit le partage des rôles: travail sur des fichiers différents ou travail sur des mêmes fichiers. Important: le propriétaire du dépôt devra également travailler sur une branche secondaire…aucun privilège sur ce côté là.</li>
+<li>En solo, la pratique de travail sur branche(s) secondaire(s) est recommandée. Je pense toutefois que cela dépend de ce qu’on fait:
+<ul>
+<li>Une documentation Quarto ou Rmarkdown…pas encore convaincu.</li>
+<li>Un programme d’analyse… pourquoi pas.</li>
+<li>Le dévelopement d’une application, d’une fonction, d’un package: cela pourra être bien utile lorsqu’on sera amené à tester plusieurs voies de programmation.</li>
+</ul></li>
+</ul>
+<p>En restant en local, on validera les modifications réalisées dans une branche annexe sur la branche principale par une opération de fusion (<code>git merge</code>). On pourra également fusionné dans l’autre sens si des modifications on été faites sur la branche principale (mais ce n’est pas le but). Pour une fusion sur un dépôt distant, par exemple localisé sur Github ou Gitlab, une demande de fusion est effectuée préalablement. Elle est appelée <strong>pull request</strong>. C’est au propriétaire du dépôt de valider les modifications, et en cas de conflit avec la branche principale la fusion sera complètement bloquée.</p>
+<p>Le travail sur branches secondaires permet donc de conserver l’intégrité à tout moment de la branche principale. Sur le même principe une branche secondaire peut se voire attribuer elle-même une ou plusieurs secondaires. Il n’y a donc pas de limite à la ramification.</p>
+<p>En cas de conflit lors d’une demande de fusion:</p>
+<ul>
+<li>En local les éléments de conflit seront reporté sur la branche secondaire, et la fusion ne sera possible qu’une fois sa résolution réalisée. Une remarque s’impose ici. Si on ne travaille pas sur la branche principale, ce qui doit être la pratique lorqu’on développe sur une branche secondaire, aucun conflit ne doit pouvoir se produire.</li>
+<li>En distant et en équipe avec un <strong>pull request</strong>, la fusion étant bloquée c’est à la personne qui a fait la demande de fusion de résoudre le conflit en local. Les éléments entrant en conflit avec la branche principale seront reportés sur sont répertoire au niveau local. Une fois le conflit résolu, il devra effectuer un nouveau <strong>pull request</strong>.</li>
+</ul>
+<p>Tout ceci étant à ce stade bien abstrait, on va par l’exemple faire quelques opérations sur branche secondaire avec RStudio: un premier exemple en restant au niveau local et un second exemple avec un <strong>pull request</strong> sur un dépôt github.</p>
+<p>Pour le premier exemple on va utiliser l’interface html dynamique <a href="https://github.com/FredrikNoren/ungit"><strong>ungit</strong></a>.</p>
+<section id="utilisation-basique-des-branches-en-local" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="utilisation-basique-des-branches-en-local"><span class="header-section-number">7.5.1</span> Utilisation basique des branches en local</h3>
+<ul>
+<li>Création d’un projet Rstudio
+<ul>
+<li>New project =&gt; New directory =&gt; New directory. On coche la case <strong>Create with a Git repository</strong></li>
+</ul></li>
+<li>Dans le terminal, on s’assure d’en avoir 2. Dans l’un des deux on ouvre l’interface <strong>ungit</strong> avec tout simplement <strong><code>ungit</code></strong>. On switch sur l’autre terminal.</li>
+</ul>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche1.png" class="lightbox" data-glightbox="description: .lightbox-desc-27" data-gallery="branche" title="Création du projet avec répertoire git"><img src="img2/branche1.png" class="img-fluid figure-img" alt="Création du projet avec répertoire git"></a></p>
+<figcaption>Création du projet avec répertoire git</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>.3 Premier commit sur la branche principale avec la création d’un nouveau fichier</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> prog.R</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"first add"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche2.png" class="lightbox" data-glightbox="description: .lightbox-desc-28" data-gallery="branche" title="Commit sur la branche principale"><img src="img2/branche2.png" class="img-fluid figure-img" alt="Commit sur la branche principale"></a></p>
+<figcaption>Commit sur la branche principale</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Création d’une branche</strong></p>
+<ul>
+<li>Commande <strong><code>git branch</code></strong></li>
+<li>Syntaxe: <strong><code>git branch nom_branche</code></strong></li>
+</ul>
+<p><strong>Aller sur la nouvelle branche</strong></p>
+<ul>
+<li>Commande <strong><code>git checkout</code></strong></li>
+<li>Syntaxe: <strong><code>git checkout nom_branche</code></strong></li>
+</ul>
+<p>Ici on va appelé la nouvelle branche <em>modif</em>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch modif</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche3.png" class="lightbox" data-glightbox="description: .lightbox-desc-29" data-gallery="branche" title="Création d’une nouvelle branche et switch sur cette branche"><img src="img2/branche3.png" class="img-fluid figure-img" alt="Création d’une nouvelle branche et switch sur cette branche"></a></p>
+<figcaption>Création d’une nouvelle branche et switch sur cette branche</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>On va modifier le fichier <em>prog.R</em></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">+</span><span class="dv">3</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>On fait sur la nouvelle branche un commit sur cette modification.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> prog.R</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .<span class="kw">`</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"modif prog"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche4.png" class="lightbox" data-glightbox="description: .lightbox-desc-30" data-gallery="branche" title="Commit sur une modification de prog.R dans la branche secondaire"><img src="img2/branche4.png" class="img-fluid figure-img" alt="Commit sur une modification de prog.R dans la branche secondaire"></a></p>
+<figcaption>Commit sur une modification de prog.R dans la branche secondaire</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Fusion dans la branche principale des modifications réalisées dans la branche secondaire</strong></p>
+<ul>
+<li><p>On retourne dans la branche principale avec <strong><code>git checkout master</code></strong></p></li>
+<li><p>On remarque que le fichier prog.R est dans l’état avant sa modification dans la branche <em>modif</em>. Dans l’interface d’ungit l’arborescence est clairement indiquée.</p></li>
+</ul>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche5.png" class="lightbox" data-glightbox="description: .lightbox-desc-31" data-gallery="branche" title="Retour sur la branche principale"><img src="img2/branche5.png" class="img-fluid figure-img" alt="Retour sur la branche principale"></a></p>
+<figcaption>Retour sur la branche principale</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Pour fusionner le commit dans la branche principale:
+<ul>
+<li>Commande <strong><code>git merge</code></strong></li>
+<li>Syntaxe: <strong><code>git merge nom_branche</code></strong></li>
+</ul></li>
+</ul>
+<p>Ici:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge modif</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Les modifications apportées au fichier prog.R lui sont alors appliquées dans la branche principale</p>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche6.png" class="lightbox" data-glightbox="description: .lightbox-desc-32" data-gallery="branche" title="Fusion des modifications dans la branche principale"><img src="img2/branche6.png" class="img-fluid figure-img" alt="Fusion des modifications dans la branche principale"></a></p>
+<figcaption>Fusion des modifications dans la branche principale</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="fusion-dune-branche-secondaire-sur-un-dépôt-distant-github" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="fusion-dune-branche-secondaire-sur-un-dépôt-distant-github"><span class="header-section-number">7.5.2</span> Fusion d’une branche secondaire sur un dépôt distant (Github)</h3>
+<p><span class="badge bg-primary" style="font-size:1.1rem;">Création d’un dépôt distant - clonage - modification une branche secondaire</span></p>
+<ul>
+<li>On va générer un dépôt distant sur github (<em>pull_request</em>)</li>
+<li>On va le cloner dans un projet R</li>
+<li>On va créer une branche secondaire (<em>modif</em>). Dans cette branche:
+<ul>
+<li>On va créer un fichier (prog.R) et le modifier</li>
+<li>On fait un commit sur ces modifications</li>
+</ul></li>
+</ul>
+<div class="center">
+<div class="box_img">
+<p><a href="img2/video_branche1.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="img2/video_branche1.gif" class="img-fluid"></a></p>
+</div>
+</div>
+<p><span class="badge bg-primary" style="font-size:1.1rem;">Engendrer un pull request sur le dépôt distant</span></p>
+<p>En restant dans la branche secondaire on utilise <code>git push origin nom_branche</code>. Ici:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin modif</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>En output du terminal, il est indiqué qu’un <strong>pull request</strong> a été ajouté au dépôt distant.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push origin modif</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Enumerating</span> objects: 6, done.</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Counting</span> objects: 100% <span class="er">(</span><span class="ex">6/6</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Delta</span> compression using up to 8 threads</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Compressing</span> objects: 100% <span class="er">(</span><span class="ex">3/3</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Writing</span> objects: 100% <span class="er">(</span><span class="ex">5/5</span><span class="kw">)</span><span class="ex">,</span> 550 bytes <span class="kw">|</span> <span class="ex">110.00</span> KiB/s, done.</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Total</span> 5 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> reused 0 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> pack-reused 0</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Create a pull request for <span class="st">'modif'</span> on GitHub by visiting:</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span>      https://github.com/mthevenin/pull_request/pull/new/modif</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> https://github.com/mthevenin/pull_request.git</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a> <span class="ex">*</span> [new branch]      modif <span class="at">-</span><span class="op">&gt;</span> modif</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Lorsqu’on retourne sur le dépôt distant:</p>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche7.png" class="lightbox" data-glightbox="description: .lightbox-desc-34" data-gallery="branche2" title="La branche main sur le dépôt distant"><img src="img2/branche7.png" class="img-fluid figure-img" alt="La branche main sur le dépôt distant"></a></p>
+<figcaption>La branche main sur le dépôt distant</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Sur le dépôt distant, la branche main n’a pas été modifiée. Seulement le fichier readme généré à la création est présent.<br>
+Si on switch sur la branche <em>modif</em>, les fichiers qui ont fait l’objet du commit sont bien présents.</p>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche8.png" class="lightbox" data-glightbox="description: .lightbox-desc-35" data-gallery="branche2" title="La branche modif sur le dépôt distant"><img src="img2/branche8.png" class="img-fluid figure-img" alt="La branche modif sur le dépôt distant"></a></p>
+<figcaption>La branche modif sur le dépôt distant</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Lorsqu’on clique sur <strong>Compare &amp; pull request</strong> on est invité à proposer une demande de fusion au propriétaire du dépôt. On valide la demande en cliquant sur <strong>Create pull request</strong></p>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche9.png" class="lightbox" data-glightbox="description: .lightbox-desc-36" data-gallery="branche2" title="Faire une demande de fusion"><img src="img2/branche9.png" class="img-fluid figure-img" alt="Faire une demande de fusion"></a></p>
+<figcaption>Faire une demande de fusion</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>En collaboratif, le propriétaire sera prévenu par mail qu’une demande de fusion a été effectuée. Ici, en solo, la fenêtre de validation s’ouvrira directement. La présence de conflits sera indiquée. Si tout est ok, on valide la fusion la fusion en cliquant sur <strong>Merge pull request</strong> puis sur <strong>Confirm merge</strong>. Si un conflit est présent, il ne sera pas possible d’effectuer cette fusion.</p>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche10.png" class="lightbox" data-glightbox="description: .lightbox-desc-37" data-gallery="branche2" title="Validation de la fusion"><img src="img2/branche10.png" class="img-fluid figure-img" alt="Validation de la fusion"></a></p>
+<figcaption>Validation de la fusion</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Lorsqu’on revient sur la branche principale du dépôt distant</p>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/branche11.png" class="lightbox" data-glightbox="description: .lightbox-desc-38" data-gallery="branche2" title="La branche main après fusion"><img src="img2/branche11.png" class="img-fluid figure-img" alt="La branche main après fusion"></a></p>
+<figcaption>La branche main après fusion</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Et sur la branche principale en local?<br>
+Elle n’a pas été synchronisée. Même si on ne travaille pas dessus, on peut rapidement effectuer cette synchronisation avec un pull.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>L’output:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout main</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Switched</span> to branch <span class="st">'main'</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> branch is up to date with <span class="st">'origin/main'</span>.</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">thevenin_m@MOB02095</span> MINGW64 ~/Desktop/pull_request <span class="er">(</span><span class="ex">main</span><span class="kw">)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Enumerating objects: 1, done.</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Counting objects: 100% <span class="er">(</span><span class="ex">1/1</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Total 1 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> reused 0 <span class="er">(</span><span class="ex">delta</span> 0<span class="kw">)</span><span class="ex">,</span> pack-reused 0</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Unpacking</span> objects: 100% <span class="er">(</span><span class="ex">1/1</span><span class="kw">)</span><span class="ex">,</span> 903 bytes <span class="kw">|</span> <span class="ex">53.00</span> KiB/s, done.</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="ex">From</span> https://github.com/mthevenin/pull_request</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>   <span class="ex">a8c4daf..15740db</span>  main       <span class="at">-</span><span class="op">&gt;</span> origin/main</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Updating</span> a8c4daf..15740db</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Fast-forward</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a> <span class="ex">.gitignore</span>         <span class="kw">|</span>  <span class="ex">4</span> ++++</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a> <span class="ex">prog.R</span>             <span class="kw">|</span>  <span class="ex">3</span> +++</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a> <span class="ex">pull_request.Rproj</span> <span class="kw">|</span> <span class="ex">13</span> +++++++++++++</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a> <span class="ex">3</span> files changed, 20 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 .gitignore</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 prog.R</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 pull_request.Rproj</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sur Gitlab, sous forme d’animation<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, à partir du <code>git pull origin nom_branch</code>:</p>
+<div class="center">
+<div class="box_img">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2/video_branche2.gif" class="lightbox" data-glightbox="description: .lightbox-desc-39" data-gallery="branche2" title="Pull request sur Gitlab"><img src="img2/video_branche2.gif" class="img-fluid figure-img" alt="Pull request sur Gitlab"></a></p>
+<figcaption>Pull request sur Gitlab</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
 <!-- -->
 
 <div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-24">Conflit</span>
-<span class="glightbox-desc lightbox-desc-25">Conflit</span>
+<span class="glightbox-desc lightbox-desc-25">Résolution du conflit</span>
 <span class="glightbox-desc lightbox-desc-26">Conflit</span>
+<span class="glightbox-desc lightbox-desc-27">Création du projet avec répertoire git</span>
+<span class="glightbox-desc lightbox-desc-28">Commit sur la branche principale</span>
+<span class="glightbox-desc lightbox-desc-29">Création d’une nouvelle branche et switch sur cette branche</span>
+<span class="glightbox-desc lightbox-desc-30">Commit sur une modification de prog.R dans la branche secondaire</span>
+<span class="glightbox-desc lightbox-desc-31">Retour sur la branche principale</span>
+<span class="glightbox-desc lightbox-desc-32">Fusion des modifications dans la branche principale</span>
+<span class="glightbox-desc lightbox-desc-34">La branche main sur le dépôt distant</span>
+<span class="glightbox-desc lightbox-desc-35">La branche modif sur le dépôt distant</span>
+<span class="glightbox-desc lightbox-desc-36">Faire une demande de fusion</span>
+<span class="glightbox-desc lightbox-desc-37">Validation de la fusion</span>
+<span class="glightbox-desc lightbox-desc-38">La branche main après fusion</span>
+<span class="glightbox-desc lightbox-desc-39">Pull request sur Gitlab</span>
 </div>
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn1"><p>Dans un projet Quarto de type website c’est le cas lorsqu’on réalise une compilation d’ensemble<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Classique pour les fichiers Readme.md<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Avec un petit manque de fluidité sur les manips par manque de pratique sur Gitlab<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1466,466 +1738,725 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Clonage, pull, push et branches</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Création d'un dépôt git et son clonage</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>Une fois la connection entre RStudio et une plateforme établie: </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Les opérations se feront toujours dans un projet.</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La méthode la plus employées est la création du dépôt à distance, il est toutefois possible de tout réaliser via R (package usethis) si on est sur la plateforme Github</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">### Création d'un dépôt distant {#sec-glproj} </span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gitlab</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Se mettre sur **homepage** si nécessaire en cliquant sur l'icone gitlab {{&lt; fa brands gitlab&gt;}} (en haut à gauche)</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur **New Project**</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>***Create blank project*** <span class="co">[</span><span class="ot">pour ce chapitre</span><span class="co">]</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>***Create from template*** <span class="co">[</span><span class="ot">pour le chapitre suivant</span><span class="co">]</span> </span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Création d'un dépôt sans utiliser de template   </span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>:::{.center}</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>:::{.box_img}</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img1.png)</span>{width=75%}</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Par défaut: le dépôt est en mode **private**. Il n'est visible que par les personnes collaborant au projet.</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Saisir un nom de dépôt.</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Option de l'url: </span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>On peut choisir son nom d'avatar après <span class="in">`https://gitlab.com/`</span></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Par défaut le dossier final est le nom du dépôt saisi. On peut le changer.</span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Private/Public: </span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Par défaut **private**. On peut le passer en mode **public**.</span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>On pourra changer ce mode  dans les paramètres du projet <span class="co">[</span><span class="ot">voir plus loin</span><span class="co">]</span>.</span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Garder la création d'un fichier **README.md**.</span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>:::{.box_img} </span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img2.png)</span>{width=75%}</span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>:::{.box_img}</span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/video1.gif)</span>{width=75%}</span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Changer la visibilité et supprimer un projet</span></span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aller dans la barre verticale à gauche: **Setting** {{&lt; fa solid arrow-right &gt;}} **General**</span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Visibilité:  Passer de public à private et inversement: </span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Cliquer sur **expand** **Visibility, project features, permissions** {{&lt; fa solid arrow-right &gt;}} **Project visibility **.</span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Supprimer un dépôt: Tout en bas de la page aller sur **Advanced**.  </span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
-<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
-<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/video2.gif)</span>{width=75%}</span>
-<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Fichier .gitignore</span></span>
-<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>Ce fichier est important. A la création du dépôt distant, il n'est pas généré. Pas de soucis, avec Rstudio il sera automatiquement ajouté à votre répertoire local lors de la création du projet, avec déjà certains fichiers exclus des transferts (.Rproj.user, .Rhistory, .RData, .Ruserdata). </span>
-<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a><span class="fu">### Github </span></span>
-<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur la page du profil, aller sur **Repositories** et cliquer sur **New**.</span>
-<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Donner un nom au répertoire.</span>
-<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sélectionner le type de visibilité (par défaut **Public**). On pourra changer à souhait de visibilité dans les paramètres du dépôt (Settings).</span>
-<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sélectionner l'ajout un fichier README.md.</span>
-<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Vous pouvez ajouter un fichier .gitignore (dont un avec un template R), mais celui ci sera généré automatiquement avec la création du projet sous RStudio.</span>
-<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
-<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
-<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/video3.gif)</span>{width=75%}</span>
-<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clonage d'un dépôt distant dans RStudio</span></span>
-<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Les manipulations sont strictement identiques avec Gitlab et Github.</span>
-<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le clonage du répertoire distant dans Rstudio se fera ici via protocole HTTPS.</span>
-<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>Les étapes:</span>
-<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dans le répertoire distant</span></span>
-<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le dépôt cliquer sur l'icône **Code** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Copier le lien du dépôt (ici via https).</span>
-<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
-<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
-<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img3.png)</span>{width=75%}</span>
-<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>::: </span>
-<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a><span class="fu">### En local dans RStudio</span></span>
-<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Créer un nouveau projet: File {{&lt; fa solid arrow-right &gt;}} New project </span>
-<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sélectionner **Version control** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Git {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Coller le lien récupéré dans le dépôt {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sélectionner un répertoire pour le projet  {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Créer le projet</span>
-<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">30,-1.5,30,-1.5,30</span><span class="co">]</span>" layout-valign="bottom" }</span>
-<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img4.png)</span>{group="rs1"}</span>
-<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img5.png)</span>{group="rs1"}</span>
-<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img6.png)</span>{group="rs1"}</span>
-<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">30,-1.5,30,-1.5,30</span><span class="co">]</span>"}</span>
-<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img7.png)</span>{group="rs1"}</span>
-<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img8.png)</span>{group="rs1"}</span>
-<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img9.png)</span>{group="rs1"}</span>
-<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a>Lorsque le projet a été créé après clonage du dépôt distant:</span>
-<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a>Un onglet Git apparait dans l'environnement: </span>
-<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un menu permet d'effectuer directement des opérations de versionnage et de transferts de fichiers.</span>
-<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Des fichiers sont affichés:</span>
-<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Les  fichiers  générés à la création du projet comme *.gitignore* et ici *test_support.Rproj*. Ce sont donc des nouveaux éléments par rapport au dépot distant. </span>
-<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Des fichiers ne sont pas affichés:   </span>
-<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Le fichier *README.md* généré lors de la création du dépôt distant puis cloné sur le répertoire local. </span>
-<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Les fichiers renseignés automatiquement dans le fichier .gitignore: *.Rproj.user*, *.Rhistory*, *.RData*, *.Ruserdata*.</span>
-<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut toujours visualiser l'ensemble des fichiers du projet sont dans la fenêtre *Files*. </span>
-<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le terminal (bash):</span>
-<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Le répertoire est calé sur la racine du projet. </span>
-<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>La branche de destination est indiquée entre parenthèses, <span class="in">`main`</span> ou <span class="in">`(master)`</span>.</span>
-<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a>A ce stade, on peut déjà mettre à jour le répertoire distant avec les éléments générés lors de la création du projet.</span>
-<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=TRUE}</span>
-<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Générer un projet et créé un dépot sur Github à partir de R avec le package `usethis`</span></span>
-<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a>A faire peut être sous forme de fiche pour ne pas alourdir ce support. Avec trois fonctions du package <span class="in">`usethis`</span>, on peut générer relativement rapidement un dépôt github associé à un projet tout en restant sur la console R.  </span>
-<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a>Rapidement les différentes étapes:  </span>
-<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Installation et chargement du package <span class="in">`usethis`</span>.</span>
-<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Création d'un projet R:  fonction <span class="in">`create_project()`</span>.</span>
-<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Création d'une instance git dans le projet: <span class="in">`use_git()`</span>.</span>
-<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Création d'un dépôt distant sur github:  <span class="in">`use_github()`</span>.</span>
-<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a>Prévoir la création de deux sessions RStudio lors de ces étapes.</span>
-<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a><span class="fu">## Les principales opérations git pour transférer des fichiers</span></span>
-<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a>Encore une fois, on reste ici sur un objectif de déploiement d'une documentation. Les commandes <span class="in">`git status`</span>, <span class="in">`git add`</span> ou <span class="in">`git commit`</span> sont avant tout des opérations permettant d'effectuer le versionnage du projet: la première pour vérifier le statut des fichiers (modification, création, suppression), la seconde pour sélectionner des fichiers à versionner, et la troisième pour figer un état du projet. </span>
-<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a>Pour des raisons pédagogiques on privilégiera dans un premier temps l'exécution par clic bouton dans la fenêtre git de Rstudio. Néanmoins, on peut conseiller de passer directement par les commandes, par défaut très simple, via le terminal. </span>
-<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a><span class="fu">### Statut et séléction des fichiers</span></span>
-<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-213"><a href="#cb9-213" aria-hidden="true" tabindex="-1"></a>Dans l'onglet **Git** on peut sélectionner les fichiers qui vont être transférés sur le dépôt distant en les cochant (colonne **Staged**). Leur statut passe de **?** (jaune) à **A** (Added).</span>
-<span id="cb9-214"><a href="#cb9-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a>Remarque: le statut des fichiers peut être visualisé dans le terminal avec la commande **`git status`**. Cette commande ne réalise aucune opération.</span>
-<span id="cb9-216"><a href="#cb9-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-217"><a href="#cb9-217" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
-<span id="cb9-218"><a href="#cb9-218" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
-<span id="cb9-219"><a href="#cb9-219" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img10.png)</span>{width=75%}</span>
-<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a>::: </span>
-<span id="cb9-221"><a href="#cb9-221" aria-hidden="true" tabindex="-1"></a>::: </span>
-<span id="cb9-222"><a href="#cb9-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-223"><a href="#cb9-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-224"><a href="#cb9-224" aria-hidden="true" tabindex="-1"></a>S'il y a beaucoup de fichiers^<span class="co">[</span><span class="ot">Dans un projet Quarto de type website c'est le cas lorsqu'on réalise une compilation d'ensemble</span><span class="co">]</span>, il est préférable de passer directement par la ligne de commande dans le terminal, surtout si on souhaite sélectionner l'ensemble.</span>
-<span id="cb9-225"><a href="#cb9-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-226"><a href="#cb9-226" aria-hidden="true" tabindex="-1"></a>Dans le terminal, pour sélectionner et ajouter un ou plusieurs fichiers au versionnage:</span>
-<span id="cb9-227"><a href="#cb9-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-228"><a href="#cb9-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash filename="Ajout d'un fichier"}</span></span>
-<span id="cb9-229"><a href="#cb9-229" aria-hidden="true" tabindex="-1"></a><span class="in">git add nom_fichier</span></span>
-<span id="cb9-230"><a href="#cb9-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-231"><a href="#cb9-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-232"><a href="#cb9-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-233"><a href="#cb9-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash filename="Ajout de tous les éléments modifiés"}</span></span>
-<span id="cb9-234"><a href="#cb9-234" aria-hidden="true" tabindex="-1"></a><span class="in">git add .</span></span>
-<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-236"><a href="#cb9-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-237"><a href="#cb9-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-238"><a href="#cb9-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-239"><a href="#cb9-239" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fixer un état de la chronologie du projet: commit </span></span>
-<span id="cb9-240"><a href="#cb9-240" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-241"><a href="#cb9-241" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans l'onglet GIT: cliquer sur **Commit** . </span>
-<span id="cb9-242"><a href="#cb9-242" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On remarque que le contenu texte des fichiers est affiché. Ici tout est en fond vert car ce sont des nouveaux fichiers et non des modifications de fichiers existants.</span>
-<span id="cb9-243"><a href="#cb9-243" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On doit obligatoire renseigner l'objet de ce *commit* dans la fenêtre **Commit message**: par exemple ici "*First add*". On valide avec bouton **Commit**.</span>
-<span id="cb9-244"><a href="#cb9-244" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-245"><a href="#cb9-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-246"><a href="#cb9-246" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">30,-1.5,30,-1.5,30</span><span class="co">]</span>" layout-valign="bottom"}</span>
-<span id="cb9-247"><a href="#cb9-247" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-248"><a href="#cb9-248" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img11.png)</span>{group="rs2"} </span>
-<span id="cb9-249"><a href="#cb9-249" aria-hidden="true" tabindex="-1"></a>::: </span>
-<span id="cb9-250"><a href="#cb9-250" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-251"><a href="#cb9-251" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img12.png)</span>{group="rs2"}   </span>
-<span id="cb9-252"><a href="#cb9-252" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-253"><a href="#cb9-253" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-254"><a href="#cb9-254" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img13.png)</span>{group="rs2"}  </span>
-<span id="cb9-255"><a href="#cb9-255" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-256"><a href="#cb9-256" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb9-257"><a href="#cb9-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-258"><a href="#cb9-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-259"><a href="#cb9-259" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Commande du terminal:</span>
-<span id="cb9-260"><a href="#cb9-260" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-261"><a href="#cb9-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash filename="Syntaxe de la commande commit" }  </span></span>
-<span id="cb9-262"><a href="#cb9-262" aria-hidden="true" tabindex="-1"></a><span class="in">git commit -m "message/titre"</span></span>
-<span id="cb9-263"><a href="#cb9-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>    </span>
-<span id="cb9-264"><a href="#cb9-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-265"><a href="#cb9-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-266"><a href="#cb9-266" aria-hidden="true" tabindex="-1"></a><span class="fu">### Transférer les fichiers du local au distant: push</span></span>
-<span id="cb9-267"><a href="#cb9-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-268"><a href="#cb9-268" aria-hidden="true" tabindex="-1"></a>Pour effectuer ce transfert on fait un **PUSH**.</span>
-<span id="cb9-269"><a href="#cb9-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-270"><a href="#cb9-270" aria-hidden="true" tabindex="-1"></a>Fèche montante dans la fenêtre git ou dans la fenêtre commit.</span>
-<span id="cb9-271"><a href="#cb9-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-272"><a href="#cb9-272" aria-hidden="true" tabindex="-1"></a>::::: {.column width="75%"}</span>
-<span id="cb9-273"><a href="#cb9-273" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">40,-2,40,</span><span class="co">]</span>"  layout-valign="bottom"}</span>
-<span id="cb9-274"><a href="#cb9-274" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-275"><a href="#cb9-275" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img14.png)</span>{group="rs3"}  </span>
-<span id="cb9-276"><a href="#cb9-276" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-277"><a href="#cb9-277" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-278"><a href="#cb9-278" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img15.png)</span>{group="rs3"}   </span>
-<span id="cb9-279"><a href="#cb9-279" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-280"><a href="#cb9-280" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb9-281"><a href="#cb9-281" aria-hidden="true" tabindex="-1"></a>:::::</span>
-<span id="cb9-282"><a href="#cb9-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-283"><a href="#cb9-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-284"><a href="#cb9-284" aria-hidden="true" tabindex="-1"></a>Dans le terminal: </span>
-<span id="cb9-285"><a href="#cb9-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-286"><a href="#cb9-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash filename="Transférer les fichiers"}</span></span>
-<span id="cb9-287"><a href="#cb9-287" aria-hidden="true" tabindex="-1"></a><span class="in">git push</span></span>
-<span id="cb9-288"><a href="#cb9-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-289"><a href="#cb9-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-290"><a href="#cb9-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-291"><a href="#cb9-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-292"><a href="#cb9-292" aria-hidden="true" tabindex="-1"></a>En résumé le transfert peut être effectué rapidement dans le terminal avec 3 commandes, <span class="in">`git status`</span> n'ayant qu'une visée informative. Si on sélectionne tous les fichiers modifié depuis le précédents commit:</span>
-<span id="cb9-293"><a href="#cb9-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-294"><a href="#cb9-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
-<span id="cb9-295"><a href="#cb9-295" aria-hidden="true" tabindex="-1"></a><span class="in">git add .</span></span>
-<span id="cb9-296"><a href="#cb9-296" aria-hidden="true" tabindex="-1"></a><span class="in">git commit --m "objet/titre"</span></span>
-<span id="cb9-297"><a href="#cb9-297" aria-hidden="true" tabindex="-1"></a><span class="in">git push</span></span>
-<span id="cb9-298"><a href="#cb9-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-299"><a href="#cb9-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-300"><a href="#cb9-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-301"><a href="#cb9-301" aria-hidden="true" tabindex="-1"></a>Sur le répertoire distant, ici sur Gitlab, les deux fichiers ont bien été ajoutés.</span>
-<span id="cb9-302"><a href="#cb9-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-303"><a href="#cb9-303" aria-hidden="true" tabindex="-1"></a>::: {.center}  </span>
-<span id="cb9-304"><a href="#cb9-304" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-305"><a href="#cb9-305" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img16.png)</span>{width=75%}</span>
-<span id="cb9-306"><a href="#cb9-306" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-307"><a href="#cb9-307" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-308"><a href="#cb9-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-309"><a href="#cb9-309" aria-hidden="true" tabindex="-1"></a><span class="fu">### Du distant au local: pull</span></span>
-<span id="cb9-310"><a href="#cb9-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-311"><a href="#cb9-311" aria-hidden="true" tabindex="-1"></a>Hors travail via des branches secondaires qui seront fusionnées avec la branche principale, il n'est pas conseillé de modifier directement les fichiers du projet dans répertoire distant. Si c'est le cas^<span class="co">[</span><span class="ot">Classique pour les fichiers Readme.md</span><span class="co">]</span>, il ne sera pas possible de faire remonter directement avec un **PUSH** le local vers le distant. Il faudra au préalable une synchronisation descendante du distant vers le local. Cette opération est réalisée avec un **PULL**. </span>
-<span id="cb9-312"><a href="#cb9-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-313"><a href="#cb9-313" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
-<span id="cb9-314"><a href="#cb9-314" aria-hidden="true" tabindex="-1"></a>S'il n'est pas conseillé d'éditer un fichier manuellement sur le distant, ça l'est est encore moins de modifier sans synchronisation préalable un même fichier sur le local **et** le distant à partir d'une même version du projet. Sinon cela sera un passage assuré vers la case [**CONFLICT**]{style="color:#e74c3c"}... et il faudra choisir entre les deux versions modifiées.</span>
-<span id="cb9-315"><a href="#cb9-315" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-316"><a href="#cb9-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-317"><a href="#cb9-317" aria-hidden="true" tabindex="-1"></a>Exemple en modifiant le fichier README.md dans le dépôt distant (gitlab).</span>
-<span id="cb9-318"><a href="#cb9-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-319"><a href="#cb9-319" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le dépôt distant, aller sur le fichier README.md {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb9-320"><a href="#cb9-320" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur le bouton **edit** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb9-321"><a href="#cb9-321" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur Gitlab préférer l'option **Edit a single file** {{&lt; fa solid turn-down &gt;}}</span>
-<span id="cb9-322"><a href="#cb9-322" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On versionne avec le bouton **Commit change** en bas  (ici *Update Readme.md*, mais on peut changer le titre du commit).  </span>
-<span id="cb9-323"><a href="#cb9-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-324"><a href="#cb9-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-325"><a href="#cb9-325" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">30,30,30,</span><span class="co">]</span>"  layout-valign="bottom"}</span>
-<span id="cb9-326"><a href="#cb9-326" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-327"><a href="#cb9-327" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img17.png)</span>{group="gl1"}   </span>
-<span id="cb9-328"><a href="#cb9-328" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-329"><a href="#cb9-329" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-330"><a href="#cb9-330" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img18.png)</span>{group="gl1"}</span>
-<span id="cb9-331"><a href="#cb9-331" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-332"><a href="#cb9-332" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-333"><a href="#cb9-333" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img19.png)</span>{group="gl1"}</span>
-<span id="cb9-334"><a href="#cb9-334" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-335"><a href="#cb9-335" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb9-336"><a href="#cb9-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-337"><a href="#cb9-337" aria-hidden="true" tabindex="-1"></a>De retour sur le répertoire local, si on veut  **PUSHER** des modifications locales (hors fichier Readme.md), l'opération sera rejetée. Il faut donc que les modifications apportées aux dépôt distant soient récupérées en local.</span>
-<span id="cb9-338"><a href="#cb9-338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-339"><a href="#cb9-339" aria-hidden="true" tabindex="-1"></a>Par exemple ici, on a ajouté un nouveau fichier: *ProgrammeR.R*. La fenêtre indique que le push a été rejeté: </span>
-<span id="cb9-340"><a href="#cb9-340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-341"><a href="#cb9-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-342"><a href="#cb9-342" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
-<span id="cb9-343"><a href="#cb9-343" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
-<span id="cb9-344"><a href="#cb9-344" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img24.png)</span>{width=75%}</span>
-<span id="cb9-345"><a href="#cb9-345" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-346"><a href="#cb9-346" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-347"><a href="#cb9-347" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-348"><a href="#cb9-348" aria-hidden="true" tabindex="-1"></a>Pour effectuer cette récupération des éléments modifiés directement dans le dépôt distant et mettre les deux répertoire sur un même niveau, il faut effectuer un **PULL**: </span>
-<span id="cb9-349"><a href="#cb9-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-350"><a href="#cb9-350" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via l'onglet Git + cliquer sur **PULL**.</span>
-<span id="cb9-351"><a href="#cb9-351" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via la fenêtre commit + cliquer sur **PULL**.</span>
-<span id="cb9-352"><a href="#cb9-352" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via le terminal utiliser la commande **`git pull`**.</span>
-<span id="cb9-353"><a href="#cb9-353" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-354"><a href="#cb9-354" aria-hidden="true" tabindex="-1"></a>Une fois cette opération réalisée, le nouveau programme pourra êtré déposé sur le dépôt distant.</span>
-<span id="cb9-355"><a href="#cb9-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-356"><a href="#cb9-356" aria-hidden="true" tabindex="-1"></a>Avec les commandes: </span>
-<span id="cb9-357"><a href="#cb9-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-358"><a href="#cb9-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md filename="récupération des modifications dans le dépôt distant" }</span></span>
-<span id="cb9-359"><a href="#cb9-359" aria-hidden="true" tabindex="-1"></a><span class="in">git pull</span></span>
-<span id="cb9-360"><a href="#cb9-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-361"><a href="#cb9-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-362"><a href="#cb9-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-363"><a href="#cb9-363" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md filename="Ajout d'un fichier dans le dépôt distant "}</span></span>
-<span id="cb9-364"><a href="#cb9-364" aria-hidden="true" tabindex="-1"></a><span class="in">git add .</span></span>
-<span id="cb9-365"><a href="#cb9-365" aria-hidden="true" tabindex="-1"></a><span class="in">git commit --m "Add ProgrammeR.R"</span></span>
-<span id="cb9-366"><a href="#cb9-366" aria-hidden="true" tabindex="-1"></a><span class="in">git push</span></span>
-<span id="cb9-367"><a href="#cb9-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-368"><a href="#cb9-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-369"><a href="#cb9-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-370"><a href="#cb9-370" aria-hidden="true" tabindex="-1"></a>::: callout-important </span>
-<span id="cb9-371"><a href="#cb9-371" aria-hidden="true" tabindex="-1"></a>L'opération **PULL** ne supprimera pas le fichier ProgrammeR.R créé dans le répertoire local et absent du dépôt distant. Il n'existe pas en distant, donc pas de delta sur ce niveau. La mise à jour ne concernera que la modification du fichier **README.md**.  </span>
-<span id="cb9-372"><a href="#cb9-372" aria-hidden="true" tabindex="-1"></a>Par contre, si on supprime un fichier sur le dépôt distant et qu'il est présent sur le répertoire local, il sera supprimé du local lors du PULL. En cas de regret pas de panique, la suppression aura fait l'objet d'un commit et on pourra donc toujours récupérer cet éléments supprimé.  </span>
-<span id="cb9-373"><a href="#cb9-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-374"><a href="#cb9-374" aria-hidden="true" tabindex="-1"></a>Si en local on avait modifié le fichier Readme, à une virgule ou à un espace près, lui même modifié préalablement sur le dépôt distant....CONFLICT.</span>
-<span id="cb9-375"><a href="#cb9-375" aria-hidden="true" tabindex="-1"></a>Et c'est justement ce qu'on va faire dans la section suivante. </span>
-<span id="cb9-376"><a href="#cb9-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-377"><a href="#cb9-377" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-378"><a href="#cb9-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-379"><a href="#cb9-379" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conflit et sa résolution</span></span>
-<span id="cb9-380"><a href="#cb9-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-381"><a href="#cb9-381" aria-hidden="true" tabindex="-1"></a>On va générer un conflit très simple sur un fichier readme.md en l'éditant dans un premier temps sur le dépôt distant puis sur le répertoire local, sans avoir effectué un pull.</span>
-<span id="cb9-382"><a href="#cb9-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-383"><a href="#cb9-383" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Edition sur le dépot distant avec le texte "*Modification du readme dans gitlab*"</span>
-<span id="cb9-384"><a href="#cb9-384" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Application d'un commit</span>
-<span id="cb9-385"><a href="#cb9-385" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Edition sur le répertoire local avec le texte "*Modification du readme dans RStudio*"</span>
-<span id="cb9-386"><a href="#cb9-386" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Tentative de pusher cet modification dans le répertoire distant</span>
-<span id="cb9-387"><a href="#cb9-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-388"><a href="#cb9-388" aria-hidden="true" tabindex="-1"></a>Résultat: </span>
-<span id="cb9-389"><a href="#cb9-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-390"><a href="#cb9-390" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>un message d'erreur apparait signalant le rejet du push.</span>
-<span id="cb9-391"><a href="#cb9-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-392"><a href="#cb9-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-393"><a href="#cb9-393" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si on fait <span class="in">`git pull`</span>: </span>
-<span id="cb9-394"><a href="#cb9-394" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>le fichier readme dans la fenêtre git est tagé en jaune</span>
-<span id="cb9-395"><a href="#cb9-395" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Dans l'éditeur, le fichier est modifié: la première modification dans gitlab est reportée.</span>
-<span id="cb9-396"><a href="#cb9-396" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Il va falloir choisir qu'elle modification on veur apporter au projet.</span>
-<span id="cb9-397"><a href="#cb9-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-398"><a href="#cb9-398" aria-hidden="true" tabindex="-1"></a>L'état dans RStudio au moment du conflit  </span>
-<span id="cb9-399"><a href="#cb9-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-400"><a href="#cb9-400" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
-<span id="cb9-401"><a href="#cb9-401" aria-hidden="true" tabindex="-1"></a>::: {box.img}</span>
-<span id="cb9-402"><a href="#cb9-402" aria-hidden="true" tabindex="-1"></a><span class="al">![Conflit](img2/conflit1.png)</span></span>
-<span id="cb9-403"><a href="#cb9-403" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-404"><a href="#cb9-404" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-405"><a href="#cb9-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-406"><a href="#cb9-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-407"><a href="#cb9-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-408"><a href="#cb9-408" aria-hidden="true" tabindex="-1"></a>L'ensemble des opérations effectuées:  </span>
-<span id="cb9-409"><a href="#cb9-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-410"><a href="#cb9-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-411"><a href="#cb9-411" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
-<span id="cb9-412"><a href="#cb9-412" aria-hidden="true" tabindex="-1"></a>::: {box.img}</span>
-<span id="cb9-413"><a href="#cb9-413" aria-hidden="true" tabindex="-1"></a><span class="al">![Conflit](img2/video_conflit1.gif)</span></span>
-<span id="cb9-414"><a href="#cb9-414" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-415"><a href="#cb9-415" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-416"><a href="#cb9-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-417"><a href="#cb9-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-418"><a href="#cb9-418" aria-hidden="true" tabindex="-1"></a>Dans le fichier readme.md la partie en conflit est balisée et la modification effectuée en amont sur gitlab a été reportée</span>
-<span id="cb9-419"><a href="#cb9-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-420"><a href="#cb9-420" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf filename="Report du conflit dans le fichier Readme.md }</span></span>
-<span id="cb9-421"><a href="#cb9-421" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span></span>
-<span id="cb9-422"><a href="#cb9-422" aria-hidden="true" tabindex="-1"></a><span class="in">  Modification du readme dans RStudio</span></span>
-<span id="cb9-423"><a href="#cb9-423" aria-hidden="true" tabindex="-1"></a><span class="in">=======</span></span>
-<span id="cb9-424"><a href="#cb9-424" aria-hidden="true" tabindex="-1"></a><span class="in">Modification du readme dans gitlab  </span></span>
-<span id="cb9-425"><a href="#cb9-425" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 7c9442d47454d13263230b659af853eeed84afe5</span></span>
-<span id="cb9-426"><a href="#cb9-426" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-427"><a href="#cb9-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-428"><a href="#cb9-428" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-429"><a href="#cb9-429" aria-hidden="true" tabindex="-1"></a>**Résolution du conflit**</span>
-<span id="cb9-430"><a href="#cb9-430" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-431"><a href="#cb9-431" aria-hidden="true" tabindex="-1"></a>On va donc devoir choisir entre les deux modifications. Ici on va prendre celle réaliser sur RStudio: </span>
-<span id="cb9-432"><a href="#cb9-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-433"><a href="#cb9-433" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On conserve le texte de la modification RStudio</span>
-<span id="cb9-434"><a href="#cb9-434" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On supprime les balises</span>
-<span id="cb9-435"><a href="#cb9-435" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-436"><a href="#cb9-436" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
-<span id="cb9-437"><a href="#cb9-437" aria-hidden="true" tabindex="-1"></a><span class="in">  Modification du readme dans RStudio</span></span>
-<span id="cb9-438"><a href="#cb9-438" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-439"><a href="#cb9-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-440"><a href="#cb9-440" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On refait l'opération de transfert du local au distant</span>
-<span id="cb9-441"><a href="#cb9-441" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-442"><a href="#cb9-442" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
-<span id="cb9-443"><a href="#cb9-443" aria-hidden="true" tabindex="-1"></a>::: {box.img}</span>
-<span id="cb9-444"><a href="#cb9-444" aria-hidden="true" tabindex="-1"></a><span class="al">![Conflit](img2/video_conflit2.gif)</span></span>
-<span id="cb9-445"><a href="#cb9-445" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-446"><a href="#cb9-446" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-447"><a href="#cb9-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-448"><a href="#cb9-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-449"><a href="#cb9-449" aria-hidden="true" tabindex="-1"></a>Et tout rentre dans l'ordre <span class="sc">\(</span>^_^)/</span>
-<span id="cb9-450"><a href="#cb9-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-451"><a href="#cb9-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-452"><a href="#cb9-452" aria-hidden="true" tabindex="-1"></a>Cela va nous amener tout naturellement à parler du travail sur des branches secondaires à la branche principale. </span>
-<span id="cb9-453"><a href="#cb9-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-454"><a href="#cb9-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-455"><a href="#cb9-455" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction au travail sur les branches</span></span>
-<span id="cb9-456"><a href="#cb9-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-457"><a href="#cb9-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-458"><a href="#cb9-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-459"><a href="#cb9-459" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-460"><a href="#cb9-460" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Clonage, pull, push et branches</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Création d'un dépôt git et son clonage</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>Une fois la connection entre RStudio et une plateforme établie: </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Les opérations se feront toujours dans un projet.</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>La méthode la plus employées est la création du dépôt à distance, il est toutefois possible de tout réaliser via R (package usethis) si on est sur la plateforme Github</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">### Création d'un dépôt distant {#sec-glproj} </span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gitlab</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Se mettre sur **homepage** si nécessaire en cliquant sur l'icone gitlab {{&lt; fa brands gitlab&gt;}} (en haut à gauche)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur **New Project**</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>***Create blank project*** <span class="co">[</span><span class="ot">pour ce chapitre</span><span class="co">]</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>***Create from template*** <span class="co">[</span><span class="ot">pour le chapitre suivant</span><span class="co">]</span> </span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Création d'un dépôt sans utiliser de template   </span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>:::{.center}</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>:::{.box_img}</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img1.png)</span>{width=75%}</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Par défaut: le dépôt est en mode **private**. Il n'est visible que par les personnes collaborant au projet.</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Saisir un nom de dépôt.</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Option de l'url: </span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>On peut choisir son nom d'avatar après <span class="in">`https://gitlab.com/`</span></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Par défaut le dossier final est le nom du dépôt saisi. On peut le changer.</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Private/Public: </span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Par défaut **private**. On peut le passer en mode **public**.</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>On pourra changer ce mode  dans les paramètres du projet <span class="co">[</span><span class="ot">voir plus loin</span><span class="co">]</span>.</span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Garder la création d'un fichier **README.md**.</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>:::{.box_img} </span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img2.png)</span>{width=75%}</span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>:::{.box_img}</span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/video1.gif)</span>{width=75%}</span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Changer la visibilité et supprimer un projet</span></span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Aller dans la barre verticale à gauche: **Setting** {{&lt; fa solid arrow-right &gt;}} **General**</span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Visibilité:  Passer de public à private et inversement: </span>
+<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Cliquer sur **expand** **Visibility, project features, permissions** {{&lt; fa solid arrow-right &gt;}} **Project visibility **.</span>
+<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Supprimer un dépôt: Tout en bas de la page aller sur **Advanced**.  </span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a>::: {.box_img}  </span>
+<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/video2.gif)</span>{width=75%}</span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Fichier .gitignore</span></span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>Ce fichier est important. A la création du dépôt distant, il n'est pas généré. Pas de soucis, avec Rstudio il sera automatiquement ajouté à votre répertoire local lors de la création du projet, avec déjà certains fichiers exclus des transferts (.Rproj.user, .Rhistory, .RData, .Ruserdata). </span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a><span class="fu">### Github </span></span>
+<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur la page du profil, aller sur **Repositories** et cliquer sur **New**.</span>
+<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Donner un nom au répertoire.</span>
+<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sélectionner le type de visibilité (par défaut **Public**). On pourra changer à souhait de visibilité dans les paramètres du dépôt (Settings).</span>
+<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sélectionner l'ajout un fichier README.md.</span>
+<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Vous pouvez ajouter un fichier .gitignore (dont un avec un template R), mais celui ci sera généré automatiquement avec la création du projet sous RStudio.</span>
+<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/video3.gif)</span>{width=75%}</span>
+<span id="cb20-90"><a href="#cb20-90" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clonage d'un dépôt distant dans RStudio</span></span>
+<span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Les manipulations sont strictement identiques avec Gitlab et Github.</span>
+<span id="cb20-99"><a href="#cb20-99" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Le clonage du répertoire distant dans Rstudio se fera ici via protocole HTTPS.</span>
+<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a>Les étapes:</span>
+<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### Dans le répertoire distant</span></span>
+<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le dépôt cliquer sur l'icône **Code** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Copier le lien du dépôt (ici via https).</span>
+<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img3.png)</span>{width=75%}</span>
+<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-114"><a href="#cb20-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a><span class="fu">### En local dans RStudio</span></span>
+<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Créer un nouveau projet: File {{&lt; fa solid arrow-right &gt;}} New project </span>
+<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sélectionner **Version control** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Git {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Coller le lien récupéré dans le dépôt {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sélectionner un répertoire pour le projet  {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb20-126"><a href="#cb20-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-127"><a href="#cb20-127" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Créer le projet</span>
+<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">30,-1.5,30,-1.5,30</span><span class="co">]</span>" layout-valign="bottom" }</span>
+<span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img4.png)</span>{group="rs1"}</span>
+<span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img5.png)</span>{group="rs1"}</span>
+<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-139"><a href="#cb20-139" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img6.png)</span>{group="rs1"}</span>
+<span id="cb20-141"><a href="#cb20-141" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-144"><a href="#cb20-144" aria-hidden="true" tabindex="-1"></a>::: {layout="<span class="co">[</span><span class="ot">30,-1.5,30,-1.5,30</span><span class="co">]</span>"}</span>
+<span id="cb20-145"><a href="#cb20-145" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-146"><a href="#cb20-146" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img7.png)</span>{group="rs1"}</span>
+<span id="cb20-147"><a href="#cb20-147" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-148"><a href="#cb20-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-150"><a href="#cb20-150" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img8.png)</span>{group="rs1"}</span>
+<span id="cb20-151"><a href="#cb20-151" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-152"><a href="#cb20-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-153"><a href="#cb20-153" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-154"><a href="#cb20-154" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img9.png)</span>{group="rs1"}</span>
+<span id="cb20-155"><a href="#cb20-155" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-156"><a href="#cb20-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-157"><a href="#cb20-157" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb20-158"><a href="#cb20-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-159"><a href="#cb20-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-160"><a href="#cb20-160" aria-hidden="true" tabindex="-1"></a>Lorsque le projet a été créé après clonage du dépôt distant:</span>
+<span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a>Un onglet Git apparait dans l'environnement: </span>
+<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-164"><a href="#cb20-164" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un menu permet d'effectuer directement des opérations de versionnage et de transferts de fichiers.</span>
+<span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Des fichiers sont affichés:</span>
+<span id="cb20-167"><a href="#cb20-167" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Les  fichiers  générés à la création du projet comme *.gitignore* et ici *test_support.Rproj*. Ce sont donc des nouveaux éléments par rapport au dépot distant. </span>
+<span id="cb20-168"><a href="#cb20-168" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Des fichiers ne sont pas affichés:   </span>
+<span id="cb20-169"><a href="#cb20-169" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Le fichier *README.md* généré lors de la création du dépôt distant puis cloné sur le répertoire local. </span>
+<span id="cb20-170"><a href="#cb20-170" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Les fichiers renseignés automatiquement dans le fichier .gitignore: *.Rproj.user*, *.Rhistory*, *.RData*, *.Ruserdata*.</span>
+<span id="cb20-171"><a href="#cb20-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-172"><a href="#cb20-172" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On peut toujours visualiser l'ensemble des fichiers du projet sont dans la fenêtre *Files*. </span>
+<span id="cb20-173"><a href="#cb20-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-174"><a href="#cb20-174" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le terminal (bash):</span>
+<span id="cb20-175"><a href="#cb20-175" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Le répertoire est calé sur la racine du projet. </span>
+<span id="cb20-176"><a href="#cb20-176" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>La branche de destination est indiquée entre parenthèses, <span class="in">`main`</span> ou <span class="in">`(master)`</span>.</span>
+<span id="cb20-177"><a href="#cb20-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-178"><a href="#cb20-178" aria-hidden="true" tabindex="-1"></a>A ce stade, on peut déjà mettre à jour le répertoire distant avec les éléments générés lors de la création du projet.</span>
+<span id="cb20-179"><a href="#cb20-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-180"><a href="#cb20-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-181"><a href="#cb20-181" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=TRUE}</span>
+<span id="cb20-182"><a href="#cb20-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-183"><a href="#cb20-183" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Générer un projet et créé un dépot sur Github à partir de R avec le package `usethis`</span></span>
+<span id="cb20-184"><a href="#cb20-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-185"><a href="#cb20-185" aria-hidden="true" tabindex="-1"></a>A faire peut être sous forme de fiche pour ne pas alourdir ce support. Avec trois fonctions du package <span class="in">`usethis`</span>, on peut générer relativement rapidement un dépôt github associé à un projet tout en restant sur la console R.  </span>
+<span id="cb20-186"><a href="#cb20-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a>Rapidement les différentes étapes:  </span>
+<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-189"><a href="#cb20-189" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Installation et chargement du package <span class="in">`usethis`</span>.</span>
+<span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Création d'un projet R:  fonction <span class="in">`create_project()`</span>.</span>
+<span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Création d'une instance git dans le projet: <span class="in">`use_git()`</span>.</span>
+<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Création d'un dépôt distant sur github:  <span class="in">`use_github()`</span>.</span>
+<span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a>Prévoir la création de deux sessions RStudio lors de ces étapes.</span>
+<span id="cb20-195"><a href="#cb20-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-196"><a href="#cb20-196" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a><span class="fu">## Les principales opérations git pour transférer des fichiers</span></span>
+<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-203"><a href="#cb20-203" aria-hidden="true" tabindex="-1"></a>Encore une fois, on reste ici sur un objectif de déploiement d'une documentation. Les commandes <span class="in">`git status`</span>, <span class="in">`git add`</span> ou <span class="in">`git commit`</span> sont avant tout des opérations permettant d'effectuer le versionnage du projet: la première pour vérifier le statut des fichiers (modification, création, suppression), la seconde pour sélectionner des fichiers à versionner, et la troisième pour figer un état du projet. </span>
+<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-205"><a href="#cb20-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a>Pour des raisons pédagogiques on privilégiera dans un premier temps l'exécution par clic bouton dans la fenêtre git de Rstudio. Néanmoins, on peut conseiller de passer directement par les commandes, par défaut très simple, via le terminal. </span>
+<span id="cb20-207"><a href="#cb20-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-208"><a href="#cb20-208" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-209"><a href="#cb20-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-210"><a href="#cb20-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-211"><a href="#cb20-211" aria-hidden="true" tabindex="-1"></a><span class="fu">### Statut et séléction des fichiers</span></span>
+<span id="cb20-212"><a href="#cb20-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-213"><a href="#cb20-213" aria-hidden="true" tabindex="-1"></a>Dans l'onglet **Git** on peut sélectionner les fichiers qui vont être transférés sur le dépôt distant en les cochant (colonne **Staged**). Leur statut passe de **?** (jaune) à **A** (Added).</span>
+<span id="cb20-214"><a href="#cb20-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-215"><a href="#cb20-215" aria-hidden="true" tabindex="-1"></a>Remarque: le statut des fichiers peut être visualisé dans le terminal avec la commande **`git status`**. Cette commande ne réalise aucune opération.</span>
+<span id="cb20-216"><a href="#cb20-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-217"><a href="#cb20-217" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-218"><a href="#cb20-218" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-219"><a href="#cb20-219" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img10.png)</span>{width=75%}</span>
+<span id="cb20-220"><a href="#cb20-220" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb20-221"><a href="#cb20-221" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb20-222"><a href="#cb20-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-223"><a href="#cb20-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-224"><a href="#cb20-224" aria-hidden="true" tabindex="-1"></a>S'il y a beaucoup de fichiers^<span class="co">[</span><span class="ot">Dans un projet Quarto de type website c'est le cas lorsqu'on réalise une compilation d'ensemble</span><span class="co">]</span>, il est préférable de passer directement par la ligne de commande dans le terminal, surtout si on souhaite sélectionner l'ensemble.</span>
+<span id="cb20-225"><a href="#cb20-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-226"><a href="#cb20-226" aria-hidden="true" tabindex="-1"></a>Dans le terminal, pour sélectionner et ajouter un ou plusieurs fichiers au versionnage:</span>
+<span id="cb20-227"><a href="#cb20-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-228"><a href="#cb20-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash filename="Ajout d'un fichier"}</span></span>
+<span id="cb20-229"><a href="#cb20-229" aria-hidden="true" tabindex="-1"></a><span class="in">git add nom_fichier</span></span>
+<span id="cb20-230"><a href="#cb20-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-231"><a href="#cb20-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-232"><a href="#cb20-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-233"><a href="#cb20-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash filename="Ajout de tous les éléments modifiés"}</span></span>
+<span id="cb20-234"><a href="#cb20-234" aria-hidden="true" tabindex="-1"></a><span class="in">git add .</span></span>
+<span id="cb20-235"><a href="#cb20-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-236"><a href="#cb20-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-237"><a href="#cb20-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-238"><a href="#cb20-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-239"><a href="#cb20-239" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fixer un état de la chronologie du projet: commit </span></span>
+<span id="cb20-240"><a href="#cb20-240" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-241"><a href="#cb20-241" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans l'onglet GIT: cliquer sur **Commit** . </span>
+<span id="cb20-242"><a href="#cb20-242" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On remarque que le contenu texte des fichiers est affiché. Ici tout est en fond vert car ce sont des nouveaux fichiers et non des modifications de fichiers existants.</span>
+<span id="cb20-243"><a href="#cb20-243" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On doit obligatoire renseigner l'objet de ce *commit* dans la fenêtre **Commit message**: par exemple ici "*First add*". On valide avec bouton **Commit**.</span>
+<span id="cb20-244"><a href="#cb20-244" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-245"><a href="#cb20-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-246"><a href="#cb20-246" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">30,-1.5,30,-1.5,30</span><span class="co">]</span>" layout-valign="bottom"}</span>
+<span id="cb20-247"><a href="#cb20-247" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-248"><a href="#cb20-248" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img11.png)</span>{group="rs2"} </span>
+<span id="cb20-249"><a href="#cb20-249" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb20-250"><a href="#cb20-250" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-251"><a href="#cb20-251" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img12.png)</span>{group="rs2"}   </span>
+<span id="cb20-252"><a href="#cb20-252" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-253"><a href="#cb20-253" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-254"><a href="#cb20-254" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img13.png)</span>{group="rs2"}  </span>
+<span id="cb20-255"><a href="#cb20-255" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-256"><a href="#cb20-256" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb20-257"><a href="#cb20-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-258"><a href="#cb20-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-259"><a href="#cb20-259" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Commande du terminal:</span>
+<span id="cb20-260"><a href="#cb20-260" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-261"><a href="#cb20-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash filename="Syntaxe de la commande commit" }  </span></span>
+<span id="cb20-262"><a href="#cb20-262" aria-hidden="true" tabindex="-1"></a><span class="in">git commit -m "message/titre"</span></span>
+<span id="cb20-263"><a href="#cb20-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>    </span>
+<span id="cb20-264"><a href="#cb20-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-265"><a href="#cb20-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-266"><a href="#cb20-266" aria-hidden="true" tabindex="-1"></a><span class="fu">### Transférer les fichiers du local au distant: push</span></span>
+<span id="cb20-267"><a href="#cb20-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-268"><a href="#cb20-268" aria-hidden="true" tabindex="-1"></a>Pour effectuer ce transfert on fait un **PUSH**.</span>
+<span id="cb20-269"><a href="#cb20-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-270"><a href="#cb20-270" aria-hidden="true" tabindex="-1"></a>Fèche montante dans la fenêtre git ou dans la fenêtre commit.</span>
+<span id="cb20-271"><a href="#cb20-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-272"><a href="#cb20-272" aria-hidden="true" tabindex="-1"></a>::::: {.column width="75%"}</span>
+<span id="cb20-273"><a href="#cb20-273" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">40,-2,40,</span><span class="co">]</span>"  layout-valign="bottom"}</span>
+<span id="cb20-274"><a href="#cb20-274" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-275"><a href="#cb20-275" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img14.png)</span>{group="rs3"}  </span>
+<span id="cb20-276"><a href="#cb20-276" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-277"><a href="#cb20-277" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-278"><a href="#cb20-278" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img15.png)</span>{group="rs3"}   </span>
+<span id="cb20-279"><a href="#cb20-279" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-280"><a href="#cb20-280" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb20-281"><a href="#cb20-281" aria-hidden="true" tabindex="-1"></a>:::::</span>
+<span id="cb20-282"><a href="#cb20-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-283"><a href="#cb20-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-284"><a href="#cb20-284" aria-hidden="true" tabindex="-1"></a>Dans le terminal: </span>
+<span id="cb20-285"><a href="#cb20-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-286"><a href="#cb20-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash filename="Transférer les fichiers"}</span></span>
+<span id="cb20-287"><a href="#cb20-287" aria-hidden="true" tabindex="-1"></a><span class="in">git push</span></span>
+<span id="cb20-288"><a href="#cb20-288" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-289"><a href="#cb20-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-290"><a href="#cb20-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-291"><a href="#cb20-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-292"><a href="#cb20-292" aria-hidden="true" tabindex="-1"></a>En résumé le transfert peut être effectué rapidement dans le terminal avec 3 commandes, <span class="in">`git status`</span> n'ayant qu'une visée informative. Si on sélectionne tous les fichiers modifié depuis le précédents commit:</span>
+<span id="cb20-293"><a href="#cb20-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-294"><a href="#cb20-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
+<span id="cb20-295"><a href="#cb20-295" aria-hidden="true" tabindex="-1"></a><span class="in">git add .</span></span>
+<span id="cb20-296"><a href="#cb20-296" aria-hidden="true" tabindex="-1"></a><span class="in">git commit --m "objet/titre"</span></span>
+<span id="cb20-297"><a href="#cb20-297" aria-hidden="true" tabindex="-1"></a><span class="in">git push</span></span>
+<span id="cb20-298"><a href="#cb20-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-299"><a href="#cb20-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-300"><a href="#cb20-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-301"><a href="#cb20-301" aria-hidden="true" tabindex="-1"></a>Sur le répertoire distant, ici sur Gitlab, les deux fichiers ont bien été ajoutés.</span>
+<span id="cb20-302"><a href="#cb20-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-303"><a href="#cb20-303" aria-hidden="true" tabindex="-1"></a>::: {.center}  </span>
+<span id="cb20-304"><a href="#cb20-304" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-305"><a href="#cb20-305" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img16.png)</span>{width=75%}</span>
+<span id="cb20-306"><a href="#cb20-306" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-307"><a href="#cb20-307" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-308"><a href="#cb20-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-309"><a href="#cb20-309" aria-hidden="true" tabindex="-1"></a><span class="fu">### Du distant au local: pull</span></span>
+<span id="cb20-310"><a href="#cb20-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-311"><a href="#cb20-311" aria-hidden="true" tabindex="-1"></a>Hors travail via des branches secondaires qui seront fusionnées avec la branche principale, il n'est pas conseillé de modifier directement les fichiers du projet dans répertoire distant. Si c'est le cas^<span class="co">[</span><span class="ot">Classique pour les fichiers Readme.md</span><span class="co">]</span>, il ne sera pas possible de faire remonter directement avec un **PUSH** le local vers le distant. Il faudra au préalable une synchronisation descendante du distant vers le local. Cette opération est réalisée avec un **PULL**. </span>
+<span id="cb20-312"><a href="#cb20-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-313"><a href="#cb20-313" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb20-314"><a href="#cb20-314" aria-hidden="true" tabindex="-1"></a>S'il n'est pas conseillé d'éditer un fichier manuellement sur le distant, ça l'est est encore moins de modifier sans synchronisation préalable un même fichier sur le local **et** le distant à partir d'une même version du projet. Sinon cela sera un passage assuré vers la case [**CONFLICT**]{style="color:#e74c3c"}... et il faudra choisir entre les deux versions modifiées.</span>
+<span id="cb20-315"><a href="#cb20-315" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-316"><a href="#cb20-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-317"><a href="#cb20-317" aria-hidden="true" tabindex="-1"></a>Exemple en modifiant le fichier README.md dans le dépôt distant (gitlab).</span>
+<span id="cb20-318"><a href="#cb20-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-319"><a href="#cb20-319" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le dépôt distant, aller sur le fichier README.md {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb20-320"><a href="#cb20-320" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Cliquer sur le bouton **edit** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb20-321"><a href="#cb20-321" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sur Gitlab préférer l'option **Edit a single file** {{&lt; fa solid turn-down &gt;}}</span>
+<span id="cb20-322"><a href="#cb20-322" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On versionne avec le bouton **Commit change** en bas  (ici *Update Readme.md*, mais on peut changer le titre du commit).  </span>
+<span id="cb20-323"><a href="#cb20-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-324"><a href="#cb20-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-325"><a href="#cb20-325" aria-hidden="true" tabindex="-1"></a>:::: {layout="<span class="co">[</span><span class="ot">30,30,30,</span><span class="co">]</span>"  layout-valign="bottom"}</span>
+<span id="cb20-326"><a href="#cb20-326" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-327"><a href="#cb20-327" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img17.png)</span>{group="gl1"}   </span>
+<span id="cb20-328"><a href="#cb20-328" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-329"><a href="#cb20-329" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-330"><a href="#cb20-330" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img18.png)</span>{group="gl1"}</span>
+<span id="cb20-331"><a href="#cb20-331" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-332"><a href="#cb20-332" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-333"><a href="#cb20-333" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img19.png)</span>{group="gl1"}</span>
+<span id="cb20-334"><a href="#cb20-334" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-335"><a href="#cb20-335" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb20-336"><a href="#cb20-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-337"><a href="#cb20-337" aria-hidden="true" tabindex="-1"></a>De retour sur le répertoire local, si on veut  **PUSHER** des modifications locales (hors fichier Readme.md), l'opération sera rejetée. Il faut donc que les modifications apportées aux dépôt distant soient récupérées en local.</span>
+<span id="cb20-338"><a href="#cb20-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-339"><a href="#cb20-339" aria-hidden="true" tabindex="-1"></a>Par exemple ici, on a ajouté un nouveau fichier: *ProgrammeR.R*. La fenêtre indique que le push a été rejeté: </span>
+<span id="cb20-340"><a href="#cb20-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-341"><a href="#cb20-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-342"><a href="#cb20-342" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-343"><a href="#cb20-343" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-344"><a href="#cb20-344" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/img24.png)</span>{width=75%}</span>
+<span id="cb20-345"><a href="#cb20-345" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-346"><a href="#cb20-346" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-347"><a href="#cb20-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-348"><a href="#cb20-348" aria-hidden="true" tabindex="-1"></a>Pour effectuer cette récupération des éléments modifiés directement dans le dépôt distant et mettre les deux répertoire sur un même niveau, il faut effectuer un **PULL**: </span>
+<span id="cb20-349"><a href="#cb20-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-350"><a href="#cb20-350" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via l'onglet Git + cliquer sur **PULL**.</span>
+<span id="cb20-351"><a href="#cb20-351" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via la fenêtre commit + cliquer sur **PULL**.</span>
+<span id="cb20-352"><a href="#cb20-352" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Via le terminal utiliser la commande **`git pull`**.</span>
+<span id="cb20-353"><a href="#cb20-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-354"><a href="#cb20-354" aria-hidden="true" tabindex="-1"></a>Une fois cette opération réalisée, le nouveau programme pourra êtré déposé sur le dépôt distant.</span>
+<span id="cb20-355"><a href="#cb20-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-356"><a href="#cb20-356" aria-hidden="true" tabindex="-1"></a>Avec les commandes: </span>
+<span id="cb20-357"><a href="#cb20-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-358"><a href="#cb20-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md filename="récupération des modifications dans le dépôt distant" }</span></span>
+<span id="cb20-359"><a href="#cb20-359" aria-hidden="true" tabindex="-1"></a><span class="in">git pull</span></span>
+<span id="cb20-360"><a href="#cb20-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-361"><a href="#cb20-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-362"><a href="#cb20-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-363"><a href="#cb20-363" aria-hidden="true" tabindex="-1"></a><span class="in">```{.md filename="Ajout d'un fichier dans le dépôt distant "}</span></span>
+<span id="cb20-364"><a href="#cb20-364" aria-hidden="true" tabindex="-1"></a><span class="in">git add .</span></span>
+<span id="cb20-365"><a href="#cb20-365" aria-hidden="true" tabindex="-1"></a><span class="in">git commit --m "Add ProgrammeR.R"</span></span>
+<span id="cb20-366"><a href="#cb20-366" aria-hidden="true" tabindex="-1"></a><span class="in">git push</span></span>
+<span id="cb20-367"><a href="#cb20-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-368"><a href="#cb20-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-369"><a href="#cb20-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-370"><a href="#cb20-370" aria-hidden="true" tabindex="-1"></a>::: callout-important </span>
+<span id="cb20-371"><a href="#cb20-371" aria-hidden="true" tabindex="-1"></a>L'opération **PULL** ne supprimera pas le fichier ProgrammeR.R créé dans le répertoire local et absent du dépôt distant. Il n'existe pas en distant, donc pas de delta sur ce niveau. La mise à jour ne concernera que la modification du fichier **README.md**.  </span>
+<span id="cb20-372"><a href="#cb20-372" aria-hidden="true" tabindex="-1"></a>Par contre, si on supprime un fichier sur le dépôt distant et qu'il est présent sur le répertoire local, il sera supprimé du local lors du PULL. En cas de regret pas de panique, la suppression aura fait l'objet d'un commit et on pourra donc toujours récupérer cet éléments supprimé.  </span>
+<span id="cb20-373"><a href="#cb20-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-374"><a href="#cb20-374" aria-hidden="true" tabindex="-1"></a>Si en local on avait modifié le fichier Readme, à une virgule ou à un espace près, lui même modifié préalablement sur le dépôt distant....CONFLICT.</span>
+<span id="cb20-375"><a href="#cb20-375" aria-hidden="true" tabindex="-1"></a>Et c'est justement ce qu'on va faire dans la section suivante. </span>
+<span id="cb20-376"><a href="#cb20-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-377"><a href="#cb20-377" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-378"><a href="#cb20-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-379"><a href="#cb20-379" aria-hidden="true" tabindex="-1"></a><span class="fu">## Les conflits </span></span>
+<span id="cb20-380"><a href="#cb20-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-381"><a href="#cb20-381" aria-hidden="true" tabindex="-1"></a>On va générer un conflit très simple sur un fichier readme.md en l'éditant dans un premier temps sur le dépôt distant puis sur le répertoire local, sans avoir effectué un pull.</span>
+<span id="cb20-382"><a href="#cb20-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-383"><a href="#cb20-383" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Edition sur le dépot distant avec le texte "*Modification du readme dans gitlab*"</span>
+<span id="cb20-384"><a href="#cb20-384" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Application d'un commit</span>
+<span id="cb20-385"><a href="#cb20-385" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Edition sur le répertoire local avec le texte "*Modification du readme dans RStudio*"</span>
+<span id="cb20-386"><a href="#cb20-386" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Tentative de pusher cet modification dans le répertoire distant</span>
+<span id="cb20-387"><a href="#cb20-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-388"><a href="#cb20-388" aria-hidden="true" tabindex="-1"></a>Résultat: </span>
+<span id="cb20-389"><a href="#cb20-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-390"><a href="#cb20-390" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>un message d'erreur apparait signalant le rejet du push.</span>
+<span id="cb20-391"><a href="#cb20-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-392"><a href="#cb20-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-393"><a href="#cb20-393" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Si on fait <span class="in">`git pull`</span>: </span>
+<span id="cb20-394"><a href="#cb20-394" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>le fichier readme dans la fenêtre git est tagé en jaune</span>
+<span id="cb20-395"><a href="#cb20-395" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Dans l'éditeur, le fichier est modifié: la première modification dans gitlab est reportée.</span>
+<span id="cb20-396"><a href="#cb20-396" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Il va falloir choisir qu'elle modification on veur apporter au projet.</span>
+<span id="cb20-397"><a href="#cb20-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-398"><a href="#cb20-398" aria-hidden="true" tabindex="-1"></a>L'état dans RStudio au moment du conflit  </span>
+<span id="cb20-399"><a href="#cb20-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-400"><a href="#cb20-400" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb20-401"><a href="#cb20-401" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-402"><a href="#cb20-402" aria-hidden="true" tabindex="-1"></a><span class="al">![Conflit](img2/conflit1.png)</span></span>
+<span id="cb20-403"><a href="#cb20-403" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-404"><a href="#cb20-404" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-405"><a href="#cb20-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-406"><a href="#cb20-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-407"><a href="#cb20-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-408"><a href="#cb20-408" aria-hidden="true" tabindex="-1"></a>L'ensemble des opérations effectuées:  </span>
+<span id="cb20-409"><a href="#cb20-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-410"><a href="#cb20-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-411"><a href="#cb20-411" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb20-412"><a href="#cb20-412" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-413"><a href="#cb20-413" aria-hidden="true" tabindex="-1"></a><span class="al">![Résolution du conflit](img2/video_conflit1.gif)</span></span>
+<span id="cb20-414"><a href="#cb20-414" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-415"><a href="#cb20-415" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-416"><a href="#cb20-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-417"><a href="#cb20-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-418"><a href="#cb20-418" aria-hidden="true" tabindex="-1"></a>Dans le fichier readme.md la partie en conflit est balisée et la modification effectuée en amont sur gitlab a été reportée:</span>
+<span id="cb20-419"><a href="#cb20-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-420"><a href="#cb20-420" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb20-421"><a href="#cb20-421" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span></span>
+<span id="cb20-422"><a href="#cb20-422" aria-hidden="true" tabindex="-1"></a><span class="in">  Modification du readme dans RStudio</span></span>
+<span id="cb20-423"><a href="#cb20-423" aria-hidden="true" tabindex="-1"></a><span class="in">=======</span></span>
+<span id="cb20-424"><a href="#cb20-424" aria-hidden="true" tabindex="-1"></a><span class="in">Modification du readme dans gitlab  </span></span>
+<span id="cb20-425"><a href="#cb20-425" aria-hidden="true" tabindex="-1"></a><span class="in">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 7c9442d47454d13263230b659af853eeed84afe5</span></span>
+<span id="cb20-426"><a href="#cb20-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-427"><a href="#cb20-427" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-428"><a href="#cb20-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-429"><a href="#cb20-429" aria-hidden="true" tabindex="-1"></a>**Résolution du conflit**</span>
+<span id="cb20-430"><a href="#cb20-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-431"><a href="#cb20-431" aria-hidden="true" tabindex="-1"></a>On va donc devoir choisir entre les deux modifications. Ici on va prendre celle réaliser sur RStudio: </span>
+<span id="cb20-432"><a href="#cb20-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-433"><a href="#cb20-433" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On conserve le texte de la modification RStudio</span>
+<span id="cb20-434"><a href="#cb20-434" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On supprime les balises</span>
+<span id="cb20-435"><a href="#cb20-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-436"><a href="#cb20-436" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
+<span id="cb20-437"><a href="#cb20-437" aria-hidden="true" tabindex="-1"></a><span class="in">  Modification du readme dans RStudio</span></span>
+<span id="cb20-438"><a href="#cb20-438" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-439"><a href="#cb20-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-440"><a href="#cb20-440" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On refait l'opération de transfert du local au distant</span>
+<span id="cb20-441"><a href="#cb20-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-442"><a href="#cb20-442" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb20-443"><a href="#cb20-443" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-444"><a href="#cb20-444" aria-hidden="true" tabindex="-1"></a><span class="al">![Conflit](img2/video_conflit2.gif)</span></span>
+<span id="cb20-445"><a href="#cb20-445" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-446"><a href="#cb20-446" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-447"><a href="#cb20-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-448"><a href="#cb20-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-449"><a href="#cb20-449" aria-hidden="true" tabindex="-1"></a>Et tout rentre dans l'ordre **`\(^_^)/`**</span>
+<span id="cb20-450"><a href="#cb20-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-451"><a href="#cb20-451" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-452"><a href="#cb20-452" aria-hidden="true" tabindex="-1"></a>Cela va nous amener tout naturellement à parler du travail sur des branches secondaires à la branche principale. </span>
+<span id="cb20-453"><a href="#cb20-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-454"><a href="#cb20-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-455"><a href="#cb20-455" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction au travail sur les branches</span></span>
+<span id="cb20-456"><a href="#cb20-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-457"><a href="#cb20-457" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans un travail en équipe, la question ne se pose même pas...oui. Et quelques soit le partage des rôles: travail sur des fichiers différents ou travail sur des mêmes fichiers. Important: le propriétaire du dépôt devra également travailler sur une branche secondaire...aucun privilège sur ce côté là.</span>
+<span id="cb20-458"><a href="#cb20-458" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En solo, la pratique de travail sur branche(s) secondaire(s) est recommandée. Je pense toutefois que cela dépend de ce qu'on fait: </span>
+<span id="cb20-459"><a href="#cb20-459" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Une documentation Quarto ou Rmarkdown...pas encore convaincu. </span>
+<span id="cb20-460"><a href="#cb20-460" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Un programme d'analyse... pourquoi pas.</span>
+<span id="cb20-461"><a href="#cb20-461" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Le dévelopement d'une application, d'une fonction, d'un package: cela pourra être bien utile lorsqu'on sera amené à tester plusieurs voies de programmation.</span>
+<span id="cb20-462"><a href="#cb20-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-463"><a href="#cb20-463" aria-hidden="true" tabindex="-1"></a>En restant en local, on validera les modifications réalisées dans une branche annexe sur la branche principale par une opération de fusion (<span class="in">`git merge`</span>). On pourra également fusionné dans l'autre sens si des modifications on été faites sur la branche principale (mais ce n'est pas le but). Pour une fusion sur un dépôt distant, par exemple localisé sur Github ou Gitlab, une demande de fusion est effectuée préalablement. Elle est appelée **pull request**. C'est au propriétaire du dépôt de valider les modifications, et en cas de conflit avec la branche principale la fusion sera complètement bloquée.    </span>
+<span id="cb20-464"><a href="#cb20-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-465"><a href="#cb20-465" aria-hidden="true" tabindex="-1"></a>Le travail sur branches secondaires permet donc de conserver l'intégrité à tout moment de la branche principale. Sur le même principe une branche secondaire peut se voire attribuer elle-même une ou plusieurs secondaires. Il n'y a donc pas de limite à la ramification.</span>
+<span id="cb20-466"><a href="#cb20-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-467"><a href="#cb20-467" aria-hidden="true" tabindex="-1"></a>En cas de conflit lors d'une demande de fusion: </span>
+<span id="cb20-468"><a href="#cb20-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-469"><a href="#cb20-469" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En local les éléments de conflit seront reporté sur la branche secondaire, et la fusion ne sera possible qu'une fois sa résolution réalisée. Une remarque s'impose ici. Si on ne travaille pas sur la branche principale, ce qui doit être la pratique lorqu'on développe sur une branche secondaire, aucun conflit ne doit pouvoir se produire.</span>
+<span id="cb20-470"><a href="#cb20-470" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>En distant et en équipe avec un **pull request**, la fusion étant bloquée c'est à la personne qui a fait la demande de fusion de résoudre le conflit en local. Les éléments entrant en conflit avec la branche principale seront reportés sur sont répertoire au niveau local. Une fois le conflit résolu, il devra effectuer un nouveau **pull request**.</span>
+<span id="cb20-471"><a href="#cb20-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-472"><a href="#cb20-472" aria-hidden="true" tabindex="-1"></a>Tout ceci étant à ce stade bien abstrait, on va par l'exemple faire quelques opérations sur branche secondaire avec RStudio: un premier exemple en restant au niveau local et un second exemple avec un **pull request** sur un dépôt github. </span>
+<span id="cb20-473"><a href="#cb20-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-474"><a href="#cb20-474" aria-hidden="true" tabindex="-1"></a>Pour le premier exemple on va utiliser l'interface html dynamique <span class="co">[</span><span class="ot">**ungit**</span><span class="co">](https://github.com/FredrikNoren/ungit)</span>.  </span>
+<span id="cb20-475"><a href="#cb20-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-476"><a href="#cb20-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-477"><a href="#cb20-477" aria-hidden="true" tabindex="-1"></a><span class="fu">### Utilisation basique des branches en local</span></span>
+<span id="cb20-478"><a href="#cb20-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-479"><a href="#cb20-479" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Création d'un projet Rstudio</span>
+<span id="cb20-480"><a href="#cb20-480" aria-hidden="true" tabindex="-1"></a><span class="ss">   * </span>New project =&gt; New directory =&gt; New directory. On coche la case **Create with a Git repository**</span>
+<span id="cb20-481"><a href="#cb20-481" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Dans le terminal, on s'assure d'en avoir 2. Dans l'un des deux on ouvre l'interface **ungit** avec tout simplement **`ungit`**. On switch sur l'autre terminal.</span>
+<span id="cb20-482"><a href="#cb20-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-483"><a href="#cb20-483" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb20-484"><a href="#cb20-484" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-485"><a href="#cb20-485" aria-hidden="true" tabindex="-1"></a><span class="al">![Création du projet avec répertoire git](img2/branche1.png)</span>{group="branche"}</span>
+<span id="cb20-486"><a href="#cb20-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-487"><a href="#cb20-487" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-488"><a href="#cb20-488" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-489"><a href="#cb20-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-490"><a href="#cb20-490" aria-hidden="true" tabindex="-1"></a>.3 Premier commit sur la branche principale avec la création d'un nouveau fichier</span>
+<span id="cb20-491"><a href="#cb20-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-492"><a href="#cb20-492" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
+<span id="cb20-493"><a href="#cb20-493" aria-hidden="true" tabindex="-1"></a><span class="in">touch prog.R</span></span>
+<span id="cb20-494"><a href="#cb20-494" aria-hidden="true" tabindex="-1"></a><span class="in">git add .</span></span>
+<span id="cb20-495"><a href="#cb20-495" aria-hidden="true" tabindex="-1"></a><span class="in">git commit -m "first add"</span></span>
+<span id="cb20-496"><a href="#cb20-496" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-497"><a href="#cb20-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-498"><a href="#cb20-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-499"><a href="#cb20-499" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb20-500"><a href="#cb20-500" aria-hidden="true" tabindex="-1"></a>::: {.box_img}</span>
+<span id="cb20-501"><a href="#cb20-501" aria-hidden="true" tabindex="-1"></a><span class="al">![Commit sur la branche principale](img2/branche2.png)</span>{group="branche"}</span>
+<span id="cb20-502"><a href="#cb20-502" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-503"><a href="#cb20-503" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-504"><a href="#cb20-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-505"><a href="#cb20-505" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb20-506"><a href="#cb20-506" aria-hidden="true" tabindex="-1"></a>**Création d'une branche**  </span>
+<span id="cb20-507"><a href="#cb20-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-508"><a href="#cb20-508" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Commande **`git branch`**</span>
+<span id="cb20-509"><a href="#cb20-509" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Syntaxe: **`git branch nom_branche`**</span>
+<span id="cb20-510"><a href="#cb20-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-511"><a href="#cb20-511" aria-hidden="true" tabindex="-1"></a>**Aller sur la nouvelle branche** </span>
+<span id="cb20-512"><a href="#cb20-512" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-513"><a href="#cb20-513" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Commande **`git checkout`**</span>
+<span id="cb20-514"><a href="#cb20-514" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Syntaxe: **`git checkout nom_branche`**</span>
+<span id="cb20-515"><a href="#cb20-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-516"><a href="#cb20-516" aria-hidden="true" tabindex="-1"></a>Ici on va appelé la nouvelle branche *modif*:  </span>
+<span id="cb20-517"><a href="#cb20-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-518"><a href="#cb20-518" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
+<span id="cb20-519"><a href="#cb20-519" aria-hidden="true" tabindex="-1"></a><span class="in">git branch modif</span></span>
+<span id="cb20-520"><a href="#cb20-520" aria-hidden="true" tabindex="-1"></a><span class="in">git checkout</span></span>
+<span id="cb20-521"><a href="#cb20-521" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-522"><a href="#cb20-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-523"><a href="#cb20-523" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-524"><a href="#cb20-524" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-525"><a href="#cb20-525" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-526"><a href="#cb20-526" aria-hidden="true" tabindex="-1"></a><span class="al">![Création d'une nouvelle branche et switch sur cette branche](img2/branche3.png)</span>{group="branche"}</span>
+<span id="cb20-527"><a href="#cb20-527" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-528"><a href="#cb20-528" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-529"><a href="#cb20-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-530"><a href="#cb20-530" aria-hidden="true" tabindex="-1"></a>On va modifier le fichier *prog.R*</span>
+<span id="cb20-531"><a href="#cb20-531" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-532"><a href="#cb20-532" aria-hidden="true" tabindex="-1"></a><span class="in">```{.r}</span></span>
+<span id="cb20-533"><a href="#cb20-533" aria-hidden="true" tabindex="-1"></a><span class="in">1+1</span></span>
+<span id="cb20-534"><a href="#cb20-534" aria-hidden="true" tabindex="-1"></a><span class="in">2+2</span></span>
+<span id="cb20-535"><a href="#cb20-535" aria-hidden="true" tabindex="-1"></a><span class="in">3+3</span></span>
+<span id="cb20-536"><a href="#cb20-536" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-537"><a href="#cb20-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-538"><a href="#cb20-538" aria-hidden="true" tabindex="-1"></a>On fait sur la nouvelle branche un commit sur cette modification. </span>
+<span id="cb20-539"><a href="#cb20-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-540"><a href="#cb20-540" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
+<span id="cb20-541"><a href="#cb20-541" aria-hidden="true" tabindex="-1"></a><span class="in">touch prog.R</span></span>
+<span id="cb20-542"><a href="#cb20-542" aria-hidden="true" tabindex="-1"></a><span class="in">git add .`</span></span>
+<span id="cb20-543"><a href="#cb20-543" aria-hidden="true" tabindex="-1"></a><span class="in">git commit -m "modif prog"</span></span>
+<span id="cb20-544"><a href="#cb20-544" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-545"><a href="#cb20-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-546"><a href="#cb20-546" aria-hidden="true" tabindex="-1"></a>::: {.center}  </span>
+<span id="cb20-547"><a href="#cb20-547" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-548"><a href="#cb20-548" aria-hidden="true" tabindex="-1"></a><span class="al">![Commit sur une modification de prog.R dans la branche secondaire](img2/branche4.png)</span>{group="branche"}</span>
+<span id="cb20-549"><a href="#cb20-549" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-550"><a href="#cb20-550" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-551"><a href="#cb20-551" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-552"><a href="#cb20-552" aria-hidden="true" tabindex="-1"></a>**Fusion dans la branche principale des modifications réalisées dans la branche secondaire**</span>
+<span id="cb20-553"><a href="#cb20-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-554"><a href="#cb20-554" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On retourne dans la branche principale avec **`git checkout master`**</span>
+<span id="cb20-555"><a href="#cb20-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-556"><a href="#cb20-556" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On remarque que le fichier prog.R est dans l'état avant sa modification dans la branche *modif*. Dans l'interface d'ungit l'arborescence est clairement indiquée.</span>
+<span id="cb20-557"><a href="#cb20-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-558"><a href="#cb20-558" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-559"><a href="#cb20-559" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-560"><a href="#cb20-560" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-561"><a href="#cb20-561" aria-hidden="true" tabindex="-1"></a><span class="al">![Retour sur la branche principale](img2/branche5.png)</span>{group="branche"}</span>
+<span id="cb20-562"><a href="#cb20-562" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-563"><a href="#cb20-563" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-564"><a href="#cb20-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-565"><a href="#cb20-565" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Pour fusionner le commit dans la branche principale:</span>
+<span id="cb20-566"><a href="#cb20-566" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Commande **`git merge`**</span>
+<span id="cb20-567"><a href="#cb20-567" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Syntaxe: **`git merge nom_branche`**</span>
+<span id="cb20-568"><a href="#cb20-568" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-569"><a href="#cb20-569" aria-hidden="true" tabindex="-1"></a>Ici: </span>
+<span id="cb20-570"><a href="#cb20-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-571"><a href="#cb20-571" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
+<span id="cb20-572"><a href="#cb20-572" aria-hidden="true" tabindex="-1"></a><span class="in">git merge modif</span></span>
+<span id="cb20-573"><a href="#cb20-573" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-574"><a href="#cb20-574" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-575"><a href="#cb20-575" aria-hidden="true" tabindex="-1"></a>Les modifications apportées au fichier prog.R lui sont alors appliquées dans la branche principale</span>
+<span id="cb20-576"><a href="#cb20-576" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-577"><a href="#cb20-577" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-578"><a href="#cb20-578" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-579"><a href="#cb20-579" aria-hidden="true" tabindex="-1"></a><span class="al">![Fusion des modifications dans la branche principale](img2/branche6.png)</span>{group="branche"}</span>
+<span id="cb20-580"><a href="#cb20-580" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-581"><a href="#cb20-581" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-582"><a href="#cb20-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-583"><a href="#cb20-583" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fusion d'une branche secondaire sur un dépôt distant (Github)</span></span>
+<span id="cb20-584"><a href="#cb20-584" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-585"><a href="#cb20-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-586"><a href="#cb20-586" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Création d'un dépôt distant - clonage - modification une branche secondaire</span><span class="co">]</span>{.badge .bg-primary style="font-size:1.1rem;"}  </span>
+<span id="cb20-587"><a href="#cb20-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-588"><a href="#cb20-588" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On va générer un dépôt distant sur github (*pull_request*)</span>
+<span id="cb20-589"><a href="#cb20-589" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On va le cloner dans un projet R</span>
+<span id="cb20-590"><a href="#cb20-590" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>On va créer une branche secondaire (*modif*). Dans cette branche:</span>
+<span id="cb20-591"><a href="#cb20-591" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On va créer un fichier (prog.R) et le modifier</span>
+<span id="cb20-592"><a href="#cb20-592" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>On fait un commit sur ces modifications</span>
+<span id="cb20-593"><a href="#cb20-593" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-594"><a href="#cb20-594" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-595"><a href="#cb20-595" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-596"><a href="#cb20-596" aria-hidden="true" tabindex="-1"></a><span class="al">![](img2/video_branche1.gif)</span></span>
+<span id="cb20-597"><a href="#cb20-597" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-598"><a href="#cb20-598" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-599"><a href="#cb20-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-600"><a href="#cb20-600" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Engendrer un pull request sur le dépôt distant</span><span class="co">]</span>{.badge .bg-primary style="font-size:1.1rem;"} </span>
+<span id="cb20-601"><a href="#cb20-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-602"><a href="#cb20-602" aria-hidden="true" tabindex="-1"></a>En restant dans la branche secondaire on utilise <span class="in">`git push origin nom_branche`</span>. Ici:</span>
+<span id="cb20-603"><a href="#cb20-603" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-604"><a href="#cb20-604" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
+<span id="cb20-605"><a href="#cb20-605" aria-hidden="true" tabindex="-1"></a><span class="in">git push origin modif</span></span>
+<span id="cb20-606"><a href="#cb20-606" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-607"><a href="#cb20-607" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-608"><a href="#cb20-608" aria-hidden="true" tabindex="-1"></a>En output du terminal, il est indiqué qu'un **pull request** a été ajouté au dépôt distant.</span>
+<span id="cb20-609"><a href="#cb20-609" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-610"><a href="#cb20-610" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
+<span id="cb20-611"><a href="#cb20-611" aria-hidden="true" tabindex="-1"></a><span class="in">$ git push origin modif</span></span>
+<span id="cb20-612"><a href="#cb20-612" aria-hidden="true" tabindex="-1"></a><span class="in">Enumerating objects: 6, done.</span></span>
+<span id="cb20-613"><a href="#cb20-613" aria-hidden="true" tabindex="-1"></a><span class="in">Counting objects: 100% (6/6), done.</span></span>
+<span id="cb20-614"><a href="#cb20-614" aria-hidden="true" tabindex="-1"></a><span class="in">Delta compression using up to 8 threads</span></span>
+<span id="cb20-615"><a href="#cb20-615" aria-hidden="true" tabindex="-1"></a><span class="in">Compressing objects: 100% (3/3), done.</span></span>
+<span id="cb20-616"><a href="#cb20-616" aria-hidden="true" tabindex="-1"></a><span class="in">Writing objects: 100% (5/5), 550 bytes | 110.00 KiB/s, done.</span></span>
+<span id="cb20-617"><a href="#cb20-617" aria-hidden="true" tabindex="-1"></a><span class="in">Total 5 (delta 0), reused 0 (delta 0), pack-reused 0</span></span>
+<span id="cb20-618"><a href="#cb20-618" aria-hidden="true" tabindex="-1"></a><span class="in">remote:</span></span>
+<span id="cb20-619"><a href="#cb20-619" aria-hidden="true" tabindex="-1"></a><span class="in">remote: Create a pull request for 'modif' on GitHub by visiting:</span></span>
+<span id="cb20-620"><a href="#cb20-620" aria-hidden="true" tabindex="-1"></a><span class="in">remote:      https://github.com/mthevenin/pull_request/pull/new/modif</span></span>
+<span id="cb20-621"><a href="#cb20-621" aria-hidden="true" tabindex="-1"></a><span class="in">remote:</span></span>
+<span id="cb20-622"><a href="#cb20-622" aria-hidden="true" tabindex="-1"></a><span class="in">To https://github.com/mthevenin/pull_request.git</span></span>
+<span id="cb20-623"><a href="#cb20-623" aria-hidden="true" tabindex="-1"></a><span class="in"> * [new branch]      modif -&gt; modif</span></span>
+<span id="cb20-624"><a href="#cb20-624" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-625"><a href="#cb20-625" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-626"><a href="#cb20-626" aria-hidden="true" tabindex="-1"></a>Lorsqu'on retourne sur le dépôt distant:</span>
+<span id="cb20-627"><a href="#cb20-627" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-628"><a href="#cb20-628" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-629"><a href="#cb20-629" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-630"><a href="#cb20-630" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-631"><a href="#cb20-631" aria-hidden="true" tabindex="-1"></a><span class="al">![La branche main sur le dépôt distant](img2/branche7.png)</span>{group="branche2"}</span>
+<span id="cb20-632"><a href="#cb20-632" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-633"><a href="#cb20-633" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-634"><a href="#cb20-634" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-635"><a href="#cb20-635" aria-hidden="true" tabindex="-1"></a>Sur le dépôt distant, la branche main n'a pas été modifiée. Seulement le fichier readme généré à la création est présent.  </span>
+<span id="cb20-636"><a href="#cb20-636" aria-hidden="true" tabindex="-1"></a>Si on switch sur la branche *modif*, les fichiers qui ont fait l'objet du commit sont bien présents. </span>
+<span id="cb20-637"><a href="#cb20-637" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-638"><a href="#cb20-638" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-639"><a href="#cb20-639" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-640"><a href="#cb20-640" aria-hidden="true" tabindex="-1"></a><span class="al">![La branche modif sur le dépôt distant](img2/branche8.png)</span>{group="branche2"}</span>
+<span id="cb20-641"><a href="#cb20-641" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-642"><a href="#cb20-642" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-643"><a href="#cb20-643" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-644"><a href="#cb20-644" aria-hidden="true" tabindex="-1"></a>Lorsqu'on clique sur **Compare &amp; pull request** on est invité à proposer une demande de fusion au propriétaire du dépôt. On valide la demande en cliquant sur **Create pull request** </span>
+<span id="cb20-645"><a href="#cb20-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-646"><a href="#cb20-646" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-647"><a href="#cb20-647" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-648"><a href="#cb20-648" aria-hidden="true" tabindex="-1"></a><span class="al">![Faire une demande de fusion](img2/branche9.png)</span>{group="branche2"}</span>
+<span id="cb20-649"><a href="#cb20-649" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-650"><a href="#cb20-650" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-651"><a href="#cb20-651" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-652"><a href="#cb20-652" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-653"><a href="#cb20-653" aria-hidden="true" tabindex="-1"></a>En collaboratif, le propriétaire sera prévenu par mail qu'une demande de fusion a été effectuée. Ici, en solo, la fenêtre de validation s'ouvrira directement. La présence de conflits sera indiquée. Si tout est ok, on valide la fusion la fusion en cliquant sur **Merge pull request** puis sur **Confirm merge**. Si un conflit est présent, il ne sera pas possible d'effectuer cette fusion.</span>
+<span id="cb20-654"><a href="#cb20-654" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-655"><a href="#cb20-655" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-656"><a href="#cb20-656" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-657"><a href="#cb20-657" aria-hidden="true" tabindex="-1"></a><span class="al">![Validation de la fusion](img2/branche10.png)</span>{group="branche2"}</span>
+<span id="cb20-658"><a href="#cb20-658" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-659"><a href="#cb20-659" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-660"><a href="#cb20-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-661"><a href="#cb20-661" aria-hidden="true" tabindex="-1"></a>Lorsqu'on revient sur la branche principale du dépôt distant </span>
+<span id="cb20-662"><a href="#cb20-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-663"><a href="#cb20-663" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-664"><a href="#cb20-664" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-665"><a href="#cb20-665" aria-hidden="true" tabindex="-1"></a><span class="al">![La branche main après fusion](img2/branche11.png)</span>{group="branche2"}</span>
+<span id="cb20-666"><a href="#cb20-666" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-667"><a href="#cb20-667" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-668"><a href="#cb20-668" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-669"><a href="#cb20-669" aria-hidden="true" tabindex="-1"></a>Et sur la branche principale en local?  </span>
+<span id="cb20-670"><a href="#cb20-670" aria-hidden="true" tabindex="-1"></a>Elle n'a pas été synchronisée. Même si on ne travaille pas dessus, on peut rapidement effectuer cette synchronisation avec un pull.</span>
+<span id="cb20-671"><a href="#cb20-671" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-672"><a href="#cb20-672" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
+<span id="cb20-673"><a href="#cb20-673" aria-hidden="true" tabindex="-1"></a><span class="in">git checkout main</span></span>
+<span id="cb20-674"><a href="#cb20-674" aria-hidden="true" tabindex="-1"></a><span class="in">git pull</span></span>
+<span id="cb20-675"><a href="#cb20-675" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-676"><a href="#cb20-676" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-677"><a href="#cb20-677" aria-hidden="true" tabindex="-1"></a>L'output:</span>
+<span id="cb20-678"><a href="#cb20-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-679"><a href="#cb20-679" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
+<span id="cb20-680"><a href="#cb20-680" aria-hidden="true" tabindex="-1"></a><span class="in">$ git checkout main</span></span>
+<span id="cb20-681"><a href="#cb20-681" aria-hidden="true" tabindex="-1"></a><span class="in">Switched to branch 'main'</span></span>
+<span id="cb20-682"><a href="#cb20-682" aria-hidden="true" tabindex="-1"></a><span class="in">Your branch is up to date with 'origin/main'.</span></span>
+<span id="cb20-683"><a href="#cb20-683" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-684"><a href="#cb20-684" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-685"><a href="#cb20-685" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-686"><a href="#cb20-686" aria-hidden="true" tabindex="-1"></a><span class="in">```{.bash}</span></span>
+<span id="cb20-687"><a href="#cb20-687" aria-hidden="true" tabindex="-1"></a><span class="in">thevenin_m@MOB02095 MINGW64 ~/Desktop/pull_request (main)</span></span>
+<span id="cb20-688"><a href="#cb20-688" aria-hidden="true" tabindex="-1"></a><span class="in">$ git pull</span></span>
+<span id="cb20-689"><a href="#cb20-689" aria-hidden="true" tabindex="-1"></a><span class="in">remote: Enumerating objects: 1, done.</span></span>
+<span id="cb20-690"><a href="#cb20-690" aria-hidden="true" tabindex="-1"></a><span class="in">remote: Counting objects: 100% (1/1), done.</span></span>
+<span id="cb20-691"><a href="#cb20-691" aria-hidden="true" tabindex="-1"></a><span class="in">remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0</span></span>
+<span id="cb20-692"><a href="#cb20-692" aria-hidden="true" tabindex="-1"></a><span class="in">Unpacking objects: 100% (1/1), 903 bytes | 53.00 KiB/s, done.</span></span>
+<span id="cb20-693"><a href="#cb20-693" aria-hidden="true" tabindex="-1"></a><span class="in">From https://github.com/mthevenin/pull_request</span></span>
+<span id="cb20-694"><a href="#cb20-694" aria-hidden="true" tabindex="-1"></a><span class="in">   a8c4daf..15740db  main       -&gt; origin/main</span></span>
+<span id="cb20-695"><a href="#cb20-695" aria-hidden="true" tabindex="-1"></a><span class="in">Updating a8c4daf..15740db</span></span>
+<span id="cb20-696"><a href="#cb20-696" aria-hidden="true" tabindex="-1"></a><span class="in">Fast-forward</span></span>
+<span id="cb20-697"><a href="#cb20-697" aria-hidden="true" tabindex="-1"></a><span class="in"> .gitignore         |  4 ++++</span></span>
+<span id="cb20-698"><a href="#cb20-698" aria-hidden="true" tabindex="-1"></a><span class="in"> prog.R             |  3 +++</span></span>
+<span id="cb20-699"><a href="#cb20-699" aria-hidden="true" tabindex="-1"></a><span class="in"> pull_request.Rproj | 13 +++++++++++++</span></span>
+<span id="cb20-700"><a href="#cb20-700" aria-hidden="true" tabindex="-1"></a><span class="in"> 3 files changed, 20 insertions(+)</span></span>
+<span id="cb20-701"><a href="#cb20-701" aria-hidden="true" tabindex="-1"></a><span class="in"> create mode 100644 .gitignore</span></span>
+<span id="cb20-702"><a href="#cb20-702" aria-hidden="true" tabindex="-1"></a><span class="in"> create mode 100644 prog.R</span></span>
+<span id="cb20-703"><a href="#cb20-703" aria-hidden="true" tabindex="-1"></a><span class="in"> create mode 100644 pull_request.Rproj</span></span>
+<span id="cb20-704"><a href="#cb20-704" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-705"><a href="#cb20-705" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-706"><a href="#cb20-706" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-707"><a href="#cb20-707" aria-hidden="true" tabindex="-1"></a>Sur Gitlab, sous forme d'animation^<span class="co">[</span><span class="ot">Avec un petit manque de fluidité sur les manips par manque de pratique sur Gitlab</span><span class="co">]</span>, à partir du <span class="in">`git pull origin nom_branch`</span>: </span>
+<span id="cb20-708"><a href="#cb20-708" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-709"><a href="#cb20-709" aria-hidden="true" tabindex="-1"></a>::: {.center} </span>
+<span id="cb20-710"><a href="#cb20-710" aria-hidden="true" tabindex="-1"></a>::: {.box_img} </span>
+<span id="cb20-711"><a href="#cb20-711" aria-hidden="true" tabindex="-1"></a><span class="al">![Pull request sur Gitlab](img2/video_branche2.gif)</span>{group="branche2"}</span>
+<span id="cb20-712"><a href="#cb20-712" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-713"><a href="#cb20-713" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb20-714"><a href="#cb20-714" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-715"><a href="#cb20-715" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-716"><a href="#cb20-716" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-717"><a href="#cb20-717" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-718"><a href="#cb20-718" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-719"><a href="#cb20-719" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1955,7 +2486,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
