@@ -21,9 +21,6 @@ bibliography: bidibule.bib
 
 * Chapitres qui ne figurent pas dans ce résumé: les parties relatives à git et aux contenus de type website, book, blog... un peu difficile à résumer.
 
-* Version pdf: 
-  * [Output](files/resume_pdf/resume.pdf)
-  * [Code source](files/resume_pdf/resume.qmd)
 :::
 
 ## Chapitre 2: De Rmarkdown à Quarto
