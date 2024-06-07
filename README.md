@@ -2,13 +2,15 @@ Support de formation au logiciel Quarto [Posit] déployée sur Github:
 
 * <https://mthevenin.github.io/support_quarto/>
 
-* La version la plus à jour se trouve sur gitlab, certains liens dans la barre de navigation renvoient à des documents seulement déployés sur gitlab.
+* La version la plus à jour se trouve sur gitlab, certains liens dans la barre de navigation renverront cependant à des documents seulement déployés sur gitlab.
 
 
 * Accueil général du support:  <https://mthevenin.gitlab.io/quarto/>  
 
-* Dernière maj le 31 mai 2024:
-  * Ajout nouveau contenu sur git: conflit et introduction aux branches
+* Dernière maj le juin 2024:
+  * Synchro avec la version Gitlab
+  * Ajout nouveaux contenus sur git: conflit de fusion et courte introduction aux branches
+  * Note de la version en bas de la page: <https://mthevenin.github.io/support_quarto/03-support.html>
 
 
 

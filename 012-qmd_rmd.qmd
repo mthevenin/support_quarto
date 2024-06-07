@@ -50,7 +50,7 @@ C'est surtout dans certains éléments de vocabulaire que certaines modification
 Deux exemples: 
 
 * Pour indiquer le format du document, l'option **`output:`** est remplacée par l'option **`format:`**.
-* Le fichier de configuration d'un projet s'appelle maintenant **`_quarto.yml`** au lieu de **_site.yml**.
+* Le fichier de configuration d'un projet s'appelle maintenant **`_quarto.yml`** au lieu de **`_site.yml`**.
 
 
 **La durée de compilation en html et fichiers des outputs**  
@@ -78,8 +78,14 @@ embed-resources: true
 ```
 
 
-**A l'ined [important]**: ce problème de durée de compilation des document est levé si on utilise la version serveur (margaux) de RStudio.... mais on peut rencontrer des problèmes de chargement de certaines librairies R. C'est le cas du packages `questionr` (idem rmarkdown). 
+::: {.callout-important}
 
+**Ssur le serveux margaux à l'Ined... ça speed**: 
+
+Ce problème de durée de compilation des document est levé si on utilise la version serveur (margaux) de RStudio.... mais on peut rencontrer des problèmes de chargement de certaines librairies R.  
+C'est le cas du package `questionr` (idem rmarkdown) et potentiellement d'autres package chargeant une appli Shiny. Normalement la mise à jour du package Shiny permet de résoudre le problème 
+
+:::
 
 ## Passer de Rmarkdown à Quarto  
 
@@ -148,7 +154,7 @@ Si on prend ce même document, sans l'option `output` et sans le script `r setup
 
 Quarto offre de nouvelles possibilités certes mais il n'est pas encore 100% stable^[Février 2024: mais cela s'améliore de version en version]. Si on est moins regardant sur les questions de forme et d'esthétique des outputs, si l'utilisation de Rmarkdown s'arrête à la production de notebook simples en format html, le package reste une excellente solution, en particulier sous sa dernière version. La compilation est plus rapide et les documents pèsent bien moins lourd.
 
-Mode visual, options des blocs de codes directement dans le corp du programme, nouveaux balisages pour <div> ou <span> ... sont également intégrés dans les dernières versions de Rmarkdown. 
+Mode visual, options des blocs de codes directement dans le corp du programme, nouveaux balisages pour `<div>` ou `<span>` ... sont également intégrés dans les dernières versions de Rmarkdown. 
 
 
 

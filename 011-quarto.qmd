@@ -1,8 +1,6 @@
 
 # Installation Quarto et gestion des fichiers
 
-
-
 ## Installation et mise à jour de Quarto
 
 * Depuis juillet 2022, Quarto est installé automatiquement à RStudio. 
@@ -29,7 +27,7 @@ Après cela aucune opération d'installation ou de désinstallation n'est néces
 
 
 
-* La désinstallation de quarto est effectuée via une application dédié: outil d'installation/désinstallation de l'OS, **ccleaner**...   
+* La désinstallation de quarto est effectuée via une application: outil d'installation/désinstallation de l'OS, **ccleaner**...   
 
 
 ## Autres installations
@@ -78,29 +76,84 @@ Dans le terminal (recommandé):
 #| echo: true
 #| eval: false 
 
-# Click droit pour coller dans le terminal
+# Click droit pour coller dans le terminal ou ctrl+shift+V
 quarto install tinytex
 ```
 
 * Pour vérifier la version de tinytex, dans le terminal: `quarto list tools`
 * Pour en savoir plus sur les moteurs PDF: [[documentation Quarto]](https://quarto.org/docs/output-formats/pdf-engine.html)
 
+On peut également checker toutes linstallations utilisées par Quarto avec `quarto check`
+
+::: {.callout-note collapse=TRUE} 
+
+### Installations au 06-06-2024
+
+<br>
+
+```{.bash}
+quarto check
+```
+
+```{.bash}
+[>] Checking versions of quarto binary dependencies...
+      Pandoc version 3.2.0: OK
+      Dart Sass version 1.70.0: OK
+      Deno version 1.41.0: OK
+      Typst version 0.11.0: OK
+[>] Checking versions of quarto dependencies......OK
+[>] Checking Quarto installation......OK
+      Version: 1.5.41
+      Path: C:\Users\thevenin_m\AppData\Local\Programs\Quarto\bin
+      CodePage: 1252
+
+[>] Checking tools....................OK
+      TinyTeX: v2024.06
+      Chromium: 869685
+
+[>] Checking LaTeX....................OK
+      Using: TinyTex
+      Path: C:\Users\thevenin_m\AppData\Roaming\TinyTeX\bin\windows\
+      Version: 2024
+
+[>] Checking basic markdown render....OK
+
+[>] Checking Python 3 installation....OK
+      Version: 3.12.3
+      Path: C:/Users/thevenin_m/AppData/Local/Programs/Python/Python312/python.exe
+      Jupyter: 5.7.2
+      Kernels: ir, nbstata, python3
+
+[>] Checking Jupyter engine render....OK
+
+[>] Checking R installation...........OK
+      Version: 4.4.0
+      Path: C:/Users/thevenin_m/AppData/Local/Programs/R/R-4.4.0
+      LibPaths:
+        - C:/Users/thevenin_m/AppData/Local/Programs/R/R-4.4.0/library
+      knitr: 1.47
+      rmarkdown: 2.27
+
+[>] Checking Knitr engine render......OK
+```
+
+:::
 
 ## Création d'un fichier `qmd`
 
 Lorsque Quarto est installé, le menu **file** de RStudio ajoute deux options supplémentaires au sous menu **new file**: ***Quarto document***, **Quarto presentation**.
 
 * **Quarto document**: 
-  * Notebook, article: [Exemple](https://quarto-dev.github.io/quarto-gallery/page-layout/tufte.html). 
+  * Notebook, article [{{< fa solid link size=footnotesize >}}](https://quarto-dev.github.io/quarto-gallery/page-layout/tufte.html). 
   * Documents intéractifs: 
-    * Shiny: [Exemple](https://quarto.org/docs/interactive/ojs/examples/penguins.html).
-    * Observable [Exemple](https://jjallaire.shinyapps.io/diamonds-explorer/).
-    * A partir de la version 1.4, un Dashboard (https://quarto.org/docs/dashboards/). 
+    * Shiny [{{< fa solid link size=footnotesize >}}](https://quarto.org/docs/interactive/ojs/examples/penguins.html).
+    * Observable [{{< fa solid link size=footnotesize >}}](https://jjallaire.shinyapps.io/diamonds-explorer/).
+    * A partir de la version 1.4, un Dashboard [{{< fa solid link size=footnotesize >}}](https://quarto.org/docs/dashboards/). 
 
 * **Quarto presentation**: 
-  * Revealjs (javascript): [Exemple](https://quarto.org/docs/presentations/revealjs/demo/#/title-slide).
-  * Beamer (Latex): [Exemple](https://quarto-dev.github.io/quarto-gallery/presentations/beamer/beamer.pdf).
-  * Powerpoint (windows ou libre office) [Exemple ](https://github.com/quarto-dev/quarto-gallery/blob/main/presentations/powerpoint/powerpoint.pptx).
+  * Revealjs (javascript): [{{< fa solid link size=footnotesize >}}](https://quarto.org/docs/presentations/revealjs/demo/#/title-slide).
+  * Beamer (Latex): [{{< fa solid link size=footnotesize >}}](https://quarto-dev.github.io/quarto-gallery/presentations/beamer/beamer.pdf).
+  * Powerpoint (windows ou libre office) [{{< fa solid link size=footnotesize >}}](https://github.com/quarto-dev/quarto-gallery/blob/main/presentations/powerpoint/powerpoint.pptx).
 
 
 * **A l'ouverture**: 
@@ -119,10 +172,10 @@ Pour les documents avec des structures enrichies, la création se fait via un pr
 :::
 :::
 
-* **Quarto website**: [Exemple...sans surprise](https://quarto.org/)
-* **Quarto book**:    [Exemple](https://mthevenin.github.io/analyse_duree/)
-* **Quarto blog**:    [Exemple](https://mthevenin.github.io/assistoolsms/)
-* **Quarto manuscript**: [Exemple](https://quarto-ext.github.io/manuscript-template-jupyter/)
+* **Quarto website** [{{< fa solid link >}}](https://quarto.org/)
+* **Quarto book**    [{{< fa solid link >}}](https://mthevenin.github.io/analyse_duree/)
+* **Quarto blog**    [{{< fa solid link >}}](https://mthevenin.github.io/assistoolsms/)
+* **Quarto manuscript** [{{< fa solid link >}}](https://quarto-ext.github.io/manuscript-template-jupyter/)
 
 
 * **A l'ouverture**:  
@@ -149,7 +202,7 @@ Pour travailler sur les fichiers associés à un projet, pensez à toujours ouvr
 
 #### Via la création d'un projet Quarto 
 
-La création peut d'un projet avec un squelette peut se faire directement via le terminal de RStudio avec une simple ligne de commande après s'être positionné sur un répertoire racine. Je dis cela car l'ouverture de la fenêtre de création d'un projet R peut prendre pas mal de seconde, chez moi c'est plutôt  30 secondes.  
+La création peut d'un projet avec un squelette peut se faire directement via le terminal de RStudio avec une simple ligne de commande après s'être positionné sur un répertoire racine. Je dis cela car l'ouverture de la fenêtre de création d'un projet R peut prendre pas mal de seconde, chez moi c'est plutôt 30 secondes.  
 
 Dans le terminal: 
 
@@ -169,7 +222,7 @@ En animation:
 
 #### Via la création d'un projet R
 
-* Dans la console R on peut générer un projet R avec la fonction `create_project()` du package **`usethise`**
+* Dans la console R on peut générer un projet R avec la fonction `create_project()` du package **`usethis`**
 * Dans le terminal de RStudio, on pourra créer directement les fichiers ou les répertoires qui seront utiles avec la commande `touch`
 
 Etapes de l'animation qui suit:
@@ -179,7 +232,7 @@ Etapes de l'animation qui suit:
 * On génère le projet avec la fonction `create_project()` en renseignant le chemin du répertoire *mon_book*: `create_project("c:/users/thevenin_m/desktop/quarto/mon_book/")`
 * Rstudio va réouvrir une session en se positionnant dans le répertoire du projet. La fonction génère automatiquement un sous répertoire R, on peut le supprimer si on estime ne pas en avoir besoin: dans le terminal `rm -r R`^[rm pour remove, -r pour indiquer qu'on supprime un répertoire et R pour le nom du répertoire]
 * On peut créer directement des fichiers vides avec la commande `touch`:
-  * `touch _quarto.yml` [configuratin du book]
+  * `touch _quarto.yml` [configuration du book]
   * `touch index.qmd`   [page d'accueil du book, toujours conserver le nom index]
   * `touch chapitre1.qmd`
   * `touch chapitre2.qmd`
@@ -198,14 +251,12 @@ Etapes de l'animation qui suit:
 
 ***Multicontenu***:
 
-On peut monter relativement rapidement un contenu de type blog à l'intérieur d'un projet de type website. C'est ce que j'ai fait par exemple sur ce support Stata  [[lien]](https://mthevenin.github.io/stata_fr/).     
 A l'absolu, une même documentation peut simultanément comporter tous ces types de contenu. Ce support est à la fois un *book* avec un chapitrage dans la barre verticale à gauche (*sidebar*) et un *website* avec des éléments de navigation dans une barre horizontale en haut (*navbar*). Et on pourrait sans problème y ajouter un contenu blog dans la page d'accueil si le type de projet avaient été un *website* plutôt qu'un *book*. 
 
-***Déploiement sur une plateforme git***:  
+***Déploiement sur une plateforme git [Se reporter à la partie 2]***:  
 
-Si on souhaite déployer sa documentation sur une plateforme git comme gitlab ou github, ont doit créer un projet pour effectuer les opérations de synchronisation en le repertoire local et le répertoire distant (*remote)*: 
+Si on souhaite déployer sa documentation sur une forge git comme gitlab ou github, ont doit créer un projet pour effectuer les opérations de synchronisation en le repertoire de travail en local et le répertoire distant (*remote)*. 
 
 * **New project** => **Version control** => **Git**
-  * On peut produire dans un premier temps sa documentation dans un projet dédié, puis reverser les fichiers sources dans un projet git.
-  * Après avoir créer un répertoire distant dans une plateforme git, on clone le répertoire disant, et générer directement sa documentation dans ce projet. Je recommander plutôt cette méthode. 
-  
+  * On peut produire dans un premier temps sa documentation dans un projet , puis reverser les fichiers sources dans un projet git. Pour Github seulement, avec les fonction `use_git(project_path)` et `use_github()` du package **`usethis`** on pourra générer ce répertoire distant directement à partir de RStudio.
+  * Approche classique: après avoir créer le dépôt distant sur une plateforme git, on le clone sur le local. On génère ensuite son projet de documentation. 

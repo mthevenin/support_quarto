@@ -19,7 +19,7 @@ website:
         url:  "https://github.com/mthevenin"
 
 book:
-  title: "Formation Quarto"
+  title: "**Formation Quarto**"
   author: 
     name: "Marc Thévenin"
     affiliation: "Institut National d'Etudes Démographiques"

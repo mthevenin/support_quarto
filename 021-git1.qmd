@@ -16,7 +16,7 @@ Ayant une utilisation assez minimale de git, et plutôt réservée au partage de
 <br>
 
 
-Sur son utilisation le plus courante et là où il est le plus documenté, l'outil Git permet de réaliser des opérations entre fichiers stockés dans un répertoire local (ou de travail) et un répertoire - plus ou moins - *distant* (**remote**). Dans un travail en équipe, sous cet aspect "*cloud*" , il permettra donc relier plusieurs utilisateurs sur un même projet. Sous son aspect originel de logiciel de contrôle de versions, ces opérations se feront sur des éléments ayant fait l'objet d'un changement entre deux temps choisis par l'utilisateur. 
+Sur son utilisation le plus courante et là où il est le plus documenté, l'outil Git permet de réaliser des opérations entre fichiers stockés dans un répertoire local (ou de travail) et un répertoire - plus ou moins - *distant* (**remote**). Dans un travail en équipe, sous cet aspect "*cloud*" , il permettra donc relier plusieurs utilisateurs sur un même projet. Sous son aspect originel de logiciel de contrôle de versions, ces opérations se feront sur des éléments ayant fait l'objet d'un changement entre deux temps choisis par l'utilisateur.   
 
 Attention l'outil git est totalement indépendant des plateformes^[On parle également de forge] qui font sa popularité, on peut travailler exclusivement en local sur une même machine, en choississant un répertoire de travail/développement et un répertoire qui fera seulement office de stockage à un instant t. Mieux encore, sans logique de transferts et sous le seul angle de contrôle de versions d'un ou plusieurs fichiers, n'importe quel répertoire de travail peut être ***gité***^[j'ai pas trouvé mieux] pour contrôler toutes les étapes de développement d'un projet.
 
@@ -102,8 +102,11 @@ Après l'installation ou la vérification de l'installation de Git:
 
 Dans un terminal (Rstudio, invite commande windows,...): 
 
-```{.mf}
+```{.bash}
 git config --global user.email EMAIL-ADRESSE
+```
+
+```{.bash}
 git config --global user.name "PRENOM et/NOM"
 ```
   
@@ -143,10 +146,10 @@ git config --global user.name "PRENOM et/NOM"
 #| eval: false
 
 install.packages("usethis")
-library(usethise)
+library(usethis)
 ```
 
-En exécutant la commande suivante, une fenêtre s'ouvre pour générer le token dans github.
+En exécutant la commande suivante, une fenêtre s'ouvre pour générer directement un token dans github.
 
 ```{r filename="Création d'un token"}
 #| eval: false
@@ -328,14 +331,14 @@ https://gitlab.com/mthevenin/test_connection_formation.git
 
 Procédure un peu plus longue, mais à l'exception d'une étape la procédure est commune aux deux plateformes.
 
-* Je ne traiterai pas du sujet HTTPS (token) versus SSH (cryptage), mais visiblement les préférences que je peux lire à gauche et à droite penche plutôt vers le HTTPS. Je note néanmoins beaucoup plus de tutoriels pour la solution cryptée.   
+* Je ne traiterai pas du sujet HTTPS (token) versus SSH (cryptage), mais visiblement les préférences que je peux lire penche plutôt vers le HTTPS. Je note néanmoins beaucoup plus de tutoriels orientée vers la solution SSH.   
 
-* On peut paramétrer et utiliser les deux techniques de sécurité, le choix de l'une ou l'autre se fera lors du clônage d'un dépôt distant.  
+* On peut paramétrer et utiliser les deux techniques de sécurité, le choix de l'une ou l'autre pourra se faire lors du clônage d'un dépôt distant.  
 
 * **Clé SSH**: repose sur un cryptage.
   * Les protocoles de cryptage évolue dans le temps. C'est la quatrième et dernière génération qui est proposée par RStudio. 
-  * La dernière génération est appelée **ed25519**. C'est la seule option dans RStudio.
-* Une même clé SSH peut-être utilisée pour Github et Gitlab.   
+  * Cette dernière génération est appelée **ed25519**.
+* Une même clé SSH peut-être utilisée pour Github et Gitlab. Lorsqu'on travaille sur plusieurs machine différentes (dont une version serveur de Rstudio) on devra engendré autant de clés SSH dans RStudio pour établir la connexion. 
 
 
 #### Générer une clé  dans Rstudio  
@@ -457,18 +460,24 @@ flowchart LR
 ::::
 
 
+#### Activer la clé
 
-#### Activer la clé dans RStudio 
+::: callout-note
+
+Cette étape peut être réalisée directement après avoir générée la clé 
+
+:::
+
 
 Dans le terminal:
 
-* Vérifier que l'authentification SSH fonctionne 
+* Vérifier que l'authentification SSH fonctionne.
 
 ```{.mf}
 eval $(ssh-agent -s)
 ```
 
-Output, par exemple: **`Agent pid 1463`**
+Output, par exemple: **`Agent pid 1463`**.
 
 * Ajouter la clé 
 
@@ -478,7 +487,16 @@ ssh-add ~/.ssh/id_ed25519
 
 Output: **`Identity added: /c/Users/thevenin_m/.ssh/id_ed25519 (ined\thevenin_m@MOB0XXXX)`**
 
-On peut enfin vérifier, que tout est ok avec les messages de bienvenue suivants:
+Si un message de ce type apparait, taper **yes**
+
+```{.bash}
+The authenticity of host 'github.com (140.82.121.4)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvXXXXXXX\(*_*)/XXXXXXXXXr4UvCOqU.
+This key is not known by any other names.
+```
+
+
+On peut enfin vérifier que tout est ok avec les messages de bienvenu suivants:
 
 * Github:
 
@@ -517,7 +535,10 @@ git@gitlab.com:mthevenin/test_connection_formation.git
 
 * Si lors du clonage le message suivant s'affiche, taper **yes**:
 
+
 ::: {.box_img}
 ![](img2/ssh1.png)
 :::
+
+Normalement cela ne devrait pas être le cas si vous n'avez oublié d'exécuté dans le terminal `ssh-add ~/.ssh/id_ed25519`.
 

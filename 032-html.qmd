@@ -208,7 +208,7 @@ plot(x, z)
 ```
 
 :::
-
+:::
 
 ### Onglets {#sec-tabset}
 
@@ -219,7 +219,7 @@ Exemple: on a plusieurs sections sous forme d'onglets avec chacune une section  
 
 **Syntaxe de base**: 
 
-  * Dans une section div (`:::`), on ajoute la classe css `{.panel-tabset}`.
+  * Dans une section `div` (`:::`), on ajoute la classe css `{.panel-tabset}`.
   * On peut ajouter une couleur de fond aux onglets avec la classe  `.nav-pills`.
 
 
@@ -281,7 +281,6 @@ Les deux sections d'onglets sont reliés de la façon suivante:
 ***Courbes de séjour Kaplan-Meier***  
 
 
-::: {.box_img}
 ::: {.panel-tabset  group="lang" }
 
 #### **Sas** 
@@ -327,14 +326,13 @@ km.summary()
 ```
 
 :::
-:::
 
 <br>
 
 ***Modèle semi-paramétrique Cox***      
 
-::: {.box_img}
-::: {.panel-tabset  group="lang" }
+
+::: {.panel-tabset  group="lang" } 
  
 #### **Sas** 
 
@@ -353,7 +351,7 @@ summary(coxfit)
 
 #### **Stata**
 
-```{mf}
+```{.mf}
 stcox year age surgery, nolog noshow efron
 ```
 
@@ -366,8 +364,6 @@ mod = smf.phreg("stime ~  year + age + surgery ",trans, status='died', ties="efr
 rslt = mod.fit()
 print(rslt.summary())
 ```
-
-:::
 :::
 
 <br>
@@ -833,11 +829,40 @@ format:
 
 * Plusieurs options dans le titre de la slide:
   * Les ajouter dans une même accolade.
-  * {.smaller} + {background color..} => `## Titre {.smaller background-color=#00CED1 }`.
+  * `{.smaller}` + `{background color..}` => `## Titre {.smaller background-color=#00CED1 }`.
 
 
 * Ajouter des numéros aux slides
   * Dans le yaml, ajouter l'option **`slide-number:true`**
   
+
+::: callout-note 
+
+##### Exportation en format PDF
+
+Contrairement au notebook/article, il n'y a pas de conversion possible via pandoc. 
+Pour convertir une présentation en format PDF, on doit passer par 
+
+Dans la présentation en format html: 
+
+* Appuyé sur **e**
+* Dans le navigateur, ici de préférence Chrome^[J'ai rencontré des problèmes d'affichage des titres de slide sur Firefox], aller dans le menu et sélectionner **imprimer** ou directement **`ctrl p`**.
+* Sélectionner dans la destination "*Enregistrer au format PDF*".
+* Vérifier que **Marges** soit sur "*aucune*".
+* Enregistrer.
+
+Attention à la mise en forme de la présentation, qui doit être assez simple. Par exemple pour les tabsets, seul le premier onglet pourra être sera affiché.
+
+On peut se rendre ces différences avec l'exportation suivante ([présentation format d'origine reveal](https://mthevenin.gitlab.io/quarto_revealjs/#/title-slide)):
+
+ <iframe src="files/reveal_pdf.pdf" height="400" width="600" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" ></iframe> 
+
+:::
+  
+  
+  
+
+
+
 
 

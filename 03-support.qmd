@@ -39,16 +39,17 @@
 
 **Juin 2024**:  
 
+* Warning sur le problème de compatibilité entre l'option `filename` [chapitre 5] et l'affichage de graphiques sur plusieurs colonnes [chapitre 15]. 
 * Reprise des chapitres sur git, et ajout de sections sur les conflits et une introdiction sur le travail sur branches [chapitres 6 et 7]. 
 * Remarques sur les durées de compilation variables d'une machine à une autre et contextualisation de son utilisation à l'Ined via la version Rstudio du serveur margaux (avec des + et des -).
-* Reprise l'esthétique du support.
+* Reprise de l'esthétique du support.
 * Quelques précisions sur la différence entre `quarto render` et `quarto preview` [chapitre 2].
 * Création d'un projet Quarto via le terminal et la console R [chapitre 1].
 * Ajout de l'option `filename` dans le corp du bloc de codes [chapitre 5].
 
 **Mars 2024**: 
 
-* Première version du support
+* Première version du support 
 
 :::
 

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.5.41">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Formation Quarto - 7&nbsp; Clonage, pull, push et branches</title>
+<title>Formation Quarto – 7&nbsp; Clonage, pull, push et branches</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Recherche"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -134,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Les fiches</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-présentation-revealjs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-présentation-revealjs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Présentation Revealjs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-présentation-revealjs">    
@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-document-pdf" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-document-pdf" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Document PDF</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-document-pdf">    
@@ -164,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-autres" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-autres" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Autres</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-autres">    
@@ -198,17 +198,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./021-git1.html"><strong>Déploiement sur plateforme git</strong></a></li><li class="breadcrumb-item"><a href="./022-git2.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Clonage, pull, push et branches</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -227,9 +227,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>Produire une documentation avec Quarto</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -269,9 +269,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>Déploiement sur plateforme git</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -299,9 +299,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>Formats</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -335,9 +335,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>Theming, références croisées, mise en page</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -365,9 +365,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>Site, book, blog</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -401,9 +401,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>Résumé</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -931,7 +931,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/conflit1.png" class="lightbox" data-glightbox="description: .lightbox-desc-24" data-gallery="quarto-lightbox-gallery-24" title="Conflit"><img src="img2/conflit1.png" class="img-fluid figure-img" alt="Conflit"></a></p>
+<p><a href="img2/conflit1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Conflit"><img src="img2/conflit1.png" class="img-fluid figure-img" alt="Conflit"></a></p>
 <figcaption>Conflit</figcaption>
 </figure>
 </div>
@@ -942,7 +942,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/video_conflit1.gif" class="lightbox" data-glightbox="description: .lightbox-desc-25" data-gallery="quarto-lightbox-gallery-25" title="Résolution du conflit"><img src="img2/video_conflit1.gif" class="img-fluid figure-img" alt="Résolution du conflit"></a></p>
+<p><a href="img2/video_conflit1.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Résolution du conflit"><img src="img2/video_conflit1.gif" class="img-fluid figure-img" alt="Résolution du conflit"></a></p>
 <figcaption>Résolution du conflit</figcaption>
 </figure>
 </div>
@@ -968,7 +968,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/video_conflit2.gif" class="lightbox" data-glightbox="description: .lightbox-desc-26" data-gallery="quarto-lightbox-gallery-26" title="Conflit"><img src="img2/video_conflit2.gif" class="img-fluid figure-img" alt="Conflit"></a></p>
+<p><a href="img2/video_conflit2.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Conflit"><img src="img2/video_conflit2.gif" class="img-fluid figure-img" alt="Conflit"></a></p>
 <figcaption>Conflit</figcaption>
 </figure>
 </div>
@@ -1010,7 +1010,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche1.png" class="lightbox" data-glightbox="description: .lightbox-desc-27" data-gallery="branche" title="Création du projet avec répertoire git"><img src="img2/branche1.png" class="img-fluid figure-img" alt="Création du projet avec répertoire git"></a></p>
+<p><a href="img2/branche1.png" class="lightbox" data-gallery="branche" title="Création du projet avec répertoire git"><img src="img2/branche1.png" class="img-fluid figure-img" alt="Création du projet avec répertoire git"></a></p>
 <figcaption>Création du projet avec répertoire git</figcaption>
 </figure>
 </div>
@@ -1024,7 +1024,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche2.png" class="lightbox" data-glightbox="description: .lightbox-desc-28" data-gallery="branche" title="Commit sur la branche principale"><img src="img2/branche2.png" class="img-fluid figure-img" alt="Commit sur la branche principale"></a></p>
+<p><a href="img2/branche2.png" class="lightbox" data-gallery="branche" title="Commit sur la branche principale"><img src="img2/branche2.png" class="img-fluid figure-img" alt="Commit sur la branche principale"></a></p>
 <figcaption>Commit sur la branche principale</figcaption>
 </figure>
 </div>
@@ -1047,7 +1047,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche3.png" class="lightbox" data-glightbox="description: .lightbox-desc-29" data-gallery="branche" title="Création d’une nouvelle branche et switch sur cette branche"><img src="img2/branche3.png" class="img-fluid figure-img" alt="Création d’une nouvelle branche et switch sur cette branche"></a></p>
+<p><a href="img2/branche3.png" class="lightbox" data-gallery="branche" title="Création d’une nouvelle branche et switch sur cette branche"><img src="img2/branche3.png" class="img-fluid figure-img" alt="Création d’une nouvelle branche et switch sur cette branche"></a></p>
 <figcaption>Création d’une nouvelle branche et switch sur cette branche</figcaption>
 </figure>
 </div>
@@ -1065,7 +1065,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche4.png" class="lightbox" data-glightbox="description: .lightbox-desc-30" data-gallery="branche" title="Commit sur une modification de prog.R dans la branche secondaire"><img src="img2/branche4.png" class="img-fluid figure-img" alt="Commit sur une modification de prog.R dans la branche secondaire"></a></p>
+<p><a href="img2/branche4.png" class="lightbox" data-gallery="branche" title="Commit sur une modification de prog.R dans la branche secondaire"><img src="img2/branche4.png" class="img-fluid figure-img" alt="Commit sur une modification de prog.R dans la branche secondaire"></a></p>
 <figcaption>Commit sur une modification de prog.R dans la branche secondaire</figcaption>
 </figure>
 </div>
@@ -1080,7 +1080,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche5.png" class="lightbox" data-glightbox="description: .lightbox-desc-31" data-gallery="branche" title="Retour sur la branche principale"><img src="img2/branche5.png" class="img-fluid figure-img" alt="Retour sur la branche principale"></a></p>
+<p><a href="img2/branche5.png" class="lightbox" data-gallery="branche" title="Retour sur la branche principale"><img src="img2/branche5.png" class="img-fluid figure-img" alt="Retour sur la branche principale"></a></p>
 <figcaption>Retour sur la branche principale</figcaption>
 </figure>
 </div>
@@ -1100,7 +1100,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche6.png" class="lightbox" data-glightbox="description: .lightbox-desc-32" data-gallery="branche" title="Fusion des modifications dans la branche principale"><img src="img2/branche6.png" class="img-fluid figure-img" alt="Fusion des modifications dans la branche principale"></a></p>
+<p><a href="img2/branche6.png" class="lightbox" data-gallery="branche" title="Fusion des modifications dans la branche principale"><img src="img2/branche6.png" class="img-fluid figure-img" alt="Fusion des modifications dans la branche principale"></a></p>
 <figcaption>Fusion des modifications dans la branche principale</figcaption>
 </figure>
 </div>
@@ -1146,7 +1146,7 @@ Par contre, si on supprime un fichier sur le dépôt distant et qu’il est pré
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche7.png" class="lightbox" data-glightbox="description: .lightbox-desc-34" data-gallery="branche2" title="La branche main sur le dépôt distant"><img src="img2/branche7.png" class="img-fluid figure-img" alt="La branche main sur le dépôt distant"></a></p>
+<p><a href="img2/branche7.png" class="lightbox" data-gallery="branche2" title="La branche main sur le dépôt distant"><img src="img2/branche7.png" class="img-fluid figure-img" alt="La branche main sur le dépôt distant"></a></p>
 <figcaption>La branche main sur le dépôt distant</figcaption>
 </figure>
 </div>
@@ -1158,7 +1158,7 @@ Si on switch sur la branche <em>modif</em>, les fichiers qui ont fait l’objet 
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche8.png" class="lightbox" data-glightbox="description: .lightbox-desc-35" data-gallery="branche2" title="La branche modif sur le dépôt distant"><img src="img2/branche8.png" class="img-fluid figure-img" alt="La branche modif sur le dépôt distant"></a></p>
+<p><a href="img2/branche8.png" class="lightbox" data-gallery="branche2" title="La branche modif sur le dépôt distant"><img src="img2/branche8.png" class="img-fluid figure-img" alt="La branche modif sur le dépôt distant"></a></p>
 <figcaption>La branche modif sur le dépôt distant</figcaption>
 </figure>
 </div>
@@ -1169,7 +1169,7 @@ Si on switch sur la branche <em>modif</em>, les fichiers qui ont fait l’objet 
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche9.png" class="lightbox" data-glightbox="description: .lightbox-desc-36" data-gallery="branche2" title="Faire une demande de fusion"><img src="img2/branche9.png" class="img-fluid figure-img" alt="Faire une demande de fusion"></a></p>
+<p><a href="img2/branche9.png" class="lightbox" data-gallery="branche2" title="Faire une demande de fusion"><img src="img2/branche9.png" class="img-fluid figure-img" alt="Faire une demande de fusion"></a></p>
 <figcaption>Faire une demande de fusion</figcaption>
 </figure>
 </div>
@@ -1180,7 +1180,7 @@ Si on switch sur la branche <em>modif</em>, les fichiers qui ont fait l’objet 
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche10.png" class="lightbox" data-glightbox="description: .lightbox-desc-37" data-gallery="branche2" title="Validation de la fusion"><img src="img2/branche10.png" class="img-fluid figure-img" alt="Validation de la fusion"></a></p>
+<p><a href="img2/branche10.png" class="lightbox" data-gallery="branche2" title="Validation de la fusion"><img src="img2/branche10.png" class="img-fluid figure-img" alt="Validation de la fusion"></a></p>
 <figcaption>Validation de la fusion</figcaption>
 </figure>
 </div>
@@ -1191,7 +1191,7 @@ Si on switch sur la branche <em>modif</em>, les fichiers qui ont fait l’objet 
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/branche11.png" class="lightbox" data-glightbox="description: .lightbox-desc-38" data-gallery="branche2" title="La branche main après fusion"><img src="img2/branche11.png" class="img-fluid figure-img" alt="La branche main après fusion"></a></p>
+<p><a href="img2/branche11.png" class="lightbox" data-gallery="branche2" title="La branche main après fusion"><img src="img2/branche11.png" class="img-fluid figure-img" alt="La branche main après fusion"></a></p>
 <figcaption>La branche main après fusion</figcaption>
 </figure>
 </div>
@@ -1227,7 +1227,7 @@ Elle n’a pas été synchronisée. Même si on ne travaille pas dessus, on peut
 <div class="box_img">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img2/video_branche2.gif" class="lightbox" data-glightbox="description: .lightbox-desc-39" data-gallery="branche2" title="Pull request sur Gitlab"><img src="img2/video_branche2.gif" class="img-fluid figure-img" alt="Pull request sur Gitlab"></a></p>
+<p><a href="img2/video_branche2.gif" class="lightbox" data-gallery="branche2" title="Pull request sur Gitlab"><img src="img2/video_branche2.gif" class="img-fluid figure-img" alt="Pull request sur Gitlab"></a></p>
 <figcaption>Pull request sur Gitlab</figcaption>
 </figure>
 </div>
@@ -1237,23 +1237,6 @@ Elle n’a pas été synchronisée. Même si on ne travaille pas dessus, on peut
 
 <!-- -->
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-24">Conflit</span>
-<span class="glightbox-desc lightbox-desc-25">Résolution du conflit</span>
-<span class="glightbox-desc lightbox-desc-26">Conflit</span>
-<span class="glightbox-desc lightbox-desc-27">Création du projet avec répertoire git</span>
-<span class="glightbox-desc lightbox-desc-28">Commit sur la branche principale</span>
-<span class="glightbox-desc lightbox-desc-29">Création d’une nouvelle branche et switch sur cette branche</span>
-<span class="glightbox-desc lightbox-desc-30">Commit sur une modification de prog.R dans la branche secondaire</span>
-<span class="glightbox-desc lightbox-desc-31">Retour sur la branche principale</span>
-<span class="glightbox-desc lightbox-desc-32">Fusion des modifications dans la branche principale</span>
-<span class="glightbox-desc lightbox-desc-34">La branche main sur le dépôt distant</span>
-<span class="glightbox-desc lightbox-desc-35">La branche modif sur le dépôt distant</span>
-<span class="glightbox-desc lightbox-desc-36">Faire une demande de fusion</span>
-<span class="glightbox-desc lightbox-desc-37">Validation de la fusion</span>
-<span class="glightbox-desc lightbox-desc-38">La branche main après fusion</span>
-<span class="glightbox-desc lightbox-desc-39">Pull request sur Gitlab</span>
-</div>
 </section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
@@ -1301,18 +1284,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1344,7 +1316,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -1403,7 +1397,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -2456,7 +2450,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb20-716"><a href="#cb20-716" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-717"><a href="#cb20-717" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-718"><a href="#cb20-718" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-719"><a href="#cb20-719" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-719"><a href="#cb20-719" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -2471,7 +2465,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
     <li class="nav-item">
     <a class="nav-link" href="https://gitlab.com/mthevenin">
-<p><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> -</p>
+<p><i class="fa-brands fa-gitlab" aria-label="gitlab"></i></p>
 </a>
   </li>  
     <li class="nav-item">
@@ -2486,30 +2480,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 

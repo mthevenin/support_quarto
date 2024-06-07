@@ -561,12 +561,16 @@ On peut également inséré le titre directement dans le corps du programme avec
 ```
 
 
-::: {.alert .alert-warning .alert-dismissible}
-<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-Pour le format PDF le rendu n'est pas terrible, je ne conseille pas de l'utiliser, pour l'instant, dans une documentation. 
+
+::: callout-warning
+
+##### Quelques limites
+
+* Pour le format PDF le rendu n'est pas terrible, je ne conseille pas de l'utiliser, pour l'instant, dans une documentation. 
+
+* Visibleme problème lorsque `filename` est associé dans un bloc de code avec la mise en forme de plusieurs graphiques sous forme de colonne avec la classe `:::{layout="[c1,c2...]}` ou l'option `#| ncol: n` [[@sec-ncol]]. Le bloc de code est interprété comme un graphique...bizarre. A tester de votre côté.
+
 :::
-
-
 
 
 

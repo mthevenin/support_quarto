@@ -282,7 +282,7 @@ On peut ajouter une note directement à droite du texte avec la classe css **.as
 
 Deux types d'insertion: **fixe** ou **libre**
 
-### Mise en forme fixe
+### Mise en forme fixe {#sec-ncol}
 
 * Classe css ou option d'un bloc de codes:  **`layout-ncol`**
   * Insertion markdown:  **`::: {layout-ncol=nbre_col}`**
