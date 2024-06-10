@@ -93,8 +93,8 @@ format:
 
 * Ces couleurs sont disponibles dans un fichier .scss du thème. Il est très facile de les récupérer, via le site **bootswatch** ou via des mises à disposition sur un dépôt git: 
 
-* [Par Quarto](https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes).
-* [Par ce support](https://github.com/mthevenin/quarto/tree/main/scss_color_theme).  
+* [Par Quarto](https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes)
+* [Par ce support](https://github.com/mthevenin/support_quarto/tree/main/scss_color_theme)  
 
 Avec les couleurs du thème zephyr:
 
@@ -382,7 +382,7 @@ On change la couleur du [mot success]{.col_success} avec la classe `.col_success
 
 <br>
 
-* Un paragraphe dans une section <div>: **`::: {.nom_classe}`**: 
+* Un paragraphe dans une section `<div>`: **`::: {.nom_classe}`**: 
 
 ```{.mf}
 ::: {.col_warning}

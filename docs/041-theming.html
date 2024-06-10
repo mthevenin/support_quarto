@@ -542,8 +542,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Sans passer par des manipulations de styles css dans le document, Quarto met à disposition des options qui s’appliquent directement au yaml pour modifier des éléments du thème, comme la couleur des liens <a href="https://quarto.org/docs/output-formats/html-themes.html#basic-options">Quelques options</a></p></li>
 <li><p>Pour une simple question d’homogénéité avec les couleurs prédéfinies du thème il est préférable d’utiliser les couleurs qui sont utilisées dans le thème.</p></li>
 <li><p>Ces couleurs sont disponibles dans un fichier .scss du thème. Il est très facile de les récupérer, via le site <strong>bootswatch</strong> ou via des mises à disposition sur un dépôt git:</p></li>
-<li><p><a href="https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes">Par Quarto</a>.</p></li>
-<li><p><a href="https://github.com/mthevenin/quarto/tree/main/scss_color_theme">Par ce support</a>.</p></li>
+<li><p><a href="https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes">Par Quarto</a></p></li>
+<li><p><a href="https://github.com/mthevenin/support_quarto/tree/main/scss_color_theme">Par ce support</a></p></li>
 </ul>
 <p>Avec les couleurs du thème zephyr:</p>
 <div class="box_img">
@@ -800,10 +800,7 @@ Note
 </div>
 <p><br></p>
 <ul>
-<li>Un paragraphe dans une section
-<div>
-<p>: <strong><code>::: {.nom_classe}</code></strong>:</p>
-</div></li>
+<li>Un paragraphe dans une section <code>&lt;div&gt;</code>: <strong><code>::: {.nom_classe}</code></strong>:</li>
 </ul>
 <div class="sourceCode" id="cb22"><pre class="sourceCode mf code-with-copy"><code class="sourceCode metafont"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>::: {.col_warning}</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>On change la couleur du texte du paragraphe avec la classe `col.warning`.</span>
@@ -1401,8 +1398,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Ces couleurs sont disponibles dans un fichier .scss du thème. Il est très facile de les récupérer, via le site **bootswatch** ou via des mises à disposition sur un dépôt git: </span>
 <span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Par Quarto</span><span class="co">](https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes)</span>.</span>
-<span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Par ce support</span><span class="co">](https://github.com/mthevenin/quarto/tree/main/scss_color_theme)</span>.  </span>
+<span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Par Quarto</span><span class="co">](https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes)</span></span>
+<span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Par ce support</span><span class="co">](https://github.com/mthevenin/support_quarto/tree/main/scss_color_theme)</span>  </span>
 <span id="cb23-98"><a href="#cb23-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a>Avec les couleurs du thème zephyr:</span>
 <span id="cb23-100"><a href="#cb23-100" aria-hidden="true" tabindex="-1"></a></span>
@@ -1690,7 +1687,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb23-382"><a href="#cb23-382" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-383"><a href="#cb23-383" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
 <span id="cb23-384"><a href="#cb23-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-385"><a href="#cb23-385" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un paragraphe dans une section &lt;div&gt;: **`::: {.nom_classe}`**: </span>
+<span id="cb23-385"><a href="#cb23-385" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Un paragraphe dans une section <span class="in">`&lt;div&gt;`</span>: **`::: {.nom_classe}`**: </span>
 <span id="cb23-386"><a href="#cb23-386" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-387"><a href="#cb23-387" aria-hidden="true" tabindex="-1"></a><span class="in">```{.mf}</span></span>
 <span id="cb23-388"><a href="#cb23-388" aria-hidden="true" tabindex="-1"></a><span class="in">::: {.col_warning}</span></span>
@@ -1736,7 +1733,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":false,"selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
