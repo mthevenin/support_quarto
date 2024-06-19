@@ -13,7 +13,7 @@ website:
   page-footer: 
     center: 
       - text: "Marc Thévenin - Ined - 2024 - "
-      - text: "{{< fa brands gitlab >}}  "
+      - text: "{{< fa brands gitlab >}}"
         url: "https://gitlab.com/mthevenin"
       - text: "{{< fa brands github>}}"
         url:  "https://github.com/mthevenin"
@@ -77,6 +77,7 @@ book:
       - 021-git1.qmd
       - 022-git2.qmd
       - 023-git3.qmd
+      - 024-git4.qmd    
     - text: "---"
     - part: "**Formats**"
       chapters:

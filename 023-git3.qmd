@@ -16,7 +16,7 @@
   * Attention: le fichier généré lors du déploiement **`.gitlab-ci.yml`** ne devra pas être supprimé.  
 
 
-## GITHUB
+## GITHUB {{< fa brands github>}}
 
 ### Déploiement d'une simple page html 
 
@@ -105,7 +105,7 @@ On est pas obligé d'envoyer les fichiers sources .qmd ou .rmd, c'est ici l'outp
   * Ce répertoire devra s'appeler **doc**.
   * Dans github, on devra modifier ce répertoire de destination.
   
-**Le fichier `_quarto.yaml`**  
+**Le fichier `_quarto.yml`**  
 
 Cette question sera un plus approfondie dans le chapitre consacrée au contenu de type website, book dans la dernière partie du support.  
 
@@ -217,7 +217,7 @@ Une fois le dépôt distant cloné et le site généré en local, on le push:
 
 
 
-## GITLAB
+## GITLAB {{< fa brands gitlab>}}
 
 ::: callout-tip
 

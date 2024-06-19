@@ -9,7 +9,9 @@ Support de formation au logiciel Quarto [Posit] déployée sur Github:
 
 * Dernière maj le juin 2024:
   * Synchro avec la version Gitlab
-  * Ajout nouveaux contenus sur git: conflit de fusion et courte introduction aux branches
+  * Ajout nouveaux contenus sur git: 
+    * Conflit de fusion et courte introduction aux branches
+    * Ajout d'un nouveau chapitre résumé
   * Note de la version en bas de la page: <https://mthevenin.github.io/support_quarto/03-support.html>
 
 

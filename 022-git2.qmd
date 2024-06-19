@@ -13,7 +13,7 @@ Une fois la connection entre RStudio et une plateforme établie:
 
 ::: {.panel-tabset}
 
-### Gitlab
+### Gitlab {{< fa brands gitlab>}}
 
 * Se mettre sur **homepage** si nécessaire en cliquant sur l'icone gitlab {{< fa brands gitlab>}} (en haut à gauche)
 * Cliquer sur **New Project**
@@ -76,7 +76,7 @@ Ce fichier est important. A la création du dépôt distant, il n'est pas géné
 :::
 
   
-### Github 
+### Github {{< fa brands github>}}
 
 * Sur la page du profil, aller sur **Repositories** et cliquer sur **New**.
 * Donner un nom au répertoire.

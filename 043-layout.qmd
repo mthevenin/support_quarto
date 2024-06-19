@@ -470,7 +470,7 @@ Exemple: On a une image nativement moins haute que l'autre de 25%: avec un ratio
 
 
 ``` {.mf}
-::: {layout="[1,1]" `layout-valign="bottom"`}
+::: {layout="[1,1]" layout-valign="bottom"}
 ![](img5/img4.png) 
 
 ![](img5/img10.png)

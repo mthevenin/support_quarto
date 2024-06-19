@@ -194,7 +194,7 @@ Avec Quarto ou Rmarkdown on doit absolument laisser une ligne vide entre la list
 ::: {.column width="47.5%"}
 * [**BIEN**]{.col_success} 
 ```{.mf}
-Résulalt avec ligne vide...
+Résultat avec ligne vide...
 
 * Item1
 * Item2

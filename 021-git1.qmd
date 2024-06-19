@@ -56,7 +56,7 @@ Git permet aussi un travail collaboratif plus ouvert, hors équipe, en donnant l
 
 ### Github versus Gitlab
 
-#### Github 
+#### Github {{<fa brands github>}}
 
 [[:GITHUB WIKI](https://fr.wikipedia.org/wiki/GitHub)]{.nut}
 
@@ -73,7 +73,7 @@ Git permet aussi un travail collaboratif plus ouvert, hors équipe, en donnant l
 
 * Du côté plus, toujours en mode **private** Github ne limite pas (encore) le nombre de collaboration. Sur Gitlab, ce nombre a été récemment limité à 5 personnes.
 
-#### Gitlab 
+#### Gitlab {{<fa brands gitlab>}}
 
 [[:GITLAB WIKI](https://fr.wikipedia.org/wiki/GitLab)]{.nut}
 
@@ -136,7 +136,7 @@ git config --global user.name "PRENOM et/NOM"
 
 ### Connection via un token/password {#sec-token}
 
-#### Github
+#### Github {{<fa brands github>}}
 
 **Générer un Token**
 
@@ -220,7 +220,7 @@ Si on change par la suite de token, plusieurs options sont disponibles:
 
 **L'option 2 permet de changer de token**.
 
-#### Gitlab
+#### Gitlab {{<fa brands gitlab>}}
 
 **Générer un token**
 
@@ -329,19 +329,18 @@ https://gitlab.com/mthevenin/test_connection_formation.git
 [[:GIT SSH](https://en.wikipedia.org/wiki/Ssh-keygen)]{.nut}
 <br>
 
-Procédure un peu plus longue, mais à l'exception d'une étape la procédure est commune aux deux plateformes.
 
-* Je ne traiterai pas du sujet HTTPS (token) versus SSH (cryptage), mais visiblement les préférences que je peux lire penche plutôt vers le HTTPS. Je note néanmoins beaucoup plus de tutoriels orientée vers la solution SSH.   
+* Je ne traite pas du sujet https (token) versus SSH (cryptage), mais visiblement les préférences penchent plutôt vers le https. Je note néanmoins beaucoup plus de tutoriels orientée vers la solution SSH.   
 
-* On peut paramétrer et utiliser les deux techniques de sécurité, le choix de l'une ou l'autre pourra se faire lors du clônage d'un dépôt distant.  
+* On peut paramétrer et utiliser les deux techniques de sécurité, le choix de l'une ou l'autre se fait lors du clônage d'un dépôt distant.  
 
 * **Clé SSH**: repose sur un cryptage.
-  * Les protocoles de cryptage évolue dans le temps. C'est la quatrième et dernière génération qui est proposée par RStudio. 
+  * Les protocoles de cryptage évolue dans le temps. C'est la quatrième et dernière génération qui est proposée par RStudio. Github n'autorise que ce mode de cryptage. 
   * Cette dernière génération est appelée **ed25519**.
-* Une même clé SSH peut-être utilisée pour Github et Gitlab. Lorsqu'on travaille sur plusieurs machine différentes (dont une version serveur de Rstudio) on devra engendré autant de clés SSH dans RStudio pour établir la connexion. 
+* Une même clé SSH peut-être utilisée pour Github et Gitlab. Lorsqu'on travaille sur plusieurs machines (dont la version serveur de Rstudio à l'Ined) on devra engendrer autant de clés SSH dans RStudio pour établir la connexion. 
 
 
-#### Générer une clé  dans Rstudio  
+#### Générer une clé dans Rstudio  
 
 * **Tools** {{< fa solid turn-down >}}
 * **Global Options** {{< fa solid turn-down >}}
@@ -360,7 +359,7 @@ Procédure un peu plus longue, mais à l'exception d'une étape la procédure es
 ::::
 
 
-#### Github
+#### Github {{<fa brands github>}}
 
 
 ```{mermaid}
@@ -412,7 +411,7 @@ flowchart LR
 ::::
 
 
-#### Gitlab
+#### Gitlab {{<fa brands gitlab>}}
 
 
 ```{mermaid}
@@ -434,6 +433,7 @@ flowchart LR
 * Cliquer sur votre avatar    {{< fa solid turn-down >}}
 
 * Aller sur *preference*      {{< fa solid turn-down >}}
+
 * Cliquer sur **SSH Keys**    {{< fa solid turn-down >}}
 
 * Cliquer sur **Add new key** {{< fa solid turn-down >}}
@@ -460,18 +460,12 @@ flowchart LR
 ::::
 
 
-#### Activer la clé
 
-::: callout-note
+::: {.callout-note collapse=TRUE}
 
-Cette étape peut être réalisée directement après avoir générée la clé 
-
-:::
-
+#### Si vous avez ajouté une passphrase à la création de la clé 
 
 Dans le terminal:
-
-* Vérifier que l'authentification SSH fonctionne.
 
 ```{.mf}
 eval $(ssh-agent -s)
@@ -495,8 +489,10 @@ ED25519 key fingerprint is SHA256:+DiY3wvvXXXXXXX\(*_*)/XXXXXXXXXr4UvCOqU.
 This key is not known by any other names.
 ```
 
+:::
 
-On peut enfin vérifier que tout est ok avec les messages de bienvenu suivants:
+
+On peut vérifier que tout est ok avec les messages de bienvenue suivants:
 
 * Github:
 
@@ -533,12 +529,11 @@ git@github.com:mthevenin/test_connection_formation.git
 git@gitlab.com:mthevenin/test_connection_formation.git
 ```
 
-* Si lors du clonage le message suivant s'affiche, taper **yes**:
+* Si lors du premier clonage le message suivant s'affiche, taper **yes**:
 
 
 ::: {.box_img}
 ![](img2/ssh1.png)
 :::
 
-Normalement cela ne devrait pas être le cas si vous n'avez oublié d'exécuté dans le terminal `ssh-add ~/.ssh/id_ed25519`.
 

@@ -4,6 +4,16 @@ author-title: ""
 ---
 
 
+<br>
+
+<div class="alert alert-dismissible alert-primary">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+<strong>Version 1.5 [{{< fa solid link >}}](https://prerelease.quarto.org/docs/download/)</strong>
+<br>Sortie quasi officielle de la version 1.5 fin mai 2025. 
+A noter l'option `draft` qui permet d'indiquer sur une page qu'elle est en mode brouillon.  **Attention**: une page en mode draft n'apparaitra pas dans la sidebar ou la navbar d'un site.
+</div>
+
+
 ::: {.center}
 # **Présentation** {.unnumbered style="color:#2c3e50; font-size:30px;"}
 :::

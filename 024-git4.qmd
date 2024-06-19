@@ -1,0 +1,338 @@
+---
+draft: false
+---
+
+
+# Résumé de la partie Git
+
+**En cours**
+
+ 
+## Installation de git
+
+* <https://www.git-scm.com/download/win>
+* Laissez les options telles quelles en passant systématiquement (10 étapes)
+* Verifier l'installation en allant dans un dossier => faites un clic droit et vérifier que les items **Open Git GUI here** et **Open Git Bash here** sont bien présent.
+
+
+## Configuration
+
+Dans une invite de commande (windows, bash installée avec git...)
+
+* Indiquer votre adresse mail
+
+```{.bash}
+git config --global user.email EMAIL-ADRESSE
+```
+
+* Indiquer votre prénom et votre nom
+
+```{.bash}
+git config --global user.name "PRENOM et/NOM"
+```
+
+
+## Connection à forge (via RStudio)
+
+### Token
+
+* Installation des packages `usethis` et `credentials`
+
+Console R: 
+
+```{.r}
+install.packages("usethis")
+install.packages("gitcreds")
+```
+
+```{.r}
+library(usethis)
+library(gitcreds)
+```
+
+
+**GITHUB {{< fa brands github >}}**
+
+Console R:  
+
+* Vous enverra directement sur la page de création des tokens
+
+```{.r}
+usethis::create_github_token()
+```
+
+* Générer le token dans github
+* Copier le token
+
+Attention la durée de vie du token est de 30 jours, vous pouvez l'augmenter jusqu'à un an.
+
+* Ajouter le token
+
+Par défaut RStudio affectera le token à Github: 
+
+```{.r}
+gitcreds_set()
+```
+
+Ou
+
+```{.r}
+gitcreds_set(url="https://github.com")
+```
+
+Coller le token et appuyer sur  {{< kbd enter >}}
+
+
+* Test de la connection: dans le terminal exécuter: 
+
+```{.bash}
+git clone gitcreds_set(url="https://github.com")
+```
+
+
+
+**GITLAB {{< fa brands gitlab >}}**
+
+Dans gitlab:  
+
+* Aller sur son avatar {{< fa solid arrow-right >}} Edit profile {{< fa solid arrow-right >}} Acces token
+* Add new token: sélectionner **read repository** et **write repository**
+* Copier le token
+
+Attention la durée de vie du token est de 30 jours, vous pouvez l'augmenter jusqu'à un an.
+
+* Ajouter le token
+
+```{.r}
+gitcreds_set(url="https://gitlab.com")
+```
+
+Coller le token et appuyer sur  {{< kbd enter >}}
+
+
+* Test de la connection: dans le terminal exécuter: 
+
+```{.bash}
+git clone gitcreds_set(url="https://github.com")
+```
+
+
+### Clé SSH
+
+* Création de la clé SSH dans Rstudio^[On peut générer une clé avec une commande git]:
+  * Tools {{< fa solid arrow-right >}} Global Options {{< fa solid arrow-right >}} Git/SVN {{< fa solid arrow-right >}} Create SSH Key
+  * Views ssh key => Copier la clé 
+  
+* Ajouter la clé dans Github:
+  * Aller dans les settings de votre profile {{< fa solid arrow-right >}} SSH & GPH Keys {{< fa solid arrow-right >}} New ssh key {{< fa solid arrow-right >}} coller la clé {{< fa solid arrow-right >}} add ssh key 
+  
+* Création de la clé dans Gitlab: 
+  * Edit profile {{< fa solid arrow-right >}} SSH keys {{< fa solid arrow-right >}} add new key {{< fa solid arrow-right >}} coller la clé (vous pouver modifier la date d'expiration) => add key
+  
+* Facultatif^[conseillé si ajout d'une passphrase lors de la création de la clé]
+
+Dans le terminal:
+
+```{.bash}
+eval $(ssh-agent -s)
+```
+
+Puis 
+
+```{.bash}
+ssh-add ~/.ssh/id_ed25519
+```
+  
+
+Si message de ce type: 
+
+```{.mf}
+The authenticity of host 'github.com (140.82.121.4)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvXXXXXXX\(*_*)/XXXXXXXXXr4UvCOqU.
+This key is not known by any other names.
+```
+
+Valider avec **yes**
+
+
+* Test de la connection. Dans le terminal exécuter:
+
+**Github {{< fa brands github >}}**
+
+```{.bash}
+git@github.com:mthevenin/test_connection_formation.git
+```
+
+
+**Gitlab {{< fa brands gitlab >}}**
+
+```{.bash}
+git@gitlab.com:mthevenin/test_connection_formation.git
+```
+
+
+## Les principales commandes git
+
+ A utiliser dans un terminal, de préférence le **bash**
+
+
+* En local, démarrer un dépôt git
+
+```{.bash}
+git init
+```
+
+* **Verifier le statut des fichiers**
+
+```{.bash}
+git status
+```
+
+* **Staged**: Ajouter des fichiers ayant fait l'objet d'une modification depuis la version précédente
+
+```{.bash}
+git add nom_fichier1 nom_fichier2
+```
+
+Tous les fichiers modifiés entre deux versions
+
+```{.bash}
+git add . 
+```
+
+
+* **Commit**: Figer une version des fichiers ayant fait l'objet d'un `git add`
+
+```{.bash}
+git commit -m "Titre de la version"
+``` 
+
+* **Lister l'historique**
+
+```{.bash filename="Version longue"}
+git log
+``` 
+
+```{.bash filename="Version résumée"}
+git log --oneline
+``` 
+
+* **Contenu d'un commit**
+
+```{.bash}
+git show numero_commit
+``` 
+
+* **Push**: Transférer les modifications entre deux commits du répertoire local de travail sur le dépôt distant (remote)
+
+```{.bash}
+git push
+``` 
+
+* **Pull**: Récupération des modifications apportées au dépôt distant vers le répertoire local de travail
+
+```{.bash}
+git pull
+``` 
+
+* **Créer une branche secondaire**
+
+```{.bash}
+git branch nom_branche
+``` 
+
+* **Changer de branche**
+
+```{.bash}
+git checkout nom_branche
+``` 
+
+* **Fusionner des branches** (répertoire local)
+
+A partir de la branche principale (main/master) 
+
+```{.bash}
+git merge nom_branche_secondaire
+``` 
+
+
+::: callout-caution
+
+#### `main` versus `master`
+
+Depuis 2021, les plateformes git se sont engagées à adopter le nom **`main`** pour la branche principale.  
+Avec Gitlab cependant, lorsque le dépôt distant est créé avec un template, le nom de la branche principale est resté **`master`**. 
+
+Le logiciel git a conservé le nom **`master`** lorsqu'on démarre une instance git dans un répertoire local. Il est possible de le changer avec la commande suivante: `git branch -m nouveau_nom`
+
+:::
+
+* **pull request** (demande de fusion dans le dépôt distant)
+
+A partir d'une branche secondaire:  
+
+```{.bash}
+git push origin nom_branche_secondaire
+```
+
+Valider ou non sur gitlab/github la demande de fusion.
+
+* **git revert**
+
+Par exemple pour un fichier dont la suppression a fait l'objet d'un `commit` explicite
+
+```{.bash}
+git revert numéro_commit
+```
+
+
+## Exemple d'opérations de versionnage
+
+Pour les animations, on a utilisé l'interface **ungit**.
+
+
+* On se trouve dans le répertoire **demi_git**
+* On ouvre le terminal bash
+* On démarre le versionnage: `git init`
+
+* On génère le fichier vide **texte.txt**: `touch texte.txt`
+* On ajoute du texte
+* On ajoute le nouveau fichier à cette version (stage): `git add texte.txt`
+* On fige la version avec un commit: `git commit -m "premier commit: add texte.txt"`
+
+
+::: {.box_img}
+![](img2/resume1.gif)
+:::
+
+* On créé le fichier prog.r et on ajoute quelques ligne de codes: `touch prog.r`
+* On modifie à nouveau le fichier texte.txt
+* On versionne ces deux modifications: 
+  * `git add .`
+  * `git commit -m "modif texte.txt add prog.r"` 
+
+::: {.box_img}
+![](img2/resume2.gif)
+:::
+
+* On supprime le fichier texte.txt: `rm texte.txt`
+* On versionne cette suppression: 
+  * `git add .` 
+  * `git commit -m "delete texte.txt"`
+* On fait des modifications sur le fichier prog.r et on les versionne:
+  * `git add .`
+  * `git commit -m "modif prog.r"`
+
+* On veut récupérer le fichier supprimé (texte.txt).
+  * On récupère le numéro du commit liée à la suppression du fichier.
+    * Directement dans un interface graphique.
+    * En affichant l'historique des commit: `git log` {{< fa solid arrow-right >}} `cd17dba55648a08eaf9131cca862646002c0e986`
+  * On va revenir en arrière sur la suppression avec `git revert numero_commit`: 
+    * `git revert cd17dba55648a08eaf9131cca862646002c0e986`^[Lors du commit généré automatiquement, un horrible éditeur de texte va s'ouvrir. Pour en sortir {{< kbd :x >}}]
+  
+::: {.box_img}
+![](img2/resume3.gif)
+:::
+
+
+
