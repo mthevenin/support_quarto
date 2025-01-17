@@ -7,12 +7,19 @@ author-title: ""
 <br>
 
 <div class="alert alert-dismissible alert-primary">
-  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-<strong>Version 1.5 [{{< fa solid link >}}](https://prerelease.quarto.org/docs/download/)</strong>
+<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+<strong>Maj du support</strong>
+Je n'ai pas prévu de véritables mises à jour de ce support à court/moyen terme. Depuis la dernière version (18 juin 2025) je me consacre exclusivement à l'utilisation des technos d' [**Observable**](https://observablehq.com/): librairie **`Plot`**, tests sur [**`Observable Framework`**](https://observablehq.com/framework/) (concurrent de ShinyR ????) ou entrée dans D3 via la librairie [**GeoViz**](https://observablehq.com/@neocartocnrs/faire-des-cartes-avec-geoviz)^[En étant en plus complètement neophite en cartographie] de Nicolas Lambert.    
+<br>L'utilisation d'Observable, en particulier la librairie Plot, dans Quarto, est directe et un très court [tuto](https://quarto.org/docs/computations/ojs.html) est disponible. Le moment venu, sous forme de fiche je déblaierai un peu cette question de l'utilisation d'Observable dans Quarto, qui marche certes très bien, mais dont la doc me semble quand même assez légère. Peut-être du au fait qu'Observable c'est du 100% javascript et donc que le public visé sait déjà où il va mettre les pieds: Observable Plot versus ggplot (+ couche javascript avec ggplotly par exemple), les méthodes d'intégration dans un document Quarto via les notebooks d'Observable, la gestion des CSS (css bootstrap + css quarto + css utilisateur + css observable... ça fait beaucoup) ..... quelques petits sujets pour une ou plusieurs fiches que j'espère mettre à disposition durant le printemps 2025. 
+
+<strong>Version 1.6 [{{< fa solid link >}}](https://quarto.org/docs/download/)</strong>  
+Visiblement une nouvelle version mineure du logiciel sortie en janvier 2025. Je n'ai pas testé les nouvelles features. 
+  
+<strong>Version 1.5</strong>
 <br>Sortie quasi officielle de la version 1.5 fin mai 2025. 
 A noter l'option `draft` qui permet d'indiquer sur une page qu'elle est en mode brouillon.  **Attention**: une page en mode draft n'apparaitra pas dans la sidebar ou la navbar d'un site.
 </div>
-
 
 ::: {.center}
 # **Présentation** {.unnumbered style="color:#2c3e50; font-size:30px;"}

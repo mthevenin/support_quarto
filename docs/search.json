@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Formation Quarto",
     "section": "",
-    "text": "Version 1.5  Sortie quasi officielle de la version 1.5 fin mai 2025. A noter l’option draft qui permet d’indiquer sur une page qu’elle est en mode brouillon. Attention: une page en mode draft n’apparaitra pas dans la sidebar ou la navbar d’un site.\n\n\nPrésentation\n\n\n\n\n\nPosit & Quarto\n\n\nQuelques informations sur le changement de nom de RStudio (l’entreprise) et la sortie du logiciel Quarto en juillet 2022\n\n\n\n\nLes plus et les moins\n\n\nSurtout des gros plus et encore quelques petits moins \n\n\n\n\nLe support & les ressources\n\n\nPrésentation encore succinte du support: les extensions utilisées, les ressources externes et les mises à jour.",
+    "text": "Présentation",
     "crumbs": [
       "**Présentation**"
     ]
@@ -1363,6 +1363,16 @@
     "text": "Ressources Quarto\n\nSite officiel de Quarto Lien:\n\nLe guide: https://quarto.org/docs/guide/\nLa liste des options par thématique: https://quarto.org/docs/reference/\nLa galerie de supports avec un accès au code source: https://quarto.org/docs/gallery/\n\nLe code source du site Quarto se trouve à cette adresse: https://github.com/quarto-dev/quarto-web\nNe pas hésiter à consulter la liste de discussions gérée par l’équipe de développement: https://github.com/quarto-dev/quarto-cli/discussions\nUne liste impressionnante de ressources Quarto, appelée Awesome quarto, est mise à disposition par Mickael Canouil sur Github:\n\nhttps://github.com/mcanouil/awesome-quarto?tab=readme-ov-file\n\nLa présentation de Hugues Pecout: https://elementr.gitpages.huma-num.fr/session_notebook/programmation_lettree/#/title-slide\nLe cheatsheet Quarto: https://rstudio.github.io/cheatsheets/quarto.pdf\n\n\n\n\n\n\n\nVersions du support\n\n\n\n\n\nJuin 2024:\n\nWarning sur le problème de compatibilité entre l’option filename [chapitre 5] et l’affichage de graphiques sur plusieurs colonnes [chapitre 15].\nReprise des chapitres sur git\n\nAjout de sections sur les conflits et une introduction sur le travail sur branches [chapitres 6 et 7].\nSimplification de la procédure de connection via une clé SSH\nEncore en mode draft, un chapitre résumé.\n\nRemarques sur les durées de compilation variables d’une machine à une autre et contextualisation de son utilisation à l’Ined via la version Rstudio du serveur margaux (avec des + et des -).\nReprise de l’esthétique du support.\nQuelques précisions sur la différence entre quarto render et quarto preview [chapitre 2].\nCréation d’un projet Quarto via le terminal et la console R [chapitre 1].\nAjout de l’option filename dans le corp du bloc de codes [chapitre 5].\n\nMars 2024:\n\nPremière version du support",
     "crumbs": [
       "Le Support"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Formation Quarto",
+    "section": "",
+    "text": "En étant en plus complètement neophite en cartographie↩︎",
+    "crumbs": [
+      "**Présentation**"
     ]
   }
 ]

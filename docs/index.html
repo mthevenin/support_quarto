@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.45">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-57476271c5f0467c372e20ff5d25630e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dd5405018cb3dd2605ecdfc5b1fe7cf1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/animate-4.1.1/animate.min.css" rel="stylesheet">
@@ -458,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">19 juin 2024</p>
+      <p class="date">17 janvier 2025</p>
     </div>
   </div>
   
@@ -472,7 +472,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p><br></p>
 <div class="alert alert-dismissible alert-primary">
-<p><button type="button" class="btn-close" data-bs-dismiss="alert"></button> <strong>Version 1.5 <a href="https://prerelease.quarto.org/docs/download/"><i class="fa-solid fa-link" aria-label="link"></i></a></strong> <br>Sortie quasi officielle de la version 1.5 fin mai 2025. A noter l’option <code>draft</code> qui permet d’indiquer sur une page qu’elle est en mode brouillon. <strong>Attention</strong>: une page en mode draft n’apparaitra pas dans la sidebar ou la navbar d’un site.</p>
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+</button>
+<p><strong>Maj du support</strong> Je n’ai pas prévu de véritables mises à jour de ce support à court/moyen terme. Depuis la dernière version (18 juin 2025) je me consacre exclusivement à l’utilisation des technos d’ <a href="https://observablehq.com/"><strong>Observable</strong></a>: librairie <strong><code>Plot</code></strong>, tests sur <a href="https://observablehq.com/framework/"><strong><code>Observable Framework</code></strong></a> (concurrent de ShinyR ????) ou entrée dans D3 via la librairie <a href="https://observablehq.com/@neocartocnrs/faire-des-cartes-avec-geoviz"><strong>GeoViz</strong></a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> de Nicolas Lambert.<br>
+<br>L’utilisation d’Observable, en particulier la librairie Plot, dans Quarto, est directe et un très court <a href="https://quarto.org/docs/computations/ojs.html">tuto</a> est disponible. Le moment venu, sous forme de fiche je déblaierai un peu cette question de l’utilisation d’Observable dans Quarto, qui marche certes très bien, mais dont la doc me semble quand même assez légère. Peut-être du au fait qu’Observable c’est du 100% javascript et donc que le public visé sait déjà où il va mettre les pieds: Observable Plot versus ggplot (+ couche javascript avec ggplotly par exemple), les méthodes d’intégration dans un document Quarto via les notebooks d’Observable, la gestion des CSS (css bootstrap + css quarto + css utilisateur + css observable… ça fait beaucoup) ….. quelques petits sujets pour une ou plusieurs fiches que j’espère mettre à disposition durant le printemps 2025.</p>
+<p><strong>Version 1.6 <a href="https://quarto.org/docs/download/"><i class="fa-solid fa-link" aria-label="link"></i></a></strong><br>
+Visiblement une nouvelle version mineure du logiciel sortie en janvier 2025. Je n’ai pas testé les nouvelles features.</p>
+<p><strong>Version 1.5</strong> <br>Sortie quasi officielle de la version 1.5 fin mai 2025. A noter l’option <code>draft</code> qui permet d’indiquer sur une page qu’elle est en mode brouillon. <strong>Attention</strong>: une page en mode draft n’apparaitra pas dans la sidebar ou la navbar d’un site.</p>
 </div>
 <section id="présentation" class="level1 unnumbered center" style="color:#2c3e50; font-size:30px;">
 <h1 class="unnumbered" style="color:#2c3e50; font-size:30px;"><strong>Présentation</strong></h1>
@@ -509,6 +515,12 @@ Présentation encore succinte du support: les extensions utilisées, les ressour
 
 <!-- -->
 
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>En étant en plus complètement neophite en cartographie<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -593,8 +605,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -756,7 +766,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1000,43 +1009,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>&lt;div class="alert alert-dismissible alert-primary"&gt;</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  &lt;button type="button" class="btn-close" data-bs-dismiss="alert"&gt;&lt;/button&gt;</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>&lt;strong&gt;Version 1.5 <span class="co">[</span><span class="ot">{{&lt; fa solid link &gt;}}</span><span class="co">](https://prerelease.quarto.org/docs/download/)</span>&lt;/strong&gt;</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;Sortie quasi officielle de la version 1.5 fin mai 2025. </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>A noter l'option <span class="in">`draft`</span> qui permet d'indiquer sur une page qu'elle est en mode brouillon.  **Attention**: une page en mode draft n'apparaitra pas dans la sidebar ou la navbar d'un site.</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>&lt;button type="button" class="btn-close" data-bs-dismiss="alert"&gt;&lt;/button&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>&lt;strong&gt;Maj du support&lt;/strong&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Je n'ai pas prévu de véritables mises à jour de ce support à court/moyen terme. Depuis la dernière version (18 juin 2025) je me consacre exclusivement à l'utilisation des technos d' <span class="co">[</span><span class="ot">**Observable**</span><span class="co">](https://observablehq.com/)</span>: librairie **`Plot`**, tests sur [**`Observable Framework`**](https://observablehq.com/framework/) (concurrent de ShinyR ????) ou entrée dans D3 via la librairie [**GeoViz**](https://observablehq.com/@neocartocnrs/faire-des-cartes-avec-geoviz)^<span class="co">[</span><span class="ot">En étant en plus complètement neophite en cartographie</span><span class="co">]</span> de Nicolas Lambert.    </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;L'utilisation d'Observable, en particulier la librairie Plot, dans Quarto, est directe et un très court <span class="co">[</span><span class="ot">tuto</span><span class="co">](https://quarto.org/docs/computations/ojs.html)</span> est disponible. Le moment venu, sous forme de fiche je déblaierai un peu cette question de l'utilisation d'Observable dans Quarto, qui marche certes très bien, mais dont la doc me semble quand même assez légère. Peut-être du au fait qu'Observable c'est du 100% javascript et donc que le public visé sait déjà où il va mettre les pieds: Observable Plot versus ggplot (+ couche javascript avec ggplotly par exemple), les méthodes d'intégration dans un document Quarto via les notebooks d'Observable, la gestion des CSS (css bootstrap + css quarto + css utilisateur + css observable... ça fait beaucoup) ..... quelques petits sujets pour une ou plusieurs fiches que j'espère mettre à disposition durant le printemps 2025. </span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># **Présentation** {.unnumbered style="color:#2c3e50; font-size:30px;"}</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>::: {.cards}</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>&lt;div class="card text-white bg-primary mb-3" style="max-width: 500px;"&gt;</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-header"&gt;&lt;a href="01-posit.html" style="text-decoration:none; font-weight:900 "&gt;{{&lt; animate zoomIn "Posit &amp; Quarto" &gt;}}&lt;/a&gt;&lt;/div&gt;</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-body" style="text-align: justify;"&gt;Quelques informations sur le changement de nom de RStudio (l'entreprise) et la sortie du logiciel Quarto en juillet 2022</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  &lt;/div&gt;</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>&lt;strong&gt;Version 1.6 <span class="co">[</span><span class="ot">{{&lt; fa solid link &gt;}}</span><span class="co">](https://quarto.org/docs/download/)</span>&lt;/strong&gt;  </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Visiblement une nouvelle version mineure du logiciel sortie en janvier 2025. Je n'ai pas testé les nouvelles features. </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>&lt;strong&gt;Version 1.5&lt;/strong&gt;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>&lt;br&gt;Sortie quasi officielle de la version 1.5 fin mai 2025. </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>A noter l'option <span class="in">`draft`</span> qui permet d'indiquer sur une page qu'elle est en mode brouillon.  **Attention**: une page en mode draft n'apparaitra pas dans la sidebar ou la navbar d'un site.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># **Présentation** {.unnumbered style="color:#2c3e50; font-size:30px;"}</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>::: {.center}</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>::: {.cards}</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>&lt;div class="card text-white bg-primary mb-3" style="max-width: 500px;"&gt;</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-header"&gt;&lt;a href="02-quarto_resume.html" style="text-decoration:none; font-weight:900 "&gt;{{&lt; animate zoomIn "Les plus et les moins" &gt;}}&lt;/a&gt;&lt;/div&gt;</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-body" style="text-align: justify;"&gt;Surtout des gros plus et encore quelques petits moins &lt;br&gt;</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-header"&gt;&lt;a href="01-posit.html" style="text-decoration:none; font-weight:900 "&gt;{{&lt; animate zoomIn "Posit &amp; Quarto" &gt;}}&lt;/a&gt;&lt;/div&gt;</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-body" style="text-align: justify;"&gt;Quelques informations sur le changement de nom de RStudio (l'entreprise) et la sortie du logiciel Quarto en juillet 2022</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  &lt;/div&gt;</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>&lt;div class="card text-white bg-primary mb-3" style="max-width: 500px;"&gt;</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-header"&gt;&lt;a href="03-support.html" style="text-decoration:none; font-weight:900 ;"&gt;{{&lt; animate zoomIn "Le support &amp; les ressources" &gt;}}&lt;/a&gt;&lt;/div&gt;</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-body" style="text-align: justify;"&gt;Présentation encore succinte du support: les extensions utilisées, les ressources externes et les mises à jour.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-header"&gt;&lt;a href="02-quarto_resume.html" style="text-decoration:none; font-weight:900 "&gt;{{&lt; animate zoomIn "Les plus et les moins" &gt;}}&lt;/a&gt;&lt;/div&gt;</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-body" style="text-align: justify;"&gt;Surtout des gros plus et encore quelques petits moins &lt;br&gt;</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  &lt;/div&gt;</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>&lt;div class="card text-white bg-primary mb-3" style="max-width: 500px;"&gt;</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-header"&gt;&lt;a href="03-support.html" style="text-decoration:none; font-weight:900 ;"&gt;{{&lt; animate zoomIn "Le support &amp; les ressources" &gt;}}&lt;/a&gt;&lt;/div&gt;</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  &lt;div class="card-body" style="text-align: justify;"&gt;Présentation encore succinte du support: les extensions utilisées, les ressources externes et les mises à jour.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  &lt;/div&gt;</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>&lt;/div&gt;</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copier vers le presse-papier" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
